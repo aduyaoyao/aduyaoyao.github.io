@@ -229,6 +229,372 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/03/3-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/03/3-1/" itemprop="url">条件语句练习</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-03T00:00:00+08:00">
+                2018-07-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>#if语句<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">class ifdemo</span><br><span class="line">&#123;</span><br><span class="line">	public static void main(String[] args)</span><br><span class="line">	&#123;</span><br><span class="line">		int score = 80;</span><br><span class="line">		if(score &gt; 60)</span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println(&quot;pass&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">		else</span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println(&quot;over&quot;);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>#else-if语句1<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ifelsedemo</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">int</span> i=<span class="number">3</span>;</span><br><span class="line">		<span class="keyword">if</span>(i &gt; <span class="number">1</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println(<span class="string">"a"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (i&gt;<span class="number">5</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println(<span class="string">"b"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println(<span class="string">"class"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>#else-if语句2<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">class LianXi&#123;</span><br><span class="line">	public static void main(String[] args)&#123;</span><br><span class="line"></span><br><span class="line">		int week=3;</span><br><span class="line">		if(week==1)</span><br><span class="line">			System.out.println(&quot;Monday&quot;);</span><br><span class="line">		else if(week==2)</span><br><span class="line">			System.out.println(&quot;Thursday&quot;);</span><br><span class="line">		else if(week==3)</span><br><span class="line">			System.out.println(&quot;Wedneesday&quot;);</span><br><span class="line">		else if(week==4)</span><br><span class="line">			System.out.println(&quot;Thusday&quot;);</span><br><span class="line">		else if(week==5)</span><br><span class="line">			System.out.println(&quot;Firday&quot;);</span><br><span class="line">		else if(week==6)</span><br><span class="line">			System.out.println(&quot;Saturdayday&quot;);</span><br><span class="line">		else if(week==7)</span><br><span class="line">			System.out.println(&quot;Monday&quot;);</span><br><span class="line">		else</span><br><span class="line">			System.out.println(&quot;你的输入有误&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>#switch-case语句<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">class switchcase&#123;</span><br><span class="line">	public static void main(String[] args)&#123;</span><br><span class="line">		int x=6,y=9;</span><br><span class="line">		char op=&apos;+&apos;;</span><br><span class="line">		switch(op)</span><br><span class="line">		&#123;</span><br><span class="line">			case &apos;+&apos;:</span><br><span class="line">				System.out.println(x+y);break;</span><br><span class="line">			case &apos;-&apos;:</span><br><span class="line">				System.out.println(x-y);break;</span><br><span class="line">			case &apos;*&apos;:</span><br><span class="line">				System.out.println(x*y);break;</span><br><span class="line">			case &apos;/&apos;:</span><br><span class="line">				System.out.println(x/y);break;</span><br><span class="line">			default :</span><br><span class="line">				System.out.println(&quot;no found&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/03/3-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/03/3-2/" itemprop="url">循环语句练习</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-03T00:00:00+08:00">
+                2018-07-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>#for语句<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">class fordemo&#123;</span><br><span class="line">	public static void main(String[] args)&#123;</span><br><span class="line">	int i,sum;</span><br><span class="line">	sum=0;</span><br><span class="line">	for(i=0;i&lt;=100;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		sum+=i;</span><br><span class="line">	&#125;</span><br><span class="line">	System.out.println(&quot;sum=&quot;+sum);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>#do-while语句<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">class dowhiledemo&#123;</span><br><span class="line">	public static void main(String[] args)&#123;</span><br><span class="line">	int i,sum;</span><br><span class="line">	i=1;</span><br><span class="line">	sum=0;</span><br><span class="line">	do&#123;</span><br><span class="line">	sum+=i;</span><br><span class="line">	i++;</span><br><span class="line">	&#125;while(i&lt;=100);</span><br><span class="line">	System.out.println(&quot;sum=&quot;+sum);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>#while语句<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">class whiledemo&#123;</span><br><span class="line">	public static void main(String[] args)&#123;</span><br><span class="line">	int i,sum;</span><br><span class="line">	sum=0;</span><br><span class="line">	i=1;</span><br><span class="line">	while(i&lt;=100)&#123;</span><br><span class="line">	i++;</span><br><span class="line">	sum+=i;</span><br><span class="line">	&#125;</span><br><span class="line">	System.out.println(&quot;sum=&quot;+sum);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>#out-in的使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">class Printhao&#123;</span><br><span class="line">	public static void main(String[] args)&#123;</span><br><span class="line">	for(int i=1;i&lt;=5;i++)&#123;</span><br><span class="line">	for(int j=i;j&lt;=5;j++)&#123;</span><br><span class="line">	System.out.print(&quot;*&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	System.out.println();</span><br><span class="line">	&#125;</span><br><span class="line">	out:for(int i=1;i&lt;=5;i++)&#123;</span><br><span class="line">	in:for(int j=1;j&lt;=i;j++)&#123;</span><br><span class="line">	   System.out.print(&quot;&amp;r&quot;);</span><br><span class="line">	   break out;</span><br><span class="line">	&#125;</span><br><span class="line">	System.out.println();</span><br><span class="line">	&#125;</span><br><span class="line">	for(int i=1;i&lt;=5;i++)&#123;</span><br><span class="line">	for(int j=5;j&gt;=i;j--)&#123;</span><br><span class="line">	System.out.print(j);</span><br><span class="line">	&#125;</span><br><span class="line">	System.out.println();</span><br><span class="line">	&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/03/3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/03/3/" itemprop="url">循环语句和条件语句</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-03T00:00:00+08:00">
+                2018-07-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>的三种形式：</span><br><span class="line"><span class="number">1</span><span class="keyword">if</span></span><br><span class="line"><span class="number">2</span><span class="keyword">if</span>-<span class="keyword">else</span></span><br><span class="line"><span class="number">3</span><span class="keyword">if</span>-<span class="keyword">else</span> <span class="keyword">if</span>-<span class="keyword">else</span></span><br><span class="line">三元运算符是简化的<span class="keyword">if</span>-<span class="keyword">else</span></span><br><span class="line">三元运算符和<span class="keyword">if</span>-<span class="keyword">else</span>的区别：</span><br><span class="line">三元运算符必须有结果,<span class="keyword">if</span>-<span class="keyword">else</span>可以没有结果。</span><br><span class="line"><span class="keyword">if</span>（</span><br><span class="line">）有较好的可读性，以及最大程度的在屏幕上显示</span><br><span class="line"><span class="keyword">switch</span> 里面没有顺序，先依次执行<span class="keyword">case</span>语句，最后执行<span class="keyword">default</span></span><br><span class="line"><span class="keyword">switch</span>里面可以选择的值：<span class="keyword">byte</span>，<span class="keyword">short</span>，<span class="keyword">int</span>，<span class="keyword">char</span>四种</span><br><span class="line"><span class="keyword">do</span>-<span class="keyword">while</span>无论条件是否满足，至少执行一次</span><br><span class="line">out和in都是对于<span class="keyword">for</span>起的别名，方便<span class="keyword">break</span>跳出不同的<span class="keyword">for</span>循环。</span><br><span class="line">out和in都是标号 </span><br><span class="line">out:<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">5</span>;i++)&#123;</span><br><span class="line">	in:<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=i;j++)&#123;</span><br><span class="line">	   System.out.print(<span class="string">"&amp;r"</span>);</span><br><span class="line">	   <span class="keyword">break</span> out;</span><br><span class="line">	&#125;</span><br><span class="line">	System.out.println();</span><br><span class="line">	&#125;</span><br><span class="line">定义<span class="class"><span class="keyword">class</span>：首字母大写，若有2个字母，每个连接的字母都大写</span></span><br><span class="line"><span class="class">定义变量：刚开始小写，之后单词的第一个大写。</span></span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/02/2-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -624,7 +990,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
