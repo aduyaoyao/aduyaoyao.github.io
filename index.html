@@ -229,6 +229,128 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/02/2-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/02/2-1/" itemprop="url">java小练习</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-02T00:00:00+08:00">
+                2018-07-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>#java实现2数交换的3种方式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">class LianXi</span><br><span class="line">&#123;</span><br><span class="line">	public static void main(String[] args)</span><br><span class="line">	&#123;</span><br><span class="line">		//实现a，b值的交换,不使用额外的变量,存在变量越界问题</span><br><span class="line">		/*int a,b;</span><br><span class="line">		a=3;</span><br><span class="line">		b=4;</span><br><span class="line">		a=a+b;//a=3+4</span><br><span class="line">		b=a-b;</span><br><span class="line">		a=a-b;</span><br><span class="line">		System.out.println(&quot;a=&quot;+a+&quot;,b=&quot;+b);</span><br><span class="line">		//实现2*8</span><br><span class="line">		System.out.println(2&lt;&lt;3);</span><br><span class="line">		*/</span><br><span class="line">		//使用异或实现2数的交换</span><br><span class="line">		/*int a,b;</span><br><span class="line">		a=3;</span><br><span class="line">		b=4;</span><br><span class="line">		a=a^b;//a=3^4</span><br><span class="line">		b=a^b;//3^4^4</span><br><span class="line">		a=a^b;//3^4^3</span><br><span class="line">		System.out.println(&quot;a=&quot;+a+&quot;,b=&quot;+b);</span><br><span class="line">		*/</span><br><span class="line">		int a,b;</span><br><span class="line">		a=3;</span><br><span class="line">		b=4;</span><br><span class="line">		int temp;</span><br><span class="line">		temp=a;</span><br><span class="line">		a=b;</span><br><span class="line">		b=temp;</span><br><span class="line">		System.out.println(&quot;a=&quot;+a+&quot;,b=&quot;+b);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">`</span><br></pre></td></tr></table></figure></p>
+<p>#简单的逻辑运算<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">class OC&#123;</span><br><span class="line"> public static void main(String[] args)</span><br><span class="line">&#123;</span><br><span class="line"> /*int x=2810;</span><br><span class="line">  System.out.println(x/1000);</span><br><span class="line">  */</span><br><span class="line">  int i=1;</span><br><span class="line">  boolean b1=((i&gt;0)&amp;&amp;(i&lt;100));</span><br><span class="line">  System.out.println(b1);</span><br><span class="line">  System.out.println(6&lt;&lt;2);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>#类型转换的实例演示<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">class Demo&#123;</span><br><span class="line">public static void main(String[] args)</span><br><span class="line">&#123;</span><br><span class="line">	System.out.println(&quot;hello world&quot;);</span><br><span class="line">	/*强制类型转换*/</span><br><span class="line">	byte a = 3;</span><br><span class="line">	a =(byte)(a +1);</span><br><span class="line">	System.out.println(&quot;a=&quot;+a);</span><br><span class="line">	/*自动类型转换低字节向高字节的转换</span><br><span class="line">	byte b=4;</span><br><span class="line">	int x=3;</span><br><span class="line">	x=x+b;</span><br><span class="line">	System.out.println(&quot;x=&quot;+x);</span><br><span class="line">	&#125;</span><br><span class="line">	*/</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/02/2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -300,15 +422,7 @@
       
         
           
-            <p>关键字：赋予了特殊含义的单词<br>标识符：数字，字母，$,_数字不可以开头<br>首字母大写是规范<br>编译器：翻译器<br>注释：<br>作用：1对程序进行说明2对程序进行调试<br>分类：//单行注释<br>/<em>多行注释</em>/<br>/*<em>只有java才有的注释——文本注释</em>/——javadoc可以提取这个注释，形成html文档，并对程序进行说明<br>变量类型11种：<br>基本数据类型：byte,short,int,long,float,double,char,boolean<br>引用数据类型：class,interface,数组<br>整数默认类型：int<br>小数默认类型：double<br>自动类型提升，从低字节准转换为高字节的大小。<br>byte a=3和a=a+1;的区别，3是常量，a+1是变量，不确定。<br>a=a+1;//编译器会报错<br>a+=1;//不会报错，因为在这个式子中，自动实现了变量的类型转换<br>编译时期保证语法正确。<br>由ASCII编码表——发明了键盘这个设备，键盘的电路板保存字符和二进制码的转换。<br>JB2312，JBK——中国的编码<br>char有2个字节，范围0——65535<br>位运算符：与或非，异或<br>逻辑运算符：与或非，&amp;&amp;，||，!<br>单&amp;和双&amp;&amp;的区别：<br>单&amp;两边都参与运算，当左边为false时，右边仍然进行操作<br>左移运算符：空位补0，往左移几位乘以2的几次幂。移位运算符只能操作2的倍数<br>右移运算符须得区分符号位：</p>
-<blockquote>
-<blockquote>
-<p>有符号右移，高位补原位</p>
-<blockquote>
-<p>为无符号右移，高位补0，<br>对一个数异或2次不变，可以实现简单的加密</p>
-</blockquote>
-</blockquote>
-</blockquote>
+            <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">关键字：赋予了特殊含义的单词</span><br><span class="line">标识符：数字，字母，$,_数字不可以开头</span><br><span class="line">首字母大写是规范</span><br><span class="line">编译器：翻译器</span><br><span class="line">注释：</span><br><span class="line">作用：<span class="number">1</span>对程序进行说明<span class="number">2</span>对程序进行调试</span><br><span class="line">分类：<span class="comment">//单行注释</span></span><br><span class="line"><span class="comment">/*多行注释*/</span></span><br><span class="line"><span class="comment">/**只有java才有的注释——文本注释*/</span>——javadoc可以提取这个注释，形成html文档，并对程序进行说明</span><br><span class="line">变量类型<span class="number">11</span>种：</span><br><span class="line">基本数据类型：<span class="keyword">byte</span>,<span class="keyword">short</span>,<span class="keyword">int</span>,<span class="keyword">long</span>,<span class="keyword">float</span>,<span class="keyword">double</span>,<span class="keyword">char</span>,<span class="keyword">boolean</span></span><br><span class="line">引用数据类型：<span class="class"><span class="keyword">class</span>,<span class="title">interface</span>,数组</span></span><br><span class="line"><span class="class">整数默认类型：<span class="title">int</span></span></span><br><span class="line"><span class="class">小数默认类型：<span class="title">double</span></span></span><br><span class="line"><span class="class">自动类型提升，从低字节准转换为高字节的大小。</span></span><br><span class="line"><span class="class"><span class="title">byte</span> <span class="title">a</span></span>=<span class="number">3</span>和a=a+<span class="number">1</span>;的区别，<span class="number">3</span>是常量，a+<span class="number">1</span>是变量，不确定。</span><br><span class="line">a=a+<span class="number">1</span>;<span class="comment">//编译器会报错</span></span><br><span class="line">a+=<span class="number">1</span>;<span class="comment">//不会报错，因为在这个式子中，自动实现了变量的类型转换，编译时期保证语法正确。</span></span><br><span class="line">由ASCII编码表——发明了键盘这个设备，键盘的电路板保存字符和二进制码的转换。</span><br><span class="line">JB2312，JBK——中国的编码</span><br><span class="line"><span class="keyword">char</span>有<span class="number">2</span>个字节，范围<span class="number">0</span>——<span class="number">65535</span></span><br><span class="line">位运算符：与或非，异或 </span><br><span class="line">逻辑运算符：与或非，&amp;&amp;，||，!</span><br><span class="line">单&amp;和双&amp;&amp;的区别：</span><br><span class="line">单&amp;两边都参与运算，当左边为<span class="keyword">false</span>时，右边仍然进行操作</span><br><span class="line">左移运算符：空位补<span class="number">0</span>，往左移几位乘以<span class="number">2</span>的几次幂。移位运算符只能操作<span class="number">2</span>的倍数</span><br><span class="line">右移运算符须得区分符号位：</span><br><span class="line">&gt;&gt;有符号右移，高位补原位</span><br><span class="line">&gt;&gt;&gt;为无符号右移，高位补<span class="number">0</span>，</span><br><span class="line">对一个数异或<span class="number">2</span>次不变，可以实现简单的加密</span><br><span class="line">`</span><br></pre></td></tr></table></figure>
 
           
         
@@ -428,7 +542,7 @@
       
         
           
-            <p>软件：一系列按照特定顺序组织的计算机数据和指令的集合。<br>系统软件：windows，DOS，linux<br>应用软件：qq，迅雷<br>人机交互的方式：图形化界面（GUI）和命令行界面(CLI)，先有命令行后有图形化界面<br>windows中的命令：help dir cd\<br>计算机语言：人与计算机交流的方式<br>java来自SUN1995推出来的一门高级编程语言，Oracle为数据库，Java<br>面向对象贼鸡儿难<br>Java语言的三种技术框架：EE,SE,ME（学SE,企业用EE）<br>java语言的特点：<br>跨平台：java可以在不同的操作系统上跑<br>为啥：因为windows中没有解释java的东西，oracle公司推出了jvm（核心）应用软件来跑他的java程序，java程序能在各个平台上运行，都是基于java虚拟机上的东西<br>JRE:java运行环境=jvm+核心类库<br>JDK:java开发工具包=开发工具+JRE<br>环境变量的设置：set只能在当前的命令窗口生效<br>java只能在当前文件夹中编译运行。<br>使用javac来运行java的源码，自动生成demo的字节码（类文件，Java程序文件）——调用java的编译器，对Java源码进行翻译。<br>使用java来运行这些类文件<br>java命令区分大小写，执行java时候，必须省略.class后缀<br>不是所有的java程序都需要主方法，需要根据需求来定义。主方法是用来保证程序的运行。<br>class Demo 通过class关键字定义了一个名称为Demo的类<br>public static void main(String[]) 定义了一个主方法，固定<br>System.out.println(“你好，hello”);   输出语句，作用是将括号中的数据显示在屏幕上<br>class Demo{<br>                public static void main(String[] args)<br>{<br>     System.out.println(“你好，hello”);<br>}<br>}<br>常见问题：<br>1找不到java文件<br>路径名错误/文件名错误/默认的文件名错误<br>2找不到或者无法加载主类<br>jvm没有找到要运行的类<br>3没有保存导致无法显示你修改后的值<br>4代码中含有中文<br>5jvm，如果你配置了虚拟机的classpath，则会在你配置的classpath找类，如果没有，会在当前目录下找</p>
+            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">软件：一系列按照特定顺序组织的计算机数据和指令的集合。</span><br><span class="line">系统软件：windows，DOS，linux</span><br><span class="line">应用软件：qq，迅雷</span><br><span class="line">人机交互的方式：图形化界面（GUI）和命令行界面(CLI)，先有命令行后有图形化界面</span><br><span class="line">windows中的命令：help dir cd\</span><br><span class="line">计算机语言：人与计算机交流的方式</span><br><span class="line">java来自SUN1995推出来的一门高级编程语言，Oracle为数据库，Java</span><br><span class="line">面向对象贼鸡儿难</span><br><span class="line">Java语言的三种技术框架：EE,SE,ME（学SE,企业用EE）</span><br><span class="line">java语言的特点：</span><br><span class="line">跨平台：java可以在不同的操作系统上跑</span><br><span class="line">为啥：因为windows中没有解释java的东西，oracle公司推出了jvm（核心）应用软件来跑他的java程序，java程序能在各个平台上运行，都是基于java虚拟机上的东西</span><br><span class="line">JRE:java运行环境=jvm+核心类库</span><br><span class="line">JDK:java开发工具包=开发工具+JRE</span><br><span class="line">环境变量的设置：set只能在当前的命令窗口生效</span><br><span class="line">java只能在当前文件夹中编译运行。</span><br><span class="line">使用javac来运行java的源码，自动生成demo的字节码（类文件，Java程序文件）——调用java的编译器，对Java源码进行翻译。</span><br><span class="line">使用java来运行这些类文件</span><br><span class="line">java命令区分大小写，执行java时候，必须省略.class后缀</span><br><span class="line">不是所有的java程序都需要主方法，需要根据需求来定义。主方法是用来保证程序的运行。</span><br><span class="line">class Demo 通过class关键字定义了一个名称为Demo的类</span><br><span class="line">public static void main(String[]) 定义了一个主方法，固定</span><br><span class="line">System.out.println(&quot;你好，hello&quot;);   输出语句，作用是将括号中的数据显示在屏幕上</span><br><span class="line">class Demo&#123;</span><br><span class="line">                public static void main(String[] args)</span><br><span class="line">&#123;</span><br><span class="line"> 	System.out.println(&quot;你好，hello&quot;);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">常见问题：</span><br><span class="line">1找不到java文件</span><br><span class="line">路径名错误/文件名错误/默认的文件名错误</span><br><span class="line">2找不到或者无法加载主类</span><br><span class="line">jvm没有找到要运行的类</span><br><span class="line">3没有保存导致无法显示你修改后的值</span><br><span class="line">4代码中含有中文</span><br><span class="line">5jvm，如果你配置了虚拟机的classpath，则会在你配置的classpath找类，如果没有，会在当前目录下找</span><br></pre></td></tr></table></figure>
 
           
         
@@ -510,7 +624,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -523,7 +637,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">1</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
