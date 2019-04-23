@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="java学习笔记,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="对象和过程123456789101112131415161718192021大象装进冰箱里：面向过程：	1打开冰箱	2存入大象	3关闭冰箱	注重过程或者说是行为的思考方式。	注重一个个的功能。语言:C,basic面向对象：基于面向过程，将过程进行对象的封装，解决问题找对象。特点：	1符合现代人们思考习惯的思想。	2从过程的执行者转换成为对象的指挥者。	3将复杂问题简单化。	缺点：将简单问题复杂化对">
+<meta name="keywords" content="java学习笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面向对象的思想">
+<meta property="og:url" content="http://yoursite.com/2018/07/05/5/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="对象和过程123456789101112131415161718192021大象装进冰箱里：面向过程：	1打开冰箱	2存入大象	3关闭冰箱	注重过程或者说是行为的思考方式。	注重一个个的功能。语言:C,basic面向对象：基于面向过程，将过程进行对象的封装，解决问题找对象。特点：	1符合现代人们思考习惯的思想。	2从过程的执行者转换成为对象的指挥者。	3将复杂问题简单化。	缺点：将简单问题复杂化对">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-23T12:23:26.782Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="面向对象的思想">
+<meta name="twitter:description" content="对象和过程123456789101112131415161718192021大象装进冰箱里：面向过程：	1打开冰箱	2存入大象	3关闭冰箱	注重过程或者说是行为的思考方式。	注重一个个的功能。语言:C,basic面向对象：基于面向过程，将过程进行对象的封装，解决问题找对象。特点：	1符合现代人们思考习惯的思想。	2从过程的执行者转换成为对象的指挥者。	3将复杂问题简单化。	缺点：将简单问题复杂化对">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/07/05/5/">
+
+
+
+
+
+  <title>面向对象的思想 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/05/5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">面向对象的思想</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-05T00:00:00+08:00">
+                2018-07-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>对象和过程<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">大象装进冰箱里：</span><br><span class="line">面向过程：</span><br><span class="line">	1打开冰箱</span><br><span class="line">	2存入大象</span><br><span class="line">	3关闭冰箱</span><br><span class="line">	注重过程或者说是行为的思考方式。</span><br><span class="line">	注重一个个的功能。</span><br><span class="line">语言:C,basic</span><br><span class="line"></span><br><span class="line">面向对象：基于面向过程，将过程进行对象的封装，解决问题找对象。</span><br><span class="line">特点：</span><br><span class="line">	1符合现代人们思考习惯的思想。</span><br><span class="line">	2从过程的执行者转换成为对象的指挥者。</span><br><span class="line">	3将复杂问题简单化。</span><br><span class="line">	缺点：将简单问题复杂化</span><br><span class="line">对象封装了一个个的过程。</span><br><span class="line">	实体是对象</span><br><span class="line">	冰箱打开</span><br><span class="line">	冰箱存储</span><br><span class="line">	冰箱关闭</span><br><span class="line">语言：C++,C#,java</span><br></pre></td></tr></table></figure></p>
+<p>面向对象例子<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">例如：买电脑，自己一步步的查价，砍价，挑货是面向过程。找一个懂行的人来帮你进行查价，砍价等等一系列操作。</span><br><span class="line">公司有了项目之后,肯定需要人来开发,你当然也可以自己做,你完全可以具备开发功能的人来做这个项目。</span><br><span class="line">洗衣服，自己洗,找个对象,洗衣机。</span><br></pre></td></tr></table></figure></p>
+<p>类：用于描述事物的<br>对象：该类事物具体的个体<br>类就是由成员组成<br>属性对应类中的成员变量<br>行为对应类中的成员方法<br>局部变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">定义在方法中的变量是局部变量	</span><br><span class="line">	//new的作用在堆内存中创建一片空间。</span><br><span class="line">	Car c = new Car();</span><br><span class="line">	//创建一个Car类型的变量c,指向了Car类型的对象;</span><br><span class="line">	//根据.class来创建c。</span><br><span class="line">	//对象在堆里面封装数据的成员变量</span><br><span class="line">	//匿名对象可以作为实际参数进行传递。</span><br><span class="line">	//如果对象对方法只进行一次调用,可以简化为匿名对象的形式</span><br><span class="line">	//Car c=new Car();</span><br><span class="line">	//c.run(); 等价于new Car().run();</span><br></pre></td></tr></table></figure></p>
+<p>成员变量与局部变量区别<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1源代码定义的位置不同</span><br><span class="line">成员变量定义在类中</span><br><span class="line">局部变量定义在方法中(只要是类的下一级大括号中都是局部的)，也可以定义在语句中。</span><br><span class="line">2内存中的存储位置不同</span><br><span class="line">成员变量存储在堆内存的对象中</span><br><span class="line">局部变量存储在栈内存的方法中</span><br><span class="line">3生命周期不同</span><br><span class="line">成员变量随着对象的出现而出现</span><br><span class="line">局部变量随着所属区间的运行而出现，随着所属区间的释放而消失。</span><br></pre></td></tr></table></figure></p>
+<p>构造函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">之前定义的函数都是一般函数，用于描述事物应该具备的功能</span><br><span class="line">构造函数：专门给对象进行初始化的功能。 </span><br><span class="line">构造函数的格式：</span><br><span class="line">1函数名和类名相同</span><br><span class="line">2没有返回值类型</span><br><span class="line">3没有具体的返回值</span><br><span class="line">主函数：用于虚拟机的识别。格式是死的。</span><br><span class="line">区别：</span><br><span class="line">构造函数在对象创建时就执行了，而且只执行一次。</span><br><span class="line">多构造函数在类中的使用就是重载。</span><br><span class="line">一般函数在创建后，需要才被对象调用，可以调用多次.</span><br><span class="line">注意：定义的每一个类中，都有一个默认的空参数构造函数</span><br><span class="line">一旦在类中自定义构造函数，默认的构造函数就不存在了。</span><br><span class="line">//不存在的意思就是Person()();完全不存在了,不是说调用Person();就可以实现默认参数的赋值，而是必须在其中定义Person();才可以使用。</span><br><span class="line">默认的构造函数：Person()&#123;&#125;;//类中默认的空参数构造函数,用于对象的初始化。</span><br><span class="line">return是用来结束函数的,故构造函数有返回值。</span><br><span class="line">构造函数可以私有化，只在本类中使用</span><br><span class="line">&#123;</span><br><span class="line">	构造函数在本类中的使用，只能被构造函数访问，不能被一般函数访问。</span><br><span class="line">	构造函数的访问可以通过关键字this进行访问。</span><br><span class="line">	this用在本类中。</span><br><span class="line">	this(参数列表);可以访问本类中的其他构造函数。</span><br><span class="line">	比如 this(&quot;ls&quot;);访问的就是本类中含有一个参数的构造函数</span><br><span class="line">	this用于调用构造函数的this语句必须放在第一行，因为初始化动作要最先执行，放在后面的话会被覆盖。</span><br><span class="line">	this 之间的相互调用是不行的，错误称之为递归溢出。</span><br><span class="line">	一个构造函数中不能调用2个构造函数。</span><br><span class="line">	this 代表当前对象。</span><br><span class="line">	所有直接被对象调用的方法都有this引用。(凡是访问了对象的数据的方法都有this引用)</span><br><span class="line">	当局部变量和成员变量重名时，使用this</span><br><span class="line">	Boolean bijao(Person pp)&#123;</span><br><span class="line">		return (pp.age==this.age);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">构造函数一经私有化，其他程序无法对创建的对象进行初始化</span><br></pre></td></tr></table></figure></p>
+<p>static<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">通过对象和类名都可以访问到方法。一般是使用对象,当一个方法中没有访问到该类中的数据，使用static修饰方法，通过类名的方式进行访问。</span><br><span class="line">static 就是成员修饰符，</span><br><span class="line">特点：被static修饰成员，可以直接被类名所使用</span><br><span class="line">静态成员优先于对象存在。</span><br><span class="line">静态成员随着类的加载而加载,随着类的消失而消失。</span><br><span class="line">优点=生命周期很长。</span><br><span class="line">注意事项：</span><br><span class="line">静态方法只能访问静态变量，不能访问非静态成员，这就是静态方法的访问局限性</span><br><span class="line">静态的方法中不能出现this或者super关键字</span><br><span class="line">主函数是静态的。</span><br><span class="line">成员变量：如果数据在所有对象中都是一样的，直接静态修饰</span><br><span class="line">成员函数：如果函数中没有访问对象的属性数据，那么该函数就是静态的。</span><br><span class="line">成员变量和静态变量区别：</span><br><span class="line">成员变量也叫实例变量。</span><br><span class="line">静态变量也叫类变量。</span><br><span class="line">成员变量存储在堆内存的对象中。</span><br><span class="line">静态变量存储在方法区的静态区</span><br><span class="line">成员变量随着对象的出现而出现，随着对象的消失而消失。</span><br><span class="line">静态变量随着类的出现而出现，随着类的消失而消失。</span><br><span class="line">成员变量有可能会在堆内存中出现多次。</span><br><span class="line">静态变量在内存中只有一份。</span><br><span class="line">静态代码块：随着类的加载而执行，而且仅仅执行一次。</span><br><span class="line">作用：给类进行初始化。</span><br><span class="line">static //静态代码块</span><br><span class="line">&#123;</span><br><span class="line">	Sop();</span><br><span class="line">&#125;</span><br><span class="line">静态代码块的使用注意：</span><br><span class="line">1只能定义在类中，独立于任何方法，不能定义在方法里面</span><br><span class="line">2其中的变量都是局部变量，只在本块有效</span><br><span class="line">3在类加载时自动执行</span><br><span class="line">4可以在类中定义多个静态代码块，顺序执行</span><br><span class="line">5静态代码块只能访问类中的静态成员，不能访问非静态成员。</span><br></pre></td></tr></table></figure></p>
+<p>构造函数的执行过程<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1super();</span><br><span class="line">2显示初始化</span><br><span class="line">3构造代码块初始化。</span><br><span class="line">private int age = 8;//显示初始化</span><br><span class="line">&#123;</span><br><span class="line">	sop();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>创建对象的过程<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1加载指定的字节码文件</span><br><span class="line">2通过new在堆内存中开辟空间,分配首地址值，</span><br><span class="line">3对对象中的属性进行默认初始化</span><br><span class="line">4调用与之对应的构造函数，构造函数进栈</span><br><span class="line">5构造函数中执行隐式的语句super();访问父类中的构造函数</span><br><span class="line">6对属性进行显示初始化</span><br><span class="line">7调用类中的构造代码块</span><br><span class="line">8执行构造函数中自定义的初始化代码</span><br><span class="line">9初始化完毕,将地址赋值给指定的引用</span><br></pre></td></tr></table></figure></p>
+<p>局部代码块：可以控制局部变量的生命周期。<br>设计模式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">解决某一类问题的一种思想，是一种行之有效的解决方式</span><br><span class="line">23种模式</span><br><span class="line">单例设计模式：</span><br><span class="line">解决问题：保证一个类的对象在内存中的唯一性</span><br><span class="line">应用场景：多个程序操纵同一个配置文件，需要程序A之后的结果，程序B需要继续基于A操作后的结果进行操纵。</span><br><span class="line">	前提：数据都存储在配置文件中，要求A和B操作的配置文件是同一个。</span><br><span class="line">	思路：</span><br><span class="line">	1问题是其他程序都可以通过new创建该类的对象，无法控制数量。</span><br><span class="line">	所以，不让其他程序new。</span><br><span class="line">	2那第一步的问题也就产生了,那其他程序不就没有对象了吗？</span><br><span class="line">	在本类中new一个对象，好处是不让别的程序new，可以实现数量的控制</span><br><span class="line">	3对外提供让其他程序获取该对象的方式。</span><br><span class="line">	步骤：</span><br><span class="line">	1不让其他程序new对象</span><br><span class="line">	可以将类中的构造函数私有化</span><br><span class="line">	2在本类中new一个对象</span><br><span class="line">	3定义一个方法返回该对象</span><br></pre></td></tr></table></figure></p>
+<p>面向对象的三大特征:封装+继承+多态<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">封装:隐藏实现细节，对外提供接口</span><br><span class="line">封装的体现之一:将属性都私有化，对外提供对应的set,get方法来进行访问</span><br><span class="line">封装的好处：</span><br><span class="line">	1提高了安全性，不允许直接访问细节，并通过公共的方式进行访问，可以实现可控</span><br><span class="line">	2提高了易用性</span><br><span class="line">	3提高了复用性</span><br><span class="line">	4隔离的变化。--接口有关</span><br><span class="line">继承(extends)</span><br><span class="line">	1提高了复用性</span><br><span class="line">	2使得类与类之间产生了关系</span><br><span class="line">	3为多态提供了关系</span><br><span class="line">	java支持单继承，不直接支持多继承</span><br><span class="line">/*</span><br><span class="line">单继承：一个类只有一个父类</span><br><span class="line">多继承：一个类可以有多个父类，java不直接支持多继承()</span><br><span class="line">调用的不确定性</span><br><span class="line">因为方法的主体不同，可以让子类产生更多的功能</span><br><span class="line">多层次继承：学习一个继承体系，先看顶层，了解体系中的具备的学习功能，使用时，用体系中最下面的东东</span><br><span class="line">当事物之间存在所属(is a)关系，可以通过继承来体现这种关系</span><br><span class="line">父类中私有部分，子类无法直接访问</span><br><span class="line">super代表父类的那片空间</span><br><span class="line">this代表子类的那个对象</span><br><span class="line">覆盖(override)(重显):当子父类中出现一模一样的方法时，子类的对象运行的是子类的方法。所有的都一致。</span><br><span class="line">注意事项：</span><br><span class="line">	子类方法覆盖父类方法，必须保证子类权限大于等于父类中的权限</span><br><span class="line">	静态只能被静态或者覆盖静态</span><br><span class="line">子父类中构造函数的特点：</span><br><span class="line">	创建子类时，父类中的空参数构造函数也执行了，因为子类中所有的构造函数默认第一行为隐士super();语句</span><br><span class="line">	调用本类中的构造函数用this，调用父类中的构造函数用super(实参列表);</span><br><span class="line">	子类继承了父类中的内容，必须查看父类中如何对内容进行初始化。这就是子类的实例化过程</span><br><span class="line">	注意事项：</span><br><span class="line">		当父类中没有空参数构造函数，子类需要通过显示定义super语句来指定需要访问的父类中的构造函数</span><br><span class="line">		用来调用父类中的super()语句必须放在第一行，因为初始化必须先完成</span><br><span class="line">		this和super语句不可以同时存在。因为他们只能定义在第一行</span><br><span class="line">		子类至少会有一个构造函数的super去父类</span><br><span class="line">final关键字。最终</span><br></pre></td></tr></table></figure></p>
+<p>1final修饰符，可以修饰类，修饰方法，修饰变量<br>2final修饰的类不可以被继承.<br>3final修饰的方法不可以被覆盖(复写).<br>4final修饰的变量是一个常量，只能赋值一次，当使用的数据不变时，需要定义阅读性强的名称表示该数据，并将其数据final化<br>被final修饰的变量，名称规范是：所有字母都大写SING_INGSTAFD<br>final固定的是显示初始化值，不是默认值<br><code>`</code></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java学习笔记/" rel="tag"># java学习笔记</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/05/5-2/" rel="next" title="私有private+单例设计模式">
+                <i class="fa fa-chevron-left"></i> 私有private+单例设计模式
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
