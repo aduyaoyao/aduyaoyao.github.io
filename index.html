@@ -229,6 +229,852 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/10/10-4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/10/10-4/" itemprop="url">同步函数+同步代码块</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-10T00:00:00+08:00">
+                2018-07-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>同步代码块和同步函数的异同<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">同步函数和同步代码块的区别：</span><br><span class="line">同步代码块使用的任意的对象作为锁</span><br><span class="line">同步函数只能使用this作为锁</span><br><span class="line">开发建议使用同步代码块。</span><br><span class="line">如果说，一个类中只需要一个锁，这是可以考虑同步函数，使用this写法简单，</span><br><span class="line">但是一个类中如果需要多个锁，还有多个类中使用同一个锁。这时只能使用同步代码块。</span><br><span class="line">*/</span><br><span class="line">/*</span><br><span class="line">死锁:</span><br><span class="line">情况1:同步嵌套</span><br><span class="line"></span><br><span class="line">*/</span><br><span class="line">class SaleTickets1 implements Runnable</span><br><span class="line">&#123;</span><br><span class="line">	private static int ticket = 100000;</span><br><span class="line">	Object obj = new Object();</span><br><span class="line">	//定义一个flag标记</span><br><span class="line">	boolean flag = true;</span><br><span class="line">	public void run()</span><br><span class="line">	&#123;</span><br><span class="line">		if(flag)</span><br><span class="line">		while(true)</span><br><span class="line">		&#123;</span><br><span class="line">			synchronized(obj)</span><br><span class="line">			&#123;</span><br><span class="line">				sale();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		else</span><br><span class="line">		&#123;</span><br><span class="line">			while(true)</span><br><span class="line">			sale();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	public  synchronized void sale()</span><br><span class="line">	&#123;</span><br><span class="line">		synchronized(obj)</span><br><span class="line">		&#123;</span><br><span class="line">		if(ticket&gt;0)</span><br><span class="line">			&#123;</span><br><span class="line">			try&#123;Thread.sleep(1);&#125;</span><br><span class="line">			catch(InterruptedException e)&#123;&#125;//让线程在这里停止一下</span><br><span class="line">				System.out.println(Thread.currentThread().getName()+&quot;..sale&quot;+ticket--);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">//出现数据的错乱是因为DOS的打印</span><br><span class="line">class Demo3</span><br><span class="line">&#123;</span><br><span class="line">	public static void main(String[] args)throws InterruptedException</span><br><span class="line">	&#123;</span><br><span class="line">		SaleTickets1 t = new SaleTickets1();</span><br><span class="line">		//创建4个线程，通过Thread类对象</span><br><span class="line">		Thread h1 = new Thread(t);</span><br><span class="line">		Thread h2 = new Thread(t);</span><br><span class="line">		h1.start();</span><br><span class="line">		Thread.sleep(10);//主线程停一下。</span><br><span class="line">		t.flag = false;</span><br><span class="line">		h2.start();</span><br><span class="line">		</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/10/10-3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/10/10-3/" itemprop="url">单例设计模式中的并发操作</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-10T00:00:00+08:00">
+                2018-07-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>饿汉式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//饿汉式，相对于多线程的并发操作，安全</span><br><span class="line">class Single</span><br><span class="line">&#123;</span><br><span class="line">	private static final Single SINGLE_INSTANCE = new Single();</span><br><span class="line">	private Single()&#123;&#125;</span><br><span class="line">	public static Single getInstance()</span><br><span class="line">	&#123;</span><br><span class="line">		return SINGLE_INSTANCE;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>懒汉式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">懒汉式，延迟加载</span><br><span class="line">在多线程的访问时，会出现线程安全问题。</span><br><span class="line">加了同步就可以解决问题了，同步代码块和同步函数都可以</span><br><span class="line">但是效率低了。</span><br><span class="line">解决效率低的问题：可以使用if对于单例的双重判断模式。</span><br><span class="line">*/</span><br><span class="line">//面试可以考的重点。</span><br><span class="line">class Single</span><br><span class="line">&#123;</span><br><span class="line">	private static Single s = null;</span><br><span class="line">	private Single()&#123;&#125;</span><br><span class="line">	private static Single getInstance()</span><br><span class="line">	&#123;</span><br><span class="line">		if(s==null)</span><br><span class="line">		&#123;</span><br><span class="line">			//加强安全性的同时，增加了效率</span><br><span class="line">			synchronized(Single.class)</span><br><span class="line">			&#123;</span><br><span class="line">				if(s==null)</span><br><span class="line">				s=new Single();</span><br><span class="line">				return s;</span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/10/10-5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/10/10-5/" itemprop="url">死锁</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-10T00:00:00+08:00">
+                2018-07-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>死锁<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">简单死锁的代码演示——同步嵌套</span><br><span class="line">*/</span><br><span class="line">class Test implements Runnable</span><br><span class="line">&#123;</span><br><span class="line">	private boolean flag;</span><br><span class="line">	</span><br><span class="line">	Test(boolean flag)</span><br><span class="line">	&#123;</span><br><span class="line">		this.flag = flag;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public void run()</span><br><span class="line">	&#123;</span><br><span class="line">		if(flag)</span><br><span class="line">		&#123;</span><br><span class="line">			while(true)</span><br><span class="line">			synchronized(MyLock.LOCKA)</span><br><span class="line">			&#123;</span><br><span class="line">				System.out.println(&quot;if 1a&quot;);</span><br><span class="line">				synchronized(MyLock.LOCKB)</span><br><span class="line">				&#123;</span><br><span class="line">					System.out.println(&quot;if 2b&quot;);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		else</span><br><span class="line">		&#123;</span><br><span class="line">			while(true)</span><br><span class="line">			synchronized(MyLock.LOCKB)</span><br><span class="line">			&#123;</span><br><span class="line">				System.out.println(&quot;else 1b&quot;);</span><br><span class="line">				synchronized(MyLock.LOCKA)</span><br><span class="line">				&#123;</span><br><span class="line">					System.out.println(&quot;else 2a&quot;);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class MyLock</span><br><span class="line">&#123;</span><br><span class="line">	public static final Object LOCKA = new Object();</span><br><span class="line">	public static final Object LOCKB = new Object();</span><br><span class="line">&#125;</span><br><span class="line">class Demo9</span><br><span class="line">&#123;</span><br><span class="line">	public static void main(String[] args)</span><br><span class="line">	&#123;</span><br><span class="line">	Test t1 = new Test(true);</span><br><span class="line">	Test t2 = new Test(false);</span><br><span class="line">	new Thread(t1).start();</span><br><span class="line">	new Thread(t2).start();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/10/10-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/10/10-2/" itemprop="url">this锁和类.class</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-10T00:00:00+08:00">
+                2018-07-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>同步代码块使用this锁<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">验证需求：</span><br><span class="line">一个线程负责执行同步代码块（使用明锁）</span><br><span class="line">另外一个线程使用this锁</span><br><span class="line">2个线程执行的任务一致，如果他们没有使用相同的锁，那么就没有同步，会出现数据错误。</span><br><span class="line">*/</span><br><span class="line">class SaleTickets1 implements Runnable</span><br><span class="line">&#123;</span><br><span class="line">	private int ticket = 10000;</span><br><span class="line">	Object obj = new Object();</span><br><span class="line">	//定义一个flag标记</span><br><span class="line">	boolean flag = true;</span><br><span class="line">	public void run()</span><br><span class="line">	&#123;</span><br><span class="line">		if(flag)</span><br><span class="line">		&#123;</span><br><span class="line">		while(true)</span><br><span class="line">		&#123;</span><br><span class="line">			synchronized(this)//使用的锁为this</span><br><span class="line">			&#123;</span><br><span class="line">			if(ticket&gt;0)</span><br><span class="line">			&#123;</span><br><span class="line">			try&#123;Thread.sleep(1);&#125;</span><br><span class="line">			catch(InterruptedException e)&#123;&#125;//让线程在这里停止一下</span><br><span class="line">				System.out.println(Thread.currentThread().getName()+&quot;..&quot;+ticket--);</span><br><span class="line">			&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		else</span><br><span class="line">		&#123;</span><br><span class="line">			while(true)</span><br><span class="line">			sale();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	public synchronized void sale()</span><br><span class="line">	&#123;</span><br><span class="line">		if(ticket&gt;0)</span><br><span class="line">			&#123;</span><br><span class="line">			try&#123;Thread.sleep(1);&#125;</span><br><span class="line">			catch(InterruptedException e)&#123;&#125;//让线程在这里停止一下</span><br><span class="line">				System.out.println(Thread.currentThread().getName()+&quot;..sale&quot;+ticket--);</span><br><span class="line">			&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">//出现数据的错乱是因为DOS的打印</span><br><span class="line">class Demo3</span><br><span class="line">&#123;</span><br><span class="line">	public static void main(String[] args)throws InterruptedException</span><br><span class="line">	&#123;</span><br><span class="line">		SaleTickets1 t = new SaleTickets1();</span><br><span class="line">		//创建4个线程，通过Thread类对象</span><br><span class="line">		Thread h1 = new Thread(t);</span><br><span class="line">		Thread h2 = new Thread(t);</span><br><span class="line">		h1.start();</span><br><span class="line">		Thread.sleep(10);//主线程停一下。</span><br><span class="line">		t.flag = false;</span><br><span class="line">		h2.start();</span><br><span class="line">		</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>静态函数中的锁是当前类的.class<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">静态函数中的锁是？</span><br><span class="line">static方法随着类加载，这时不一定有该类的对象，但是一定有一个该类的字节码文件对象</span><br><span class="line">这个对象的简单表现形式为类名.class </span><br><span class="line">*/</span><br><span class="line">class SaleTickets1 implements Runnable</span><br><span class="line">&#123;</span><br><span class="line">	private static int ticket = 10000;</span><br><span class="line">	Object obj = new Object();</span><br><span class="line">	//定义一个flag标记</span><br><span class="line">	boolean flag = true;</span><br><span class="line">	public void run()</span><br><span class="line">	&#123;</span><br><span class="line">		if(flag)</span><br><span class="line">		&#123;</span><br><span class="line">		while(true)</span><br><span class="line">		&#123;</span><br><span class="line">			synchronized(SaleTickets1.class)//使用的锁为类名.class</span><br><span class="line">			&#123;</span><br><span class="line">			if(ticket&gt;0)</span><br><span class="line">			&#123;</span><br><span class="line">			try&#123;Thread.sleep(1);&#125;</span><br><span class="line">			catch(InterruptedException e)&#123;&#125;//让线程在这里停止一下</span><br><span class="line">				System.out.println(Thread.currentThread().getName()+&quot;..&quot;+ticket--);</span><br><span class="line">			&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		else</span><br><span class="line">		&#123;</span><br><span class="line">			while(true)</span><br><span class="line">			sale();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	public static synchronized void sale()</span><br><span class="line">	&#123;</span><br><span class="line">		if(ticket&gt;0)</span><br><span class="line">			&#123;</span><br><span class="line">			try&#123;Thread.sleep(1);&#125;</span><br><span class="line">			catch(InterruptedException e)&#123;&#125;//让线程在这里停止一下</span><br><span class="line">				System.out.println(Thread.currentThread().getName()+&quot;..sale&quot;+ticket--);</span><br><span class="line">			&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">//出现数据的错乱是因为DOS的打印</span><br><span class="line">class Demo3</span><br><span class="line">&#123;</span><br><span class="line">	public static void main(String[] args)throws InterruptedException</span><br><span class="line">	&#123;</span><br><span class="line">		SaleTickets1 t = new SaleTickets1();</span><br><span class="line">		//创建4个线程，通过Thread类对象</span><br><span class="line">		Thread h1 = new Thread(t);</span><br><span class="line">		Thread h2 = new Thread(t);</span><br><span class="line">		h1.start();</span><br><span class="line">		Thread.sleep(10);//主线程停一下。</span><br><span class="line">		t.flag = false;</span><br><span class="line">		h2.start();</span><br><span class="line">		</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/10/10/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/10/10/" itemprop="url">多线程基础</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-10T00:00:00+08:00">
+                2018-07-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>多线程的基础知识<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">硬盘：持久化存储设备</span><br><span class="line">内存：临时性存储设备</span><br><span class="line">进程：应用程序在内存中分配的空间（正在运行中的程序）</span><br><span class="line">线程：是进程中负责程序执行的执行单元，也称为执行路径。</span><br><span class="line">     如果一个进程中出现了多个线程，称之为多线程程序。</span><br><span class="line">多线程技术：解决多部分代码同时执行的需求。可以合理的使用CPU资源</span><br><span class="line">cpu的分时系统</span><br><span class="line">双核：封装了2个运算核心。</span><br><span class="line">多线程的运行根据cpu的切换完成的。怎么切换cpu说的算</span><br><span class="line">所以多线程运行有一个随机性。（cpu的快速切换造成的）</span><br><span class="line">jvm中的多线程：</span><br><span class="line">至少有2个线程：</span><br><span class="line">一个是负责自定义代码运行的,这个从main方法开始的线程为主线程。</span><br><span class="line">一个是负责垃圾回收的，随着其他线程结束就结束了</span><br><span class="line">通过实践发现每次的结果不一定相同，那是由于cpu的随机性造成的，</span><br><span class="line">而且每一个线程都有自己运行的代码，称之为线程的内容。</span><br><span class="line">之所以创建一个线程是为了去运行制定的任务代码。</span><br><span class="line">而线程的任务都封装在特定的区域中</span><br><span class="line">比如：</span><br><span class="line">主线程运行的任务都定义在main方法中</span><br><span class="line">垃圾回收线程在回收垃圾都会运行finalize方法。</span><br><span class="line">如何建立线程？</span><br><span class="line">1继承Thread类</span><br><span class="line">	继承Thread类</span><br><span class="line">	复写run()方法</span><br><span class="line">	创建子类对象即为创建线程对象</span><br><span class="line">	调用Thread类中的start方法就可以执行线程。并会调用run方法。</span><br><span class="line">	start()开启线程后都会执行run()方法，说明run()方法中存储的是线程要运行的代码</span><br><span class="line">	所以，记住自定义线程的任务代码都存储在run()方法中。</span><br><span class="line">*/</span><br><span class="line">class Demo extends Thread</span><br><span class="line">&#123;</span><br><span class="line">	//定义垃圾回收方法</span><br><span class="line">	public void show()</span><br><span class="line">	&#123;</span><br><span class="line">		for(int i = 0 ;i &lt;= 10; i++)</span><br><span class="line">		System.out.println(Thread.currentThread().getName()+name+&quot;i=&quot;+i);</span><br><span class="line">	&#125;</span><br><span class="line">	private String name;</span><br><span class="line">	Demo(String name)</span><br><span class="line">	&#123;</span><br><span class="line">		this.name = name;		</span><br><span class="line">	&#125;</span><br><span class="line">	public void run()</span><br><span class="line">	&#123;</span><br><span class="line">		show();</span><br><span class="line">	&#125;</span><br><span class="line">	public void start()</span><br><span class="line">	&#123;</span><br><span class="line">		super.start();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">/*</span><br><span class="line">调用start和run方法的区别：</span><br><span class="line">调用start会开启线程，让开启的线程去执行run方法中的线程任务</span><br><span class="line">直接调用run方法，线程并未开启，去执行run方法的只有主方法。</span><br><span class="line">*/</span><br><span class="line">class ThreadDemo</span><br><span class="line">&#123;</span><br><span class="line">	public static void main(String[] args)</span><br><span class="line">	&#123;</span><br><span class="line">		Demo d1 = new Demo(&quot;张三&quot;);</span><br><span class="line">		Demo d2 = new Demo(&quot;李四&quot;);</span><br><span class="line">		d1.start();//做了两件事;1开启线程2调用run方法</span><br><span class="line">		d2.start();</span><br><span class="line">		for(int i = 0 ;i &lt;= 10; i++)</span><br><span class="line">		System.out.println(Thread.currentThread().getName()+&quot;i=&quot;+i);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>多线程的火车票售票实例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">火车售票小示例</span><br><span class="line">*/</span><br><span class="line">class SaleTicket extends Thread</span><br><span class="line">&#123;</span><br><span class="line">	private int ticket = 100;//分开线程任务和资源的方式</span><br><span class="line">	</span><br><span class="line">	//卖票的代码需要多个线程去执行，所以要将这些代码定义在线程任务中。run方法</span><br><span class="line">	public void run()</span><br><span class="line">	&#123;</span><br><span class="line">		while(true)</span><br><span class="line">		&#123;</span><br><span class="line">			if(ticket&gt;0)</span><br><span class="line">			&#123;</span><br><span class="line">				System.out.println(Thread.currentThread().getName()+&quot;..&quot;+ticket--);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class Demo1</span><br><span class="line">&#123;</span><br><span class="line">	public static void main(String[] args)</span><br><span class="line">	&#123;</span><br><span class="line">		//会创建400张票，不合适，不建议票变成静态的，如何共享100张票</span><br><span class="line">		//分开线程任务和资源的方式</span><br><span class="line">		SaleTicket s1 = new SaleTicket();</span><br><span class="line">		SaleTicket s2 = new SaleTicket();</span><br><span class="line">		SaleTicket s3 = new SaleTicket();</span><br><span class="line">		SaleTicket s4 = new SaleTicket();</span><br><span class="line">		s1.start();</span><br><span class="line">		s2.start();</span><br><span class="line">		s3.start();</span><br><span class="line">		s4.start();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/10/10-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/10/10-1/" itemprop="url">实现Runnable</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-10T00:00:00+08:00">
+                2018-07-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>同步锁机制<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">创建线程的第二种方式</span><br><span class="line">1定义一个类实现Runnable</span><br><span class="line">Runnable接口的出现：解耦：降低了线程对象和线程任务的耦合性。</span><br><span class="line">2覆盖Runnanle接口中的方法，将线程要运行的任务代码存储到该方法中</span><br><span class="line">3通Thread创建线程对象，并将实现了Runnable接口的对象作为Thread类的构造函数的参数进行传递</span><br><span class="line">4调用Thread类的start方法。</span><br><span class="line">实现Runnable接口的好处：</span><br><span class="line">1避免了继承Thread类的单继承的局限性</span><br><span class="line">2Runable接口出现更符合面向对象，将线程单独进行封装。</span><br><span class="line">3Runnable接口出现，降低了线程对象和线程任务的耦合性</span><br><span class="line">所以以后创建线程都使用第二种方式</span><br><span class="line">多线程的安全问题：</span><br><span class="line">Thread-0..0</span><br><span class="line">Thread-2..-1</span><br><span class="line">Thread-3..-2</span><br><span class="line">1线程任务中有共享的数据</span><br><span class="line">2线程任务中有多条对共享数据的操作</span><br><span class="line">	一个线程在操作共享数据的同时，其他的线程操作参与了共享数据。</span><br><span class="line">解决问题的思想：</span><br><span class="line">只要能保证操作多条共享数据的代码在某一时间段，被一条线程所执行，在执行期间，不允许其他线程进行操作。</span><br><span class="line">用到了同步代码块。</span><br><span class="line">synchronized(对象)//对象为任意的对象。</span><br><span class="line">&#123;</span><br><span class="line">	同步代码块</span><br><span class="line">&#125;</span><br><span class="line">同步在目前的情况下，保证了一次只能有一个线程进来，这就是同步的锁机制</span><br><span class="line">好处：它解决了多线程的安全问题。</span><br><span class="line">弊端：消耗资源，降低效率。</span><br><span class="line">有可能出现这样一种情况：</span><br><span class="line">多线程安全问题出现后，加入了同步机制，没有想到安全问题依旧。</span><br><span class="line">这个时候肯定是同步出现了问题，</span><br><span class="line">你只要遵守了同步的前提，你就可以解决。</span><br><span class="line">同步的前提：</span><br><span class="line">	多个线程在同步中必须使用同一个锁，这才是多个线程同步。</span><br><span class="line">	多个线程和同一个锁。</span><br><span class="line">*/</span><br><span class="line">class SaleTickets implements Runnable</span><br><span class="line">&#123;</span><br><span class="line">	private int ticket = 10000;</span><br><span class="line">	Object obj = new Object();</span><br><span class="line">	public void run()</span><br><span class="line">	&#123;</span><br><span class="line">		while(true)</span><br><span class="line">		&#123;</span><br><span class="line">			synchronized(new Object())</span><br><span class="line">			&#123;</span><br><span class="line">			if(ticket&gt;0)</span><br><span class="line">			&#123;</span><br><span class="line">			try&#123;Thread.sleep(1);&#125;</span><br><span class="line">			catch(InterruptedException e)&#123;&#125;//让线程在这里停止一下</span><br><span class="line">				System.out.println(Thread.currentThread().getName()+&quot;..&quot;+ticket--);</span><br><span class="line">			&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">//出现数据的错乱是因为DOS的打印</span><br><span class="line">class Demo2</span><br><span class="line">&#123;</span><br><span class="line">	public static void main(String[] args)</span><br><span class="line">	&#123;</span><br><span class="line">		SaleTickets t = new SaleTickets();</span><br><span class="line">		//创建4个线程，通过Thread类对象</span><br><span class="line">		Thread h1 = new Thread(t);</span><br><span class="line">		Thread h2 = new Thread(t);</span><br><span class="line">		Thread h3 = new Thread(t);</span><br><span class="line">		Thread h4 = new Thread(t);</span><br><span class="line">		h1.start();</span><br><span class="line">		h2.start();</span><br><span class="line">		h3.start();</span><br><span class="line">		h4.start();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>银行存钱问题<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">/*2个储户，到同一个银行存钱，每个人存了3次，一次100元</span><br><span class="line">描述银行</span><br><span class="line">描述储户</span><br><span class="line">分析多线程中是否存在安全隐患：</span><br><span class="line">1分析多线程中是否存在共享的数据</span><br><span class="line">2分析多线程中是否有对共享数据的操作。</span><br><span class="line">同步函数：其实就是在函数上加上了synchronized关键字</span><br><span class="line">同步的表现形式：1同步代码块2同步函数</span><br><span class="line">同步函数的锁？函数需要被对象调用，那个对象不确定，但是都用this来表示</span><br><span class="line">同步函数使用的锁为this锁</span><br><span class="line">*/</span><br><span class="line">class Bank</span><br><span class="line">&#123;</span><br><span class="line">	private int sum;</span><br><span class="line">	Object obj = new Object();</span><br><span class="line">	synchronized public void add(int n)//同步方法</span><br><span class="line">	&#123;</span><br><span class="line">		sum = sum + n;</span><br><span class="line">		System.out.println(&quot;sum=&quot;+sum);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class Customer implements Runnable</span><br><span class="line">&#123;</span><br><span class="line">	private Bank b = new Bank();</span><br><span class="line">	public void run()</span><br><span class="line">	&#123;</span><br><span class="line">		for(int i = 0;i &lt; 10;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			b.add(100);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class Demo4&#123;</span><br><span class="line">	public static void main(String[] args)</span><br><span class="line">	&#123;</span><br><span class="line">		Customer c =new Customer();</span><br><span class="line">		Thread t1 = new Thread(c);</span><br><span class="line">		Thread t2 = new Thread(c);</span><br><span class="line">		t1.start();</span><br><span class="line">		t2.start();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/09/9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/09/9/" itemprop="url">包</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-09T00:00:00+08:00">
+                2018-07-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>包简介<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">包的好处：</span><br><span class="line">1对类文件进行分类管理</span><br><span class="line">2给类提供多层命名空间</span><br><span class="line">javac -d . 1.java</span><br><span class="line">*/</span><br><span class="line">package day;</span><br><span class="line">import age.DemoA;</span><br><span class="line">class PackageDemo</span><br><span class="line">&#123;</span><br><span class="line">	public static void main(String[] args)</span><br><span class="line">	&#123;</span><br><span class="line">		DemoA d1 = new age.DemoA();</span><br><span class="line">		//packfu.DemoFu d2 = new packfu.DemoFu();</span><br><span class="line">		//d2.method();</span><br><span class="line">		d1.show();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">//包名.类名</span><br><span class="line">//import关键字。倒入不同包中的类</span><br><span class="line">/*jar -xfv 1.jar解jar包</span><br><span class="line">jar cf 1.jar 1打成jar包</span><br><span class="line">找不到类就set classpath</span><br><span class="line">*/</span><br></pre></td></tr></table></figure></p>
+<p>不同包之间的访问<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">package packfu;</span><br><span class="line">//public修饰的类和源文件的名字相同</span><br><span class="line">public class DemoFu</span><br><span class="line">&#123;</span><br><span class="line">	protected void method()//protected保护，专门给子类使用</span><br><span class="line">	&#123;</span><br><span class="line">		System.out.println(&quot;A run&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">/*           public          protected          default       private</span><br><span class="line">同一个类中：  ok                 ok                ok            ok</span><br><span class="line">同一个包：    ok                 ok                ok</span><br><span class="line">子类：        ok                 ok  </span><br><span class="line">不同包：      ok</span><br><span class="line">public 和protected修饰不同的包</span><br><span class="line">*/</span><br></pre></td></tr></table></figure></p>
+<p>子类代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//实现包之间的访问</span><br><span class="line">package age;</span><br><span class="line">public class DemoA extends packfu.DemoFu</span><br><span class="line">&#123;</span><br><span class="line">	public void show()</span><br><span class="line">	&#123;</span><br><span class="line">		System.out.println(&quot;A run&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/08/8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -580,866 +1426,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/07/7-1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/07/7-1/" itemprop="url">内部类</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-07T00:00:00+08:00">
-                2018-07-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>内部类的简单使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">内部类：将类定义到另外一个类的里面</span><br><span class="line">访问规则：</span><br><span class="line">	内部类可以直接访问外部类中的成员</span><br><span class="line">	外部类要想访问内部类，只能创建内部类的对象来访问</span><br><span class="line">	外部$内部类;</span><br><span class="line">*/</span><br><span class="line">class Outer</span><br><span class="line">&#123;</span><br><span class="line">	private int num = 4;</span><br><span class="line">	class Inner //内部类。相当于外部类中的一个成员，他就可以被成员修饰符所修饰</span><br><span class="line">	&#123;</span><br><span class="line">		void show()</span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println(num);</span><br><span class="line">		&#125;</span><br><span class="line">		static final int count = 5;</span><br><span class="line">		//在非静态的内部类中只允许定义静态的常量，不允许定义其他静态成员</span><br><span class="line">	&#125;</span><br><span class="line">	static class Inner2 //相当于一个外部类</span><br><span class="line">	&#123;</span><br><span class="line">		void show2()</span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println(&quot;你好&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">		static void show3()</span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println(&quot;你好333333&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	public void method()</span><br><span class="line">	&#123;</span><br><span class="line">		Inner in = new Inner();</span><br><span class="line">		in.show();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class InnerClassDemo</span><br><span class="line">&#123;</span><br><span class="line">	public static void main(String[] args)</span><br><span class="line">	&#123;</span><br><span class="line">		Outer o = new Outer();</span><br><span class="line">		o.method();</span><br><span class="line">//==============非静态，非私有的内部类访问方式=============</span><br><span class="line">		//外部程序访问内部类</span><br><span class="line">		Outer.Inner in = new Outer().new Inner();</span><br><span class="line">		//new一个外部类，如果不需要内部类，他不进行加载。</span><br><span class="line">		in.show();</span><br><span class="line">//==============静态，非私有的内部类访问方式===============</span><br><span class="line">	   Outer.Inner2 in2 = new Outer.Inner2();</span><br><span class="line">		in2.show2();//访问非静态方法</span><br><span class="line">		Outer.Inner2.show3();//访问静态方法</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>局部内部类的简单使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">内部类：将类定义到另外一个类的里面</span><br><span class="line">访问规则：</span><br><span class="line">	内部类可以直接访问外部类中的成员</span><br><span class="line">	外部类要想访问内部类，只能创建内部类的对象来访问</span><br><span class="line">	外部$内部类;</span><br><span class="line">*/</span><br><span class="line">class Outer</span><br><span class="line">&#123;</span><br><span class="line">	private int num = 4;</span><br><span class="line">	class Inner //内部类。相当于外部类中的一个成员，他就可以被成员修饰符所修饰</span><br><span class="line">	&#123;</span><br><span class="line">		void show()</span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println(num);</span><br><span class="line">		&#125;</span><br><span class="line">		static final int count = 5;</span><br><span class="line">		//在非静态的内部类中只允许定义静态的常量，不允许定义其他静态成员</span><br><span class="line">	&#125;</span><br><span class="line">	static class Inner2 //相当于一个外部类</span><br><span class="line">	&#123;</span><br><span class="line">		void show2()</span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println(&quot;你好&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">		static void show3()</span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println(&quot;你好333333&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	public void method()</span><br><span class="line">	&#123;</span><br><span class="line">		Inner in = new Inner();</span><br><span class="line">		in.show();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class InnerClassDemo</span><br><span class="line">&#123;</span><br><span class="line">	public static void main(String[] args)</span><br><span class="line">	&#123;</span><br><span class="line">		Outer o = new Outer();</span><br><span class="line">		o.method();</span><br><span class="line">//==============非静态，非私有的内部类访问方式=============</span><br><span class="line">		//外部程序访问内部类</span><br><span class="line">		Outer.Inner in = new Outer().new Inner();</span><br><span class="line">		//new一个外部类，如果不需要内部类，他不进行加载。</span><br><span class="line">		in.show();</span><br><span class="line">//==============静态，非私有的内部类访问方式===============</span><br><span class="line">	   Outer.Inner2 in2 = new Outer.Inner2();</span><br><span class="line">		in2.show2();//访问非静态方法</span><br><span class="line">		Outer.Inner2.show3();//访问静态方法</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>匿名内部类<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">匿名内部类：y简化书写的内部类</span><br><span class="line">	前提：</span><br><span class="line">	内部类需要继承或者实现外部类或者接口</span><br><span class="line">	new 父类OR接口名()&#123;子类的内容&#125;</span><br><span class="line">*/</span><br><span class="line">abstract class Demo</span><br><span class="line">&#123;</span><br><span class="line">	abstract void show();</span><br><span class="line">&#125;</span><br><span class="line">interface Inter</span><br><span class="line">&#123;</span><br><span class="line">	void show1();</span><br><span class="line">&#125;</span><br><span class="line">class Outer1</span><br><span class="line">&#123;</span><br><span class="line">	int num = 2;</span><br><span class="line">	/*</span><br><span class="line">	class Inner implements Inter</span><br><span class="line">	&#123;</span><br><span class="line">		public void show1()&#123;&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	public void method1()</span><br><span class="line">	&#123;</span><br><span class="line">		Inner in = new Inner();</span><br><span class="line">		in.show1();</span><br><span class="line">	&#125;</span><br><span class="line">	*/</span><br><span class="line">	public void method1()</span><br><span class="line">	&#123;</span><br><span class="line">		Inter in = new Inter()</span><br><span class="line">		&#123;</span><br><span class="line">			public void show1()</span><br><span class="line">			&#123;</span><br><span class="line">				System.out.println(&quot;num=&quot;+num);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;;</span><br><span class="line">		in.show1();</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class Outer</span><br><span class="line">&#123;</span><br><span class="line">	int num = 2;</span><br><span class="line">	/*</span><br><span class="line">	class Inner extends Demo</span><br><span class="line">	&#123;</span><br><span class="line">		void show()</span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println(&quot;num=&quot;+num);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	*/</span><br><span class="line">	public void method()</span><br><span class="line">	&#123;</span><br><span class="line">	//	new Inner().show();</span><br><span class="line">		new Demo()</span><br><span class="line">		&#123;</span><br><span class="line">			public void show()</span><br><span class="line">			&#123;</span><br><span class="line">			System.out.println(&quot;num=&quot;+num);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;.show();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class OuterDemo</span><br><span class="line">&#123;</span><br><span class="line">	public static void main(String[] args)</span><br><span class="line">	&#123;</span><br><span class="line">		new Outer1().method1();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class Outer</span><br><span class="line">&#123;</span><br><span class="line">	public void method2()</span><br><span class="line">	&#123;</span><br><span class="line">		new Object()</span><br><span class="line">		&#123;</span><br><span class="line">			public void show3()</span><br><span class="line">			&#123;</span><br><span class="line">				System.out.println(&quot;hhe&quot;);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;.show3();</span><br><span class="line">		Object obj = new Object()//Object 指向了自己的子类对象，多态，提升了不能调用子类的特有方法</span><br><span class="line">		&#123;</span><br><span class="line">			public void show4()</span><br><span class="line">			&#123;</span><br><span class="line">				System.out.println(&quot;hhe&quot;);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;;</span><br><span class="line">		//obj.show4();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/06/6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/06/6/" itemprop="url">抽象类</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-06T00:00:00+08:00">
-                2018-07-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>抽象类<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">抽象类和接口</span><br><span class="line">描述一个事物，却没有足够信息，这时就将这个事物称为抽象事物</span><br><span class="line">abstract 抽象</span><br><span class="line">extends  继承</span><br><span class="line">面对抽象的事物，虽然不具体，但是可以简单化。</span><br><span class="line">抽象的特点：</span><br><span class="line">	抽象方法一定定义在抽象类中,abstract来修饰</span><br><span class="line">	抽象类不能实例化，不能使用new关键字</span><br><span class="line">	只有子类中子类覆盖了所有的抽象方法后，子类就可以创建对象</span><br><span class="line">	如果没有覆盖了所有的抽象方法，那么子类仍然是一个抽象类</span><br><span class="line">抽象类也是不断向上抽取而来的，抽取了方法的声明而不确定具体的内容</span><br><span class="line">问题：</span><br><span class="line">抽象类中有构造函数吗？</span><br><span class="line">	有构造函数，抽象类的构造函数虽然不能给抽象类对象实例化，因为抽象类不能创建对象</span><br><span class="line">	但是抽象类有子类，它的构造函数可以给子类的对象实例化</span><br><span class="line">	抽象类与一般类的区别：</span><br><span class="line">	相同：都是用来描述事物，对其进行属性和行为的描述</span><br><span class="line">	不同：抽象类描述事物的信息不具体，一般类描述事物的信息具体</span><br><span class="line">	代码的不同：</span><br><span class="line">	抽象类中可以定义抽象方法，但是一般类不行</span><br><span class="line">	抽象类不可以实例化，一般类可以</span><br><span class="line">抽象类一定是父类？</span><br><span class="line">	是得。必须子类覆盖抽象方法后，才可以实例化，使用这些方法。</span><br><span class="line">抽象类中可以不定义抽象方法？</span><br><span class="line">	仅仅是让该类不能创建对象</span><br><span class="line">abstract关键与啥关键字不能共存？</span><br><span class="line">final：不可以存在子类，不可以被继承;private:不支持覆盖;static：类名调用方法</span><br><span class="line">需求：公司中程序员有姓名，工号，薪水，内容。</span><br><span class="line">	  项目经理有姓名，工号，薪水，内容，奖金。</span><br><span class="line">	  进行数学建模</span><br><span class="line">*/</span><br><span class="line">abstract class Employer</span><br><span class="line">&#123;</span><br><span class="line">	private String name;</span><br><span class="line">	private String id;</span><br><span class="line">	private double pay;</span><br><span class="line">	</span><br><span class="line">	Employer(String name,String id,double pay)</span><br><span class="line">	&#123;</span><br><span class="line">		this.name = name;</span><br><span class="line">		this.id = id;</span><br><span class="line">		this.pay = pay;</span><br><span class="line">	&#125;</span><br><span class="line">	public abstract void work();</span><br><span class="line">&#125;</span><br><span class="line">class Programmer extends Employer</span><br><span class="line">&#123;</span><br><span class="line">	Programmer(String name,String id,double pay)</span><br><span class="line">	&#123;</span><br><span class="line">		super(name,id,pay);</span><br><span class="line">	&#125;</span><br><span class="line">	public void work()</span><br><span class="line">	&#123;</span><br><span class="line">		System.out.println(&quot;code&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class Mangers extends Employer</span><br><span class="line">&#123;</span><br><span class="line">	private double prices;</span><br><span class="line">	Manhers(String name,String id,double pay,double prices)</span><br><span class="line">	&#123;</span><br><span class="line">		super(name,id,pay);</span><br><span class="line">		this.prices = prices;</span><br><span class="line">	&#125;</span><br><span class="line">	public void work()</span><br><span class="line">	&#123;</span><br><span class="line">		System.out.println(&quot;hold on&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/06/6-2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/06/6-2/" itemprop="url">接口</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-06T00:00:00+08:00">
-                2018-07-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>接口<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">抽象类中的所有方法都是抽象的。</span><br><span class="line">这时，可以把抽象类用另外一种形式表示：接口</span><br><span class="line">初期可以将接口理解为特殊的抽象类。</span><br><span class="line">*/</span><br><span class="line">//定义接口</span><br><span class="line">interface Inter</span><br><span class="line">&#123;</span><br><span class="line">	public static final int NUM = 4;</span><br><span class="line">	public abstract void show1();</span><br><span class="line">	public abstract void show2();</span><br><span class="line">&#125;</span><br><span class="line">/*</span><br><span class="line">接口中的成员和class定义的不同之处：</span><br><span class="line">接口中常见的成员有2种，1.全局变量 2.抽象方法</span><br><span class="line">而且都有固定的修饰符，共性：成员都是public修饰的</span><br><span class="line">接口的特点：</span><br><span class="line">1接口不可以实例化</span><br><span class="line">2需要覆盖了接口中的所有的抽象方法的子类，才可以实例化</span><br><span class="line">否则，该子类还是一个抽象类</span><br><span class="line">3接口是用来被实现的。</span><br><span class="line">类与接口的实现关系</span><br><span class="line">*/</span><br><span class="line">class Demo implements/*实现*/Inter</span><br><span class="line">&#123;</span><br><span class="line">	public void show1()&#123;&#125;;</span><br><span class="line">	public void show2()&#123;&#125;;</span><br><span class="line">&#125;</span><br><span class="line">class InterfaceDemo</span><br><span class="line">&#123;</span><br><span class="line">	public static void main(String args)&#123;</span><br><span class="line">		Demo d = new Demo();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">/*</span><br><span class="line">多继承的好处：可以让子类具备更多的功能。坏处：调用的不确定性(原因是方法主体内容不同)</span><br><span class="line">接口的出现解决java中的多继承问题。</span><br><span class="line">接口避免了单继承的局限性。继承是为了获取体系中的基本功能，想要扩展功能可以通过实现接口来完成。</span><br><span class="line">*/</span><br><span class="line">interface InterA</span><br><span class="line">&#123;</span><br><span class="line">	void show();</span><br><span class="line">&#125;</span><br><span class="line">interface InterB</span><br><span class="line">&#123;</span><br><span class="line">	void show();</span><br><span class="line">&#125;</span><br><span class="line">class ManyInterface implements/*实现*/InterA,InterB//多实现</span><br><span class="line">&#123;</span><br><span class="line">	public void show()&#123;</span><br><span class="line">		System.out.println(&quot;sad&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class ManyInterfaceDemo</span><br><span class="line">&#123;</span><br><span class="line">	public static void main(String[] args)&#123;</span><br><span class="line">		ManyInterface I = new ManyInterface();</span><br><span class="line">		I.show();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">/*</span><br><span class="line">类与类之间：is a 继承</span><br><span class="line">类与接口：like a 实现</span><br><span class="line">接口与接口：继承(可以多继承，因为接口无主体)</span><br><span class="line">interface Inter2 extends InterA,InterB</span><br><span class="line">*/</span><br><span class="line">/*</span><br><span class="line">抽象类中不完全是抽象方法。</span><br><span class="line">需要部分方法，但是为了实例化，必须要进行全覆盖。</span><br><span class="line">可以使用ABC来说明</span><br><span class="line">A为接口</span><br><span class="line">B是一个实现所有功能的类（没有抽象方法的抽象类，用来方便创建接口的对象）空实现</span><br><span class="line">C是用来继承B中的东西</span><br><span class="line">接口的思想：对外提供的东西称之为接口</span><br><span class="line">接口的好处：</span><br><span class="line">	1扩展了功能</span><br><span class="line">	2暴漏出来的规则</span><br><span class="line">	3解耦</span><br><span class="line">接口的一方在使用接口，一方在实现接口</span><br><span class="line">基本描述功能的东西使用class，父类is a关系</span><br><span class="line">类：描述事物的共性基本功能</span><br><span class="line">接口：定义基本功能的额外功能</span><br><span class="line">抽象和类的区别：</span><br><span class="line">	抽象类中可以定义抽象和非抽象方法，子类可以直接使用，或者覆盖使用</span><br><span class="line">	接口中定义的都是抽象方法，必须实现使用。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">*/</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/06/6-1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/06/6-1/" itemprop="url">多态</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-06T00:00:00+08:00">
-                2018-07-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>多态的简单使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">多态：多种形态</span><br><span class="line">重点：对象的多态</span><br><span class="line">多态在程序中的体现：父类的引用或者接口的引用指向了子类的对象</span><br><span class="line">多态的前提：</span><br><span class="line">	1必须有关系，继承，实现。</span><br><span class="line">	2通常有覆盖</span><br><span class="line">*/</span><br><span class="line">abstract class Animal</span><br><span class="line">&#123;</span><br><span class="line">	abstract void eat();</span><br><span class="line">&#125;</span><br><span class="line">class Dog extends Animal </span><br><span class="line">&#123;</span><br><span class="line">	void eat()</span><br><span class="line">	&#123;</span><br><span class="line">		System.out.println(&quot;吃骨头&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	void loolHome()</span><br><span class="line">	&#123;</span><br><span class="line">		System.out.println(&quot;看家&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class Cat extends Animal </span><br><span class="line">&#123;</span><br><span class="line">	void eat()</span><br><span class="line">	&#123;</span><br><span class="line">		System.out.println(&quot;吃私聊&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	void haha()</span><br><span class="line">	&#123;</span><br><span class="line">		System.out.println(&quot;asdf&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class DuoTaiDemo</span><br><span class="line">&#123;</span><br><span class="line">	public static void main(String[] args)&#123;</span><br><span class="line">	//	Dog d = new Dog();</span><br><span class="line">	//	d.eat();</span><br><span class="line">	//	d.loolHome();</span><br><span class="line">		//多态形式</span><br><span class="line">		Animal a = new Dog();//向上转型</span><br><span class="line">		//隐藏了子类型，提高了代码的扩展性</span><br><span class="line">		//只能使用父类中的功能，不能使用子类特有功能，子类功能被限定</span><br><span class="line">		if(!(a instanceof Dog))//来进行判断</span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println(&quot;转型错误&quot;);</span><br><span class="line">			return ;</span><br><span class="line">		&#125;</span><br><span class="line">		Dog d = (Dog)a;//向下转型</span><br><span class="line">		//好处：可以使用子类型的特定功能 </span><br><span class="line">		//弊端：面对具体的子类型，向下转型有风险。容易发生转换类型异常。</span><br><span class="line">		//使用instanceof 对象 instanceof 类型</span><br><span class="line">		//转型过程中,只有子类对象做着变换。</span><br><span class="line">		a.eat();</span><br><span class="line">		d.loolHome();</span><br><span class="line">		//a.loolHome();不能使用子类的特有方法</span><br><span class="line">	&#125;</span><br><span class="line">	public static void method(Animal a) //面对共性类型，所有的子类对象都可以接受，提高了代码的扩展性</span><br><span class="line">	&#123;</span><br><span class="line">		a.eat();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>多态的小练习<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">问题1：</span><br><span class="line">笔记本电脑运行，笔记本中存在一个运行功能</span><br><span class="line">问题2：</span><br><span class="line">想使用一个鼠标，又有一个功能使用鼠标，并多了一个鼠标对象</span><br><span class="line">问题3：</span><br><span class="line">想使用一个键盘</span><br><span class="line">*/</span><br><span class="line">/*问题1</span><br><span class="line">class NoteBook</span><br><span class="line">&#123;</span><br><span class="line">	public void run()</span><br><span class="line">	&#123;</span><br><span class="line">		System.out.println(&quot;notebook run&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">*/</span><br><span class="line">interface USB</span><br><span class="line">&#123;</span><br><span class="line">	/**</span><br><span class="line">	设备的开启与关闭</span><br><span class="line">	*/</span><br><span class="line">	public void open();</span><br><span class="line">	public void close();</span><br><span class="line">&#125;</span><br><span class="line">class NoteBook</span><br><span class="line">&#123;</span><br><span class="line">	public void run()</span><br><span class="line">	&#123;</span><br><span class="line">		System.out.println(&quot;notebook run&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	public void useUSB(USB usb)//定义了一个接口类型的引用</span><br><span class="line">	&#123;</span><br><span class="line">		if(usb!=null)</span><br><span class="line">		&#123;</span><br><span class="line">			usb.open();</span><br><span class="line">			usb.close();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class MouseByMyself implements USB</span><br><span class="line">&#123;</span><br><span class="line">	public void open()</span><br><span class="line">	&#123;</span><br><span class="line">		System.out.println(&quot;Mouse open&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	public void close()</span><br><span class="line">	&#123;</span><br><span class="line">		System.out.println(&quot;Mouse close&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class DuoJieKouDemo</span><br><span class="line">&#123;</span><br><span class="line">	public static void main(String[] args)</span><br><span class="line">	&#123;</span><br><span class="line">		NoteBook book = new NoteBook();</span><br><span class="line">		book.run();</span><br><span class="line">		book.useUSB(null);</span><br><span class="line">		book.useUSB(new MouseByMyself ());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/05/5-1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/05/5-1/" itemprop="url">构造函数+静态static</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-05T00:00:00+08:00">
-                2018-07-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>构造函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">class Person&#123;</span><br><span class="line">	//将Person对象进行初始化。</span><br><span class="line">	private int age;</span><br><span class="line">	private String name;</span><br><span class="line">	/*</span><br><span class="line">	void Person()//可以存在,一般函数,不符合规范</span><br><span class="line">	&#123;</span><br><span class="line">	&#125;</span><br><span class="line">	*/</span><br><span class="line">	private Person(String n)</span><br><span class="line">	&#123;</span><br><span class="line">		name = n;</span><br><span class="line">	&#125;</span><br><span class="line">	Person(String n,int a)</span><br><span class="line">	&#123;</span><br><span class="line">		this(n);</span><br><span class="line">		/*</span><br><span class="line">		if(a&lt;0)	</span><br><span class="line">		 return;</span><br><span class="line">		//从哪里返回就从哪里结束,可以得到马杰的默认值,年龄为0;实际是对于int和String类型的默认初始化。</span><br><span class="line">		*/</span><br><span class="line">		age = a;</span><br><span class="line">	&#125;</span><br><span class="line">	//构造函数</span><br><span class="line">	public void setName(String n)&#123;</span><br><span class="line">		name = n;</span><br><span class="line">	&#125;</span><br><span class="line">	public String getName()&#123;</span><br><span class="line">		return name;</span><br><span class="line">	&#125;</span><br><span class="line">	public void setAge(int a)&#123;</span><br><span class="line">		age=a;</span><br><span class="line">	&#125;</span><br><span class="line">	public int getAge()&#123;</span><br><span class="line">		return age;</span><br><span class="line">	&#125;</span><br><span class="line">	public void show()&#123;</span><br><span class="line">		System.out.print(&quot;name=&quot;+name+&quot;,age=&quot;+age);</span><br><span class="line">	&#125;</span><br><span class="line">	Person()&#123;&#125;;</span><br><span class="line">&#125;</span><br><span class="line">class PersonDemo&#123;</span><br><span class="line">	public static void main(String[] args)&#123;</span><br><span class="line">		Person p = new Person(&quot;xiaoming&quot;,21);//创建一个对象，描述事物符合现实生活，Person对象一建立就有姓名和年龄。</span><br><span class="line">	//java中的构造函数可以解决对象的初始化问题。</span><br><span class="line">	//	p.setAge(20); //后续的修改对象的值</span><br><span class="line">	//	p.setName(&quot;杜瑶&quot;);</span><br><span class="line">		p.show();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>静态<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">class Person_static&#123;</span><br><span class="line">	private int age;</span><br><span class="line">	private String name;</span><br><span class="line">	public void setName(String n)&#123;</span><br><span class="line">		name = n;</span><br><span class="line">	&#125;</span><br><span class="line">	public String getName()&#123;</span><br><span class="line">		return name;</span><br><span class="line">	&#125;</span><br><span class="line">	public static void sleep()&#123;</span><br><span class="line">		System.out.println(&quot;asdfjh&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class StaticDemo&#123;</span><br><span class="line">	public static void main(String[] args)&#123;</span><br><span class="line">		Person_static.sleep();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/05/5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/05/5/" itemprop="url">面向对象的思想</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-05T00:00:00+08:00">
-                2018-07-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>对象和过程<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">大象装进冰箱里：</span><br><span class="line">面向过程：</span><br><span class="line">	1打开冰箱</span><br><span class="line">	2存入大象</span><br><span class="line">	3关闭冰箱</span><br><span class="line">	注重过程或者说是行为的思考方式。</span><br><span class="line">	注重一个个的功能。</span><br><span class="line">语言:C,basic</span><br><span class="line"></span><br><span class="line">面向对象：基于面向过程，将过程进行对象的封装，解决问题找对象。</span><br><span class="line">特点：</span><br><span class="line">	1符合现代人们思考习惯的思想。</span><br><span class="line">	2从过程的执行者转换成为对象的指挥者。</span><br><span class="line">	3将复杂问题简单化。</span><br><span class="line">	缺点：将简单问题复杂化</span><br><span class="line">对象封装了一个个的过程。</span><br><span class="line">	实体是对象</span><br><span class="line">	冰箱打开</span><br><span class="line">	冰箱存储</span><br><span class="line">	冰箱关闭</span><br><span class="line">语言：C++,C#,java</span><br></pre></td></tr></table></figure></p>
-<p>面向对象例子<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">例如：买电脑，自己一步步的查价，砍价，挑货是面向过程。找一个懂行的人来帮你进行查价，砍价等等一系列操作。</span><br><span class="line">公司有了项目之后,肯定需要人来开发,你当然也可以自己做,你完全可以具备开发功能的人来做这个项目。</span><br><span class="line">洗衣服，自己洗,找个对象,洗衣机。</span><br></pre></td></tr></table></figure></p>
-<p>类：用于描述事物的<br>对象：该类事物具体的个体<br>类就是由成员组成<br>属性对应类中的成员变量<br>行为对应类中的成员方法<br>局部变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">定义在方法中的变量是局部变量	</span><br><span class="line">	//new的作用在堆内存中创建一片空间。</span><br><span class="line">	Car c = new Car();</span><br><span class="line">	//创建一个Car类型的变量c,指向了Car类型的对象;</span><br><span class="line">	//根据.class来创建c。</span><br><span class="line">	//对象在堆里面封装数据的成员变量</span><br><span class="line">	//匿名对象可以作为实际参数进行传递。</span><br><span class="line">	//如果对象对方法只进行一次调用,可以简化为匿名对象的形式</span><br><span class="line">	//Car c=new Car();</span><br><span class="line">	//c.run(); 等价于new Car().run();</span><br></pre></td></tr></table></figure></p>
-<p>成员变量与局部变量区别<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1源代码定义的位置不同</span><br><span class="line">成员变量定义在类中</span><br><span class="line">局部变量定义在方法中(只要是类的下一级大括号中都是局部的)，也可以定义在语句中。</span><br><span class="line">2内存中的存储位置不同</span><br><span class="line">成员变量存储在堆内存的对象中</span><br><span class="line">局部变量存储在栈内存的方法中</span><br><span class="line">3生命周期不同</span><br><span class="line">成员变量随着对象的出现而出现</span><br><span class="line">局部变量随着所属区间的运行而出现，随着所属区间的释放而消失。</span><br></pre></td></tr></table></figure></p>
-<p>构造函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">之前定义的函数都是一般函数，用于描述事物应该具备的功能</span><br><span class="line">构造函数：专门给对象进行初始化的功能。 </span><br><span class="line">构造函数的格式：</span><br><span class="line">1函数名和类名相同</span><br><span class="line">2没有返回值类型</span><br><span class="line">3没有具体的返回值</span><br><span class="line">主函数：用于虚拟机的识别。格式是死的。</span><br><span class="line">区别：</span><br><span class="line">构造函数在对象创建时就执行了，而且只执行一次。</span><br><span class="line">多构造函数在类中的使用就是重载。</span><br><span class="line">一般函数在创建后，需要才被对象调用，可以调用多次.</span><br><span class="line">注意：定义的每一个类中，都有一个默认的空参数构造函数</span><br><span class="line">一旦在类中自定义构造函数，默认的构造函数就不存在了。</span><br><span class="line">//不存在的意思就是Person()();完全不存在了,不是说调用Person();就可以实现默认参数的赋值，而是必须在其中定义Person();才可以使用。</span><br><span class="line">默认的构造函数：Person()&#123;&#125;;//类中默认的空参数构造函数,用于对象的初始化。</span><br><span class="line">return是用来结束函数的,故构造函数有返回值。</span><br><span class="line">构造函数可以私有化，只在本类中使用</span><br><span class="line">&#123;</span><br><span class="line">	构造函数在本类中的使用，只能被构造函数访问，不能被一般函数访问。</span><br><span class="line">	构造函数的访问可以通过关键字this进行访问。</span><br><span class="line">	this用在本类中。</span><br><span class="line">	this(参数列表);可以访问本类中的其他构造函数。</span><br><span class="line">	比如 this(&quot;ls&quot;);访问的就是本类中含有一个参数的构造函数</span><br><span class="line">	this用于调用构造函数的this语句必须放在第一行，因为初始化动作要最先执行，放在后面的话会被覆盖。</span><br><span class="line">	this 之间的相互调用是不行的，错误称之为递归溢出。</span><br><span class="line">	一个构造函数中不能调用2个构造函数。</span><br><span class="line">	this 代表当前对象。</span><br><span class="line">	所有直接被对象调用的方法都有this引用。(凡是访问了对象的数据的方法都有this引用)</span><br><span class="line">	当局部变量和成员变量重名时，使用this</span><br><span class="line">	Boolean bijao(Person pp)&#123;</span><br><span class="line">		return (pp.age==this.age);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">构造函数一经私有化，其他程序无法对创建的对象进行初始化</span><br></pre></td></tr></table></figure></p>
-<p>static<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">通过对象和类名都可以访问到方法。一般是使用对象,当一个方法中没有访问到该类中的数据，使用static修饰方法，通过类名的方式进行访问。</span><br><span class="line">static 就是成员修饰符，</span><br><span class="line">特点：被static修饰成员，可以直接被类名所使用</span><br><span class="line">静态成员优先于对象存在。</span><br><span class="line">静态成员随着类的加载而加载,随着类的消失而消失。</span><br><span class="line">优点=生命周期很长。</span><br><span class="line">注意事项：</span><br><span class="line">静态方法只能访问静态变量，不能访问非静态成员，这就是静态方法的访问局限性</span><br><span class="line">静态的方法中不能出现this或者super关键字</span><br><span class="line">主函数是静态的。</span><br><span class="line">成员变量：如果数据在所有对象中都是一样的，直接静态修饰</span><br><span class="line">成员函数：如果函数中没有访问对象的属性数据，那么该函数就是静态的。</span><br><span class="line">成员变量和静态变量区别：</span><br><span class="line">成员变量也叫实例变量。</span><br><span class="line">静态变量也叫类变量。</span><br><span class="line">成员变量存储在堆内存的对象中。</span><br><span class="line">静态变量存储在方法区的静态区</span><br><span class="line">成员变量随着对象的出现而出现，随着对象的消失而消失。</span><br><span class="line">静态变量随着类的出现而出现，随着类的消失而消失。</span><br><span class="line">成员变量有可能会在堆内存中出现多次。</span><br><span class="line">静态变量在内存中只有一份。</span><br><span class="line">静态代码块：随着类的加载而执行，而且仅仅执行一次。</span><br><span class="line">作用：给类进行初始化。</span><br><span class="line">static //静态代码块</span><br><span class="line">&#123;</span><br><span class="line">	Sop();</span><br><span class="line">&#125;</span><br><span class="line">静态代码块的使用注意：</span><br><span class="line">1只能定义在类中，独立于任何方法，不能定义在方法里面</span><br><span class="line">2其中的变量都是局部变量，只在本块有效</span><br><span class="line">3在类加载时自动执行</span><br><span class="line">4可以在类中定义多个静态代码块，顺序执行</span><br><span class="line">5静态代码块只能访问类中的静态成员，不能访问非静态成员。</span><br></pre></td></tr></table></figure></p>
-<p>构造函数的执行过程<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1super();</span><br><span class="line">2显示初始化</span><br><span class="line">3构造代码块初始化。</span><br><span class="line">private int age = 8;//显示初始化</span><br><span class="line">&#123;</span><br><span class="line">	sop();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>创建对象的过程<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1加载指定的字节码文件</span><br><span class="line">2通过new在堆内存中开辟空间,分配首地址值，</span><br><span class="line">3对对象中的属性进行默认初始化</span><br><span class="line">4调用与之对应的构造函数，构造函数进栈</span><br><span class="line">5构造函数中执行隐式的语句super();访问父类中的构造函数</span><br><span class="line">6对属性进行显示初始化</span><br><span class="line">7调用类中的构造代码块</span><br><span class="line">8执行构造函数中自定义的初始化代码</span><br><span class="line">9初始化完毕,将地址赋值给指定的引用</span><br></pre></td></tr></table></figure></p>
-<p>局部代码块：可以控制局部变量的生命周期。<br>设计模式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">解决某一类问题的一种思想，是一种行之有效的解决方式</span><br><span class="line">23种模式</span><br><span class="line">单例设计模式：</span><br><span class="line">解决问题：保证一个类的对象在内存中的唯一性</span><br><span class="line">应用场景：多个程序操纵同一个配置文件，需要程序A之后的结果，程序B需要继续基于A操作后的结果进行操纵。</span><br><span class="line">	前提：数据都存储在配置文件中，要求A和B操作的配置文件是同一个。</span><br><span class="line">	思路：</span><br><span class="line">	1问题是其他程序都可以通过new创建该类的对象，无法控制数量。</span><br><span class="line">	所以，不让其他程序new。</span><br><span class="line">	2那第一步的问题也就产生了,那其他程序不就没有对象了吗？</span><br><span class="line">	在本类中new一个对象，好处是不让别的程序new，可以实现数量的控制</span><br><span class="line">	3对外提供让其他程序获取该对象的方式。</span><br><span class="line">	步骤：</span><br><span class="line">	1不让其他程序new对象</span><br><span class="line">	可以将类中的构造函数私有化</span><br><span class="line">	2在本类中new一个对象</span><br><span class="line">	3定义一个方法返回该对象</span><br></pre></td></tr></table></figure></p>
-<p>面向对象的三大特征:封装+继承+多态<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">封装:隐藏实现细节，对外提供接口</span><br><span class="line">封装的体现之一:将属性都私有化，对外提供对应的set,get方法来进行访问</span><br><span class="line">封装的好处：</span><br><span class="line">	1提高了安全性，不允许直接访问细节，并通过公共的方式进行访问，可以实现可控</span><br><span class="line">	2提高了易用性</span><br><span class="line">	3提高了复用性</span><br><span class="line">	4隔离的变化。--接口有关</span><br><span class="line">继承(extends)</span><br><span class="line">	1提高了复用性</span><br><span class="line">	2使得类与类之间产生了关系</span><br><span class="line">	3为多态提供了关系</span><br><span class="line">	java支持单继承，不直接支持多继承</span><br><span class="line">/*</span><br><span class="line">单继承：一个类只有一个父类</span><br><span class="line">多继承：一个类可以有多个父类，java不直接支持多继承()</span><br><span class="line">调用的不确定性</span><br><span class="line">因为方法的主体不同，可以让子类产生更多的功能</span><br><span class="line">多层次继承：学习一个继承体系，先看顶层，了解体系中的具备的学习功能，使用时，用体系中最下面的东东</span><br><span class="line">当事物之间存在所属(is a)关系，可以通过继承来体现这种关系</span><br><span class="line">父类中私有部分，子类无法直接访问</span><br><span class="line">super代表父类的那片空间</span><br><span class="line">this代表子类的那个对象</span><br><span class="line">覆盖(override)(重显):当子父类中出现一模一样的方法时，子类的对象运行的是子类的方法。所有的都一致。</span><br><span class="line">注意事项：</span><br><span class="line">	子类方法覆盖父类方法，必须保证子类权限大于等于父类中的权限</span><br><span class="line">	静态只能被静态或者覆盖静态</span><br><span class="line">子父类中构造函数的特点：</span><br><span class="line">	创建子类时，父类中的空参数构造函数也执行了，因为子类中所有的构造函数默认第一行为隐士super();语句</span><br><span class="line">	调用本类中的构造函数用this，调用父类中的构造函数用super(实参列表);</span><br><span class="line">	子类继承了父类中的内容，必须查看父类中如何对内容进行初始化。这就是子类的实例化过程</span><br><span class="line">	注意事项：</span><br><span class="line">		当父类中没有空参数构造函数，子类需要通过显示定义super语句来指定需要访问的父类中的构造函数</span><br><span class="line">		用来调用父类中的super()语句必须放在第一行，因为初始化必须先完成</span><br><span class="line">		this和super语句不可以同时存在。因为他们只能定义在第一行</span><br><span class="line">		子类至少会有一个构造函数的super去父类</span><br></pre></td></tr></table></figure></p>
-<p>final关键字。最终<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1final修饰符，可以修饰类，修饰方法，修饰变量</span><br><span class="line">2final修饰的类不可以被继承.</span><br><span class="line">3final修饰的方法不可以被覆盖(复写).</span><br><span class="line">4final修饰的变量是一个常量，只能赋值一次，当使用的数据不变时，需要定义阅读性强的名称表示该数据，并将其数据final化</span><br><span class="line">被final修饰的变量，名称规范是：所有字母都大写SING_INGSTAFD</span><br><span class="line">final固定的是显示初始化值，不是默认值</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/05/5-2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/05/5-2/" itemprop="url">私有private+单例设计模式</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-05T00:00:00+08:00">
-                2018-07-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>private的应用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">class Person&#123;</span><br><span class="line">	private /*权限修饰符，私有，降低了访问权限*/int age;</span><br><span class="line">	//私有的数据，可以使用方法来进行访问</span><br><span class="line">	public void setAge(int a)&#123;</span><br><span class="line">	/*实现对于数据的控制*/</span><br><span class="line">	if(a&lt;0||a&gt;130)&#123;</span><br><span class="line">		//抛出异常</span><br><span class="line">	throw new RuntimeException(a+&quot;数值是错误的&quot;);</span><br><span class="line">	&#125;else&#123;</span><br><span class="line">	age = a;</span><br><span class="line">	&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	public int getAge()&#123;</span><br><span class="line">		return age;</span><br><span class="line">	&#125;</span><br><span class="line">	void speak()&#123;</span><br><span class="line">	System.out.println(&quot;age&quot;+age);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class fengzhuang1&#123;</span><br><span class="line">	public static void main(String[] args)&#123;</span><br><span class="line">		Person p =new Person();</span><br><span class="line">	//	p.age=20;</span><br><span class="line">		p.setAge(20);</span><br><span class="line">		p.speak();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>单例设计模式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">设计模式：解决某一类问题的一种思想，是一种行之有效的解决方式</span><br><span class="line">23种模式</span><br><span class="line">单例设计模式：</span><br><span class="line">解决问题：保证一个类的对象在内存中的唯一性</span><br><span class="line">应用场景：多个程序操纵同一个配置文件，需要程序A之后的结果，程序B需要继续基于A操作后的结果进行操纵。</span><br><span class="line">	前提：数据都存储在配置文件中，要求A和B操作的配置文件是同一个。</span><br><span class="line">	思路：</span><br><span class="line">	1问题是其他程序都可以通过new创建该类的对象，无法控制数量。</span><br><span class="line">	所以，不让其他程序new。</span><br><span class="line">	2那第一步的问题也就产生了,那其他程序不就没有对象了吗？</span><br><span class="line">	在本类中new一个对象，好处是不让别的程序new，可以实现数量的控制</span><br><span class="line">	3对外提供让其他程序获取该对象的方式。</span><br><span class="line">	步骤：</span><br><span class="line">	1不让其他程序new对象</span><br><span class="line">	可以将类中的构造函数私有化</span><br><span class="line">	2在本类中new一个对象</span><br><span class="line">	3定义一个方法返回该对象</span><br><span class="line">*/</span><br><span class="line">//饿汉式</span><br><span class="line">class Single&#123;</span><br><span class="line">	private Single()&#123;&#125;;//构造函数私有化</span><br><span class="line">	static Single S = new Single();//new一个对象</span><br><span class="line">	static Single getInstance()&#123; //返回该对象。定义方法来实现可控。</span><br><span class="line">		return S;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">/*延迟加载，懒汉式，另一种形式</span><br><span class="line">class Single &#123;</span><br><span class="line">	private static Single s = null;</span><br><span class="line">	private Single()&#123;&#125;</span><br><span class="line">	public static Single getInstance()&#123;</span><br><span class="line">		if(s==null)</span><br><span class="line">		s = new Single;</span><br><span class="line">	return s;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">*/</span><br><span class="line">class SingleDemo&#123;</span><br><span class="line">	public static void main(String[] args)&#123;</span><br><span class="line">	Single s1 = Single.getInstance();</span><br><span class="line">	//在方法区的静态区中保存着S指向堆内存中的new Single,调用Single.getInstance使得.getInstance进栈</span><br><span class="line">	//从而使得s1指向堆内存的new Single；</span><br><span class="line">	Single s2 = Single.getInstance();</span><br><span class="line">	System.out.println(s1==s2);//由此可知，他们的指向是同一个堆内存的地址。</span><br><span class="line">	  </span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class SuperMan&#123;</span><br><span class="line">	private String name;</span><br><span class="line">	</span><br><span class="line">	private static SuperMan man = new SuperMan(&quot;blank&quot;);</span><br><span class="line">	private SuperMan(String name)</span><br><span class="line">	&#123;</span><br><span class="line">		this.name =name;</span><br><span class="line">	&#125;</span><br><span class="line">	public void setName(String name)</span><br><span class="line">	&#123;</span><br><span class="line">		this.name = name;</span><br><span class="line">	&#125;</span><br><span class="line">	public String getName()&#123;</span><br><span class="line">		return name;</span><br><span class="line">	&#125;</span><br><span class="line">	public static SuperMan getInstance()&#123;</span><br><span class="line">		return man;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class SuperManDemo&#123;</span><br><span class="line">	public static void main(String[] args)&#123;</span><br><span class="line">	SuperMan s1 = SuperMan.getInstance();</span><br><span class="line">	String s2 = s1.getName();</span><br><span class="line">	System.out.println(s2);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1485,7 +1476,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
