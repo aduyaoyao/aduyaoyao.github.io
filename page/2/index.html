@@ -229,6 +229,249 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/18/12-6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/18/12-6/" itemprop="url">集合元素取出</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-18T00:00:00+08:00">
+                2018-07-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>3种集合元素取出的方式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">package Day5;</span><br><span class="line"></span><br><span class="line">import java.util.Enumeration;</span><br><span class="line">import java.util.Iterator;</span><br><span class="line">import java.util.Vector;</span><br><span class="line"></span><br><span class="line">public class Demo3 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		//具备枚举取出方式的容器只有Vector</span><br><span class="line">		//Enumeration:枚举</span><br><span class="line">		Vector v =new Vector();</span><br><span class="line">		v.add(&quot;sa&quot;);</span><br><span class="line">		v.add(&quot;as&quot;);</span><br><span class="line">		Enumeration en = v.elements();</span><br><span class="line">		while(en.hasMoreElements())</span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println(en.nextElement());</span><br><span class="line">		&#125;</span><br><span class="line">		for(Enumeration e = v.elements();e.hasMoreElements();)</span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println(e.nextElement());</span><br><span class="line">		&#125;</span><br><span class="line">		for (Iterator it = v.iterator(); it.hasNext();) &#123;</span><br><span class="line">			System.out.println(it.next());</span><br><span class="line">		&#125;</span><br><span class="line">		for(Object obj:v) &#123;</span><br><span class="line">			System.out.println(obj);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>增强for的使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">package Day5;</span><br><span class="line"></span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.Collection;</span><br><span class="line"></span><br><span class="line">public class Demo2 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		/*</span><br><span class="line">		 * jdk1.5之后出现的foreach——增强for循环</span><br><span class="line">		 * 作用：遍历collection和数组</span><br><span class="line">		 * 格式：</span><br><span class="line">		 * foreach（元素类型变量：collectionor数组）</span><br><span class="line">		 * 传统for和增强for的区别：</span><br><span class="line">		 * 增强for必须有被遍历的目标，该目标只能是coll或者数组*/</span><br><span class="line">		Collection coll = new ArrayList();</span><br><span class="line">		coll.add(&quot;as&quot;);</span><br><span class="line">		coll.add(&quot;asd&quot;);</span><br><span class="line">		for(Object obj :coll) &#123;</span><br><span class="line">			System.out.println(obj);</span><br><span class="line">		&#125;</span><br><span class="line">		//对于数组的遍历，如果不操作其角标，可以使用增强for</span><br><span class="line">		int [] arr = &#123;1,12,23&#125;;</span><br><span class="line">		for(int x:arr) &#123;</span><br><span class="line">			System.out.println(x);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/17/12-5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/17/12-5/" itemprop="url">treeset的比较方法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-17T00:00:00+08:00">
+                2018-07-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>实现comparable接口<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">package Day5;</span><br><span class="line">import java.util.Iterator;</span><br><span class="line">import java.util.Set;</span><br><span class="line">import java.util.TreeSet;</span><br><span class="line">import Day4.Student;</span><br><span class="line">public class Demo0 &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line"></span><br><span class="line">		/*</span><br><span class="line">		 * set.add(&quot;aca&quot;); set.add(&quot;dsfca&quot;); set.add(&quot;sdafca&quot;); set.add(&quot;dasa&quot;);</span><br><span class="line">		 * set.add(&quot;sddf&quot;); set.add(&quot;sdafca&quot;); set.add(&quot;sddf&quot;);</span><br><span class="line">		 */</span><br><span class="line">		/*</span><br><span class="line">		 * 因为学生要排序，就需要比较，而没有定义比较方法，无法比较 解决：实现Comparable接口的compareTo</span><br><span class="line">		 * add当法使用的是Comparable接口的compareTo</span><br><span class="line">		 */</span><br><span class="line">		Set set = new TreeSet();</span><br><span class="line">		set.add(new Student(&quot;小是&quot;, 25));</span><br><span class="line">		set.add(new Student(&quot;小马&quot;, 20));</span><br><span class="line">		set.add(new Student(&quot;艾弗森&quot;, 22));</span><br><span class="line">		set.add(new Student(&quot;撒旦&quot;, 12));</span><br><span class="line">		for (Iterator it = set.iterator(); it.hasNext();) &#123;</span><br><span class="line">			System.out.println(it.next());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">package Day5;</span><br><span class="line">import java.util.Iterator;</span><br><span class="line">import java.util.Set;</span><br><span class="line">import java.util.TreeSet;</span><br><span class="line">import Day4.Student;</span><br><span class="line">public class Demo1 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">		//初始化一个具有比较功能的集合</span><br><span class="line">		Set set = new TreeSet(new comparator());</span><br><span class="line">		set.add(new Student(&quot;小是&quot;, 25));</span><br><span class="line">		set.add(new Student(&quot;小马&quot;, 20));</span><br><span class="line">		set.add(new Student(&quot;艾弗森&quot;, 22));</span><br><span class="line">		set.add(new Student(&quot;撒旦&quot;, 12));</span><br><span class="line">		for (Iterator it = set.iterator(); it.hasNext();) &#123;</span><br><span class="line">			System.out.println(it.next());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>比较器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">package Day5;</span><br><span class="line">import java.util.Comparator;</span><br><span class="line">import Day4.Student;</span><br><span class="line">//equals默认继承了Object的equals方法。</span><br><span class="line">public class comparator implements Comparator &#123;</span><br><span class="line">	public int compare(Object o1, Object o2) &#123;</span><br><span class="line">		Student s1 =(Student)o1;</span><br><span class="line">		Student s2 =(Student)o2;</span><br><span class="line">		int temp = s1.getName().compareTo(s2.getName());</span><br><span class="line">		return temp==0?s1.getAge()-s2.getAge():temp;</span><br><span class="line">	&#125;</span><br><span class="line">		</span><br><span class="line">&#125;</span><br><span class="line">//自定义了一个比较器，要求学生进行排序</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/16/12-4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1188,248 +1431,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/10/10-2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/10/10-2/" itemprop="url">this锁和类.class</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-10T00:00:00+08:00">
-                2018-07-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>同步代码块使用this锁<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">验证需求：</span><br><span class="line">一个线程负责执行同步代码块（使用明锁）</span><br><span class="line">另外一个线程使用this锁</span><br><span class="line">2个线程执行的任务一致，如果他们没有使用相同的锁，那么就没有同步，会出现数据错误。</span><br><span class="line">*/</span><br><span class="line">class SaleTickets1 implements Runnable</span><br><span class="line">&#123;</span><br><span class="line">	private int ticket = 10000;</span><br><span class="line">	Object obj = new Object();</span><br><span class="line">	//定义一个flag标记</span><br><span class="line">	boolean flag = true;</span><br><span class="line">	public void run()</span><br><span class="line">	&#123;</span><br><span class="line">		if(flag)</span><br><span class="line">		&#123;</span><br><span class="line">		while(true)</span><br><span class="line">		&#123;</span><br><span class="line">			synchronized(this)//使用的锁为this</span><br><span class="line">			&#123;</span><br><span class="line">			if(ticket&gt;0)</span><br><span class="line">			&#123;</span><br><span class="line">			try&#123;Thread.sleep(1);&#125;</span><br><span class="line">			catch(InterruptedException e)&#123;&#125;//让线程在这里停止一下</span><br><span class="line">				System.out.println(Thread.currentThread().getName()+&quot;..&quot;+ticket--);</span><br><span class="line">			&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		else</span><br><span class="line">		&#123;</span><br><span class="line">			while(true)</span><br><span class="line">			sale();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	public synchronized void sale()</span><br><span class="line">	&#123;</span><br><span class="line">		if(ticket&gt;0)</span><br><span class="line">			&#123;</span><br><span class="line">			try&#123;Thread.sleep(1);&#125;</span><br><span class="line">			catch(InterruptedException e)&#123;&#125;//让线程在这里停止一下</span><br><span class="line">				System.out.println(Thread.currentThread().getName()+&quot;..sale&quot;+ticket--);</span><br><span class="line">			&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">//出现数据的错乱是因为DOS的打印</span><br><span class="line">class Demo3</span><br><span class="line">&#123;</span><br><span class="line">	public static void main(String[] args)throws InterruptedException</span><br><span class="line">	&#123;</span><br><span class="line">		SaleTickets1 t = new SaleTickets1();</span><br><span class="line">		//创建4个线程，通过Thread类对象</span><br><span class="line">		Thread h1 = new Thread(t);</span><br><span class="line">		Thread h2 = new Thread(t);</span><br><span class="line">		h1.start();</span><br><span class="line">		Thread.sleep(10);//主线程停一下。</span><br><span class="line">		t.flag = false;</span><br><span class="line">		h2.start();</span><br><span class="line">		</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>静态函数中的锁是当前类的.class<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">静态函数中的锁是？</span><br><span class="line">static方法随着类加载，这时不一定有该类的对象，但是一定有一个该类的字节码文件对象</span><br><span class="line">这个对象的简单表现形式为类名.class </span><br><span class="line">*/</span><br><span class="line">class SaleTickets1 implements Runnable</span><br><span class="line">&#123;</span><br><span class="line">	private static int ticket = 10000;</span><br><span class="line">	Object obj = new Object();</span><br><span class="line">	//定义一个flag标记</span><br><span class="line">	boolean flag = true;</span><br><span class="line">	public void run()</span><br><span class="line">	&#123;</span><br><span class="line">		if(flag)</span><br><span class="line">		&#123;</span><br><span class="line">		while(true)</span><br><span class="line">		&#123;</span><br><span class="line">			synchronized(SaleTickets1.class)//使用的锁为类名.class</span><br><span class="line">			&#123;</span><br><span class="line">			if(ticket&gt;0)</span><br><span class="line">			&#123;</span><br><span class="line">			try&#123;Thread.sleep(1);&#125;</span><br><span class="line">			catch(InterruptedException e)&#123;&#125;//让线程在这里停止一下</span><br><span class="line">				System.out.println(Thread.currentThread().getName()+&quot;..&quot;+ticket--);</span><br><span class="line">			&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		else</span><br><span class="line">		&#123;</span><br><span class="line">			while(true)</span><br><span class="line">			sale();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	public static synchronized void sale()</span><br><span class="line">	&#123;</span><br><span class="line">		if(ticket&gt;0)</span><br><span class="line">			&#123;</span><br><span class="line">			try&#123;Thread.sleep(1);&#125;</span><br><span class="line">			catch(InterruptedException e)&#123;&#125;//让线程在这里停止一下</span><br><span class="line">				System.out.println(Thread.currentThread().getName()+&quot;..sale&quot;+ticket--);</span><br><span class="line">			&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">//出现数据的错乱是因为DOS的打印</span><br><span class="line">class Demo3</span><br><span class="line">&#123;</span><br><span class="line">	public static void main(String[] args)throws InterruptedException</span><br><span class="line">	&#123;</span><br><span class="line">		SaleTickets1 t = new SaleTickets1();</span><br><span class="line">		//创建4个线程，通过Thread类对象</span><br><span class="line">		Thread h1 = new Thread(t);</span><br><span class="line">		Thread h2 = new Thread(t);</span><br><span class="line">		h1.start();</span><br><span class="line">		Thread.sleep(10);//主线程停一下。</span><br><span class="line">		t.flag = false;</span><br><span class="line">		h2.start();</span><br><span class="line">		</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/10/10/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/10/10/" itemprop="url">多线程基础</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-10T00:00:00+08:00">
-                2018-07-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>多线程的基础知识<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">硬盘：持久化存储设备</span><br><span class="line">内存：临时性存储设备</span><br><span class="line">进程：应用程序在内存中分配的空间（正在运行中的程序）</span><br><span class="line">线程：是进程中负责程序执行的执行单元，也称为执行路径。</span><br><span class="line">     如果一个进程中出现了多个线程，称之为多线程程序。</span><br><span class="line">多线程技术：解决多部分代码同时执行的需求。可以合理的使用CPU资源</span><br><span class="line">cpu的分时系统</span><br><span class="line">双核：封装了2个运算核心。</span><br><span class="line">多线程的运行根据cpu的切换完成的。怎么切换cpu说的算</span><br><span class="line">所以多线程运行有一个随机性。（cpu的快速切换造成的）</span><br><span class="line">jvm中的多线程：</span><br><span class="line">至少有2个线程：</span><br><span class="line">一个是负责自定义代码运行的,这个从main方法开始的线程为主线程。</span><br><span class="line">一个是负责垃圾回收的，随着其他线程结束就结束了</span><br><span class="line">通过实践发现每次的结果不一定相同，那是由于cpu的随机性造成的，</span><br><span class="line">而且每一个线程都有自己运行的代码，称之为线程的内容。</span><br><span class="line">之所以创建一个线程是为了去运行制定的任务代码。</span><br><span class="line">而线程的任务都封装在特定的区域中</span><br><span class="line">比如：</span><br><span class="line">主线程运行的任务都定义在main方法中</span><br><span class="line">垃圾回收线程在回收垃圾都会运行finalize方法。</span><br><span class="line">如何建立线程？</span><br><span class="line">1继承Thread类</span><br><span class="line">	继承Thread类</span><br><span class="line">	复写run()方法</span><br><span class="line">	创建子类对象即为创建线程对象</span><br><span class="line">	调用Thread类中的start方法就可以执行线程。并会调用run方法。</span><br><span class="line">	start()开启线程后都会执行run()方法，说明run()方法中存储的是线程要运行的代码</span><br><span class="line">	所以，记住自定义线程的任务代码都存储在run()方法中。</span><br><span class="line">*/</span><br><span class="line">class Demo extends Thread</span><br><span class="line">&#123;</span><br><span class="line">	//定义垃圾回收方法</span><br><span class="line">	public void show()</span><br><span class="line">	&#123;</span><br><span class="line">		for(int i = 0 ;i &lt;= 10; i++)</span><br><span class="line">		System.out.println(Thread.currentThread().getName()+name+&quot;i=&quot;+i);</span><br><span class="line">	&#125;</span><br><span class="line">	private String name;</span><br><span class="line">	Demo(String name)</span><br><span class="line">	&#123;</span><br><span class="line">		this.name = name;		</span><br><span class="line">	&#125;</span><br><span class="line">	public void run()</span><br><span class="line">	&#123;</span><br><span class="line">		show();</span><br><span class="line">	&#125;</span><br><span class="line">	public void start()</span><br><span class="line">	&#123;</span><br><span class="line">		super.start();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">/*</span><br><span class="line">调用start和run方法的区别：</span><br><span class="line">调用start会开启线程，让开启的线程去执行run方法中的线程任务</span><br><span class="line">直接调用run方法，线程并未开启，去执行run方法的只有主方法。</span><br><span class="line">*/</span><br><span class="line">class ThreadDemo</span><br><span class="line">&#123;</span><br><span class="line">	public static void main(String[] args)</span><br><span class="line">	&#123;</span><br><span class="line">		Demo d1 = new Demo(&quot;张三&quot;);</span><br><span class="line">		Demo d2 = new Demo(&quot;李四&quot;);</span><br><span class="line">		d1.start();//做了两件事;1开启线程2调用run方法</span><br><span class="line">		d2.start();</span><br><span class="line">		for(int i = 0 ;i &lt;= 10; i++)</span><br><span class="line">		System.out.println(Thread.currentThread().getName()+&quot;i=&quot;+i);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>多线程的火车票售票实例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">火车售票小示例</span><br><span class="line">*/</span><br><span class="line">class SaleTicket extends Thread</span><br><span class="line">&#123;</span><br><span class="line">	private int ticket = 100;//分开线程任务和资源的方式</span><br><span class="line">	</span><br><span class="line">	//卖票的代码需要多个线程去执行，所以要将这些代码定义在线程任务中。run方法</span><br><span class="line">	public void run()</span><br><span class="line">	&#123;</span><br><span class="line">		while(true)</span><br><span class="line">		&#123;</span><br><span class="line">			if(ticket&gt;0)</span><br><span class="line">			&#123;</span><br><span class="line">				System.out.println(Thread.currentThread().getName()+&quot;..&quot;+ticket--);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class Demo1</span><br><span class="line">&#123;</span><br><span class="line">	public static void main(String[] args)</span><br><span class="line">	&#123;</span><br><span class="line">		//会创建400张票，不合适，不建议票变成静态的，如何共享100张票</span><br><span class="line">		//分开线程任务和资源的方式</span><br><span class="line">		SaleTicket s1 = new SaleTicket();</span><br><span class="line">		SaleTicket s2 = new SaleTicket();</span><br><span class="line">		SaleTicket s3 = new SaleTicket();</span><br><span class="line">		SaleTicket s4 = new SaleTicket();</span><br><span class="line">		s1.start();</span><br><span class="line">		s2.start();</span><br><span class="line">		s3.start();</span><br><span class="line">		s4.start();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1480,7 +1481,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">45</span>
+                  <span class="site-state-item-count">47</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1493,7 +1494,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>

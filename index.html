@@ -229,6 +229,257 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/25/15/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/25/15/" itemprop="url">Calendar和DateFormat</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-25T00:00:00+08:00">
+                2018-07-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>格式化和解析<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">package Day9;</span><br><span class="line"></span><br><span class="line">import java.text.DateFormat;</span><br><span class="line">import java.text.SimpleDateFormat;</span><br><span class="line">import java.util.Date;</span><br><span class="line"></span><br><span class="line">public class Demo0Date &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		// Date演示，在java.util包中，很多已经过期不用了</span><br><span class="line">		// Calendar和DateFormat</span><br><span class="line">		// 生产对象的方法为工厂</span><br><span class="line">		/*</span><br><span class="line">		 * 格式化：日期——文本 </span><br><span class="line">		 * 解析：文本——日期</span><br><span class="line">		 */</span><br><span class="line">		Date date = new Date();</span><br><span class="line">		System.out.println(date);</span><br><span class="line">		// 通过Dateformat类中的静态工厂方法获取实例</span><br><span class="line">		// 加入风格</span><br><span class="line">//		DateFormat dateformat = DateFormat.getDateInstance(DateFormat.FULL);//2019年2月25日 星期一</span><br><span class="line">//		DateFormat dateformat = DateFormat.getDateInstance(DateFormat.LONG);//2019年2月25日 </span><br><span class="line">//		DateFormat dateformat = DateFormat.getDateInstance(DateFormat.MEDIUM);//2019-2-25</span><br><span class="line">//		DateFormat dateformat = DateFormat.getDateInstance(DateFormat.SHORT);//19-2-25</span><br><span class="line">		DateFormat dateformat = DateFormat.getDateTimeInstance(DateFormat.FULL, DateFormat.FULL);</span><br><span class="line">		// 使用DateFormat中的format方法对日期对象进行格式化</span><br><span class="line">		String date_str = dateformat.format(date);</span><br><span class="line">		System.out.println(date_str);</span><br><span class="line">		// 可不可以转换为自定义的格式</span><br><span class="line">		DateFormat dateformat1 = new SimpleDateFormat(&quot;yyyy//MM//dd hh:mm:ss&quot;);</span><br><span class="line">		String date_str1 = dateformat1.format(date);</span><br><span class="line">		System.out.println(date_str1);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>日期解析<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">package Day9;</span><br><span class="line"></span><br><span class="line">import java.text.DateFormat;</span><br><span class="line">import java.text.ParseException;</span><br><span class="line">import java.util.Date;</span><br><span class="line"></span><br><span class="line">public class Demo1 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) throws ParseException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		/*</span><br><span class="line">		 * 日期格式的字符串：2013-7-5 需要将日期格式的字符串转换成日期对象，解析</span><br><span class="line">		 */</span><br><span class="line">		String str_date = &quot;2013-7-5&quot;;</span><br><span class="line">		DateFormat dateformat = DateFormat.getDateInstance();</span><br><span class="line">		Date date = dateformat.parse(str_date);</span><br><span class="line">		System.out.println(date);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>日期对象和毫秒值的转换<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">package Day9;</span><br><span class="line"></span><br><span class="line">import java.text.DateFormat;</span><br><span class="line">import java.util.Date;</span><br><span class="line"></span><br><span class="line">public class Demo2 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		// 日期对象和毫秒值的转换</span><br><span class="line">		long time = System.currentTimeMillis();</span><br><span class="line">		Date date = new Date(time);</span><br><span class="line">		System.out.println(time);</span><br><span class="line">		DateFormat dateformat = DateFormat.getDateInstance(DateFormat.FULL);</span><br><span class="line">		String date_str = dateformat.format(date);</span><br><span class="line">		System.out.println(date_str);</span><br><span class="line">		System.out.println(date);</span><br><span class="line">		//日期对象转换成为毫秒值</span><br><span class="line">		long time1 = date.getTime();</span><br><span class="line">		System.out.println(time1);</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>日历对象<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">package Day9;</span><br><span class="line"></span><br><span class="line">import java.util.Calendar;</span><br><span class="line"></span><br><span class="line">public class Demo3 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		/* 日历对象：Calendar */</span><br><span class="line">		Calendar c = Calendar.getInstance();</span><br><span class="line">		System.out.println(c);</span><br><span class="line">		showCalendar(c);</span><br><span class="line">		</span><br><span class="line">		//对日历对象进行其中日期的定义</span><br><span class="line">		c.set(Calendar.YEAR, 2015);</span><br><span class="line">		showCalendar(c);</span><br><span class="line">		c.set(2015,5,6);</span><br><span class="line">		showCalendar(c);</span><br><span class="line">		//日期的偏移</span><br><span class="line">		c.add(Calendar.YEAR, -5);</span><br><span class="line">		showCalendar(c);</span><br><span class="line">		c.add(Calendar.MONTH, 15);</span><br><span class="line">		showCalendar(c);</span><br><span class="line">		//求解二月的天数</span><br><span class="line">		int year = 2019;</span><br><span class="line">		c.set(year,2,1);</span><br><span class="line">		c.add(Calendar.DAY_OF_MONTH, -1);</span><br><span class="line">		showCalendar(c);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static void showCalendar(Calendar c) &#123;</span><br><span class="line">		int year = c.get(Calendar.YEAR);</span><br><span class="line">		int month = c.get(Calendar.MONTH)+1;</span><br><span class="line">		int day = c.get(Calendar.DAY_OF_MONTH);</span><br><span class="line">		int week = c.get(Calendar.DAY_OF_WEEK);</span><br><span class="line">		System.out.println(&quot;年：&quot;+year+&quot;月：&quot;+month+&quot;日：&quot;+day+&quot;星期：&quot;+week);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>毫秒值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">package Day9;</span><br><span class="line"></span><br><span class="line">import java.text.DateFormat;</span><br><span class="line">import java.text.ParseException;</span><br><span class="line">import java.text.SimpleDateFormat;</span><br><span class="line">import java.util.Calendar;</span><br><span class="line">import java.util.Date;</span><br><span class="line"></span><br><span class="line">public class Demo4 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) throws ParseException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		/*</span><br><span class="line">		 * 毫秒值的转换</span><br><span class="line">		 */</span><br><span class="line">		method();</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public static void method() throws ParseException &#123;</span><br><span class="line">		String date_str1 = &quot;2013/3.15&quot;;</span><br><span class="line">		String date_str2 = &quot;2013-3-25&quot;;</span><br><span class="line">		DateFormat dateformat1 = new SimpleDateFormat(&quot;yyyy/MM.dd&quot;);</span><br><span class="line">		DateFormat dateformat2 = DateFormat.getDateInstance(DateFormat.MEDIUM);</span><br><span class="line">		Date date1 = dateformat1.parse(date_str1);</span><br><span class="line">		Date date2 = dateformat2.parse(date_str2);</span><br><span class="line">		System.out.println(date1);</span><br><span class="line">		System.out.println(date2);</span><br><span class="line">		long time1 = date1.getTime();</span><br><span class="line">		long time2 = date2.getTime();</span><br><span class="line">		long time = Math.abs(time1-time2);</span><br><span class="line">		int day = transday(time);</span><br><span class="line">		System.out.println(day);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static int transday(long time) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		return (int)(time/1000/60/60/24);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/24/14-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/24/14-2/" itemprop="url">������</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-24T00:00:00+08:00">
+                2018-07-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Collections���п��Խ���ͬ���ļ���ת����Ϊͬ���ļ���—��̬����<br>1list����<br>2����<br>3max��min<br>4���ֲ���<br>5����ͬ������ת��Ϊͬ������<br>Arrays<br>��ѰԪ�ص����ֵ<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">package Day8;</span><br><span class="line"></span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.Collection;</span><br><span class="line">import java.util.Collections;</span><br><span class="line">import java.util.Comparator;</span><br><span class="line">import java.util.Iterator;</span><br><span class="line">import java.util.List;</span><br><span class="line"></span><br><span class="line">public class Demo &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		List&lt;String&gt; list = new ArrayList&lt;String&gt;();</span><br><span class="line">		list.add(&quot;das&quot;);</span><br><span class="line">		list.add(&quot;we&quot;);</span><br><span class="line">		list.add(&quot;asdfasdfvsg&quot;);</span><br><span class="line">		System.out.println(max(list));</span><br><span class="line">		System.out.println(list);</span><br><span class="line">		Collections.sort(list);</span><br><span class="line">		Comparator comp = new Comparator&lt;String&gt;() &#123;</span><br><span class="line"></span><br><span class="line">			@Override</span><br><span class="line">			public int compare(String o1, String o2) &#123;</span><br><span class="line">				// TODO Auto-generated method stub</span><br><span class="line">				int temp = o1.length() - o2.length();</span><br><span class="line">				return temp == 0 ? o1.compareTo(o2) : temp;</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		&#125;;</span><br><span class="line">		String max1 = Collections.max(list, comp);</span><br><span class="line">		System.out.println(max1);</span><br><span class="line">		Comparator&lt;String&gt; comp1 = Collections.reverseOrder(comp);</span><br><span class="line">		Collections.sort(list, comp1);</span><br><span class="line">		System.out.println(list);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public static&lt;T extends Object &amp; Comparable&lt;? super T&gt;&gt; T max(Collection&lt;? extends T&gt; coll)</span><br><span class="line">	&#123;</span><br><span class="line">		Iterator&lt;? extends T&gt; it =coll.iterator();</span><br><span class="line">		//���������¼����������һ��</span><br><span class="line">		T str = it.next();</span><br><span class="line">		//�����������е�Ԫ��</span><br><span class="line">		while(it.hasNext())</span><br><span class="line">		&#123;</span><br><span class="line">			T temp = it.next();</span><br><span class="line">			if(temp.compareTo(str)&gt;0)</span><br><span class="line">				str = temp;</span><br><span class="line">		&#125;</span><br><span class="line">		//�ڱ����Ĺ����У���¼���ֵ</span><br><span class="line">		return str;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>���鵽���ϵ�ת��<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">package Day8;</span><br><span class="line"></span><br><span class="line">import java.util.Arrays;</span><br><span class="line">import java.util.List;</span><br><span class="line"></span><br><span class="line">public class Demo1 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		int[] arr = &#123; 12, 32, 1, 43, 54, 21 &#125;;</span><br><span class="line">		System.out.println(Arrays.toString(arr));</span><br><span class="line">		// �ж��������Ƿ����ĳ��ֵ</span><br><span class="line">		List&lt;int []&gt; list = Arrays.asList(arr);//����ת���ϵķ���ע�ⲻ�ܸı�ü��ϵĳ���</span><br><span class="line">		System.out.println(list);</span><br><span class="line">		//��������ж��������������ͣ�����Ԫ��ֱ����Ϊ����Ԫ��</span><br><span class="line">		//��������еĶ��ǻ����������ͣ��Ὣ���������Ϊ�����е�Ԫ��</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>���ϵ������ת��<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">package Day8;</span><br><span class="line"></span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.Arrays;</span><br><span class="line">import java.util.List;</span><br><span class="line"></span><br><span class="line">public class Demo2 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		// ʹ��Collections�е�toArrays</span><br><span class="line">		List&lt;String&gt; list = new ArrayList&lt;String&gt;();</span><br><span class="line">		list.add(&quot;asd&quot;);</span><br><span class="line">		list.add(&quot;ad&quot;);</span><br><span class="line">		// ��������鳤�����С�ڼ��ϳ��ȣ������лᴴ��һ���µĳ��Ⱥͼ��ϳ���һ�µ�����</span><br><span class="line">		// ��������鳤�ȴ��ڵ��ڼ��ϳ��ȣ���ʹ�ô�������顣���Խ��鳤��Ϊ���ϵ�size</span><br><span class="line">		//����ת�������ԭ�򣺾���Ϊ���޶���Ԫ�صĲ�����������ɾ������</span><br><span class="line">		String[] str = list.toArray(new String[list.size()]);</span><br><span class="line">		System.out.println(Arrays.toString(str));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>�ɱ������ʹ��<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">package Day8;</span><br><span class="line"></span><br><span class="line">public class Demo3 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		//�ɱ����+��̬����</span><br><span class="line">		System.out.println(he(12,12,12));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/*</span><br><span class="line">	 * (int x,int... arr);//���� (int... arr,int x);//�����ԣ��ɱ������ֻ�ܶ����ڲ��������</span><br><span class="line">	 */	public static int he(int... arr)</span><br><span class="line">	&#123;</span><br><span class="line">		int sum = 0;</span><br><span class="line">		for (int i = 0; i &lt; arr.length; i++) &#123;</span><br><span class="line">			sum+=arr[i];</span><br><span class="line">		&#125;</span><br><span class="line">		return sum;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>ArrayList�������ʹ��<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">package Day8;</span><br><span class="line"></span><br><span class="line">public class Demo3 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		//�ɱ����+��̬����</span><br><span class="line">		System.out.println(he(12,12,12));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/*</span><br><span class="line">	 * (int x,int... arr);//���� (int... arr,int x);//�����ԣ��ɱ������ֻ�ܶ����ڲ��������</span><br><span class="line">	 */	public static int he(int... arr)</span><br><span class="line">	&#123;</span><br><span class="line">		int sum = 0;</span><br><span class="line">		for (int i = 0; i &lt; arr.length; i++) &#123;</span><br><span class="line">			sum+=arr[i];</span><br><span class="line">		&#125;</span><br><span class="line">		return sum;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Properties��ʹ�á�����¼��������Ϣ<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">package Day8;</span><br><span class="line"></span><br><span class="line">import java.util.Properties;</span><br><span class="line">import java.util.Set;</span><br><span class="line"></span><br><span class="line">public class Demo5 &#123;</span><br><span class="line"></span><br><span class="line">	private static final String FILE_SEPARTOR = System.getProperty(&quot;file.separator&quot;);//������ֲ����ͬ��ϵͳ��</span><br><span class="line">	private static final String LINE_SEPARTOR = System.getProperty(&quot;line.separator&quot;);</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		/*</span><br><span class="line">		 * Systemȫ�Ǿ�̬�����Ժ���Ϊ out:��׼�������Ĭ����ʾ�� in����׼��������Ĭ�ϼ���</span><br><span class="line">		 */</span><br><span class="line">		long time = System.currentTimeMillis();// ������¼�������е�ʱ��</span><br><span class="line">		System.out.println(time);</span><br><span class="line">		// getProperties</span><br><span class="line">		Properties prop = System.getProperties();//��ȡϵͳ����</span><br><span class="line">		Set&lt;String&gt; keyset = prop.stringPropertyNames();</span><br><span class="line">		for(String key : keyset)</span><br><span class="line">		&#123;</span><br><span class="line">			String value = prop.getProperty(key);</span><br><span class="line">			System.out.println(key+value);</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(prop.getProperty(&quot;os.name&quot;));//��ȡ����Ӧ��ֵ</span><br><span class="line">		System.out.println(&quot;c:&quot;+FILE_SEPARTOR+&quot;abc&quot;+FILE_SEPARTOR+&quot;1.txt&quot;);</span><br><span class="line">		System.out.println(&quot;hello&quot;+LINE_SEPARTOR+&quot;world&quot;);</span><br><span class="line">		//windows ;\r\n \</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>runtime���ʹ��<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">package Day8;</span><br><span class="line"></span><br><span class="line">import java.io.IOException;</span><br><span class="line"></span><br><span class="line">public class Demo6 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) throws IOException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		// Runtime���ǵ�����Ƶģ����Ի�ȡ�ڴ��ʹ������</span><br><span class="line">		Runtime runtime = Runtime.getRuntime();</span><br><span class="line">		runtime .exec(&quot;notepad.exe &quot;);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Math���ʹ��<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">package Day8;</span><br><span class="line"></span><br><span class="line">import java.util.Random;</span><br><span class="line"></span><br><span class="line">public class Demo7 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		// Math�ࡪ����װ�Ķ��Ǿ�̬�ķ���</span><br><span class="line">		double d1 = Math.ceil(12.34);// ���ڲ�������С����</span><br><span class="line">		double d2 = Math.floor(12.34);// С�ڲ������������</span><br><span class="line">		double d3 = Math.round(12.34);// ��������</span><br><span class="line">		System.out.println(d1);</span><br><span class="line">		System.out.println(d2);</span><br><span class="line">		System.out.println(d3);</span><br><span class="line"></span><br><span class="line">		for (int i = 0; i &lt; 10; i++) &#123;</span><br><span class="line">			int d = (int) Math.ceil(Math.random() * 6);</span><br><span class="line">			System.out.println(d);</span><br><span class="line">		&#125;</span><br><span class="line">		Random r = new Random();</span><br><span class="line">		for (int i = 0; i &lt; 10; i++) &#123;</span><br><span class="line">			double d4 = r.nextDouble();</span><br><span class="line">			int d5 = r.nextInt(6)+1;</span><br><span class="line">			System.out.println(d4);</span><br><span class="line">			System.out.println(d5);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/23/14-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1196,249 +1447,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/18/12-6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/18/12-6/" itemprop="url">集合元素取出</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-18T00:00:00+08:00">
-                2018-07-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>3种集合元素取出的方式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">package Day5;</span><br><span class="line"></span><br><span class="line">import java.util.Enumeration;</span><br><span class="line">import java.util.Iterator;</span><br><span class="line">import java.util.Vector;</span><br><span class="line"></span><br><span class="line">public class Demo3 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		//具备枚举取出方式的容器只有Vector</span><br><span class="line">		//Enumeration:枚举</span><br><span class="line">		Vector v =new Vector();</span><br><span class="line">		v.add(&quot;sa&quot;);</span><br><span class="line">		v.add(&quot;as&quot;);</span><br><span class="line">		Enumeration en = v.elements();</span><br><span class="line">		while(en.hasMoreElements())</span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println(en.nextElement());</span><br><span class="line">		&#125;</span><br><span class="line">		for(Enumeration e = v.elements();e.hasMoreElements();)</span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println(e.nextElement());</span><br><span class="line">		&#125;</span><br><span class="line">		for (Iterator it = v.iterator(); it.hasNext();) &#123;</span><br><span class="line">			System.out.println(it.next());</span><br><span class="line">		&#125;</span><br><span class="line">		for(Object obj:v) &#123;</span><br><span class="line">			System.out.println(obj);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>增强for的使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">package Day5;</span><br><span class="line"></span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.Collection;</span><br><span class="line"></span><br><span class="line">public class Demo2 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		/*</span><br><span class="line">		 * jdk1.5之后出现的foreach——增强for循环</span><br><span class="line">		 * 作用：遍历collection和数组</span><br><span class="line">		 * 格式：</span><br><span class="line">		 * foreach（元素类型变量：collectionor数组）</span><br><span class="line">		 * 传统for和增强for的区别：</span><br><span class="line">		 * 增强for必须有被遍历的目标，该目标只能是coll或者数组*/</span><br><span class="line">		Collection coll = new ArrayList();</span><br><span class="line">		coll.add(&quot;as&quot;);</span><br><span class="line">		coll.add(&quot;asd&quot;);</span><br><span class="line">		for(Object obj :coll) &#123;</span><br><span class="line">			System.out.println(obj);</span><br><span class="line">		&#125;</span><br><span class="line">		//对于数组的遍历，如果不操作其角标，可以使用增强for</span><br><span class="line">		int [] arr = &#123;1,12,23&#125;;</span><br><span class="line">		for(int x:arr) &#123;</span><br><span class="line">			System.out.println(x);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/17/12-5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/17/12-5/" itemprop="url">treeset的比较方法</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-17T00:00:00+08:00">
-                2018-07-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>实现comparable接口<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">package Day5;</span><br><span class="line">import java.util.Iterator;</span><br><span class="line">import java.util.Set;</span><br><span class="line">import java.util.TreeSet;</span><br><span class="line">import Day4.Student;</span><br><span class="line">public class Demo0 &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line"></span><br><span class="line">		/*</span><br><span class="line">		 * set.add(&quot;aca&quot;); set.add(&quot;dsfca&quot;); set.add(&quot;sdafca&quot;); set.add(&quot;dasa&quot;);</span><br><span class="line">		 * set.add(&quot;sddf&quot;); set.add(&quot;sdafca&quot;); set.add(&quot;sddf&quot;);</span><br><span class="line">		 */</span><br><span class="line">		/*</span><br><span class="line">		 * 因为学生要排序，就需要比较，而没有定义比较方法，无法比较 解决：实现Comparable接口的compareTo</span><br><span class="line">		 * add当法使用的是Comparable接口的compareTo</span><br><span class="line">		 */</span><br><span class="line">		Set set = new TreeSet();</span><br><span class="line">		set.add(new Student(&quot;小是&quot;, 25));</span><br><span class="line">		set.add(new Student(&quot;小马&quot;, 20));</span><br><span class="line">		set.add(new Student(&quot;艾弗森&quot;, 22));</span><br><span class="line">		set.add(new Student(&quot;撒旦&quot;, 12));</span><br><span class="line">		for (Iterator it = set.iterator(); it.hasNext();) &#123;</span><br><span class="line">			System.out.println(it.next());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">package Day5;</span><br><span class="line">import java.util.Iterator;</span><br><span class="line">import java.util.Set;</span><br><span class="line">import java.util.TreeSet;</span><br><span class="line">import Day4.Student;</span><br><span class="line">public class Demo1 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">		//初始化一个具有比较功能的集合</span><br><span class="line">		Set set = new TreeSet(new comparator());</span><br><span class="line">		set.add(new Student(&quot;小是&quot;, 25));</span><br><span class="line">		set.add(new Student(&quot;小马&quot;, 20));</span><br><span class="line">		set.add(new Student(&quot;艾弗森&quot;, 22));</span><br><span class="line">		set.add(new Student(&quot;撒旦&quot;, 12));</span><br><span class="line">		for (Iterator it = set.iterator(); it.hasNext();) &#123;</span><br><span class="line">			System.out.println(it.next());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>比较器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">package Day5;</span><br><span class="line">import java.util.Comparator;</span><br><span class="line">import Day4.Student;</span><br><span class="line">//equals默认继承了Object的equals方法。</span><br><span class="line">public class comparator implements Comparator &#123;</span><br><span class="line">	public int compare(Object o1, Object o2) &#123;</span><br><span class="line">		Student s1 =(Student)o1;</span><br><span class="line">		Student s2 =(Student)o2;</span><br><span class="line">		int temp = s1.getName().compareTo(s2.getName());</span><br><span class="line">		return temp==0?s1.getAge()-s2.getAge():temp;</span><br><span class="line">	&#125;</span><br><span class="line">		</span><br><span class="line">&#125;</span><br><span class="line">//自定义了一个比较器，要求学生进行排序</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1489,7 +1497,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">45</span>
+                  <span class="site-state-item-count">47</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1502,7 +1510,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
