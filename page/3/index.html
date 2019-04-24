@@ -229,6 +229,128 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/17/12-5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/17/12-5/" itemprop="url">treeset的比较方法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-17T00:00:00+08:00">
+                2018-07-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>实现comparable接口<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">package Day5;</span><br><span class="line">import java.util.Iterator;</span><br><span class="line">import java.util.Set;</span><br><span class="line">import java.util.TreeSet;</span><br><span class="line">import Day4.Student;</span><br><span class="line">public class Demo0 &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line"></span><br><span class="line">		/*</span><br><span class="line">		 * set.add(&quot;aca&quot;); set.add(&quot;dsfca&quot;); set.add(&quot;sdafca&quot;); set.add(&quot;dasa&quot;);</span><br><span class="line">		 * set.add(&quot;sddf&quot;); set.add(&quot;sdafca&quot;); set.add(&quot;sddf&quot;);</span><br><span class="line">		 */</span><br><span class="line">		/*</span><br><span class="line">		 * 因为学生要排序，就需要比较，而没有定义比较方法，无法比较 解决：实现Comparable接口的compareTo</span><br><span class="line">		 * add当法使用的是Comparable接口的compareTo</span><br><span class="line">		 */</span><br><span class="line">		Set set = new TreeSet();</span><br><span class="line">		set.add(new Student(&quot;小是&quot;, 25));</span><br><span class="line">		set.add(new Student(&quot;小马&quot;, 20));</span><br><span class="line">		set.add(new Student(&quot;艾弗森&quot;, 22));</span><br><span class="line">		set.add(new Student(&quot;撒旦&quot;, 12));</span><br><span class="line">		for (Iterator it = set.iterator(); it.hasNext();) &#123;</span><br><span class="line">			System.out.println(it.next());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">package Day5;</span><br><span class="line">import java.util.Iterator;</span><br><span class="line">import java.util.Set;</span><br><span class="line">import java.util.TreeSet;</span><br><span class="line">import Day4.Student;</span><br><span class="line">public class Demo1 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">		//初始化一个具有比较功能的集合</span><br><span class="line">		Set set = new TreeSet(new comparator());</span><br><span class="line">		set.add(new Student(&quot;小是&quot;, 25));</span><br><span class="line">		set.add(new Student(&quot;小马&quot;, 20));</span><br><span class="line">		set.add(new Student(&quot;艾弗森&quot;, 22));</span><br><span class="line">		set.add(new Student(&quot;撒旦&quot;, 12));</span><br><span class="line">		for (Iterator it = set.iterator(); it.hasNext();) &#123;</span><br><span class="line">			System.out.println(it.next());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>比较器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">package Day5;</span><br><span class="line">import java.util.Comparator;</span><br><span class="line">import Day4.Student;</span><br><span class="line">//equals默认继承了Object的equals方法。</span><br><span class="line">public class comparator implements Comparator &#123;</span><br><span class="line">	public int compare(Object o1, Object o2) &#123;</span><br><span class="line">		Student s1 =(Student)o1;</span><br><span class="line">		Student s2 =(Student)o2;</span><br><span class="line">		int temp = s1.getName().compareTo(s2.getName());</span><br><span class="line">		return temp==0?s1.getAge()-s2.getAge():temp;</span><br><span class="line">	&#125;</span><br><span class="line">		</span><br><span class="line">&#125;</span><br><span class="line">//自定义了一个比较器，要求学生进行排序</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/16/12-4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -839,6 +961,128 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/11/11-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/11/11-2/" itemprop="url">String类的使用</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-11T00:00:00+08:00">
+                2018-07-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>返回子串在整串中的次数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">package Day0;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> *返回子串在整串的次数</span><br><span class="line"> *思路：</span><br><span class="line"> *1需要计数</span><br><span class="line"> *2找到子串进行计数</span><br><span class="line"> *3咋找？那就是字符串中查找字符串，字符串自己清楚</span><br><span class="line"> *4如果有这个方法，执行n次，循环完成</span><br><span class="line"> *步骤：</span><br><span class="line"> *1定义变量，计数</span><br><span class="line"> *2需要循环</span><br><span class="line"> *int indexof(String)</span><br><span class="line"> *3计数器自增</span><br><span class="line"> */</span><br><span class="line">public class Demo3 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		String str = &quot;ababab&quot;;</span><br><span class="line">		String key = &quot;a&quot;;</span><br><span class="line">		int count = getKeyCount(str, key);</span><br><span class="line">		System.out.println(&quot;count=&quot;+count);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public static int getKeyCount(String str, String key) &#123;</span><br><span class="line">	    //定义变量计数</span><br><span class="line">		int count = 0;</span><br><span class="line">		//每次找到的角标</span><br><span class="line">		int index = 0;</span><br><span class="line">		//循环，条件是indexof查找的方法返回的不是-1，而且要明确下次开始的位置indexof（String,fromindex）</span><br><span class="line">		while((index=str.indexOf(key,index))!=-1)</span><br><span class="line">		&#123;</span><br><span class="line">			count++;</span><br><span class="line">			//每找一次都要确定下次的位置，上次位置+key的长度;</span><br><span class="line">			index+=key.length();</span><br><span class="line">		&#125;</span><br><span class="line">		return count;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>求2个子串中的最大相同子串<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">package Day0;</span><br><span class="line">public class Demo4 &#123;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * @param args 求2个子串的最大相同子串</span><br><span class="line">	 *  思路： 1以短的字符串为主， 到长的字符串中去判断是否存在，如果存在，已经找到</span><br><span class="line">	 *        2如果没有找到，将短的字符串长度进行递减获取子串继续到长的字符串中进行查找，只要找到就结束 没有找到，说明没有相同的</span><br><span class="line">	 */</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		String s1 = &quot;aadfhjsdfkjsdlf&quot;;</span><br><span class="line">		String s2 = &quot;sad&quot;;</span><br><span class="line">		String max = getMaxString(s1, s2);</span><br><span class="line">		System.out.println(&quot;max=&quot; + max);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public static String getMaxString(String s1, String s2) &#123;</span><br><span class="line">		String longString, shortString;</span><br><span class="line">		longString = s1.length() &gt; s2.length() ? s1 : s2;</span><br><span class="line">		shortString = s1.equals(longString) ? s2 : s1;</span><br><span class="line">		for (int x = 0; x &lt; shortString.length(); x++) &#123;</span><br><span class="line">			for (int y = 0, z = shortString.length() - x; z &lt;= shortString.length(); y++, z++) &#123;</span><br><span class="line">				String temp = shortString.substring(y, z);//取得固定长度的字符串</span><br><span class="line">				System.out.println(temp);</span><br><span class="line">				if (longString.contains(temp))//是否包含</span><br><span class="line">				return temp;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		return null;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>对字符串进行自然排序<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">package Day0;</span><br><span class="line">import java.util.Arrays;</span><br><span class="line">public class Demo5 &#123;</span><br><span class="line">	/**</span><br><span class="line">	 * @param args 1需求：对字符串中的字符进行自然排序</span><br><span class="line">	 * 思路：</span><br><span class="line">	 * 1要排序，</span><br><span class="line">	 * 2将字符串转换为数组</span><br><span class="line">	 * 3到字符串中找方法</span><br><span class="line">	 * 4排序</span><br><span class="line">	 * 5将排序后的数组变成字符串</span><br><span class="line">	 */</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		String s1=&quot;asdfadsfsdfgfjg&quot;;</span><br><span class="line">		String s2 = sortString(s1);</span><br><span class="line">		System.out.println(s2);</span><br><span class="line">	&#125;</span><br><span class="line">	public static String sortString(String s1) &#123;</span><br><span class="line">		//将字符串转换为字符数组</span><br><span class="line">		char [] chs = StringtoAaaay(s1);</span><br><span class="line">		//对数组进行排序</span><br><span class="line">		sort(chs);</span><br><span class="line">		//将数组转换为字符串</span><br><span class="line">		return toString(chs);</span><br><span class="line">	&#125;</span><br><span class="line">	private static String toString(char[] chs) &#123;</span><br><span class="line">		return new String(chs);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static void sort(char[] chs) &#123;</span><br><span class="line">		Arrays.sort(chs);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static char[] StringtoAaaay(String str)</span><br><span class="line">	&#123;</span><br><span class="line">		return str.toCharArray();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/11/11-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1079,128 +1323,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/11/11-2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/11/11-2/" itemprop="url">String类的使用</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-11T00:00:00+08:00">
-                2018-07-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>返回子串在整串中的次数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">package Day0;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> *返回子串在整串的次数</span><br><span class="line"> *思路：</span><br><span class="line"> *1需要计数</span><br><span class="line"> *2找到子串进行计数</span><br><span class="line"> *3咋找？那就是字符串中查找字符串，字符串自己清楚</span><br><span class="line"> *4如果有这个方法，执行n次，循环完成</span><br><span class="line"> *步骤：</span><br><span class="line"> *1定义变量，计数</span><br><span class="line"> *2需要循环</span><br><span class="line"> *int indexof(String)</span><br><span class="line"> *3计数器自增</span><br><span class="line"> */</span><br><span class="line">public class Demo3 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		String str = &quot;ababab&quot;;</span><br><span class="line">		String key = &quot;a&quot;;</span><br><span class="line">		int count = getKeyCount(str, key);</span><br><span class="line">		System.out.println(&quot;count=&quot;+count);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public static int getKeyCount(String str, String key) &#123;</span><br><span class="line">	    //定义变量计数</span><br><span class="line">		int count = 0;</span><br><span class="line">		//每次找到的角标</span><br><span class="line">		int index = 0;</span><br><span class="line">		//循环，条件是indexof查找的方法返回的不是-1，而且要明确下次开始的位置indexof（String,fromindex）</span><br><span class="line">		while((index=str.indexOf(key,index))!=-1)</span><br><span class="line">		&#123;</span><br><span class="line">			count++;</span><br><span class="line">			//每找一次都要确定下次的位置，上次位置+key的长度;</span><br><span class="line">			index+=key.length();</span><br><span class="line">		&#125;</span><br><span class="line">		return count;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>求2个子串中的最大相同子串<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">package Day0;</span><br><span class="line">public class Demo4 &#123;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * @param args 求2个子串的最大相同子串</span><br><span class="line">	 *  思路： 1以短的字符串为主， 到长的字符串中去判断是否存在，如果存在，已经找到</span><br><span class="line">	 *        2如果没有找到，将短的字符串长度进行递减获取子串继续到长的字符串中进行查找，只要找到就结束 没有找到，说明没有相同的</span><br><span class="line">	 */</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		String s1 = &quot;aadfhjsdfkjsdlf&quot;;</span><br><span class="line">		String s2 = &quot;sad&quot;;</span><br><span class="line">		String max = getMaxString(s1, s2);</span><br><span class="line">		System.out.println(&quot;max=&quot; + max);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public static String getMaxString(String s1, String s2) &#123;</span><br><span class="line">		String longString, shortString;</span><br><span class="line">		longString = s1.length() &gt; s2.length() ? s1 : s2;</span><br><span class="line">		shortString = s1.equals(longString) ? s2 : s1;</span><br><span class="line">		for (int x = 0; x &lt; shortString.length(); x++) &#123;</span><br><span class="line">			for (int y = 0, z = shortString.length() - x; z &lt;= shortString.length(); y++, z++) &#123;</span><br><span class="line">				String temp = shortString.substring(y, z);//取得固定长度的字符串</span><br><span class="line">				System.out.println(temp);</span><br><span class="line">				if (longString.contains(temp))//是否包含</span><br><span class="line">				return temp;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		return null;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>对字符串进行自然排序<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">package Day0;</span><br><span class="line">import java.util.Arrays;</span><br><span class="line">public class Demo5 &#123;</span><br><span class="line">	/**</span><br><span class="line">	 * @param args 1需求：对字符串中的字符进行自然排序</span><br><span class="line">	 * 思路：</span><br><span class="line">	 * 1要排序，</span><br><span class="line">	 * 2将字符串转换为数组</span><br><span class="line">	 * 3到字符串中找方法</span><br><span class="line">	 * 4排序</span><br><span class="line">	 * 5将排序后的数组变成字符串</span><br><span class="line">	 */</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		String s1=&quot;asdfadsfsdfgfjg&quot;;</span><br><span class="line">		String s2 = sortString(s1);</span><br><span class="line">		System.out.println(s2);</span><br><span class="line">	&#125;</span><br><span class="line">	public static String sortString(String s1) &#123;</span><br><span class="line">		//将字符串转换为字符数组</span><br><span class="line">		char [] chs = StringtoAaaay(s1);</span><br><span class="line">		//对数组进行排序</span><br><span class="line">		sort(chs);</span><br><span class="line">		//将数组转换为字符串</span><br><span class="line">		return toString(chs);</span><br><span class="line">	&#125;</span><br><span class="line">	private static String toString(char[] chs) &#123;</span><br><span class="line">		return new String(chs);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static void sort(char[] chs) &#123;</span><br><span class="line">		Arrays.sort(chs);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static char[] StringtoAaaay(String str)</span><br><span class="line">	&#123;</span><br><span class="line">		return str.toCharArray();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/10/10-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1309,127 +1431,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/10/10/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/10/10/" itemprop="url">多线程基础</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-10T00:00:00+08:00">
-                2018-07-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>多线程的基础知识<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">硬盘：持久化存储设备</span><br><span class="line">内存：临时性存储设备</span><br><span class="line">进程：应用程序在内存中分配的空间（正在运行中的程序）</span><br><span class="line">线程：是进程中负责程序执行的执行单元，也称为执行路径。</span><br><span class="line">     如果一个进程中出现了多个线程，称之为多线程程序。</span><br><span class="line">多线程技术：解决多部分代码同时执行的需求。可以合理的使用CPU资源</span><br><span class="line">cpu的分时系统</span><br><span class="line">双核：封装了2个运算核心。</span><br><span class="line">多线程的运行根据cpu的切换完成的。怎么切换cpu说的算</span><br><span class="line">所以多线程运行有一个随机性。（cpu的快速切换造成的）</span><br><span class="line">jvm中的多线程：</span><br><span class="line">至少有2个线程：</span><br><span class="line">一个是负责自定义代码运行的,这个从main方法开始的线程为主线程。</span><br><span class="line">一个是负责垃圾回收的，随着其他线程结束就结束了</span><br><span class="line">通过实践发现每次的结果不一定相同，那是由于cpu的随机性造成的，</span><br><span class="line">而且每一个线程都有自己运行的代码，称之为线程的内容。</span><br><span class="line">之所以创建一个线程是为了去运行制定的任务代码。</span><br><span class="line">而线程的任务都封装在特定的区域中</span><br><span class="line">比如：</span><br><span class="line">主线程运行的任务都定义在main方法中</span><br><span class="line">垃圾回收线程在回收垃圾都会运行finalize方法。</span><br><span class="line">如何建立线程？</span><br><span class="line">1继承Thread类</span><br><span class="line">	继承Thread类</span><br><span class="line">	复写run()方法</span><br><span class="line">	创建子类对象即为创建线程对象</span><br><span class="line">	调用Thread类中的start方法就可以执行线程。并会调用run方法。</span><br><span class="line">	start()开启线程后都会执行run()方法，说明run()方法中存储的是线程要运行的代码</span><br><span class="line">	所以，记住自定义线程的任务代码都存储在run()方法中。</span><br><span class="line">*/</span><br><span class="line">class Demo extends Thread</span><br><span class="line">&#123;</span><br><span class="line">	//定义垃圾回收方法</span><br><span class="line">	public void show()</span><br><span class="line">	&#123;</span><br><span class="line">		for(int i = 0 ;i &lt;= 10; i++)</span><br><span class="line">		System.out.println(Thread.currentThread().getName()+name+&quot;i=&quot;+i);</span><br><span class="line">	&#125;</span><br><span class="line">	private String name;</span><br><span class="line">	Demo(String name)</span><br><span class="line">	&#123;</span><br><span class="line">		this.name = name;		</span><br><span class="line">	&#125;</span><br><span class="line">	public void run()</span><br><span class="line">	&#123;</span><br><span class="line">		show();</span><br><span class="line">	&#125;</span><br><span class="line">	public void start()</span><br><span class="line">	&#123;</span><br><span class="line">		super.start();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">/*</span><br><span class="line">调用start和run方法的区别：</span><br><span class="line">调用start会开启线程，让开启的线程去执行run方法中的线程任务</span><br><span class="line">直接调用run方法，线程并未开启，去执行run方法的只有主方法。</span><br><span class="line">*/</span><br><span class="line">class ThreadDemo</span><br><span class="line">&#123;</span><br><span class="line">	public static void main(String[] args)</span><br><span class="line">	&#123;</span><br><span class="line">		Demo d1 = new Demo(&quot;张三&quot;);</span><br><span class="line">		Demo d2 = new Demo(&quot;李四&quot;);</span><br><span class="line">		d1.start();//做了两件事;1开启线程2调用run方法</span><br><span class="line">		d2.start();</span><br><span class="line">		for(int i = 0 ;i &lt;= 10; i++)</span><br><span class="line">		System.out.println(Thread.currentThread().getName()+&quot;i=&quot;+i);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>多线程的火车票售票实例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">火车售票小示例</span><br><span class="line">*/</span><br><span class="line">class SaleTicket extends Thread</span><br><span class="line">&#123;</span><br><span class="line">	private int ticket = 100;//分开线程任务和资源的方式</span><br><span class="line">	</span><br><span class="line">	//卖票的代码需要多个线程去执行，所以要将这些代码定义在线程任务中。run方法</span><br><span class="line">	public void run()</span><br><span class="line">	&#123;</span><br><span class="line">		while(true)</span><br><span class="line">		&#123;</span><br><span class="line">			if(ticket&gt;0)</span><br><span class="line">			&#123;</span><br><span class="line">				System.out.println(Thread.currentThread().getName()+&quot;..&quot;+ticket--);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class Demo1</span><br><span class="line">&#123;</span><br><span class="line">	public static void main(String[] args)</span><br><span class="line">	&#123;</span><br><span class="line">		//会创建400张票，不合适，不建议票变成静态的，如何共享100张票</span><br><span class="line">		//分开线程任务和资源的方式</span><br><span class="line">		SaleTicket s1 = new SaleTicket();</span><br><span class="line">		SaleTicket s2 = new SaleTicket();</span><br><span class="line">		SaleTicket s3 = new SaleTicket();</span><br><span class="line">		SaleTicket s4 = new SaleTicket();</span><br><span class="line">		s1.start();</span><br><span class="line">		s2.start();</span><br><span class="line">		s3.start();</span><br><span class="line">		s4.start();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1480,7 +1481,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-count">56</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

@@ -229,7 +229,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/30/19-3/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/31/19/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -248,7 +248,126 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/07/30/19-3/" itemprop="url">流总结</a></h1>
+                <a class="post-title-link" href="/2018/07/31/19/" itemprop="url">正则表达式</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-31T00:00:00+08:00">
+                2018-07-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line">import java.io.BufferedReader;</span><br><span class="line">import java.io.File;</span><br><span class="line">import java.io.FileReader;</span><br><span class="line">import java.io.IOException;</span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.Arrays;</span><br><span class="line">import java.util.List;</span><br><span class="line">import java.util.regex.Matcher;</span><br><span class="line">import java.util.regex.Pattern;</span><br><span class="line"></span><br><span class="line">public class RegexDemo &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) throws IOException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		Demo1();</span><br><span class="line">		Demo2();</span><br><span class="line">		Demo3();</span><br><span class="line">		DemoNetSpild();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static void DemoNetSpild() throws IOException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		// 1将文件封装成File对象</span><br><span class="line">		File file = new File(&quot;mail.txt&quot;);</span><br><span class="line">		String regex = &quot;\\w+@\\w+(\\.\\w+)+&quot;;</span><br><span class="line">		List&lt;String&gt; list = getMail(file, regex);</span><br><span class="line">		for (String mail : list) &#123;</span><br><span class="line">			System.out.println(mail);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static List&lt;String&gt; getMail(File file,String regex) throws IOException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		// 1读取数据。</span><br><span class="line">		BufferedReader br = new BufferedReader(new FileReader(file));</span><br><span class="line">		//2将正则封装成对象</span><br><span class="line">		Pattern p = Pattern.compile(regex);</span><br><span class="line">		//3定义list集合</span><br><span class="line">		List&lt;String&gt; list = new ArrayList&lt;String&gt;();</span><br><span class="line">		String line = null;</span><br><span class="line">		while((line = br.readLine())!=null)</span><br><span class="line">		&#123;</span><br><span class="line">			Matcher m = p.matcher(line);</span><br><span class="line">			while(m.find())</span><br><span class="line">			&#123;</span><br><span class="line">				list.add(m.group());</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		return list;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static void Demo3() &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		// 邮件地址的效验</span><br><span class="line">		String temp = &quot;1984318274@qq.com&quot;;</span><br><span class="line">		String regex = &quot;\\w+@[a-zA-Z0-9]+(\\.[a-zA-Z]&#123;2,3&#125;)&#123;1,3&#125;&quot;;</span><br><span class="line">		boolean b = temp.matches(regex);</span><br><span class="line">		System.out.println(b);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static void Demo2() &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		// 对于IP地址进行排序</span><br><span class="line">		String str = &quot;192.168.1.1   10.2.3.4  5.2.23.5&quot;;</span><br><span class="line">		str = str.replaceAll(&quot;(\\d+)&quot;, &quot;00$1&quot;);</span><br><span class="line">		// 保留每段的最后3位</span><br><span class="line">		str = str.replaceAll(&quot;0*(\\d&#123;3&#125;)&quot;, &quot;$1&quot;);</span><br><span class="line">		// 使用字典排序，出现问题，是因为每一个地址段的位数不对导致的，如果位数都是3位就可以实现排序了，可以补0，如何进行补0，补最多的2个0，然后切割</span><br><span class="line">		String[] strs = str.split(&quot; +&quot;);</span><br><span class="line">		Arrays.sort(strs);</span><br><span class="line">		for (String strss : strs) &#123;</span><br><span class="line">			System.out.println(strss.replaceAll(&quot;0*(\\d+)&quot;, &quot;$1&quot;));</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static void Demo1() &#123;</span><br><span class="line">		String str = &quot;我....我我我我我.....我我我...我我我..可以&quot;;</span><br><span class="line">		// 1明确需要使用替换的功能</span><br><span class="line">		// 2将点干掉</span><br><span class="line">		str = str.replaceAll(&quot;\\.+&quot;, &quot;&quot;);</span><br><span class="line">		// 3将叠词干掉</span><br><span class="line">		str = str.replaceAll(&quot;(.)\\1+&quot;, &quot;$1&quot;);</span><br><span class="line">		System.out.println(str);</span><br><span class="line">	&#125;</span><br><span class="line">//误删除了regex的基础学习代码</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/30/18-3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/30/18-3/" itemprop="url">流总结</a></h1>
         
 
         <div class="post-meta">
@@ -316,130 +435,6 @@
 <p>管道流：一般在网络中会使用<br>特点：读取管道和写入管道可以对接<br>需要使用多线程技术，单线程容易死锁<br>功能：connect()</p>
 <p>操作基本数据类值的：DataInputStream DataOutputStram</p>
 <p>操作字节数组：ByteArrayInputStream ByteArrayInputStream<br>特点：关闭无效</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/29/18-2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/29/18-2/" itemprop="url">其他流</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-29T00:00:00+08:00">
-                2018-07-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>管道流<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line">package DAY4;</span><br><span class="line"></span><br><span class="line">import java.io.IOException;</span><br><span class="line">import java.io.PipedInputStream;</span><br><span class="line">import java.io.PipedOutputStream;</span><br><span class="line"></span><br><span class="line">public class PipedStreamDemo &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) throws IOException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		//创建管道对象</span><br><span class="line">		PipedInputStream pis = new PipedInputStream();</span><br><span class="line">		PipedOutputStream pos =new PipedOutputStream();</span><br><span class="line">		//将2个流连接上</span><br><span class="line">		pis.connect(pos);</span><br><span class="line">		new Thread(new Input(pis)).start();</span><br><span class="line">		new Thread(new Out(pos)).start();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//定义输入任务</span><br><span class="line">class Input implements Runnable &#123;</span><br><span class="line"></span><br><span class="line">	private PipedInputStream pis;</span><br><span class="line"></span><br><span class="line">	public void run() &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		byte[] buf = new byte[1024];</span><br><span class="line">		int len;</span><br><span class="line">		try &#123;</span><br><span class="line">			len = pis.read(buf);</span><br><span class="line">			String str = new String(buf, 0, len);</span><br><span class="line">			System.out.println(str);</span><br><span class="line">			pis.close();</span><br><span class="line">		&#125; catch (IOException e) &#123;</span><br><span class="line">			// TODO Auto-generated catch block</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public Input(PipedInputStream pis) &#123;</span><br><span class="line">		super();</span><br><span class="line">		this.pis = pis;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//定义输出任务</span><br><span class="line">class Out implements Runnable &#123;</span><br><span class="line">	private PipedOutputStream pos;</span><br><span class="line"></span><br><span class="line">	public void run() &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		try &#123;</span><br><span class="line">			pos.write(&quot;管道来了&quot;.getBytes());</span><br><span class="line">			pos.close();</span><br><span class="line">		&#125; catch (IOException e) &#123;</span><br><span class="line">			// TODO Auto-generated catch block</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public Out(PipedOutputStream pos) &#123;</span><br><span class="line">		super();</span><br><span class="line">		this.pos = pos;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>打印流<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">package DAY4;</span><br><span class="line"></span><br><span class="line">import java.io.BufferedReader;</span><br><span class="line">import java.io.BufferedWriter;</span><br><span class="line">import java.io.File;</span><br><span class="line">import java.io.FileNotFoundException;</span><br><span class="line">import java.io.FileWriter;</span><br><span class="line">import java.io.IOException;</span><br><span class="line">import java.io.InputStreamReader;</span><br><span class="line">import java.io.OutputStreamWriter;</span><br><span class="line">import java.io.PrintStream;</span><br><span class="line"></span><br><span class="line">public class PrintStreamDemo &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) throws IOException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		printStreamDemo();</span><br><span class="line">		printWriterDemo();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static void printWriterDemo() throws IOException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		//一样具备打印功能。</span><br><span class="line">		//1键盘录入</span><br><span class="line">		BufferedReader bufr = new BufferedReader(new InputStreamReader(System.in));</span><br><span class="line">		//定义目的</span><br><span class="line">//		BufferedWriter bufw = new BufferedWriter(new OutputStreamWriter(System.out));</span><br><span class="line">		PrintStream pw = new PrintStream(System.out,true);//对于println方法，使用true自动刷新</span><br><span class="line">		</span><br><span class="line">//		pw = new PrintStream(new BufferedWriter(new FileWriter(&quot;1.txt&quot;,true)));//可以实现自动刷新</span><br><span class="line">		//读取一行，写一行，键盘录入一定要定义结束标记</span><br><span class="line">		String line = null;</span><br><span class="line">		while((line = bufr.readLine())!=null)</span><br><span class="line">		&#123;</span><br><span class="line">			if(&quot;over&quot;.equals(line))</span><br><span class="line">			&#123;</span><br><span class="line">				return ;</span><br><span class="line">			&#125;</span><br><span class="line">			pw.println(line.toUpperCase());</span><br><span class="line">		&#125;</span><br><span class="line">		pw.close();</span><br><span class="line">//		bufr.close();//不需要关闭标准输入流，一旦关闭后面就获取不到</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static void printStreamDemo() throws IOException, FileNotFoundException &#123;</span><br><span class="line">		//		System.out.println(&quot;hello&quot;);</span><br><span class="line">		//		PrintStream pr= System.out;</span><br><span class="line">		//		pr.println(&quot;hello&quot;);</span><br><span class="line">				File dir = new File(&quot;print.txt&quot;);</span><br><span class="line">				if(!dir.exists())</span><br><span class="line">				&#123;</span><br><span class="line">					dir.createNewFile();</span><br><span class="line">				&#125;</span><br><span class="line">				PrintStream out = new PrintStream(dir);</span><br><span class="line">				//将数据打印在文件中</span><br><span class="line">		//		out.write(97);//对于字节流的write方法，一次只写入一个字节，也就是将一个整数的最低8位写入，舍弃其余的位数</span><br><span class="line">		//		out.write(&quot;97asd&quot;.getBytes());</span><br><span class="line">				out.print(98);//原理就是将数值转成了字符串</span><br><span class="line">				out.close();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>随机读取写入流<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">package DAY4;</span><br><span class="line"></span><br><span class="line">import java.io.IOException;</span><br><span class="line">import java.io.RandomAccessFile;</span><br><span class="line"></span><br><span class="line">public class RandomAccessFileDemo &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) throws IOException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		//RandomAccessFile：</span><br><span class="line">		/*</span><br><span class="line">		特点：</span><br><span class="line">		1只能操作文件。</span><br><span class="line">		2可以读，可以写</span><br><span class="line">		3.维护了一个大型的byte数组</span><br><span class="line">		4随机写，可以使用指针来修改写入的位置——可以实现多线程的写入，下载文件的时候比较频繁，可以从文件的任意位置可以读取或者写入</span><br><span class="line">		*/</span><br><span class="line">		</span><br><span class="line">		writeFile();</span><br><span class="line">		readFile();</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static void readFile() throws IOException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		RandomAccessFile raf = new RandomAccessFile(&quot;random.txt&quot;, &quot;r&quot;);</span><br><span class="line">//		System.out.println(raf.getFilePointer());</span><br><span class="line">		byte[] buf = new byte[10];</span><br><span class="line">		raf.read(buf);</span><br><span class="line">		String name = new String(buf);</span><br><span class="line">		System.out.println(raf.getFilePointer());</span><br><span class="line">		System.out.println(name);</span><br><span class="line">		raf.close();</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static void writeFile() throws IOException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		//1创建一个随机访问文件的对象	File不存在，则创建。存在则不覆盖也不创建</span><br><span class="line">		RandomAccessFile raf =new RandomAccessFile(&quot;random.txt&quot;, &quot;rw&quot;);</span><br><span class="line">		//写入姓名和年龄</span><br><span class="line">		raf.write(&quot;张三&quot;.getBytes());</span><br><span class="line">		raf.write(&quot;张老三&quot;.getBytes());</span><br><span class="line">//		raf.write(97);//写入一个字节</span><br><span class="line">//		raf.writeInt(65);//保证整数字节的完整性</span><br><span class="line">	</span><br><span class="line">		//随机写入——写入的位置不确定，如果不设置指针的话，那么就会产生覆盖</span><br><span class="line">//		raf.seek(800);</span><br><span class="line">//		System.out.println(raf.getFilePointer());</span><br><span class="line">//		raf.write(&quot;杜sdafasdfdsaf瑶&quot;.getBytes());</span><br><span class="line">//		System.out.println(raf.getFilePointer());</span><br><span class="line">//		raf.close();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>序列流<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">package DAY4;</span><br><span class="line"></span><br><span class="line">import java.io.FileInputStream;</span><br><span class="line">import java.io.FileOutputStream;</span><br><span class="line">import java.io.IOException;</span><br><span class="line">import java.io.PrintStream;</span><br><span class="line">import java.io.SequenceInputStream;</span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.Collections;</span><br><span class="line">import java.util.Enumeration;</span><br><span class="line"></span><br><span class="line">public class SequenceInputStreamDemo &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) throws IOException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		//演示序列流得使用</span><br><span class="line">		//如何获取一个枚举呢？Vector有，但是效率低，使用Arrlist。</span><br><span class="line">		ArrayList&lt;FileInputStream&gt; arr = new ArrayList&lt;FileInputStream&gt;();</span><br><span class="line">		</span><br><span class="line">		//添加输入流得对象，将其与指定得具体文件关联</span><br><span class="line">		arr.add(new FileInputStream(&quot;temp.txt&quot;));</span><br><span class="line">		arr.add(new FileInputStream(&quot;temp1.txt&quot;));</span><br><span class="line">		</span><br><span class="line">		//怎么通过ArrayList获取枚举接口呢？可以使用Collections中得方法</span><br><span class="line">		Enumeration&lt;FileInputStream&gt; en = Collections.enumeration(arr);</span><br><span class="line">		</span><br><span class="line">		//创建一个序列流对象，需要传递枚举</span><br><span class="line">		SequenceInputStream sis = new SequenceInputStream(en);</span><br><span class="line">		//创建目录，接受目的</span><br><span class="line">		FileOutputStream fos = new FileOutputStream(&quot;4.txt&quot;);</span><br><span class="line">		//频繁得读写操作。</span><br><span class="line">		//1创建缓冲区。</span><br><span class="line">		byte[] by = new byte[1024];</span><br><span class="line">		int len = 0;</span><br><span class="line">		while((len=sis.read(by))!=-1)</span><br><span class="line">		&#123;</span><br><span class="line">			fos.write(by,0,len);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		fos.close();</span><br><span class="line">		sis.close();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>按照指定的字节数进行字符的截取<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">package DAY4;</span><br><span class="line"></span><br><span class="line">import java.io.UnsupportedEncodingException;</span><br><span class="line"></span><br><span class="line">public class SpiltDemo &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) throws UnsupportedEncodingException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		//按照指定的字节数来进行字符串的截取</span><br><span class="line">		/*</span><br><span class="line">		gb2312编码的一个中文是2个字节，而且2个字节的高位都是1，也就是说他们都是负数</span><br><span class="line">		思路：</span><br><span class="line">		1提示告诉我中文的2个字节都是负数</span><br><span class="line">		2判断街区的最后一个字节是否是负数</span><br><span class="line">		如果不是，直接街区</span><br><span class="line">		如果是，就往回判断前一个是否负数，并记录负数的个数，如果连续的负数为奇数个，舍弃最后一个字节，如果连续的负数是偶数个，不舍弃</span><br><span class="line">		*/</span><br><span class="line">		//字符串转成字节数组</span><br><span class="line">		String str = &quot;fe啊手动阀手动阀撒旦发i&quot;;</span><br><span class="line">		byte [] buf = str.getBytes(&quot;GBK&quot;);</span><br><span class="line">//		for(byte b : buf)</span><br><span class="line">//		&#123;</span><br><span class="line">//			System.out.println(b);</span><br><span class="line">//		&#125;</span><br><span class="line">//		</span><br><span class="line">		for (int x = 0; x &lt; buf.length; x++) &#123;</span><br><span class="line">			String cut = cutStringBycount(str, x);</span><br><span class="line">			System.out.println(cut);</span><br><span class="line">		&#125;	</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static String cutStringBycount(String str, int len) throws UnsupportedEncodingException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">			</span><br><span class="line">		//1将字符串转换成字节数组，因为要判断截取的字节是否是负数，先有字节</span><br><span class="line">		byte[] buf = str.getBytes(&quot;GBK&quot;);</span><br><span class="line">		</span><br><span class="line">		//2对字节数组进行遍历。应该从截取长度的最后一个字节开始判断，并往回判断</span><br><span class="line">		int count = 0;</span><br><span class="line">		//3定义计数器，记录负数的个数</span><br><span class="line">		//4遍历过程中，只要是满足负数就进行计数，不是负数，直接进行遍历</span><br><span class="line">		for (int i = len - 1; i &gt;=0; i--) &#123;</span><br><span class="line">			if(buf[i]&lt;0)</span><br><span class="line">			&#123;</span><br><span class="line">				count++;</span><br><span class="line">			&#125;else</span><br><span class="line">			&#123;</span><br><span class="line">				break;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		if(count%2==0)</span><br><span class="line">		&#123;</span><br><span class="line">			return new String(buf,0,len);</span><br><span class="line">		&#125;else</span><br><span class="line">		&#123;</span><br><span class="line">			return new String(buf,0,len-1);</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		//5对遍历后的计数器的值进行判断，奇数，就舍弃最后字节，并将字节数组转成字符串。偶数，不舍弃，将字节数组转成字符串</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
           
         
@@ -564,6 +559,130 @@
 <p>持久化存储<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">package DAY4;</span><br><span class="line"></span><br><span class="line">import java.io.FileInputStream;</span><br><span class="line">import java.io.FileNotFoundException;</span><br><span class="line">import java.io.FileOutputStream;</span><br><span class="line">import java.io.IOException;</span><br><span class="line">import java.io.ObjectInputStream;</span><br><span class="line">import java.io.ObjectOutputStream;</span><br><span class="line"></span><br><span class="line">public class ObjectInputStreamDemo &#123;</span><br><span class="line">	public static void main(String[] args) throws IOException, ClassNotFoundException &#123;</span><br><span class="line">		//将一个对象存储到持久化（硬盘）的设备</span><br><span class="line">		writeObj();//对象的序列化</span><br><span class="line">		readobj();//对象的反序列化</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static void readobj() throws IOException, ClassNotFoundException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		//1定义流对象关联存储了对象文件</span><br><span class="line">		FileInputStream fis = new FileInputStream(&quot;obj.object&quot;);</span><br><span class="line">		//建立一个用于读取对象的功能对象</span><br><span class="line">		ObjectInputStream ois = new ObjectInputStream(fis);</span><br><span class="line">		Person p = (Person)ois.readObject();</span><br><span class="line">		System.out.println(p.toString());</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static void writeObj() throws IOException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		//明确存储对象的源文件</span><br><span class="line">		FileOutputStream fos = new FileOutputStream(&quot;obj.object&quot;);</span><br><span class="line">		//给操作文件的对象增加写入对象的功能</span><br><span class="line">		ObjectOutputStream oos = new ObjectOutputStream(fos);</span><br><span class="line">		//调用了写入对象的方法</span><br><span class="line">		oos.writeObject(new Person(&quot;wangcai&quot;,24));</span><br><span class="line">		oos.close();</span><br><span class="line">	&#125;</span><br><span class="line">	//java.io.NotSerializableException出现这个问题，是没有打标记实现Serializable</span><br><span class="line">	//将指定的对象写入 ObjectOutputStream。对象的类、类的签名，以及类及其所有超类型的非瞬态和非静态字段的值都将被写入</span><br><span class="line">	//对象持久化存储之后，可以在崩溃后继续进行读取。</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">package DAY4;</span><br><span class="line"></span><br><span class="line">import java.io.Serializable;</span><br><span class="line"></span><br><span class="line">public class Person implements Serializable&#123;</span><br><span class="line">	/**</span><br><span class="line">	 * 给类显示声明一个序列版本号，这个类可能被序列化。</span><br><span class="line">	 * 瞬态和静态数据不能被加载进去栈中，也就是不能被序列化</span><br><span class="line">	 */</span><br><span class="line">	private static final long serialVersionUID = 14561345L;//版本号的问题</span><br><span class="line">	private String name;</span><br><span class="line">	private int age;</span><br><span class="line">//	private transient int age;//瞬态</span><br><span class="line">	public String getName() &#123;</span><br><span class="line">		return name;</span><br><span class="line">	&#125;</span><br><span class="line">	public void setName(String name) &#123;</span><br><span class="line">		this.name = name;</span><br><span class="line">	&#125;</span><br><span class="line">	public int getAge() &#123;</span><br><span class="line">		return age;</span><br><span class="line">	&#125;</span><br><span class="line">	public void setAge(int age) &#123;</span><br><span class="line">		this.age = age;</span><br><span class="line">	&#125;</span><br><span class="line">	public Person(String name, int age) &#123;</span><br><span class="line">		super();</span><br><span class="line">		this.name = name;</span><br><span class="line">		this.age = age;</span><br><span class="line">	&#125;</span><br><span class="line">	@Override</span><br><span class="line">	public String toString() &#123;</span><br><span class="line">		return &quot;Person [name=&quot; + name + &quot;, age=&quot; + age + &quot;]&quot;;</span><br><span class="line">	&#125;</span><br><span class="line">	public Person() &#123;</span><br><span class="line">		super();</span><br><span class="line">		// TODO Auto-generated constructor stub</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line">Person类的对象如果需要序列号，就需要实现Serializable接口</span><br><span class="line">该接口给需要序列化的类，提供了一个序列版本号，serialVersionUID</span><br><span class="line">该版本号的目的在于验证序列化的对象和对应类是否版本匹配。</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
 <p>其他类的使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">package DAY4;</span><br><span class="line"></span><br><span class="line">import java.io.DataInputStream;</span><br><span class="line">import java.io.DataOutputStream;</span><br><span class="line">import java.io.FileInputStream;</span><br><span class="line">import java.io.FileNotFoundException;</span><br><span class="line">import java.io.FileOutputStream;</span><br><span class="line">import java.io.IOException;</span><br><span class="line"></span><br><span class="line">public class OtherClass &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) throws IOException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		writeData();</span><br><span class="line">		readData();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static void readData() throws IOException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		FileInputStream fis =new FileInputStream(&quot;other.txt&quot;);</span><br><span class="line">		DataInputStream dis = new DataInputStream(fis);</span><br><span class="line">		System.out.println(dis.readBoolean());</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static void writeData() throws IOException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		// 写入一些基本数据值，存储到文件</span><br><span class="line">		FileOutputStream fos = new FileOutputStream(&quot;other.txt&quot;);</span><br><span class="line">		DataOutputStream dos = new DataOutputStream(fos);</span><br><span class="line">		dos.writeBoolean(true);</span><br><span class="line">		dos.close();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/29/18-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/29/18-2/" itemprop="url">其他流</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-29T00:00:00+08:00">
+                2018-07-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>管道流<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line">package DAY4;</span><br><span class="line"></span><br><span class="line">import java.io.IOException;</span><br><span class="line">import java.io.PipedInputStream;</span><br><span class="line">import java.io.PipedOutputStream;</span><br><span class="line"></span><br><span class="line">public class PipedStreamDemo &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) throws IOException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		//创建管道对象</span><br><span class="line">		PipedInputStream pis = new PipedInputStream();</span><br><span class="line">		PipedOutputStream pos =new PipedOutputStream();</span><br><span class="line">		//将2个流连接上</span><br><span class="line">		pis.connect(pos);</span><br><span class="line">		new Thread(new Input(pis)).start();</span><br><span class="line">		new Thread(new Out(pos)).start();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//定义输入任务</span><br><span class="line">class Input implements Runnable &#123;</span><br><span class="line"></span><br><span class="line">	private PipedInputStream pis;</span><br><span class="line"></span><br><span class="line">	public void run() &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		byte[] buf = new byte[1024];</span><br><span class="line">		int len;</span><br><span class="line">		try &#123;</span><br><span class="line">			len = pis.read(buf);</span><br><span class="line">			String str = new String(buf, 0, len);</span><br><span class="line">			System.out.println(str);</span><br><span class="line">			pis.close();</span><br><span class="line">		&#125; catch (IOException e) &#123;</span><br><span class="line">			// TODO Auto-generated catch block</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public Input(PipedInputStream pis) &#123;</span><br><span class="line">		super();</span><br><span class="line">		this.pis = pis;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//定义输出任务</span><br><span class="line">class Out implements Runnable &#123;</span><br><span class="line">	private PipedOutputStream pos;</span><br><span class="line"></span><br><span class="line">	public void run() &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		try &#123;</span><br><span class="line">			pos.write(&quot;管道来了&quot;.getBytes());</span><br><span class="line">			pos.close();</span><br><span class="line">		&#125; catch (IOException e) &#123;</span><br><span class="line">			// TODO Auto-generated catch block</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public Out(PipedOutputStream pos) &#123;</span><br><span class="line">		super();</span><br><span class="line">		this.pos = pos;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>打印流<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">package DAY4;</span><br><span class="line"></span><br><span class="line">import java.io.BufferedReader;</span><br><span class="line">import java.io.BufferedWriter;</span><br><span class="line">import java.io.File;</span><br><span class="line">import java.io.FileNotFoundException;</span><br><span class="line">import java.io.FileWriter;</span><br><span class="line">import java.io.IOException;</span><br><span class="line">import java.io.InputStreamReader;</span><br><span class="line">import java.io.OutputStreamWriter;</span><br><span class="line">import java.io.PrintStream;</span><br><span class="line"></span><br><span class="line">public class PrintStreamDemo &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) throws IOException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		printStreamDemo();</span><br><span class="line">		printWriterDemo();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static void printWriterDemo() throws IOException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		//一样具备打印功能。</span><br><span class="line">		//1键盘录入</span><br><span class="line">		BufferedReader bufr = new BufferedReader(new InputStreamReader(System.in));</span><br><span class="line">		//定义目的</span><br><span class="line">//		BufferedWriter bufw = new BufferedWriter(new OutputStreamWriter(System.out));</span><br><span class="line">		PrintStream pw = new PrintStream(System.out,true);//对于println方法，使用true自动刷新</span><br><span class="line">		</span><br><span class="line">//		pw = new PrintStream(new BufferedWriter(new FileWriter(&quot;1.txt&quot;,true)));//可以实现自动刷新</span><br><span class="line">		//读取一行，写一行，键盘录入一定要定义结束标记</span><br><span class="line">		String line = null;</span><br><span class="line">		while((line = bufr.readLine())!=null)</span><br><span class="line">		&#123;</span><br><span class="line">			if(&quot;over&quot;.equals(line))</span><br><span class="line">			&#123;</span><br><span class="line">				return ;</span><br><span class="line">			&#125;</span><br><span class="line">			pw.println(line.toUpperCase());</span><br><span class="line">		&#125;</span><br><span class="line">		pw.close();</span><br><span class="line">//		bufr.close();//不需要关闭标准输入流，一旦关闭后面就获取不到</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static void printStreamDemo() throws IOException, FileNotFoundException &#123;</span><br><span class="line">		//		System.out.println(&quot;hello&quot;);</span><br><span class="line">		//		PrintStream pr= System.out;</span><br><span class="line">		//		pr.println(&quot;hello&quot;);</span><br><span class="line">				File dir = new File(&quot;print.txt&quot;);</span><br><span class="line">				if(!dir.exists())</span><br><span class="line">				&#123;</span><br><span class="line">					dir.createNewFile();</span><br><span class="line">				&#125;</span><br><span class="line">				PrintStream out = new PrintStream(dir);</span><br><span class="line">				//将数据打印在文件中</span><br><span class="line">		//		out.write(97);//对于字节流的write方法，一次只写入一个字节，也就是将一个整数的最低8位写入，舍弃其余的位数</span><br><span class="line">		//		out.write(&quot;97asd&quot;.getBytes());</span><br><span class="line">				out.print(98);//原理就是将数值转成了字符串</span><br><span class="line">				out.close();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>随机读取写入流<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">package DAY4;</span><br><span class="line"></span><br><span class="line">import java.io.IOException;</span><br><span class="line">import java.io.RandomAccessFile;</span><br><span class="line"></span><br><span class="line">public class RandomAccessFileDemo &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) throws IOException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		//RandomAccessFile：</span><br><span class="line">		/*</span><br><span class="line">		特点：</span><br><span class="line">		1只能操作文件。</span><br><span class="line">		2可以读，可以写</span><br><span class="line">		3.维护了一个大型的byte数组</span><br><span class="line">		4随机写，可以使用指针来修改写入的位置——可以实现多线程的写入，下载文件的时候比较频繁，可以从文件的任意位置可以读取或者写入</span><br><span class="line">		*/</span><br><span class="line">		</span><br><span class="line">		writeFile();</span><br><span class="line">		readFile();</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static void readFile() throws IOException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		RandomAccessFile raf = new RandomAccessFile(&quot;random.txt&quot;, &quot;r&quot;);</span><br><span class="line">//		System.out.println(raf.getFilePointer());</span><br><span class="line">		byte[] buf = new byte[10];</span><br><span class="line">		raf.read(buf);</span><br><span class="line">		String name = new String(buf);</span><br><span class="line">		System.out.println(raf.getFilePointer());</span><br><span class="line">		System.out.println(name);</span><br><span class="line">		raf.close();</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static void writeFile() throws IOException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		//1创建一个随机访问文件的对象	File不存在，则创建。存在则不覆盖也不创建</span><br><span class="line">		RandomAccessFile raf =new RandomAccessFile(&quot;random.txt&quot;, &quot;rw&quot;);</span><br><span class="line">		//写入姓名和年龄</span><br><span class="line">		raf.write(&quot;张三&quot;.getBytes());</span><br><span class="line">		raf.write(&quot;张老三&quot;.getBytes());</span><br><span class="line">//		raf.write(97);//写入一个字节</span><br><span class="line">//		raf.writeInt(65);//保证整数字节的完整性</span><br><span class="line">	</span><br><span class="line">		//随机写入——写入的位置不确定，如果不设置指针的话，那么就会产生覆盖</span><br><span class="line">//		raf.seek(800);</span><br><span class="line">//		System.out.println(raf.getFilePointer());</span><br><span class="line">//		raf.write(&quot;杜sdafasdfdsaf瑶&quot;.getBytes());</span><br><span class="line">//		System.out.println(raf.getFilePointer());</span><br><span class="line">//		raf.close();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>序列流<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">package DAY4;</span><br><span class="line"></span><br><span class="line">import java.io.FileInputStream;</span><br><span class="line">import java.io.FileOutputStream;</span><br><span class="line">import java.io.IOException;</span><br><span class="line">import java.io.PrintStream;</span><br><span class="line">import java.io.SequenceInputStream;</span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.Collections;</span><br><span class="line">import java.util.Enumeration;</span><br><span class="line"></span><br><span class="line">public class SequenceInputStreamDemo &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) throws IOException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		//演示序列流得使用</span><br><span class="line">		//如何获取一个枚举呢？Vector有，但是效率低，使用Arrlist。</span><br><span class="line">		ArrayList&lt;FileInputStream&gt; arr = new ArrayList&lt;FileInputStream&gt;();</span><br><span class="line">		</span><br><span class="line">		//添加输入流得对象，将其与指定得具体文件关联</span><br><span class="line">		arr.add(new FileInputStream(&quot;temp.txt&quot;));</span><br><span class="line">		arr.add(new FileInputStream(&quot;temp1.txt&quot;));</span><br><span class="line">		</span><br><span class="line">		//怎么通过ArrayList获取枚举接口呢？可以使用Collections中得方法</span><br><span class="line">		Enumeration&lt;FileInputStream&gt; en = Collections.enumeration(arr);</span><br><span class="line">		</span><br><span class="line">		//创建一个序列流对象，需要传递枚举</span><br><span class="line">		SequenceInputStream sis = new SequenceInputStream(en);</span><br><span class="line">		//创建目录，接受目的</span><br><span class="line">		FileOutputStream fos = new FileOutputStream(&quot;4.txt&quot;);</span><br><span class="line">		//频繁得读写操作。</span><br><span class="line">		//1创建缓冲区。</span><br><span class="line">		byte[] by = new byte[1024];</span><br><span class="line">		int len = 0;</span><br><span class="line">		while((len=sis.read(by))!=-1)</span><br><span class="line">		&#123;</span><br><span class="line">			fos.write(by,0,len);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		fos.close();</span><br><span class="line">		sis.close();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>按照指定的字节数进行字符的截取<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">package DAY4;</span><br><span class="line"></span><br><span class="line">import java.io.UnsupportedEncodingException;</span><br><span class="line"></span><br><span class="line">public class SpiltDemo &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) throws UnsupportedEncodingException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		//按照指定的字节数来进行字符串的截取</span><br><span class="line">		/*</span><br><span class="line">		gb2312编码的一个中文是2个字节，而且2个字节的高位都是1，也就是说他们都是负数</span><br><span class="line">		思路：</span><br><span class="line">		1提示告诉我中文的2个字节都是负数</span><br><span class="line">		2判断街区的最后一个字节是否是负数</span><br><span class="line">		如果不是，直接街区</span><br><span class="line">		如果是，就往回判断前一个是否负数，并记录负数的个数，如果连续的负数为奇数个，舍弃最后一个字节，如果连续的负数是偶数个，不舍弃</span><br><span class="line">		*/</span><br><span class="line">		//字符串转成字节数组</span><br><span class="line">		String str = &quot;fe啊手动阀手动阀撒旦发i&quot;;</span><br><span class="line">		byte [] buf = str.getBytes(&quot;GBK&quot;);</span><br><span class="line">//		for(byte b : buf)</span><br><span class="line">//		&#123;</span><br><span class="line">//			System.out.println(b);</span><br><span class="line">//		&#125;</span><br><span class="line">//		</span><br><span class="line">		for (int x = 0; x &lt; buf.length; x++) &#123;</span><br><span class="line">			String cut = cutStringBycount(str, x);</span><br><span class="line">			System.out.println(cut);</span><br><span class="line">		&#125;	</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static String cutStringBycount(String str, int len) throws UnsupportedEncodingException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">			</span><br><span class="line">		//1将字符串转换成字节数组，因为要判断截取的字节是否是负数，先有字节</span><br><span class="line">		byte[] buf = str.getBytes(&quot;GBK&quot;);</span><br><span class="line">		</span><br><span class="line">		//2对字节数组进行遍历。应该从截取长度的最后一个字节开始判断，并往回判断</span><br><span class="line">		int count = 0;</span><br><span class="line">		//3定义计数器，记录负数的个数</span><br><span class="line">		//4遍历过程中，只要是满足负数就进行计数，不是负数，直接进行遍历</span><br><span class="line">		for (int i = len - 1; i &gt;=0; i--) &#123;</span><br><span class="line">			if(buf[i]&lt;0)</span><br><span class="line">			&#123;</span><br><span class="line">				count++;</span><br><span class="line">			&#125;else</span><br><span class="line">			&#123;</span><br><span class="line">				break;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		if(count%2==0)</span><br><span class="line">		&#123;</span><br><span class="line">			return new String(buf,0,len);</span><br><span class="line">		&#125;else</span><br><span class="line">		&#123;</span><br><span class="line">			return new String(buf,0,len-1);</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		//5对遍历后的计数器的值进行判断，奇数，就舍弃最后字节，并将字节数组转成字符串。偶数，不舍弃，将字节数组转成字符串</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
           
         
@@ -1348,133 +1467,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/24/14-2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/24/14-2/" itemprop="url">工具类</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-24T00:00:00+08:00">
-                2018-07-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Collections中有可以将非同步的集合转换成为同步的集合—静态方法<br>1list排序<br>2逆序<br>3max，min<br>4二分查找<br>5将非同步集合转换为同步集合<br>Arrays<br>找寻元素的最大值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">package Day8;</span><br><span class="line"></span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.Collection;</span><br><span class="line">import java.util.Collections;</span><br><span class="line">import java.util.Comparator;</span><br><span class="line">import java.util.Iterator;</span><br><span class="line">import java.util.List;</span><br><span class="line"></span><br><span class="line">public class Demo &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		List&lt;String&gt; list = new ArrayList&lt;String&gt;();</span><br><span class="line">		list.add(&quot;das&quot;);</span><br><span class="line">		list.add(&quot;we&quot;);</span><br><span class="line">		list.add(&quot;asdfasdfvsg&quot;);</span><br><span class="line">		System.out.println(max(list));</span><br><span class="line">		System.out.println(list);</span><br><span class="line">		Collections.sort(list);</span><br><span class="line">		Comparator comp = new Comparator&lt;String&gt;() &#123;</span><br><span class="line"></span><br><span class="line">			@Override</span><br><span class="line">			public int compare(String o1, String o2) &#123;</span><br><span class="line">				// TODO Auto-generated method stub</span><br><span class="line">				int temp = o1.length() - o2.length();</span><br><span class="line">				return temp == 0 ? o1.compareTo(o2) : temp;</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		&#125;;</span><br><span class="line">		String max1 = Collections.max(list, comp);</span><br><span class="line">		System.out.println(max1);</span><br><span class="line">		Comparator&lt;String&gt; comp1 = Collections.reverseOrder(comp);</span><br><span class="line">		Collections.sort(list, comp1);</span><br><span class="line">		System.out.println(list);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public static&lt;T extends Object &amp; Comparable&lt;? super T&gt;&gt; T max(Collection&lt;? extends T&gt; coll)</span><br><span class="line">	&#123;</span><br><span class="line">		Iterator&lt;? extends T&gt; it =coll.iterator();</span><br><span class="line">		//定义变量记录容器中其中一个</span><br><span class="line">		T str = it.next();</span><br><span class="line">		//遍历容器所有的元素</span><br><span class="line">		while(it.hasNext())</span><br><span class="line">		&#123;</span><br><span class="line">			T temp = it.next();</span><br><span class="line">			if(temp.compareTo(str)&gt;0)</span><br><span class="line">				str = temp;</span><br><span class="line">		&#125;</span><br><span class="line">		//在遍历的过程中，记录最大值</span><br><span class="line">		return str;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>数组到集合的转变<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">package Day8;</span><br><span class="line"></span><br><span class="line">import java.util.Arrays;</span><br><span class="line">import java.util.List;</span><br><span class="line"></span><br><span class="line">public class Demo1 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		int[] arr = &#123; 12, 32, 1, 43, 54, 21 &#125;;</span><br><span class="line">		System.out.println(Arrays.toString(arr));</span><br><span class="line">		// 判断数组中是否存在某个值</span><br><span class="line">		List&lt;int []&gt; list = Arrays.asList(arr);//数组转集合的方法注意不能改变该集合的长度</span><br><span class="line">		System.out.println(list);</span><br><span class="line">		//如果数组中都是引用数据类型，数组元素直接作为集合元素</span><br><span class="line">		//如果数组中的都是基本数据类型，会将数组对象作为集合中的元素</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>集合到数组的转换<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">package Day8;</span><br><span class="line"></span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.Arrays;</span><br><span class="line">import java.util.List;</span><br><span class="line"></span><br><span class="line">public class Demo2 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		// 使用Collections中的toArrays</span><br><span class="line">		List&lt;String&gt; list = new ArrayList&lt;String&gt;();</span><br><span class="line">		list.add(&quot;asd&quot;);</span><br><span class="line">		list.add(&quot;ad&quot;);</span><br><span class="line">		// 传入的数组长度如果小于集合长度，方法中会创建一个新的长度和集合长度一致的数组</span><br><span class="line">		// 传入的数组长度大于等于集合长度，会使用传入的数组。所以建议长度为集合的size</span><br><span class="line">		//集合转成数组的原因：就是为了限定对元素的操作，比如增删不允许</span><br><span class="line">		String[] str = list.toArray(new String[list.size()]);</span><br><span class="line">		System.out.println(Arrays.toString(str));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>可变参数的使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">package Day8;</span><br><span class="line"></span><br><span class="line">public class Demo3 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		//可变参数+静态导入</span><br><span class="line">		System.out.println(he(12,12,12));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/*</span><br><span class="line">	 * (int x,int... arr);//可以 (int... arr,int x);//不可以，可变参数就只能定义在参数的最后</span><br><span class="line">	 */	public static int he(int... arr)</span><br><span class="line">	&#123;</span><br><span class="line">		int sum = 0;</span><br><span class="line">		for (int i = 0; i &lt; arr.length; i++) &#123;</span><br><span class="line">			sum+=arr[i];</span><br><span class="line">		&#125;</span><br><span class="line">		return sum;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>ArrayList工具类的使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">package Day8;</span><br><span class="line"></span><br><span class="line">public class Demo3 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		//可变参数+静态导入</span><br><span class="line">		System.out.println(he(12,12,12));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/*</span><br><span class="line">	 * (int x,int... arr);//可以 (int... arr,int x);//不可以，可变参数就只能定义在参数的最后</span><br><span class="line">	 */	public static int he(int... arr)</span><br><span class="line">	&#123;</span><br><span class="line">		int sum = 0;</span><br><span class="line">		for (int i = 0; i &lt; arr.length; i++) &#123;</span><br><span class="line">			sum+=arr[i];</span><br><span class="line">		&#125;</span><br><span class="line">		return sum;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>Properties的使用——记录着许多信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">package Day8;</span><br><span class="line"></span><br><span class="line">import java.util.Properties;</span><br><span class="line">import java.util.Set;</span><br><span class="line"></span><br><span class="line">public class Demo5 &#123;</span><br><span class="line"></span><br><span class="line">	private static final String FILE_SEPARTOR = System.getProperty(&quot;file.separator&quot;);//可以移植到不同的系统上</span><br><span class="line">	private static final String LINE_SEPARTOR = System.getProperty(&quot;line.separator&quot;);</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		/*</span><br><span class="line">		 * System全是静态的属性和行为 out:标准输出流，默认显示器 in：标准输入流：默认键盘</span><br><span class="line">		 */</span><br><span class="line">		long time = System.currentTimeMillis();// 用来记录程序运行的时间</span><br><span class="line">		System.out.println(time);</span><br><span class="line">		// getProperties</span><br><span class="line">		Properties prop = System.getProperties();//获取系统属性</span><br><span class="line">		Set&lt;String&gt; keyset = prop.stringPropertyNames();</span><br><span class="line">		for(String key : keyset)</span><br><span class="line">		&#123;</span><br><span class="line">			String value = prop.getProperty(key);</span><br><span class="line">			System.out.println(key+value);</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(prop.getProperty(&quot;os.name&quot;));//获取键对应的值</span><br><span class="line">		System.out.println(&quot;c:&quot;+FILE_SEPARTOR+&quot;abc&quot;+FILE_SEPARTOR+&quot;1.txt&quot;);</span><br><span class="line">		System.out.println(&quot;hello&quot;+LINE_SEPARTOR+&quot;world&quot;);</span><br><span class="line">		//windows ;\r\n \</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>runtime类的使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">package Day8;</span><br><span class="line"></span><br><span class="line">import java.io.IOException;</span><br><span class="line"></span><br><span class="line">public class Demo6 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) throws IOException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		// Runtime类是单例设计的，可以获取内存的使用量。</span><br><span class="line">		Runtime runtime = Runtime.getRuntime();</span><br><span class="line">		runtime .exec(&quot;notepad.exe &quot;);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>Math类的使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">package Day8;</span><br><span class="line"></span><br><span class="line">import java.util.Random;</span><br><span class="line"></span><br><span class="line">public class Demo7 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		// Math类——封装的都是静态的方法</span><br><span class="line">		double d1 = Math.ceil(12.34);// 大于参数的最小整数</span><br><span class="line">		double d2 = Math.floor(12.34);// 小于参数的最大整数</span><br><span class="line">		double d3 = Math.round(12.34);// 四舍五入</span><br><span class="line">		System.out.println(d1);</span><br><span class="line">		System.out.println(d2);</span><br><span class="line">		System.out.println(d3);</span><br><span class="line"></span><br><span class="line">		for (int i = 0; i &lt; 10; i++) &#123;</span><br><span class="line">			int d = (int) Math.ceil(Math.random() * 6);</span><br><span class="line">			System.out.println(d);</span><br><span class="line">		&#125;</span><br><span class="line">		Random r = new Random();</span><br><span class="line">		for (int i = 0; i &lt; 10; i++) &#123;</span><br><span class="line">			double d4 = r.nextDouble();</span><br><span class="line">			int d5 = r.nextInt(6)+1;</span><br><span class="line">			System.out.println(d4);</span><br><span class="line">			System.out.println(d5);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1525,7 +1517,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-count">56</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

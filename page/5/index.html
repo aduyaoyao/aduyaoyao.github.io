@@ -229,6 +229,126 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/06/6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/06/6/" itemprop="url">抽象类</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-06T00:00:00+08:00">
+                2018-07-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>抽象类<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">抽象类和接口</span><br><span class="line">描述一个事物，却没有足够信息，这时就将这个事物称为抽象事物</span><br><span class="line">abstract 抽象</span><br><span class="line">extends  继承</span><br><span class="line">面对抽象的事物，虽然不具体，但是可以简单化。</span><br><span class="line">抽象的特点：</span><br><span class="line">	抽象方法一定定义在抽象类中,abstract来修饰</span><br><span class="line">	抽象类不能实例化，不能使用new关键字</span><br><span class="line">	只有子类中子类覆盖了所有的抽象方法后，子类就可以创建对象</span><br><span class="line">	如果没有覆盖了所有的抽象方法，那么子类仍然是一个抽象类</span><br><span class="line">抽象类也是不断向上抽取而来的，抽取了方法的声明而不确定具体的内容</span><br><span class="line">问题：</span><br><span class="line">抽象类中有构造函数吗？</span><br><span class="line">	有构造函数，抽象类的构造函数虽然不能给抽象类对象实例化，因为抽象类不能创建对象</span><br><span class="line">	但是抽象类有子类，它的构造函数可以给子类的对象实例化</span><br><span class="line">	抽象类与一般类的区别：</span><br><span class="line">	相同：都是用来描述事物，对其进行属性和行为的描述</span><br><span class="line">	不同：抽象类描述事物的信息不具体，一般类描述事物的信息具体</span><br><span class="line">	代码的不同：</span><br><span class="line">	抽象类中可以定义抽象方法，但是一般类不行</span><br><span class="line">	抽象类不可以实例化，一般类可以</span><br><span class="line">抽象类一定是父类？</span><br><span class="line">	是得。必须子类覆盖抽象方法后，才可以实例化，使用这些方法。</span><br><span class="line">抽象类中可以不定义抽象方法？</span><br><span class="line">	仅仅是让该类不能创建对象</span><br><span class="line">abstract关键与啥关键字不能共存？</span><br><span class="line">final：不可以存在子类，不可以被继承;private:不支持覆盖;static：类名调用方法</span><br><span class="line">需求：公司中程序员有姓名，工号，薪水，内容。</span><br><span class="line">	  项目经理有姓名，工号，薪水，内容，奖金。</span><br><span class="line">	  进行数学建模</span><br><span class="line">*/</span><br><span class="line">abstract class Employer</span><br><span class="line">&#123;</span><br><span class="line">	private String name;</span><br><span class="line">	private String id;</span><br><span class="line">	private double pay;</span><br><span class="line">	</span><br><span class="line">	Employer(String name,String id,double pay)</span><br><span class="line">	&#123;</span><br><span class="line">		this.name = name;</span><br><span class="line">		this.id = id;</span><br><span class="line">		this.pay = pay;</span><br><span class="line">	&#125;</span><br><span class="line">	public abstract void work();</span><br><span class="line">&#125;</span><br><span class="line">class Programmer extends Employer</span><br><span class="line">&#123;</span><br><span class="line">	Programmer(String name,String id,double pay)</span><br><span class="line">	&#123;</span><br><span class="line">		super(name,id,pay);</span><br><span class="line">	&#125;</span><br><span class="line">	public void work()</span><br><span class="line">	&#123;</span><br><span class="line">		System.out.println(&quot;code&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class Mangers extends Employer</span><br><span class="line">&#123;</span><br><span class="line">	private double prices;</span><br><span class="line">	Manhers(String name,String id,double pay,double prices)</span><br><span class="line">	&#123;</span><br><span class="line">		super(name,id,pay);</span><br><span class="line">		this.prices = prices;</span><br><span class="line">	&#125;</span><br><span class="line">	public void work()</span><br><span class="line">	&#123;</span><br><span class="line">		System.out.println(&quot;hold on&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/06/6-2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1320,126 +1440,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/03/3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/03/3/" itemprop="url">循环语句和条件语句</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-03T00:00:00+08:00">
-                2018-07-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>的三种形式：</span><br><span class="line"><span class="number">1</span><span class="keyword">if</span></span><br><span class="line"><span class="number">2</span><span class="keyword">if</span>-<span class="keyword">else</span></span><br><span class="line"><span class="number">3</span><span class="keyword">if</span>-<span class="keyword">else</span> <span class="keyword">if</span>-<span class="keyword">else</span></span><br><span class="line">三元运算符是简化的<span class="keyword">if</span>-<span class="keyword">else</span></span><br><span class="line">三元运算符和<span class="keyword">if</span>-<span class="keyword">else</span>的区别：</span><br><span class="line">三元运算符必须有结果,<span class="keyword">if</span>-<span class="keyword">else</span>可以没有结果。</span><br><span class="line"><span class="keyword">if</span>（</span><br><span class="line">）有较好的可读性，以及最大程度的在屏幕上显示</span><br><span class="line"><span class="keyword">switch</span> 里面没有顺序，先依次执行<span class="keyword">case</span>语句，最后执行<span class="keyword">default</span></span><br><span class="line"><span class="keyword">switch</span>里面可以选择的值：<span class="keyword">byte</span>，<span class="keyword">short</span>，<span class="keyword">int</span>，<span class="keyword">char</span>四种</span><br><span class="line"><span class="keyword">do</span>-<span class="keyword">while</span>无论条件是否满足，至少执行一次</span><br><span class="line">out和in都是对于<span class="keyword">for</span>起的别名，方便<span class="keyword">break</span>跳出不同的<span class="keyword">for</span>循环。</span><br><span class="line">out和in都是标号 </span><br><span class="line">out:<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">5</span>;i++)&#123;</span><br><span class="line">	in:<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=i;j++)&#123;</span><br><span class="line">	   System.out.print(<span class="string">"&amp;r"</span>);</span><br><span class="line">	   <span class="keyword">break</span> out;</span><br><span class="line">	&#125;</span><br><span class="line">	System.out.println();</span><br><span class="line">	&#125;</span><br><span class="line">定义<span class="class"><span class="keyword">class</span>：首字母大写，若有2个字母，每个连接的字母都大写</span></span><br><span class="line"><span class="class">定义变量：刚开始小写，之后单词的第一个大写。</span></span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1490,7 +1490,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-count">56</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

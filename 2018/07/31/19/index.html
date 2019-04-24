@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="同步代码块和同步函数的异同123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960/*同步函数和同步代码块的区别：同步代码块使用的任意的对象作为锁同步函数只能使用this作为锁开发建议使用同步代码块。如果说，一个类中只需要一个锁，这是">
+<meta name="description" content="123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687import java.io.BufferedReader;impor">
 <meta name="keywords" content="java学习笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="同步函数+同步代码块">
-<meta property="og:url" content="http://yoursite.com/2018/07/10/10-4/index.html">
+<meta property="og:title" content="正则表达式">
+<meta property="og:url" content="http://yoursite.com/2018/07/31/19/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="同步代码块和同步函数的异同123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960/*同步函数和同步代码块的区别：同步代码块使用的任意的对象作为锁同步函数只能使用this作为锁开发建议使用同步代码块。如果说，一个类中只需要一个锁，这是">
+<meta property="og:description" content="123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687import java.io.BufferedReader;impor">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-23T14:31:15.552Z">
+<meta property="og:updated_time" content="2019-04-24T10:13:34.894Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="同步函数+同步代码块">
-<meta name="twitter:description" content="同步代码块和同步函数的异同123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960/*同步函数和同步代码块的区别：同步代码块使用的任意的对象作为锁同步函数只能使用this作为锁开发建议使用同步代码块。如果说，一个类中只需要一个锁，这是">
+<meta name="twitter:title" content="正则表达式">
+<meta name="twitter:description" content="123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687import java.io.BufferedReader;impor">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/07/10/10-4/">
+  <link rel="canonical" href="http://yoursite.com/2018/07/31/19/">
 
 
 
 
 
-  <title>同步函数+同步代码块 | Hexo</title>
+  <title>正则表达式 | Hexo</title>
   
 
 
@@ -233,7 +233,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/10/10-4/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/31/19/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -250,7 +250,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">同步函数+同步代码块</h1>
+          <h1 class="post-title" itemprop="name headline">正则表达式</h1>
         
 
         <div class="post-meta">
@@ -262,8 +262,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-10T00:00:00+08:00">
-                2018-07-10
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-31T00:00:00+08:00">
+                2018-07-31
               </time>
             
 
@@ -300,8 +300,7 @@
       
 
       
-        <p>同步代码块和同步函数的异同<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">同步函数和同步代码块的区别：</span><br><span class="line">同步代码块使用的任意的对象作为锁</span><br><span class="line">同步函数只能使用this作为锁</span><br><span class="line">开发建议使用同步代码块。</span><br><span class="line">如果说，一个类中只需要一个锁，这是可以考虑同步函数，使用this写法简单，</span><br><span class="line">但是一个类中如果需要多个锁，还有多个类中使用同一个锁。这时只能使用同步代码块。</span><br><span class="line">*/</span><br><span class="line">class SaleTickets1 implements Runnable</span><br><span class="line">&#123;</span><br><span class="line">	private static int ticket = 100000;</span><br><span class="line">	Object obj = new Object();</span><br><span class="line">	//定义一个flag标记</span><br><span class="line">	boolean flag = true;</span><br><span class="line">	public void run()</span><br><span class="line">	&#123;</span><br><span class="line">		if(flag)</span><br><span class="line">		while(true)</span><br><span class="line">		&#123;</span><br><span class="line">			synchronized(obj)</span><br><span class="line">			&#123;</span><br><span class="line">				sale();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		else</span><br><span class="line">		&#123;</span><br><span class="line">			while(true)</span><br><span class="line">			sale();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	public  synchronized void sale()</span><br><span class="line">	&#123;</span><br><span class="line">		synchronized(obj)</span><br><span class="line">		&#123;</span><br><span class="line">		if(ticket&gt;0)</span><br><span class="line">			&#123;</span><br><span class="line">			try&#123;Thread.sleep(1);&#125;</span><br><span class="line">			catch(InterruptedException e)&#123;&#125;//让线程在这里停止一下</span><br><span class="line">				System.out.println(Thread.currentThread().getName()+&quot;..sale&quot;+ticket--);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">//出现数据的错乱是因为DOS的打印</span><br><span class="line">class Demo3</span><br><span class="line">&#123;</span><br><span class="line">	public static void main(String[] args)throws InterruptedException</span><br><span class="line">	&#123;</span><br><span class="line">		SaleTickets1 t = new SaleTickets1();</span><br><span class="line">		//创建4个线程，通过Thread类对象</span><br><span class="line">		Thread h1 = new Thread(t);</span><br><span class="line">		Thread h2 = new Thread(t);</span><br><span class="line">		h1.start();</span><br><span class="line">		Thread.sleep(10);//主线程停一下。</span><br><span class="line">		t.flag = false;</span><br><span class="line">		h2.start();</span><br><span class="line">		</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line">import java.io.BufferedReader;</span><br><span class="line">import java.io.File;</span><br><span class="line">import java.io.FileReader;</span><br><span class="line">import java.io.IOException;</span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.Arrays;</span><br><span class="line">import java.util.List;</span><br><span class="line">import java.util.regex.Matcher;</span><br><span class="line">import java.util.regex.Pattern;</span><br><span class="line"></span><br><span class="line">public class RegexDemo &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) throws IOException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		Demo1();</span><br><span class="line">		Demo2();</span><br><span class="line">		Demo3();</span><br><span class="line">		DemoNetSpild();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static void DemoNetSpild() throws IOException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		// 1将文件封装成File对象</span><br><span class="line">		File file = new File(&quot;mail.txt&quot;);</span><br><span class="line">		String regex = &quot;\\w+@\\w+(\\.\\w+)+&quot;;</span><br><span class="line">		List&lt;String&gt; list = getMail(file, regex);</span><br><span class="line">		for (String mail : list) &#123;</span><br><span class="line">			System.out.println(mail);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static List&lt;String&gt; getMail(File file,String regex) throws IOException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		// 1读取数据。</span><br><span class="line">		BufferedReader br = new BufferedReader(new FileReader(file));</span><br><span class="line">		//2将正则封装成对象</span><br><span class="line">		Pattern p = Pattern.compile(regex);</span><br><span class="line">		//3定义list集合</span><br><span class="line">		List&lt;String&gt; list = new ArrayList&lt;String&gt;();</span><br><span class="line">		String line = null;</span><br><span class="line">		while((line = br.readLine())!=null)</span><br><span class="line">		&#123;</span><br><span class="line">			Matcher m = p.matcher(line);</span><br><span class="line">			while(m.find())</span><br><span class="line">			&#123;</span><br><span class="line">				list.add(m.group());</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		return list;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static void Demo3() &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		// 邮件地址的效验</span><br><span class="line">		String temp = &quot;1984318274@qq.com&quot;;</span><br><span class="line">		String regex = &quot;\\w+@[a-zA-Z0-9]+(\\.[a-zA-Z]&#123;2,3&#125;)&#123;1,3&#125;&quot;;</span><br><span class="line">		boolean b = temp.matches(regex);</span><br><span class="line">		System.out.println(b);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static void Demo2() &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		// 对于IP地址进行排序</span><br><span class="line">		String str = &quot;192.168.1.1   10.2.3.4  5.2.23.5&quot;;</span><br><span class="line">		str = str.replaceAll(&quot;(\\d+)&quot;, &quot;00$1&quot;);</span><br><span class="line">		// 保留每段的最后3位</span><br><span class="line">		str = str.replaceAll(&quot;0*(\\d&#123;3&#125;)&quot;, &quot;$1&quot;);</span><br><span class="line">		// 使用字典排序，出现问题，是因为每一个地址段的位数不对导致的，如果位数都是3位就可以实现排序了，可以补0，如何进行补0，补最多的2个0，然后切割</span><br><span class="line">		String[] strs = str.split(&quot; +&quot;);</span><br><span class="line">		Arrays.sort(strs);</span><br><span class="line">		for (String strss : strs) &#123;</span><br><span class="line">			System.out.println(strss.replaceAll(&quot;0*(\\d+)&quot;, &quot;$1&quot;));</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static void Demo1() &#123;</span><br><span class="line">		String str = &quot;我....我我我我我.....我我我...我我我..可以&quot;;</span><br><span class="line">		// 1明确需要使用替换的功能</span><br><span class="line">		// 2将点干掉</span><br><span class="line">		str = str.replaceAll(&quot;\\.+&quot;, &quot;&quot;);</span><br><span class="line">		// 3将叠词干掉</span><br><span class="line">		str = str.replaceAll(&quot;(.)\\1+&quot;, &quot;$1&quot;);</span><br><span class="line">		System.out.println(str);</span><br><span class="line">	&#125;</span><br><span class="line">//误删除了regex的基础学习代码</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -331,8 +330,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/07/10/10-3/" rel="next" title="单例设计模式中的并发操作">
-                <i class="fa fa-chevron-left"></i> 单例设计模式中的并发操作
+              <a href="/2018/07/30/18-3/" rel="next" title="流总结">
+                <i class="fa fa-chevron-left"></i> 流总结
               </a>
             
           </div>
@@ -340,10 +339,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/07/10/10-2/" rel="prev" title="this锁和类.class">
-                this锁和类.class <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
