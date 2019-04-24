@@ -248,7 +248,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/07/23/14-1/" itemprop="url">map集合</a></h1>
+                <a class="post-title-link" href="/2018/07/23/14-1/" itemprop="url">map总结</a></h1>
         
 
         <div class="post-meta">
@@ -301,6 +301,128 @@
         
           
             <p>Map:双列集合，一次存一对，键值对，要保证键的唯一性<br>共性的功能：<br>1添加<br>V put(K key, V value)<br>2删除<br>void clear();<br>V remove(Object key)<br>3判断<br>boolean containsKey(Object key)<br>boolean containsValue(Object value)<br>isEmpty();<br>4获取<br>V get(Object key)<br>    –Hashtable 哈希表，同步，不允许null作为值和键<br>    –HashMap 哈希表，不同步，允许空值作为键和值<br>    –TreeMap 二叉树，不同步，排序，给键排序<br>    –HashSet和TreeSet得对象底层用得就是HashMap和TreeMap<br>map集合的应用：当需求中出现映射关系的时候，应该最先想到的是map集合</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/22/14-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/22/14-2/" itemprop="url">map实例</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-22T00:00:00+08:00">
+                2018-07-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">package Day7;</span><br><span class="line">public class noweekException extends RuntimeException &#123;</span><br><span class="line">	private static final long serialVersionUID = 1L;//序列号</span><br><span class="line">	public noweekException() &#123;</span><br><span class="line">		super();</span><br><span class="line">		// TODO Auto-generated constructor stub</span><br><span class="line">	&#125;</span><br><span class="line">	public noweekException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) &#123;</span><br><span class="line">		super(message, cause, enableSuppression, writableStackTrace);</span><br><span class="line">		// TODO Auto-generated constructor stub</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public noweekException(String message, Throwable cause) &#123;</span><br><span class="line">		super(message, cause);</span><br><span class="line">		// TODO Auto-generated constructor stub</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public noweekException(String message) &#123;</span><br><span class="line">		super(message);</span><br><span class="line">		// TODO Auto-generated constructor stub</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public noweekException(Throwable cause) &#123;</span><br><span class="line">		super(cause);</span><br><span class="line">		// TODO Auto-generated constructor stub</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line">`</span><br></pre></td></tr></table></figure>
+<p>获取字符串中出现字母的个数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">package Day7;</span><br><span class="line">import java.util.Iterator;</span><br><span class="line">import java.util.Map;</span><br><span class="line">import java.util.Set;</span><br><span class="line">import java.util.TreeMap;</span><br><span class="line"></span><br><span class="line">public class Demo5 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		// 获取字符串中出现字母的次数</span><br><span class="line">		/*</span><br><span class="line">		 * 哈夫曼树的创建 查表法</span><br><span class="line">		 */</span><br><span class="line">		String str = &quot;asfaccnmxnvhajkfhwefbsdmas&quot;;</span><br><span class="line">		String char_count = getCount(str);</span><br><span class="line">		System.out.println(char_count);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static String getCount(String str) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		// 将字字符串转换为字符数组</span><br><span class="line">		char[] chs = str.toCharArray();</span><br><span class="line">		// 定义表</span><br><span class="line">		Map&lt;Character, Integer&gt; map = new TreeMap&lt;Character, Integer&gt;();</span><br><span class="line">		// 遍历字符序列，获取每一个字符</span><br><span class="line"></span><br><span class="line">		for (int i = 0; i &lt; chs.length; i++) &#123;</span><br><span class="line">			Integer value = map.get(chs[i]);</span><br><span class="line">			int count = 0;</span><br><span class="line">			if (value != null) &#123;</span><br><span class="line">				count = value;</span><br><span class="line">			&#125;</span><br><span class="line">			count++;</span><br><span class="line">			map.put(chs[i], count);</span><br><span class="line">			/*</span><br><span class="line">			 * if (value == null) &#123; map.put(chs[i], 1); &#125; else &#123; value++; map.put(chs[i],</span><br><span class="line">			 * value); &#125;</span><br><span class="line">			 */</span><br><span class="line">		&#125;</span><br><span class="line">		return toString(map);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static String toString(Map&lt;Character, Integer&gt; map) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		// 数据多，无论类型是什么，最后都要变成String</span><br><span class="line">		StringBuilder sb = new StringBuilder();</span><br><span class="line">		Set&lt;Character&gt; keyset = map.keySet();</span><br><span class="line">		for (Iterator&lt;Character&gt; it = keyset.iterator(); it.hasNext();) &#123;</span><br><span class="line">			Character key = it.next();</span><br><span class="line">			Integer value = map.get(key);</span><br><span class="line">			sb.append(key + &quot;(&quot; + value + &quot;)&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">		return sb.toString();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">``````</span><br></pre></td></tr></table></figure></p>
+<p>employe类<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line">package Day7;</span><br><span class="line"></span><br><span class="line">public class Employe implements Comparable&lt;Employe&gt; &#123;</span><br><span class="line">	private String name;</span><br><span class="line">	private int age;</span><br><span class="line"></span><br><span class="line">	public String getName() &#123;</span><br><span class="line">		return name;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public void setName(String name) &#123;</span><br><span class="line">		this.name = name;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public int getAge() &#123;</span><br><span class="line">		return age;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public void setAge(int age) &#123;</span><br><span class="line">		this.age = age;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public Employe() &#123;</span><br><span class="line">		super();</span><br><span class="line">		// TODO Auto-generated constructor stub</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public Employe(String name, int age) &#123;</span><br><span class="line">		super();</span><br><span class="line">		this.name = name;</span><br><span class="line">		this.age = age;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	public String toString() &#123;</span><br><span class="line">		return &quot;Employe [name=&quot; + name + &quot;, age=&quot; + age + &quot;]&quot;;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	public int hashCode() &#123;</span><br><span class="line">		final int prime = 31;</span><br><span class="line">		int result = 1;</span><br><span class="line">		result = prime * result + age;</span><br><span class="line">		result = prime * result + ((name == null) ? 0 : name.hashCode());</span><br><span class="line">		return result;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	public boolean equals(Object obj) &#123;</span><br><span class="line">		if (this == obj)</span><br><span class="line">			return true;</span><br><span class="line">		if (obj == null)</span><br><span class="line">			return false;</span><br><span class="line">		if (getClass() != obj.getClass())</span><br><span class="line">			return false;</span><br><span class="line">		Employe other = (Employe) obj;</span><br><span class="line">		if (age != other.age)</span><br><span class="line">			return false;</span><br><span class="line">		if (name == null) &#123;</span><br><span class="line">			if (other.name != null)</span><br><span class="line">				return false;</span><br><span class="line">		&#125; else if (!name.equals(other.name))</span><br><span class="line">			return false;</span><br><span class="line">		return true;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	public int compareTo(Employe o) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		int temp=this.age-o.age;</span><br><span class="line">		return temp==0?this.name.compareTo(o.name):temp;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">`</span><br></pre></td></tr></table></figure></p>
 
           
         
@@ -425,9 +547,6 @@
 <p>取出集合元素的方法——Keyset<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">package Day7;</span><br><span class="line"></span><br><span class="line">import java.util.HashMap;</span><br><span class="line">import java.util.LinkedHashMap;</span><br><span class="line">import java.util.Map;</span><br><span class="line">import java.util.Set;</span><br><span class="line"></span><br><span class="line">public class Demo2 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		/*</span><br><span class="line">		 * 将工人和归属存储到Map集合中</span><br><span class="line">		 */</span><br><span class="line">		Map&lt;Employe, String&gt; map = new LinkedHashMap&lt;Employe, String&gt;();//hashmap改变成linkedhashmap就可以实现有序，</span><br><span class="line">		map.put(new Employe(&quot;忸怩&quot;, 26), &quot;延安&quot;);</span><br><span class="line">		map.put(new Employe(&quot;忸阿斯蒂怩&quot;, 16), &quot;啊安&quot;);</span><br><span class="line">		map.put(new Employe(&quot;撒打发&quot;, 36), &quot;延安阿凡达&quot;);</span><br><span class="line">		map.put(new Employe(&quot;阿斯蒂芬&quot;, 56), &quot;啊啊&quot;);</span><br><span class="line">		map.put(new Employe(&quot;阿斯蒂芬&quot;, 56), &quot;啊啊sd&quot;);</span><br><span class="line">		Set&lt;Employe&gt; keySet = map.keySet();</span><br><span class="line">		for (Employe employe : keySet) &#123;</span><br><span class="line">			String value = map.get(employe);</span><br><span class="line">			System.out.println(employe.toString()+value);</span><br><span class="line">		&#125;</span><br><span class="line">		for (Employe employe : map.keySet()) &#123;</span><br><span class="line">			String value = map.get(employe);</span><br><span class="line">			System.out.println(employe.toString()+value);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>map集合的取出实例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">package Day7;</span><br><span class="line"></span><br><span class="line">import java.util.Comparator;</span><br><span class="line">import java.util.Map;</span><br><span class="line">import java.util.Set;</span><br><span class="line">import java.util.TreeMap;</span><br><span class="line"></span><br><span class="line">public class Demo3 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		Comparator&lt;Employe&gt; comp = new Comparator&lt;Employe&gt;() &#123;</span><br><span class="line"></span><br><span class="line">			@Override</span><br><span class="line">			public int compare(Employe o1, Employe o2) &#123;</span><br><span class="line">				// TODO Auto-generated method stub</span><br><span class="line">				int temp = o1.getName().compareTo(o2.getName());</span><br><span class="line">				return temp == 0 ? o1.getAge() - o2.getAge() : temp;</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		&#125;;</span><br><span class="line"></span><br><span class="line">		Map&lt;Employe, String&gt; map = new TreeMap&lt;Employe, String&gt;(comp);</span><br><span class="line">		map.put(new Employe(&quot;aad&quot;, 26), &quot;延安&quot;);</span><br><span class="line">		map.put(new Employe(&quot;daf&quot;, 16), &quot;啊安&quot;);</span><br><span class="line">		map.put(new Employe(&quot;fgfg&quot;, 36), &quot;延安阿凡达&quot;);</span><br><span class="line">		map.put(new Employe(&quot;dfgs&quot;, 56), &quot;啊啊&quot;);</span><br><span class="line">		Set&lt;Map.Entry&lt;Employe, String&gt;&gt; entry = map.entrySet();</span><br><span class="line">		for (Map.Entry&lt;Employe, String&gt; me : entry) &#123;</span><br><span class="line">			Employe key = me.getKey();</span><br><span class="line">			String value = me.getValue();</span><br><span class="line">			System.out.println(key + value);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>根据输入的中文星期，获得对应的英文星期<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">package Day7;</span><br><span class="line"></span><br><span class="line">import java.util.HashMap;</span><br><span class="line">import java.util.Map;</span><br><span class="line"></span><br><span class="line">public class Demo4 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		String str = getWeek(3);</span><br><span class="line">		System.out.println(str);</span><br><span class="line">		String n = getweek1(&quot;星期一&quot;);</span><br><span class="line">		System.out.println(n);</span><br><span class="line">		System.out.println(getweek1(&quot;asd&quot;));</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	public static String getWeek(int num)</span><br><span class="line">	&#123;</span><br><span class="line">		if(num&lt;0||num&gt;7)</span><br><span class="line">		&#123;</span><br><span class="line">			throw new noweekException(num+&quot;没有对应的日期&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">		String[] week = &#123;&quot;&quot;,&quot;星期一&quot;,&quot;星期二&quot;,&quot;星期三&quot;,&quot;星期四&quot;,&quot;星期五&quot;,&quot;星期六&quot;,&quot;星期日&quot;&#125;;</span><br><span class="line">		return week[num];</span><br><span class="line">	&#125;</span><br><span class="line">	//中英文互换</span><br><span class="line">	public static String getweek1(String week)</span><br><span class="line">	&#123;</span><br><span class="line">		Map&lt;String,String&gt; map =new HashMap&lt;String,String&gt;();</span><br><span class="line">		map.put(&quot;星期一&quot;, &quot;Monday&quot;);</span><br><span class="line">		map.put(&quot;星期二&quot;, &quot;Tuesday&quot;);</span><br><span class="line">		map.put(&quot;星期三&quot;, &quot;Wednesday&quot;);</span><br><span class="line">		map.put(&quot;星期四&quot;, &quot;Thursday&quot;);</span><br><span class="line">		map.put(&quot;星期五&quot;, &quot;Firday&quot;);</span><br><span class="line">		map.put(&quot;星期六&quot;, &quot;Saturday&quot;);</span><br><span class="line">		map.put(&quot;星期日&quot;, &quot;Sunday&quot;);</span><br><span class="line">		return map.get(week);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">package Day7;</span><br><span class="line">public class noweekException extends RuntimeException &#123;</span><br><span class="line"></span><br><span class="line">	private static final long serialVersionUID = 1L;//序列号</span><br><span class="line"></span><br><span class="line">	public noweekException() &#123;</span><br><span class="line">		super();</span><br><span class="line">		// TODO Auto-generated constructor stub</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public noweekException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) &#123;</span><br><span class="line">		super(message, cause, enableSuppression, writableStackTrace);</span><br><span class="line">		// TODO Auto-generated constructor stub</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public noweekException(String message, Throwable cause) &#123;</span><br><span class="line">		super(message, cause);</span><br><span class="line">		// TODO Auto-generated constructor stub</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public noweekException(String message) &#123;</span><br><span class="line">		super(message);</span><br><span class="line">		// TODO Auto-generated constructor stub</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public noweekException(Throwable cause) &#123;</span><br><span class="line">		super(cause);</span><br><span class="line">		// TODO Auto-generated constructor stub</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>获取字符串中出现字母的个数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">package Day7;</span><br><span class="line"></span><br><span class="line">import java.util.Iterator;</span><br><span class="line">import java.util.Map;</span><br><span class="line">import java.util.Set;</span><br><span class="line">import java.util.TreeMap;</span><br><span class="line"></span><br><span class="line">public class Demo5 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		// 获取字符串中出现字母的次数</span><br><span class="line">		/*</span><br><span class="line">		 * 哈夫曼树的创建 查表法</span><br><span class="line">		 */</span><br><span class="line">		String str = &quot;asfaccnmxnvhajkfhwefbsdmas&quot;;</span><br><span class="line">		String char_count = getCount(str);</span><br><span class="line">		System.out.println(char_count);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static String getCount(String str) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		// 将字字符串转换为字符数组</span><br><span class="line">		char[] chs = str.toCharArray();</span><br><span class="line">		// 定义表</span><br><span class="line">		Map&lt;Character, Integer&gt; map = new TreeMap&lt;Character, Integer&gt;();</span><br><span class="line">		// 遍历字符序列，获取每一个字符</span><br><span class="line"></span><br><span class="line">		for (int i = 0; i &lt; chs.length; i++) &#123;</span><br><span class="line">			Integer value = map.get(chs[i]);</span><br><span class="line">			int count = 0;</span><br><span class="line">			if (value != null) &#123;</span><br><span class="line">				count = value;</span><br><span class="line">			&#125;</span><br><span class="line">			count++;</span><br><span class="line">			map.put(chs[i], count);</span><br><span class="line">			/*</span><br><span class="line">			 * if (value == null) &#123; map.put(chs[i], 1); &#125; else &#123; value++; map.put(chs[i],</span><br><span class="line">			 * value); &#125;</span><br><span class="line">			 */</span><br><span class="line">		&#125;</span><br><span class="line">		return toString(map);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static String toString(Map&lt;Character, Integer&gt; map) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		// 数据多，无论类型是什么，最后都要变成String</span><br><span class="line">		StringBuilder sb = new StringBuilder();</span><br><span class="line">		Set&lt;Character&gt; keyset = map.keySet();</span><br><span class="line">		for (Iterator&lt;Character&gt; it = keyset.iterator(); it.hasNext();) &#123;</span><br><span class="line">			Character key = it.next();</span><br><span class="line">			Integer value = map.get(key);</span><br><span class="line">			sb.append(key + &quot;(&quot; + value + &quot;)&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">		return sb.toString();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>employe类<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line">package Day7;</span><br><span class="line"></span><br><span class="line">public class Employe implements Comparable&lt;Employe&gt; &#123;</span><br><span class="line">	private String name;</span><br><span class="line">	private int age;</span><br><span class="line"></span><br><span class="line">	public String getName() &#123;</span><br><span class="line">		return name;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public void setName(String name) &#123;</span><br><span class="line">		this.name = name;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public int getAge() &#123;</span><br><span class="line">		return age;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public void setAge(int age) &#123;</span><br><span class="line">		this.age = age;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public Employe() &#123;</span><br><span class="line">		super();</span><br><span class="line">		// TODO Auto-generated constructor stub</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public Employe(String name, int age) &#123;</span><br><span class="line">		super();</span><br><span class="line">		this.name = name;</span><br><span class="line">		this.age = age;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	public String toString() &#123;</span><br><span class="line">		return &quot;Employe [name=&quot; + name + &quot;, age=&quot; + age + &quot;]&quot;;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	public int hashCode() &#123;</span><br><span class="line">		final int prime = 31;</span><br><span class="line">		int result = 1;</span><br><span class="line">		result = prime * result + age;</span><br><span class="line">		result = prime * result + ((name == null) ? 0 : name.hashCode());</span><br><span class="line">		return result;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	public boolean equals(Object obj) &#123;</span><br><span class="line">		if (this == obj)</span><br><span class="line">			return true;</span><br><span class="line">		if (obj == null)</span><br><span class="line">			return false;</span><br><span class="line">		if (getClass() != obj.getClass())</span><br><span class="line">			return false;</span><br><span class="line">		Employe other = (Employe) obj;</span><br><span class="line">		if (age != other.age)</span><br><span class="line">			return false;</span><br><span class="line">		if (name == null) &#123;</span><br><span class="line">			if (other.name != null)</span><br><span class="line">				return false;</span><br><span class="line">		&#125; else if (!name.equals(other.name))</span><br><span class="line">			return false;</span><br><span class="line">		return true;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	public int compareTo(Employe o) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		int temp=this.age-o.age;</span><br><span class="line">		return temp==0?this.name.compareTo(o.name):temp;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
           
         
@@ -1317,138 +1436,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/17/12-5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/17/12-5/" itemprop="url">treeset的比较方法</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-17T00:00:00+08:00">
-                2018-07-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>实现comparable接口<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">package Day5;</span><br><span class="line"></span><br><span class="line">import java.util.Iterator;</span><br><span class="line">import java.util.Set;</span><br><span class="line">import java.util.TreeSet;</span><br><span class="line"></span><br><span class="line">import Day4.Student;</span><br><span class="line"></span><br><span class="line">public class Demo0 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line"></span><br><span class="line">		/*</span><br><span class="line">		 * set.add(&quot;aca&quot;); set.add(&quot;dsfca&quot;); set.add(&quot;sdafca&quot;); set.add(&quot;dasa&quot;);</span><br><span class="line">		 * set.add(&quot;sddf&quot;); set.add(&quot;sdafca&quot;); set.add(&quot;sddf&quot;);</span><br><span class="line">		 */</span><br><span class="line">		/*</span><br><span class="line">		 * 因为学生要排序，就需要比较，而没有定义比较方法，无法比较 解决：实现Comparable接口的compareTo</span><br><span class="line">		 * add当法使用的是Comparable接口的compareTo</span><br><span class="line">		 */</span><br><span class="line">		Set set = new TreeSet();</span><br><span class="line">		set.add(new Student(&quot;小是&quot;, 25));</span><br><span class="line">		set.add(new Student(&quot;小马&quot;, 20));</span><br><span class="line">		set.add(new Student(&quot;艾弗森&quot;, 22));</span><br><span class="line">		set.add(new Student(&quot;撒旦&quot;, 12));</span><br><span class="line">		for (Iterator it = set.iterator(); it.hasNext();) &#123;</span><br><span class="line">			System.out.println(it.next());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">package Day5;</span><br><span class="line">import java.util.Iterator;</span><br><span class="line">import java.util.Set;</span><br><span class="line">import java.util.TreeSet;</span><br><span class="line">import Day4.Student;</span><br><span class="line">public class Demo1 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">		//初始化一个具有比较功能的集合</span><br><span class="line">		Set set = new TreeSet(new comparator());</span><br><span class="line">		set.add(new Student(&quot;小是&quot;, 25));</span><br><span class="line">		set.add(new Student(&quot;小马&quot;, 20));</span><br><span class="line">		set.add(new Student(&quot;艾弗森&quot;, 22));</span><br><span class="line">		set.add(new Student(&quot;撒旦&quot;, 12));</span><br><span class="line">		for (Iterator it = set.iterator(); it.hasNext();) &#123;</span><br><span class="line">			System.out.println(it.next());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>···<br>package Day5;</p>
-<p>import java.util.Comparator;</p>
-<p>import Day4.Student;<br>//equals默认继承了Object的equals方法。<br>public class comparator implements Comparator {</p>
-<pre><code>@Override
-public int compare(Object o1, Object o2) {
-    Student s1 =(Student)o1;
-    Student s2 =(Student)o2;
-    int temp = s1.getName().compareTo(s2.getName());
-    return temp==0?s1.getAge()-s2.getAge():temp;
-}
-</code></pre><p>}<br>//自定义了一个比较器，要求学生进行排序<br>···</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1499,7 +1486,7 @@ public int compare(Object o1, Object o2) {
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">45</span>
+                  <span class="site-state-item-count">46</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
