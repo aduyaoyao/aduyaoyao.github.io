@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="java学习笔记,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="管道流1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071package DAY4;import java.io.IOException;import java.io.PipedInpu">
+<meta name="keywords" content="java学习笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="其他流">
+<meta property="og:url" content="http://yoursite.com/2018/07/29/18-2/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="管道流1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071package DAY4;import java.io.IOException;import java.io.PipedInpu">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-24T10:09:11.619Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="其他流">
+<meta name="twitter:description" content="管道流1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071package DAY4;import java.io.IOException;import java.io.PipedInpu">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/07/29/18-2/">
+
+
+
+
+
+  <title>其他流 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/29/18-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">其他流</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-29T00:00:00+08:00">
+                2018-07-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>管道流<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line">package DAY4;</span><br><span class="line"></span><br><span class="line">import java.io.IOException;</span><br><span class="line">import java.io.PipedInputStream;</span><br><span class="line">import java.io.PipedOutputStream;</span><br><span class="line"></span><br><span class="line">public class PipedStreamDemo &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) throws IOException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		//创建管道对象</span><br><span class="line">		PipedInputStream pis = new PipedInputStream();</span><br><span class="line">		PipedOutputStream pos =new PipedOutputStream();</span><br><span class="line">		//将2个流连接上</span><br><span class="line">		pis.connect(pos);</span><br><span class="line">		new Thread(new Input(pis)).start();</span><br><span class="line">		new Thread(new Out(pos)).start();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//定义输入任务</span><br><span class="line">class Input implements Runnable &#123;</span><br><span class="line"></span><br><span class="line">	private PipedInputStream pis;</span><br><span class="line"></span><br><span class="line">	public void run() &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		byte[] buf = new byte[1024];</span><br><span class="line">		int len;</span><br><span class="line">		try &#123;</span><br><span class="line">			len = pis.read(buf);</span><br><span class="line">			String str = new String(buf, 0, len);</span><br><span class="line">			System.out.println(str);</span><br><span class="line">			pis.close();</span><br><span class="line">		&#125; catch (IOException e) &#123;</span><br><span class="line">			// TODO Auto-generated catch block</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public Input(PipedInputStream pis) &#123;</span><br><span class="line">		super();</span><br><span class="line">		this.pis = pis;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//定义输出任务</span><br><span class="line">class Out implements Runnable &#123;</span><br><span class="line">	private PipedOutputStream pos;</span><br><span class="line"></span><br><span class="line">	public void run() &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		try &#123;</span><br><span class="line">			pos.write(&quot;管道来了&quot;.getBytes());</span><br><span class="line">			pos.close();</span><br><span class="line">		&#125; catch (IOException e) &#123;</span><br><span class="line">			// TODO Auto-generated catch block</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public Out(PipedOutputStream pos) &#123;</span><br><span class="line">		super();</span><br><span class="line">		this.pos = pos;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>打印流<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">package DAY4;</span><br><span class="line"></span><br><span class="line">import java.io.BufferedReader;</span><br><span class="line">import java.io.BufferedWriter;</span><br><span class="line">import java.io.File;</span><br><span class="line">import java.io.FileNotFoundException;</span><br><span class="line">import java.io.FileWriter;</span><br><span class="line">import java.io.IOException;</span><br><span class="line">import java.io.InputStreamReader;</span><br><span class="line">import java.io.OutputStreamWriter;</span><br><span class="line">import java.io.PrintStream;</span><br><span class="line"></span><br><span class="line">public class PrintStreamDemo &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) throws IOException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		printStreamDemo();</span><br><span class="line">		printWriterDemo();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static void printWriterDemo() throws IOException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		//一样具备打印功能。</span><br><span class="line">		//1键盘录入</span><br><span class="line">		BufferedReader bufr = new BufferedReader(new InputStreamReader(System.in));</span><br><span class="line">		//定义目的</span><br><span class="line">//		BufferedWriter bufw = new BufferedWriter(new OutputStreamWriter(System.out));</span><br><span class="line">		PrintStream pw = new PrintStream(System.out,true);//对于println方法，使用true自动刷新</span><br><span class="line">		</span><br><span class="line">//		pw = new PrintStream(new BufferedWriter(new FileWriter(&quot;1.txt&quot;,true)));//可以实现自动刷新</span><br><span class="line">		//读取一行，写一行，键盘录入一定要定义结束标记</span><br><span class="line">		String line = null;</span><br><span class="line">		while((line = bufr.readLine())!=null)</span><br><span class="line">		&#123;</span><br><span class="line">			if(&quot;over&quot;.equals(line))</span><br><span class="line">			&#123;</span><br><span class="line">				return ;</span><br><span class="line">			&#125;</span><br><span class="line">			pw.println(line.toUpperCase());</span><br><span class="line">		&#125;</span><br><span class="line">		pw.close();</span><br><span class="line">//		bufr.close();//不需要关闭标准输入流，一旦关闭后面就获取不到</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static void printStreamDemo() throws IOException, FileNotFoundException &#123;</span><br><span class="line">		//		System.out.println(&quot;hello&quot;);</span><br><span class="line">		//		PrintStream pr= System.out;</span><br><span class="line">		//		pr.println(&quot;hello&quot;);</span><br><span class="line">				File dir = new File(&quot;print.txt&quot;);</span><br><span class="line">				if(!dir.exists())</span><br><span class="line">				&#123;</span><br><span class="line">					dir.createNewFile();</span><br><span class="line">				&#125;</span><br><span class="line">				PrintStream out = new PrintStream(dir);</span><br><span class="line">				//将数据打印在文件中</span><br><span class="line">		//		out.write(97);//对于字节流的write方法，一次只写入一个字节，也就是将一个整数的最低8位写入，舍弃其余的位数</span><br><span class="line">		//		out.write(&quot;97asd&quot;.getBytes());</span><br><span class="line">				out.print(98);//原理就是将数值转成了字符串</span><br><span class="line">				out.close();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>随机读取写入流<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">package DAY4;</span><br><span class="line"></span><br><span class="line">import java.io.IOException;</span><br><span class="line">import java.io.RandomAccessFile;</span><br><span class="line"></span><br><span class="line">public class RandomAccessFileDemo &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) throws IOException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		//RandomAccessFile：</span><br><span class="line">		/*</span><br><span class="line">		特点：</span><br><span class="line">		1只能操作文件。</span><br><span class="line">		2可以读，可以写</span><br><span class="line">		3.维护了一个大型的byte数组</span><br><span class="line">		4随机写，可以使用指针来修改写入的位置——可以实现多线程的写入，下载文件的时候比较频繁，可以从文件的任意位置可以读取或者写入</span><br><span class="line">		*/</span><br><span class="line">		</span><br><span class="line">		writeFile();</span><br><span class="line">		readFile();</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static void readFile() throws IOException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		RandomAccessFile raf = new RandomAccessFile(&quot;random.txt&quot;, &quot;r&quot;);</span><br><span class="line">//		System.out.println(raf.getFilePointer());</span><br><span class="line">		byte[] buf = new byte[10];</span><br><span class="line">		raf.read(buf);</span><br><span class="line">		String name = new String(buf);</span><br><span class="line">		System.out.println(raf.getFilePointer());</span><br><span class="line">		System.out.println(name);</span><br><span class="line">		raf.close();</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static void writeFile() throws IOException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		//1创建一个随机访问文件的对象	File不存在，则创建。存在则不覆盖也不创建</span><br><span class="line">		RandomAccessFile raf =new RandomAccessFile(&quot;random.txt&quot;, &quot;rw&quot;);</span><br><span class="line">		//写入姓名和年龄</span><br><span class="line">		raf.write(&quot;张三&quot;.getBytes());</span><br><span class="line">		raf.write(&quot;张老三&quot;.getBytes());</span><br><span class="line">//		raf.write(97);//写入一个字节</span><br><span class="line">//		raf.writeInt(65);//保证整数字节的完整性</span><br><span class="line">	</span><br><span class="line">		//随机写入——写入的位置不确定，如果不设置指针的话，那么就会产生覆盖</span><br><span class="line">//		raf.seek(800);</span><br><span class="line">//		System.out.println(raf.getFilePointer());</span><br><span class="line">//		raf.write(&quot;杜sdafasdfdsaf瑶&quot;.getBytes());</span><br><span class="line">//		System.out.println(raf.getFilePointer());</span><br><span class="line">//		raf.close();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>序列流<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">package DAY4;</span><br><span class="line"></span><br><span class="line">import java.io.FileInputStream;</span><br><span class="line">import java.io.FileOutputStream;</span><br><span class="line">import java.io.IOException;</span><br><span class="line">import java.io.PrintStream;</span><br><span class="line">import java.io.SequenceInputStream;</span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.Collections;</span><br><span class="line">import java.util.Enumeration;</span><br><span class="line"></span><br><span class="line">public class SequenceInputStreamDemo &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) throws IOException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		//演示序列流得使用</span><br><span class="line">		//如何获取一个枚举呢？Vector有，但是效率低，使用Arrlist。</span><br><span class="line">		ArrayList&lt;FileInputStream&gt; arr = new ArrayList&lt;FileInputStream&gt;();</span><br><span class="line">		</span><br><span class="line">		//添加输入流得对象，将其与指定得具体文件关联</span><br><span class="line">		arr.add(new FileInputStream(&quot;temp.txt&quot;));</span><br><span class="line">		arr.add(new FileInputStream(&quot;temp1.txt&quot;));</span><br><span class="line">		</span><br><span class="line">		//怎么通过ArrayList获取枚举接口呢？可以使用Collections中得方法</span><br><span class="line">		Enumeration&lt;FileInputStream&gt; en = Collections.enumeration(arr);</span><br><span class="line">		</span><br><span class="line">		//创建一个序列流对象，需要传递枚举</span><br><span class="line">		SequenceInputStream sis = new SequenceInputStream(en);</span><br><span class="line">		//创建目录，接受目的</span><br><span class="line">		FileOutputStream fos = new FileOutputStream(&quot;4.txt&quot;);</span><br><span class="line">		//频繁得读写操作。</span><br><span class="line">		//1创建缓冲区。</span><br><span class="line">		byte[] by = new byte[1024];</span><br><span class="line">		int len = 0;</span><br><span class="line">		while((len=sis.read(by))!=-1)</span><br><span class="line">		&#123;</span><br><span class="line">			fos.write(by,0,len);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		fos.close();</span><br><span class="line">		sis.close();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>按照指定的字节数进行字符的截取<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">package DAY4;</span><br><span class="line"></span><br><span class="line">import java.io.UnsupportedEncodingException;</span><br><span class="line"></span><br><span class="line">public class SpiltDemo &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) throws UnsupportedEncodingException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		//按照指定的字节数来进行字符串的截取</span><br><span class="line">		/*</span><br><span class="line">		gb2312编码的一个中文是2个字节，而且2个字节的高位都是1，也就是说他们都是负数</span><br><span class="line">		思路：</span><br><span class="line">		1提示告诉我中文的2个字节都是负数</span><br><span class="line">		2判断街区的最后一个字节是否是负数</span><br><span class="line">		如果不是，直接街区</span><br><span class="line">		如果是，就往回判断前一个是否负数，并记录负数的个数，如果连续的负数为奇数个，舍弃最后一个字节，如果连续的负数是偶数个，不舍弃</span><br><span class="line">		*/</span><br><span class="line">		//字符串转成字节数组</span><br><span class="line">		String str = &quot;fe啊手动阀手动阀撒旦发i&quot;;</span><br><span class="line">		byte [] buf = str.getBytes(&quot;GBK&quot;);</span><br><span class="line">//		for(byte b : buf)</span><br><span class="line">//		&#123;</span><br><span class="line">//			System.out.println(b);</span><br><span class="line">//		&#125;</span><br><span class="line">//		</span><br><span class="line">		for (int x = 0; x &lt; buf.length; x++) &#123;</span><br><span class="line">			String cut = cutStringBycount(str, x);</span><br><span class="line">			System.out.println(cut);</span><br><span class="line">		&#125;	</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static String cutStringBycount(String str, int len) throws UnsupportedEncodingException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">			</span><br><span class="line">		//1将字符串转换成字节数组，因为要判断截取的字节是否是负数，先有字节</span><br><span class="line">		byte[] buf = str.getBytes(&quot;GBK&quot;);</span><br><span class="line">		</span><br><span class="line">		//2对字节数组进行遍历。应该从截取长度的最后一个字节开始判断，并往回判断</span><br><span class="line">		int count = 0;</span><br><span class="line">		//3定义计数器，记录负数的个数</span><br><span class="line">		//4遍历过程中，只要是满足负数就进行计数，不是负数，直接进行遍历</span><br><span class="line">		for (int i = len - 1; i &gt;=0; i--) &#123;</span><br><span class="line">			if(buf[i]&lt;0)</span><br><span class="line">			&#123;</span><br><span class="line">				count++;</span><br><span class="line">			&#125;else</span><br><span class="line">			&#123;</span><br><span class="line">				break;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		if(count%2==0)</span><br><span class="line">		&#123;</span><br><span class="line">			return new String(buf,0,len);</span><br><span class="line">		&#125;else</span><br><span class="line">		&#123;</span><br><span class="line">			return new String(buf,0,len-1);</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		//5对遍历后的计数器的值进行判断，奇数，就舍弃最后字节，并将字节数组转成字符串。偶数，不舍弃，将字节数组转成字符串</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java学习笔记/" rel="tag"># java学习笔记</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/29/18-1/" rel="next" title="流实战">
+                <i class="fa fa-chevron-left"></i> 流实战
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/30/19-3/" rel="prev" title="流总结">
+                流总结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

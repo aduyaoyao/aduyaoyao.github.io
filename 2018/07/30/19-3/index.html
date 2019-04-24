@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="java学习笔记,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="IO流用来处理设备之间的数据传输。设备：内存，硬盘，光盘java对数据的操作是通过流（系统资源）的方式java用于操作流的对象都在java.io包中相当于对内存的操作，对内存输入为输入，从内存输出为输出数据最常见的表现形式为文件IO：用于处理设备上数据的技术流：系统资源。windows系统本身就可以操作设备。各种语言只是使用系统平台上的这个资源。并对外提供了各种语言自己的操作功能。这些功能最终调用">
+<meta name="keywords" content="java学习笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="流总结">
+<meta property="og:url" content="http://yoursite.com/2018/07/30/19-3/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="IO流用来处理设备之间的数据传输。设备：内存，硬盘，光盘java对数据的操作是通过流（系统资源）的方式java用于操作流的对象都在java.io包中相当于对内存的操作，对内存输入为输入，从内存输出为输出数据最常见的表现形式为文件IO：用于处理设备上数据的技术流：系统资源。windows系统本身就可以操作设备。各种语言只是使用系统平台上的这个资源。并对外提供了各种语言自己的操作功能。这些功能最终调用">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-24T10:10:25.282Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="流总结">
+<meta name="twitter:description" content="IO流用来处理设备之间的数据传输。设备：内存，硬盘，光盘java对数据的操作是通过流（系统资源）的方式java用于操作流的对象都在java.io包中相当于对内存的操作，对内存输入为输入，从内存输出为输出数据最常见的表现形式为文件IO：用于处理设备上数据的技术流：系统资源。windows系统本身就可以操作设备。各种语言只是使用系统平台上的这个资源。并对外提供了各种语言自己的操作功能。这些功能最终调用">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/07/30/19-3/">
+
+
+
+
+
+  <title>流总结 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/30/19-3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">流总结</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-30T00:00:00+08:00">
+                2018-07-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>IO流用来处理设备之间的数据传输。设备：内存，硬盘，光盘<br>java对数据的操作是通过流（系统资源）的方式<br>java用于操作流的对象都在java.io包中<br>相当于对内存的操作，对内存输入为输入，从内存输出为输出<br>数据最常见的表现形式为文件<br>IO：用于处理设备上数据的技术<br>流：系统资源。windows系统本身就可以操作设备。各种语言只是使用系统平台上的这个资源。并对外提供了各种语言自己的操作功能。这些功能最终调用的是系统资源。使用完资源必须要进行释放<br>对于文件的基本操作：<br>操纵文件中的对象：使用流<br>流分成2种：字节流和字符流<br>流按照定向分为输入流和输出流</p>
+<h1 id="子类的前缀名字是功能，后缀名是基类"><a href="#子类的前缀名字是功能，后缀名是基类" class="headerlink" title="子类的前缀名字是功能，后缀名是基类"></a>子类的前缀名字是功能，后缀名是基类</h1><p>编码表：将各个国家的文字使用数字来进行标识，并形成一一对应的关系。<br>ASCII：美国标准信息交换码，用一个字节的7位就可以表示了，美国码表<br>ISO8859-1:拉丁码表。欧洲码表。用一个字节的8进制位<br>GB2312：中国的中文编码表，用2个字节表示，一个中文2个字节，打头的都是1<br>GBK：中国的编码表升级，融合了更多的中文文字字符，一个中文的末尾字节可以使用0开头<br>GB18030<br>Unicode:国际标准码，融合了多种文字所有的文字都用2个字节表示，java语言使用的就是Unicode<br>UTF-8：最多使用3个字节来表示文字（在字节头打上标识头信息）<br>标识头信息：<br>0+随意7个数字：01001111<br>110+随意5个数字，10+6个数字<br>1110+ 10+ 10+写死的位置<br>InputStreamReader：操作字节流的字符流</p>
+<p>File：IO技术用于操作设备上的数据的，而数据最常见的体现方式是文件<br>先了解文件的操作<br>    创建，删除，存在，隐藏，获取<br>需求：如何操作文件的数据呢？<br>    使用IO流对象，而且文件数据都是字节存在<br>    学习可以操作文件的字节流<br>    InputStream<br>        FileInputStream<br>    OutputStream<br>        FileOutputStream<br>为了提高效率，引入缓冲区<br>    InputStream<br>        FileInputStream<br>            BufferedInputStream<br>    OutputStream<br>        FileOutputStream<br>            BufferedOutputStream<br>发现，文件数据，媒体字节流没有问题<br>但是文本文件，想要操作文件中的中文数据，字节流只能操作字节，需要我们将字节解码成为字符<br>查API，找到转换流<br>    Reader<br>        InputStreamReader：字节——字符<br>    Writer:<br>        OutputStreamWriter:字符——字节</p>
+<p>为了便捷操作字符文件，找到了转换流的子类，但是它有局限性，只能操作文件，而且是默认编码<br>    Reader<br>        InputStreamReader：字节——字符<br>            FileReader<br>    Writer:<br>        OutputStreamWriter:字符——字节<br>            FileWriter<br>为了提高字符流的操作效率，引入操作字符串的缓冲区<br>    Reader<br>        InputStreamReader：字节——字符<br>            FileReader<br>        BufferedReader<br>    Writer:<br>        OutputStreamWriter:字符——字节<br>            FileWriter<br>        BufferedWriter<br>缓冲区的原理：<br>    临时存储数据的方法，减少对设备操作的频率，提高了效率，其实就是将数据临时缓存到了内存中（数组）;</p>
+<p>Writer:<br>    |–TextWriter<br>        |–BufferedTextWriter();<br>为了增加一些功能，而通过产生子类来完成，会导致体系的臃肿——继承<br>都是对于写功能效率的提升，为什么不将该功能进行单独封装？要提升哪个具体对象，将那个对象交给该功能就可以了<br>classBufferedWrite<br>{<br>    BufferedWrite(write);<br>    BufferedWrite(TextWriter)<br>    {<br>    }<br>        BufferedWrite(AudioWriter)<br>    {<br>    }<br>}<br>解决：可以给对象提供额外的功能（职责）。比继承这种方式更为灵活<br>起个名字：装饰设计模式<br>根本：装饰类与被装饰类所属于同一个体系，同时装饰类中持有被装饰类的引用。</p>
+<p>Properties<br>    特点：<br>    1Hashtable的子类，map集合中的方法都可以使用<br>    2该集合没有泛型，键值都是字符串<br>    3他是一个可以持久化的属性集，键值可以存储到集合中，也可以存储到持久化的设备上<br>    键值的来源也可以是持久化的设备</p>
+<p>IO的流总结：<br>1明确数据源，数据汇(数据目的);<br>    其实就是明确要使用的IO体系中。InputStream OutputStream reader writer<br>    需求中操作的是源：意味着是读取<br>    InputStream reader<br>    需求是操作的目的：意味着是写<br>    OutputStream writer<br>2操作的数据是否是纯文本数据：<br>    是：字符流<br>    否：字节流<br>    是，源。reader<br>    是，目的。writer<br>通过前2个的明确，明确了具体要使用的体系<br>3明确要操作的具体设备。每个设备都有具体的流对象<br>    源：<br>    硬盘，能操作File的流对象。File开头<br>    键盘，System.in<br>    内存，数组<br>    网络.socket流技术<br>    目的：<br>    硬盘，能操作File的流对象。File开头<br>    内存，数组<br>    网络.socket流技术<br>    显示器.system.out<br>到第三步明确就可以找到具体的流对象<br>第四步：需要额外的功能吗？<br>    需要高效吗？缓冲区。Buffered<br>    需要编码转换吗？转换流</p>
+<p>需求1：通过键盘录入文件，将数据保存到一个文件中<br>    明确一：<br>    源：InputStream Reader<br>    目的：OutputStream Writer<br>    明确二：是纯文本数据吗？<br>    源：Reader<br>    目的：Writer<br>    明确3：<br>    源设备：键盘<br>    目的设备：硬盘<br>    InputStream is = system.in<br>    FileWriter os = new FileWriter(“a.txt”);<br>    //将读取的字节存储到数组中read(byte[])<br>    //通过字节数组转成字符串<br>    //通过fw.write(String)存储到数组中<br>    //但是麻烦，因为源是Reader，所以需要将字节流转换为字符流，这样操作文字就很方便了。<br>    明确4：需要功能吗？<br>    需要转换<br>    InputStreamReader isr = new InputStreamReader();<br>    FileWriter fw = new FileWriter(“a.txt”);<br>    //一次读取一个字符<br>    //将读取到的字符写入<br>    //也可以定义字符数组缓冲区。<br>    BufferedReader in<br>   = new BufferedReader(new FileReader(“foo.in”));</p>
+<p>IO包中的其他功能流对象<br>PrintStream（字节） PrintWriter(字符)<br>特点：打印，不抛异常<br>打印目的：字符串路径，字节输出流，File对象<br>解决问题：方便的打印各种数据值的表现形式<br>    它的打印方式可以保证数值的表现形式不变，写的是什么，目的就是什么</p>
+<p>PrintWriter:具备一样的打印功能<br>    目的：File对象，字符串路径，字节输出流，字符输出流</p>
+<p>序列流：流对象的有序的排列SequenceInputStream<br>解决问题：将多个输入流合并成了一个输入流。将多个源合并成一个源，对于多个源的操作会变得简单<br>功能：特殊之处在构造函数上，一初始化就合并了多个流<br>使用场景之一：对多个文件进行数据得合并，多个源对应一个目的.</p>
+<p>用于操作对象得流对象。称之为对象的序列化<br>ObjectInputStream ObjectInputStream<br>特点：用于操作对象<br>解决问题：可以将对象进行序列化和反序列化，注意：对对象进行序列化的时候，一定要实现Serializable接口，为了给类定义一个serialVersionID<br>功能：ObjectInputStream readObject();<br> ObjectInputStream writeObject();<br> 关键字：瞬态：transtient</p>
+<p> RandomAccessFile:<br>         特点：<br>        1只能操作文件。<br>        2可以读，可以写<br>        3.维护了一个大型的byte数组<br>        4随机写，可以使用指针来修改写入的位置——可以实现多线程的写入，下载文件的时候比较频繁，可以从文件的任意位置可以读取或者写入<br>功能：getFilePointer seek方法</p>
+<p>管道流：一般在网络中会使用<br>特点：读取管道和写入管道可以对接<br>需要使用多线程技术，单线程容易死锁<br>功能：connect()</p>
+<p>操作基本数据类值的：DataInputStream DataOutputStram</p>
+<p>操作字节数组：ByteArrayInputStream ByteArrayInputStream<br>特点：关闭无效</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java学习笔记/" rel="tag"># java学习笔记</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/29/18-2/" rel="next" title="其他流">
+                <i class="fa fa-chevron-left"></i> 其他流
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#子类的前缀名字是功能，后缀名是基类"><span class="nav-number">1.</span> <span class="nav-text">子类的前缀名字是功能，后缀名是基类</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

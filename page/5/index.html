@@ -229,7 +229,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/05/5-1/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/06/6-2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -248,7 +248,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/07/05/5-1/" itemprop="url">构造函数+静态static</a></h1>
+                <a class="post-title-link" href="/2018/07/06/6-2/" itemprop="url">接口</a></h1>
         
 
         <div class="post-meta">
@@ -260,8 +260,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-05T00:00:00+08:00">
-                2018-07-05
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-06T00:00:00+08:00">
+                2018-07-06
               </time>
             
 
@@ -300,8 +300,128 @@
       
         
           
-            <p>构造函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">class Person&#123;</span><br><span class="line">	//将Person对象进行初始化。</span><br><span class="line">	private int age;</span><br><span class="line">	private String name;</span><br><span class="line">	/*</span><br><span class="line">	void Person()//可以存在,一般函数,不符合规范</span><br><span class="line">	&#123;</span><br><span class="line">	&#125;</span><br><span class="line">	*/</span><br><span class="line">	private Person(String n)</span><br><span class="line">	&#123;</span><br><span class="line">		name = n;</span><br><span class="line">	&#125;</span><br><span class="line">	Person(String n,int a)</span><br><span class="line">	&#123;</span><br><span class="line">		this(n);</span><br><span class="line">		/*</span><br><span class="line">		if(a&lt;0)	</span><br><span class="line">		 return;</span><br><span class="line">		//从哪里返回就从哪里结束,可以得到马杰的默认值,年龄为0;实际是对于int和String类型的默认初始化。</span><br><span class="line">		*/</span><br><span class="line">		age = a;</span><br><span class="line">	&#125;</span><br><span class="line">	//构造函数</span><br><span class="line">	public void setName(String n)&#123;</span><br><span class="line">		name = n;</span><br><span class="line">	&#125;</span><br><span class="line">	public String getName()&#123;</span><br><span class="line">		return name;</span><br><span class="line">	&#125;</span><br><span class="line">	public void setAge(int a)&#123;</span><br><span class="line">		age=a;</span><br><span class="line">	&#125;</span><br><span class="line">	public int getAge()&#123;</span><br><span class="line">		return age;</span><br><span class="line">	&#125;</span><br><span class="line">	public void show()&#123;</span><br><span class="line">		System.out.print(&quot;name=&quot;+name+&quot;,age=&quot;+age);</span><br><span class="line">	&#125;</span><br><span class="line">	Person()&#123;&#125;;</span><br><span class="line">&#125;</span><br><span class="line">class PersonDemo&#123;</span><br><span class="line">	public static void main(String[] args)&#123;</span><br><span class="line">		Person p = new Person(&quot;xiaoming&quot;,21);//创建一个对象，描述事物符合现实生活，Person对象一建立就有姓名和年龄。</span><br><span class="line">	//java中的构造函数可以解决对象的初始化问题。</span><br><span class="line">	//	p.setAge(20); //后续的修改对象的值</span><br><span class="line">	//	p.setName(&quot;杜瑶&quot;);</span><br><span class="line">		p.show();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>静态<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">class Person_static&#123;</span><br><span class="line">	private int age;</span><br><span class="line">	private String name;</span><br><span class="line">	public void setName(String n)&#123;</span><br><span class="line">		name = n;</span><br><span class="line">	&#125;</span><br><span class="line">	public String getName()&#123;</span><br><span class="line">		return name;</span><br><span class="line">	&#125;</span><br><span class="line">	public static void sleep()&#123;</span><br><span class="line">		System.out.println(&quot;asdfjh&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class StaticDemo&#123;</span><br><span class="line">	public static void main(String[] args)&#123;</span><br><span class="line">		Person_static.sleep();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+            <p>接口<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">抽象类中的所有方法都是抽象的。</span><br><span class="line">这时，可以把抽象类用另外一种形式表示：接口</span><br><span class="line">初期可以将接口理解为特殊的抽象类。</span><br><span class="line">*/</span><br><span class="line">//定义接口</span><br><span class="line">interface Inter</span><br><span class="line">&#123;</span><br><span class="line">	public static final int NUM = 4;</span><br><span class="line">	public abstract void show1();</span><br><span class="line">	public abstract void show2();</span><br><span class="line">&#125;</span><br><span class="line">/*</span><br><span class="line">接口中的成员和class定义的不同之处：</span><br><span class="line">接口中常见的成员有2种，1.全局变量 2.抽象方法</span><br><span class="line">而且都有固定的修饰符，共性：成员都是public修饰的</span><br><span class="line">接口的特点：</span><br><span class="line">1接口不可以实例化</span><br><span class="line">2需要覆盖了接口中的所有的抽象方法的子类，才可以实例化</span><br><span class="line">否则，该子类还是一个抽象类</span><br><span class="line">3接口是用来被实现的。</span><br><span class="line">类与接口的实现关系</span><br><span class="line">*/</span><br><span class="line">class Demo implements/*实现*/Inter</span><br><span class="line">&#123;</span><br><span class="line">	public void show1()&#123;&#125;;</span><br><span class="line">	public void show2()&#123;&#125;;</span><br><span class="line">&#125;</span><br><span class="line">class InterfaceDemo</span><br><span class="line">&#123;</span><br><span class="line">	public static void main(String args)&#123;</span><br><span class="line">		Demo d = new Demo();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">/*</span><br><span class="line">多继承的好处：可以让子类具备更多的功能。坏处：调用的不确定性(原因是方法主体内容不同)</span><br><span class="line">接口的出现解决java中的多继承问题。</span><br><span class="line">接口避免了单继承的局限性。继承是为了获取体系中的基本功能，想要扩展功能可以通过实现接口来完成。</span><br><span class="line">*/</span><br><span class="line">interface InterA</span><br><span class="line">&#123;</span><br><span class="line">	void show();</span><br><span class="line">&#125;</span><br><span class="line">interface InterB</span><br><span class="line">&#123;</span><br><span class="line">	void show();</span><br><span class="line">&#125;</span><br><span class="line">class ManyInterface implements/*实现*/InterA,InterB//多实现</span><br><span class="line">&#123;</span><br><span class="line">	public void show()&#123;</span><br><span class="line">		System.out.println(&quot;sad&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class ManyInterfaceDemo</span><br><span class="line">&#123;</span><br><span class="line">	public static void main(String[] args)&#123;</span><br><span class="line">		ManyInterface I = new ManyInterface();</span><br><span class="line">		I.show();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">/*</span><br><span class="line">类与类之间：is a 继承</span><br><span class="line">类与接口：like a 实现</span><br><span class="line">接口与接口：继承(可以多继承，因为接口无主体)</span><br><span class="line">interface Inter2 extends InterA,InterB</span><br><span class="line">*/</span><br><span class="line">/*</span><br><span class="line">抽象类中不完全是抽象方法。</span><br><span class="line">需要部分方法，但是为了实例化，必须要进行全覆盖。</span><br><span class="line">可以使用ABC来说明</span><br><span class="line">A为接口</span><br><span class="line">B是一个实现所有功能的类（没有抽象方法的抽象类，用来方便创建接口的对象）空实现</span><br><span class="line">C是用来继承B中的东西</span><br><span class="line">接口的思想：对外提供的东西称之为接口</span><br><span class="line">接口的好处：</span><br><span class="line">	1扩展了功能</span><br><span class="line">	2暴漏出来的规则</span><br><span class="line">	3解耦</span><br><span class="line">接口的一方在使用接口，一方在实现接口</span><br><span class="line">基本描述功能的东西使用class，父类is a关系</span><br><span class="line">类：描述事物的共性基本功能</span><br><span class="line">接口：定义基本功能的额外功能</span><br><span class="line">抽象和类的区别：</span><br><span class="line">	抽象类中可以定义抽象和非抽象方法，子类可以直接使用，或者覆盖使用</span><br><span class="line">	接口中定义的都是抽象方法，必须实现使用。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">*/</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/06/6-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/06/6-1/" itemprop="url">多态</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-06T00:00:00+08:00">
+                2018-07-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>多态的简单使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">多态：多种形态</span><br><span class="line">重点：对象的多态</span><br><span class="line">多态在程序中的体现：父类的引用或者接口的引用指向了子类的对象</span><br><span class="line">多态的前提：</span><br><span class="line">	1必须有关系，继承，实现。</span><br><span class="line">	2通常有覆盖</span><br><span class="line">*/</span><br><span class="line">abstract class Animal</span><br><span class="line">&#123;</span><br><span class="line">	abstract void eat();</span><br><span class="line">&#125;</span><br><span class="line">class Dog extends Animal </span><br><span class="line">&#123;</span><br><span class="line">	void eat()</span><br><span class="line">	&#123;</span><br><span class="line">		System.out.println(&quot;吃骨头&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	void loolHome()</span><br><span class="line">	&#123;</span><br><span class="line">		System.out.println(&quot;看家&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class Cat extends Animal </span><br><span class="line">&#123;</span><br><span class="line">	void eat()</span><br><span class="line">	&#123;</span><br><span class="line">		System.out.println(&quot;吃私聊&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	void haha()</span><br><span class="line">	&#123;</span><br><span class="line">		System.out.println(&quot;asdf&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class DuoTaiDemo</span><br><span class="line">&#123;</span><br><span class="line">	public static void main(String[] args)&#123;</span><br><span class="line">	//	Dog d = new Dog();</span><br><span class="line">	//	d.eat();</span><br><span class="line">	//	d.loolHome();</span><br><span class="line">		//多态形式</span><br><span class="line">		Animal a = new Dog();//向上转型</span><br><span class="line">		//隐藏了子类型，提高了代码的扩展性</span><br><span class="line">		//只能使用父类中的功能，不能使用子类特有功能，子类功能被限定</span><br><span class="line">		if(!(a instanceof Dog))//来进行判断</span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println(&quot;转型错误&quot;);</span><br><span class="line">			return ;</span><br><span class="line">		&#125;</span><br><span class="line">		Dog d = (Dog)a;//向下转型</span><br><span class="line">		//好处：可以使用子类型的特定功能 </span><br><span class="line">		//弊端：面对具体的子类型，向下转型有风险。容易发生转换类型异常。</span><br><span class="line">		//使用instanceof 对象 instanceof 类型</span><br><span class="line">		//转型过程中,只有子类对象做着变换。</span><br><span class="line">		a.eat();</span><br><span class="line">		d.loolHome();</span><br><span class="line">		//a.loolHome();不能使用子类的特有方法</span><br><span class="line">	&#125;</span><br><span class="line">	public static void method(Animal a) //面对共性类型，所有的子类对象都可以接受，提高了代码的扩展性</span><br><span class="line">	&#123;</span><br><span class="line">		a.eat();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>多态的小练习<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">问题1：</span><br><span class="line">笔记本电脑运行，笔记本中存在一个运行功能</span><br><span class="line">问题2：</span><br><span class="line">想使用一个鼠标，又有一个功能使用鼠标，并多了一个鼠标对象</span><br><span class="line">问题3：</span><br><span class="line">想使用一个键盘</span><br><span class="line">*/</span><br><span class="line">/*问题1</span><br><span class="line">class NoteBook</span><br><span class="line">&#123;</span><br><span class="line">	public void run()</span><br><span class="line">	&#123;</span><br><span class="line">		System.out.println(&quot;notebook run&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">*/</span><br><span class="line">interface USB</span><br><span class="line">&#123;</span><br><span class="line">	/**</span><br><span class="line">	设备的开启与关闭</span><br><span class="line">	*/</span><br><span class="line">	public void open();</span><br><span class="line">	public void close();</span><br><span class="line">&#125;</span><br><span class="line">class NoteBook</span><br><span class="line">&#123;</span><br><span class="line">	public void run()</span><br><span class="line">	&#123;</span><br><span class="line">		System.out.println(&quot;notebook run&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	public void useUSB(USB usb)//定义了一个接口类型的引用</span><br><span class="line">	&#123;</span><br><span class="line">		if(usb!=null)</span><br><span class="line">		&#123;</span><br><span class="line">			usb.open();</span><br><span class="line">			usb.close();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class MouseByMyself implements USB</span><br><span class="line">&#123;</span><br><span class="line">	public void open()</span><br><span class="line">	&#123;</span><br><span class="line">		System.out.println(&quot;Mouse open&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	public void close()</span><br><span class="line">	&#123;</span><br><span class="line">		System.out.println(&quot;Mouse close&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class DuoJieKouDemo</span><br><span class="line">&#123;</span><br><span class="line">	public static void main(String[] args)</span><br><span class="line">	&#123;</span><br><span class="line">		NoteBook book = new NoteBook();</span><br><span class="line">		book.run();</span><br><span class="line">		book.useUSB(null);</span><br><span class="line">		book.useUSB(new MouseByMyself ());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
           
         
@@ -432,6 +552,248 @@
 <p>局部代码块：可以控制局部变量的生命周期。<br>设计模式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">解决某一类问题的一种思想，是一种行之有效的解决方式</span><br><span class="line">23种模式</span><br><span class="line">单例设计模式：</span><br><span class="line">解决问题：保证一个类的对象在内存中的唯一性</span><br><span class="line">应用场景：多个程序操纵同一个配置文件，需要程序A之后的结果，程序B需要继续基于A操作后的结果进行操纵。</span><br><span class="line">	前提：数据都存储在配置文件中，要求A和B操作的配置文件是同一个。</span><br><span class="line">	思路：</span><br><span class="line">	1问题是其他程序都可以通过new创建该类的对象，无法控制数量。</span><br><span class="line">	所以，不让其他程序new。</span><br><span class="line">	2那第一步的问题也就产生了,那其他程序不就没有对象了吗？</span><br><span class="line">	在本类中new一个对象，好处是不让别的程序new，可以实现数量的控制</span><br><span class="line">	3对外提供让其他程序获取该对象的方式。</span><br><span class="line">	步骤：</span><br><span class="line">	1不让其他程序new对象</span><br><span class="line">	可以将类中的构造函数私有化</span><br><span class="line">	2在本类中new一个对象</span><br><span class="line">	3定义一个方法返回该对象</span><br></pre></td></tr></table></figure></p>
 <p>面向对象的三大特征:封装+继承+多态<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">封装:隐藏实现细节，对外提供接口</span><br><span class="line">封装的体现之一:将属性都私有化，对外提供对应的set,get方法来进行访问</span><br><span class="line">封装的好处：</span><br><span class="line">	1提高了安全性，不允许直接访问细节，并通过公共的方式进行访问，可以实现可控</span><br><span class="line">	2提高了易用性</span><br><span class="line">	3提高了复用性</span><br><span class="line">	4隔离的变化。--接口有关</span><br><span class="line">继承(extends)</span><br><span class="line">	1提高了复用性</span><br><span class="line">	2使得类与类之间产生了关系</span><br><span class="line">	3为多态提供了关系</span><br><span class="line">	java支持单继承，不直接支持多继承</span><br><span class="line">/*</span><br><span class="line">单继承：一个类只有一个父类</span><br><span class="line">多继承：一个类可以有多个父类，java不直接支持多继承()</span><br><span class="line">调用的不确定性</span><br><span class="line">因为方法的主体不同，可以让子类产生更多的功能</span><br><span class="line">多层次继承：学习一个继承体系，先看顶层，了解体系中的具备的学习功能，使用时，用体系中最下面的东东</span><br><span class="line">当事物之间存在所属(is a)关系，可以通过继承来体现这种关系</span><br><span class="line">父类中私有部分，子类无法直接访问</span><br><span class="line">super代表父类的那片空间</span><br><span class="line">this代表子类的那个对象</span><br><span class="line">覆盖(override)(重显):当子父类中出现一模一样的方法时，子类的对象运行的是子类的方法。所有的都一致。</span><br><span class="line">注意事项：</span><br><span class="line">	子类方法覆盖父类方法，必须保证子类权限大于等于父类中的权限</span><br><span class="line">	静态只能被静态或者覆盖静态</span><br><span class="line">子父类中构造函数的特点：</span><br><span class="line">	创建子类时，父类中的空参数构造函数也执行了，因为子类中所有的构造函数默认第一行为隐士super();语句</span><br><span class="line">	调用本类中的构造函数用this，调用父类中的构造函数用super(实参列表);</span><br><span class="line">	子类继承了父类中的内容，必须查看父类中如何对内容进行初始化。这就是子类的实例化过程</span><br><span class="line">	注意事项：</span><br><span class="line">		当父类中没有空参数构造函数，子类需要通过显示定义super语句来指定需要访问的父类中的构造函数</span><br><span class="line">		用来调用父类中的super()语句必须放在第一行，因为初始化必须先完成</span><br><span class="line">		this和super语句不可以同时存在。因为他们只能定义在第一行</span><br><span class="line">		子类至少会有一个构造函数的super去父类</span><br></pre></td></tr></table></figure></p>
 <p>final关键字。最终<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1final修饰符，可以修饰类，修饰方法，修饰变量</span><br><span class="line">2final修饰的类不可以被继承.</span><br><span class="line">3final修饰的方法不可以被覆盖(复写).</span><br><span class="line">4final修饰的变量是一个常量，只能赋值一次，当使用的数据不变时，需要定义阅读性强的名称表示该数据，并将其数据final化</span><br><span class="line">被final修饰的变量，名称规范是：所有字母都大写SING_INGSTAFD</span><br><span class="line">final固定的是显示初始化值，不是默认值</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/05/5-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/05/5-2/" itemprop="url">私有private+单例设计模式</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-05T00:00:00+08:00">
+                2018-07-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>private的应用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">class Person&#123;</span><br><span class="line">	private /*权限修饰符，私有，降低了访问权限*/int age;</span><br><span class="line">	//私有的数据，可以使用方法来进行访问</span><br><span class="line">	public void setAge(int a)&#123;</span><br><span class="line">	/*实现对于数据的控制*/</span><br><span class="line">	if(a&lt;0||a&gt;130)&#123;</span><br><span class="line">		//抛出异常</span><br><span class="line">	throw new RuntimeException(a+&quot;数值是错误的&quot;);</span><br><span class="line">	&#125;else&#123;</span><br><span class="line">	age = a;</span><br><span class="line">	&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	public int getAge()&#123;</span><br><span class="line">		return age;</span><br><span class="line">	&#125;</span><br><span class="line">	void speak()&#123;</span><br><span class="line">	System.out.println(&quot;age&quot;+age);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class fengzhuang1&#123;</span><br><span class="line">	public static void main(String[] args)&#123;</span><br><span class="line">		Person p =new Person();</span><br><span class="line">	//	p.age=20;</span><br><span class="line">		p.setAge(20);</span><br><span class="line">		p.speak();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>单例设计模式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">设计模式：解决某一类问题的一种思想，是一种行之有效的解决方式</span><br><span class="line">23种模式</span><br><span class="line">单例设计模式：</span><br><span class="line">解决问题：保证一个类的对象在内存中的唯一性</span><br><span class="line">应用场景：多个程序操纵同一个配置文件，需要程序A之后的结果，程序B需要继续基于A操作后的结果进行操纵。</span><br><span class="line">	前提：数据都存储在配置文件中，要求A和B操作的配置文件是同一个。</span><br><span class="line">	思路：</span><br><span class="line">	1问题是其他程序都可以通过new创建该类的对象，无法控制数量。</span><br><span class="line">	所以，不让其他程序new。</span><br><span class="line">	2那第一步的问题也就产生了,那其他程序不就没有对象了吗？</span><br><span class="line">	在本类中new一个对象，好处是不让别的程序new，可以实现数量的控制</span><br><span class="line">	3对外提供让其他程序获取该对象的方式。</span><br><span class="line">	步骤：</span><br><span class="line">	1不让其他程序new对象</span><br><span class="line">	可以将类中的构造函数私有化</span><br><span class="line">	2在本类中new一个对象</span><br><span class="line">	3定义一个方法返回该对象</span><br><span class="line">*/</span><br><span class="line">//饿汉式</span><br><span class="line">class Single&#123;</span><br><span class="line">	private Single()&#123;&#125;;//构造函数私有化</span><br><span class="line">	static Single S = new Single();//new一个对象</span><br><span class="line">	static Single getInstance()&#123; //返回该对象。定义方法来实现可控。</span><br><span class="line">		return S;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">/*延迟加载，懒汉式，另一种形式</span><br><span class="line">class Single &#123;</span><br><span class="line">	private static Single s = null;</span><br><span class="line">	private Single()&#123;&#125;</span><br><span class="line">	public static Single getInstance()&#123;</span><br><span class="line">		if(s==null)</span><br><span class="line">		s = new Single;</span><br><span class="line">	return s;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">*/</span><br><span class="line">class SingleDemo&#123;</span><br><span class="line">	public static void main(String[] args)&#123;</span><br><span class="line">	Single s1 = Single.getInstance();</span><br><span class="line">	//在方法区的静态区中保存着S指向堆内存中的new Single,调用Single.getInstance使得.getInstance进栈</span><br><span class="line">	//从而使得s1指向堆内存的new Single；</span><br><span class="line">	Single s2 = Single.getInstance();</span><br><span class="line">	System.out.println(s1==s2);//由此可知，他们的指向是同一个堆内存的地址。</span><br><span class="line">	  </span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class SuperMan&#123;</span><br><span class="line">	private String name;</span><br><span class="line">	</span><br><span class="line">	private static SuperMan man = new SuperMan(&quot;blank&quot;);</span><br><span class="line">	private SuperMan(String name)</span><br><span class="line">	&#123;</span><br><span class="line">		this.name =name;</span><br><span class="line">	&#125;</span><br><span class="line">	public void setName(String name)</span><br><span class="line">	&#123;</span><br><span class="line">		this.name = name;</span><br><span class="line">	&#125;</span><br><span class="line">	public String getName()&#123;</span><br><span class="line">		return name;</span><br><span class="line">	&#125;</span><br><span class="line">	public static SuperMan getInstance()&#123;</span><br><span class="line">		return man;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class SuperManDemo&#123;</span><br><span class="line">	public static void main(String[] args)&#123;</span><br><span class="line">	SuperMan s1 = SuperMan.getInstance();</span><br><span class="line">	String s2 = s1.getName();</span><br><span class="line">	System.out.println(s2);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/05/5-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/05/5-1/" itemprop="url">构造函数+静态static</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-05T00:00:00+08:00">
+                2018-07-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>构造函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">class Person&#123;</span><br><span class="line">	//将Person对象进行初始化。</span><br><span class="line">	private int age;</span><br><span class="line">	private String name;</span><br><span class="line">	/*</span><br><span class="line">	void Person()//可以存在,一般函数,不符合规范</span><br><span class="line">	&#123;</span><br><span class="line">	&#125;</span><br><span class="line">	*/</span><br><span class="line">	private Person(String n)</span><br><span class="line">	&#123;</span><br><span class="line">		name = n;</span><br><span class="line">	&#125;</span><br><span class="line">	Person(String n,int a)</span><br><span class="line">	&#123;</span><br><span class="line">		this(n);</span><br><span class="line">		/*</span><br><span class="line">		if(a&lt;0)	</span><br><span class="line">		 return;</span><br><span class="line">		//从哪里返回就从哪里结束,可以得到马杰的默认值,年龄为0;实际是对于int和String类型的默认初始化。</span><br><span class="line">		*/</span><br><span class="line">		age = a;</span><br><span class="line">	&#125;</span><br><span class="line">	//构造函数</span><br><span class="line">	public void setName(String n)&#123;</span><br><span class="line">		name = n;</span><br><span class="line">	&#125;</span><br><span class="line">	public String getName()&#123;</span><br><span class="line">		return name;</span><br><span class="line">	&#125;</span><br><span class="line">	public void setAge(int a)&#123;</span><br><span class="line">		age=a;</span><br><span class="line">	&#125;</span><br><span class="line">	public int getAge()&#123;</span><br><span class="line">		return age;</span><br><span class="line">	&#125;</span><br><span class="line">	public void show()&#123;</span><br><span class="line">		System.out.print(&quot;name=&quot;+name+&quot;,age=&quot;+age);</span><br><span class="line">	&#125;</span><br><span class="line">	Person()&#123;&#125;;</span><br><span class="line">&#125;</span><br><span class="line">class PersonDemo&#123;</span><br><span class="line">	public static void main(String[] args)&#123;</span><br><span class="line">		Person p = new Person(&quot;xiaoming&quot;,21);//创建一个对象，描述事物符合现实生活，Person对象一建立就有姓名和年龄。</span><br><span class="line">	//java中的构造函数可以解决对象的初始化问题。</span><br><span class="line">	//	p.setAge(20); //后续的修改对象的值</span><br><span class="line">	//	p.setName(&quot;杜瑶&quot;);</span><br><span class="line">		p.show();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>静态<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">class Person_static&#123;</span><br><span class="line">	private int age;</span><br><span class="line">	private String name;</span><br><span class="line">	public void setName(String n)&#123;</span><br><span class="line">		name = n;</span><br><span class="line">	&#125;</span><br><span class="line">	public String getName()&#123;</span><br><span class="line">		return name;</span><br><span class="line">	&#125;</span><br><span class="line">	public static void sleep()&#123;</span><br><span class="line">		System.out.println(&quot;asdfjh&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class StaticDemo&#123;</span><br><span class="line">	public static void main(String[] args)&#123;</span><br><span class="line">		Person_static.sleep();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
           
         
@@ -1078,374 +1440,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/03/3-2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/03/3-2/" itemprop="url">循环语句练习</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-03T00:00:00+08:00">
-                2018-07-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>#for语句<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">class fordemo&#123;</span><br><span class="line">	public static void main(String[] args)&#123;</span><br><span class="line">	int i,sum;</span><br><span class="line">	sum=0;</span><br><span class="line">	for(i=0;i&lt;=100;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		sum+=i;</span><br><span class="line">	&#125;</span><br><span class="line">	System.out.println(&quot;sum=&quot;+sum);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>#do-while语句<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">class dowhiledemo&#123;</span><br><span class="line">	public static void main(String[] args)&#123;</span><br><span class="line">	int i,sum;</span><br><span class="line">	i=1;</span><br><span class="line">	sum=0;</span><br><span class="line">	do&#123;</span><br><span class="line">	sum+=i;</span><br><span class="line">	i++;</span><br><span class="line">	&#125;while(i&lt;=100);</span><br><span class="line">	System.out.println(&quot;sum=&quot;+sum);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>#while语句<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">class whiledemo&#123;</span><br><span class="line">	public static void main(String[] args)&#123;</span><br><span class="line">	int i,sum;</span><br><span class="line">	sum=0;</span><br><span class="line">	i=1;</span><br><span class="line">	while(i&lt;=100)&#123;</span><br><span class="line">	i++;</span><br><span class="line">	sum+=i;</span><br><span class="line">	&#125;</span><br><span class="line">	System.out.println(&quot;sum=&quot;+sum);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>#out-in的使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">class Printhao&#123;</span><br><span class="line">	public static void main(String[] args)&#123;</span><br><span class="line">	for(int i=1;i&lt;=5;i++)&#123;</span><br><span class="line">	for(int j=i;j&lt;=5;j++)&#123;</span><br><span class="line">	System.out.print(&quot;*&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	System.out.println();</span><br><span class="line">	&#125;</span><br><span class="line">	out:for(int i=1;i&lt;=5;i++)&#123;</span><br><span class="line">	in:for(int j=1;j&lt;=i;j++)&#123;</span><br><span class="line">	   System.out.print(&quot;&amp;r&quot;);</span><br><span class="line">	   break out;</span><br><span class="line">	&#125;</span><br><span class="line">	System.out.println();</span><br><span class="line">	&#125;</span><br><span class="line">	for(int i=1;i&lt;=5;i++)&#123;</span><br><span class="line">	for(int j=5;j&gt;=i;j--)&#123;</span><br><span class="line">	System.out.print(j);</span><br><span class="line">	&#125;</span><br><span class="line">	System.out.println();</span><br><span class="line">	&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/03/3-1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/03/3-1/" itemprop="url">条件语句练习</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-03T00:00:00+08:00">
-                2018-07-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>#if语句<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">class ifdemo</span><br><span class="line">&#123;</span><br><span class="line">	public static void main(String[] args)</span><br><span class="line">	&#123;</span><br><span class="line">		int score = 80;</span><br><span class="line">		if(score &gt; 60)</span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println(&quot;pass&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">		else</span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println(&quot;over&quot;);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>#else-if语句1<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ifelsedemo</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">int</span> i=<span class="number">3</span>;</span><br><span class="line">		<span class="keyword">if</span>(i &gt; <span class="number">1</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println(<span class="string">"a"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (i&gt;<span class="number">5</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println(<span class="string">"b"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println(<span class="string">"class"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>#else-if语句2<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">class LianXi&#123;</span><br><span class="line">	public static void main(String[] args)&#123;</span><br><span class="line"></span><br><span class="line">		int week=3;</span><br><span class="line">		if(week==1)</span><br><span class="line">			System.out.println(&quot;Monday&quot;);</span><br><span class="line">		else if(week==2)</span><br><span class="line">			System.out.println(&quot;Thursday&quot;);</span><br><span class="line">		else if(week==3)</span><br><span class="line">			System.out.println(&quot;Wedneesday&quot;);</span><br><span class="line">		else if(week==4)</span><br><span class="line">			System.out.println(&quot;Thusday&quot;);</span><br><span class="line">		else if(week==5)</span><br><span class="line">			System.out.println(&quot;Firday&quot;);</span><br><span class="line">		else if(week==6)</span><br><span class="line">			System.out.println(&quot;Saturdayday&quot;);</span><br><span class="line">		else if(week==7)</span><br><span class="line">			System.out.println(&quot;Monday&quot;);</span><br><span class="line">		else</span><br><span class="line">			System.out.println(&quot;你的输入有误&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>#switch-case语句<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">class switchcase&#123;</span><br><span class="line">	public static void main(String[] args)&#123;</span><br><span class="line">		int x=6,y=9;</span><br><span class="line">		char op=&apos;+&apos;;</span><br><span class="line">		switch(op)</span><br><span class="line">		&#123;</span><br><span class="line">			case &apos;+&apos;:</span><br><span class="line">				System.out.println(x+y);break;</span><br><span class="line">			case &apos;-&apos;:</span><br><span class="line">				System.out.println(x-y);break;</span><br><span class="line">			case &apos;*&apos;:</span><br><span class="line">				System.out.println(x*y);break;</span><br><span class="line">			case &apos;/&apos;:</span><br><span class="line">				System.out.println(x/y);break;</span><br><span class="line">			default :</span><br><span class="line">				System.out.println(&quot;no found&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/02/2-1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/02/2-1/" itemprop="url">java小练习</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-02T00:00:00+08:00">
-                2018-07-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>#java实现2数交换的3种方式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">class LianXi</span><br><span class="line">&#123;</span><br><span class="line">	public static void main(String[] args)</span><br><span class="line">	&#123;</span><br><span class="line">		//实现a，b值的交换,不使用额外的变量,存在变量越界问题</span><br><span class="line">		/*int a,b;</span><br><span class="line">		a=3;</span><br><span class="line">		b=4;</span><br><span class="line">		a=a+b;//a=3+4</span><br><span class="line">		b=a-b;</span><br><span class="line">		a=a-b;</span><br><span class="line">		System.out.println(&quot;a=&quot;+a+&quot;,b=&quot;+b);</span><br><span class="line">		//实现2*8</span><br><span class="line">		System.out.println(2&lt;&lt;3);</span><br><span class="line">		*/</span><br><span class="line">		//使用异或实现2数的交换</span><br><span class="line">		/*int a,b;</span><br><span class="line">		a=3;</span><br><span class="line">		b=4;</span><br><span class="line">		a=a^b;//a=3^4</span><br><span class="line">		b=a^b;//3^4^4</span><br><span class="line">		a=a^b;//3^4^3</span><br><span class="line">		System.out.println(&quot;a=&quot;+a+&quot;,b=&quot;+b);</span><br><span class="line">		*/</span><br><span class="line">		int a,b;</span><br><span class="line">		a=3;</span><br><span class="line">		b=4;</span><br><span class="line">		int temp;</span><br><span class="line">		temp=a;</span><br><span class="line">		a=b;</span><br><span class="line">		b=temp;</span><br><span class="line">		System.out.println(&quot;a=&quot;+a+&quot;,b=&quot;+b);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">`</span><br></pre></td></tr></table></figure></p>
-<p>#简单的逻辑运算<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">class OC&#123;</span><br><span class="line"> public static void main(String[] args)</span><br><span class="line">&#123;</span><br><span class="line"> /*int x=2810;</span><br><span class="line">  System.out.println(x/1000);</span><br><span class="line">  */</span><br><span class="line">  int i=1;</span><br><span class="line">  boolean b1=((i&gt;0)&amp;&amp;(i&lt;100));</span><br><span class="line">  System.out.println(b1);</span><br><span class="line">  System.out.println(6&lt;&lt;2);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>#类型转换的实例演示<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">class Demo&#123;</span><br><span class="line">public static void main(String[] args)</span><br><span class="line">&#123;</span><br><span class="line">	System.out.println(&quot;hello world&quot;);</span><br><span class="line">	/*强制类型转换*/</span><br><span class="line">	byte a = 3;</span><br><span class="line">	a =(byte)(a +1);</span><br><span class="line">	System.out.println(&quot;a=&quot;+a);</span><br><span class="line">	/*自动类型转换低字节向高字节的转换</span><br><span class="line">	byte b=4;</span><br><span class="line">	int x=3;</span><br><span class="line">	x=x+b;</span><br><span class="line">	System.out.println(&quot;x=&quot;+x);</span><br><span class="line">	&#125;</span><br><span class="line">	*/</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1496,7 +1490,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">52</span>
+                  <span class="site-state-item-count">55</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
