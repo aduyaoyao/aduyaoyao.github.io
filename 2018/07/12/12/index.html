@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="java学习笔记,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="容器的增删操作12345678910111213141516171819202122232425262728293031323334353637383940414243444546package Day0;import java.util.ArrayDeque;import java.util.Collection;public class Demo0 &amp;#123;	public static v">
+<meta name="keywords" content="java学习笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="初始集合">
+<meta property="og:url" content="http://yoursite.com/2018/07/12/12/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="容器的增删操作12345678910111213141516171819202122232425262728293031323334353637383940414243444546package Day0;import java.util.ArrayDeque;import java.util.Collection;public class Demo0 &amp;#123;	public static v">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-24T03:21:41.956Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="初始集合">
+<meta name="twitter:description" content="容器的增删操作12345678910111213141516171819202122232425262728293031323334353637383940414243444546package Day0;import java.util.ArrayDeque;import java.util.Collection;public class Demo0 &amp;#123;	public static v">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/07/12/12/">
+
+
+
+
+
+  <title>初始集合 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/12/12/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">初始集合</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-12T00:00:00+08:00">
+                2018-07-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>容器的增删操作<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">package Day0;</span><br><span class="line">import java.util.ArrayDeque;</span><br><span class="line">import java.util.Collection;</span><br><span class="line">public class Demo0 &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		//创建2个容器</span><br><span class="line">		Collection coll = new ArrayDeque();</span><br><span class="line">		Collection c1 = new ArrayDeque();</span><br><span class="line">		Collection c2 = new ArrayDeque();</span><br><span class="line">		c1.add(&quot;abc1&quot;);</span><br><span class="line">		c1.add(&quot;abc2&quot;);</span><br><span class="line">		c1.add(&quot;abc3&quot;);</span><br><span class="line">		c1.add(&quot;abc4&quot;);</span><br><span class="line">		c1.add(&quot;def2&quot;);</span><br><span class="line">		c1.add(&quot;def3&quot;);</span><br><span class="line">		c2.add(&quot;def2&quot;);</span><br><span class="line">		c2.add(&quot;def3&quot;);</span><br><span class="line">		c2.add(&quot;def4&quot;);</span><br><span class="line">//		System.out.println(c1.toString());</span><br><span class="line">//		c1.addAll(c2);</span><br><span class="line">//		System.out.println(c1.toString());</span><br><span class="line">//		boolean a = c1.containsAll(c2);</span><br><span class="line">//		System.out.println(a);</span><br><span class="line">		boolean b = c1.retainAll(c2);</span><br><span class="line">		System.out.println(c1.toString());</span><br><span class="line">		System.out.println(c2.toString());</span><br><span class="line">		method(coll);</span><br><span class="line">	&#125;</span><br><span class="line">	public static void method(Collection coll)</span><br><span class="line">	&#123;</span><br><span class="line">		//1添加元素</span><br><span class="line">		coll.add(&quot;hjghjjk&quot;);</span><br><span class="line">		coll.add(&quot;ad&quot;);</span><br><span class="line">		System.out.println(coll.toString());</span><br><span class="line">		//删除元素</span><br><span class="line">		coll.remove(&quot;ad&quot;);</span><br><span class="line">		System.out.println(coll.toString()+coll.size());</span><br><span class="line">		coll.clear();</span><br><span class="line">		System.out.println(coll.toString()+coll.size());</span><br><span class="line">		coll.add(&quot;hjghjjk&quot;);</span><br><span class="line">		coll.add(&quot;ad&quot;);</span><br><span class="line">		System.out.println(coll.contains(&quot;asdfsdf&quot;));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>容器中元素的取出<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">package Day0;</span><br><span class="line">import java.util.ArrayDeque;</span><br><span class="line">import java.util.Collection;</span><br><span class="line">import java.util.Iterator;</span><br><span class="line">import javax.swing.text.StyledEditorKit.ItalicAction;</span><br><span class="line">public class Demo1 &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		Collection coll = new ArrayDeque();</span><br><span class="line">		coll.add(&quot;abc1&quot;);</span><br><span class="line">		coll.add(&quot;abc2&quot;);</span><br><span class="line">		coll.add(&quot;abc3&quot;);</span><br><span class="line">		coll.add(&quot;abc4&quot;);</span><br><span class="line">		//获取该容器的迭代器</span><br><span class="line">		/*</span><br><span class="line">		while(it.hasNext())</span><br><span class="line">		System.out.println(it.next());</span><br><span class="line">		*/</span><br><span class="line">		for(Iterator it = coll.iterator();it.hasNext();)</span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println(it.next());</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>list集合的简单操作<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">package Day0;</span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.List;</span><br><span class="line">import java.util.ListIterator;</span><br><span class="line">public class Demo3 &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		List list = new ArrayList();</span><br><span class="line">		list.add(&quot;abc1&quot;);</span><br><span class="line">		list.add(&quot;abc2&quot;);</span><br><span class="line">		list.add(&quot;abc3&quot;);</span><br><span class="line">		list.add(&quot;abc4&quot;);</span><br><span class="line">		</span><br><span class="line">		/*</span><br><span class="line">		 * for (Iterator it = list.iterator(); it.hasNext();) &#123; Object obj = it.next();</span><br><span class="line">		 * if (obj.equals(&quot;abc2&quot;))</span><br><span class="line">		 * list.add(&quot;haa&quot;);//java.util.ConcurrentModificationException迭代器和集合同时操作容器中的元素，</span><br><span class="line">		 * 导致并发操作异常，产生迭代结果的不确定性 //解决问题的思路：使用迭代器的方法 &#125;</span><br><span class="line">		 */</span><br><span class="line">		//使用List特有的迭代器。ListIterator。通过list集合的方法listIterator（）获取迭代器对象</span><br><span class="line">//		ListIterator可以实现增删改查</span><br><span class="line">		for (ListIterator it = list.listIterator(); it.hasNext();) &#123;</span><br><span class="line">			Object obj = it.next();</span><br><span class="line">			if (obj.equals(&quot;abc2&quot;))</span><br><span class="line">				it.add(&quot;haha&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(list);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>自动拆箱和自动装箱<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">package Day0;</span><br><span class="line">public class Demo4 &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		/*</span><br><span class="line">		 * 基本数据类型对象包装类 将基本数据值封装成了对象 好处：可以在对象中定义更多的属性和行为对基本数据类型进行操作 byte ——Byte</span><br><span class="line">		 * short——Short int ——Interge long——Long boolean ——Boolean float——Float</span><br><span class="line">		 * double——Double char——Character 基本数据类型对象包装类的重要功能：在基本数据类型和String类型之间互相转换</span><br><span class="line">		 * parse基本数据类型（String）parse+Int/Byte/Double</span><br><span class="line">		 */</span><br><span class="line">//		System.out.println(Integer.MAX_VALUE);</span><br><span class="line">		System.out.println(Integer.toBinaryString(8));</span><br><span class="line">		System.out.println(Integer.parseInt(&quot;23&quot; + 4));</span><br><span class="line">		System.out.println(Integer.parseInt(&quot;110&quot;, 2));// 将其他进制的数字转换为10进制</span><br><span class="line">		System.out.println(&quot;&quot; + 3 + 8);</span><br><span class="line">		System.out.println(Integer.toString(3) + 8);</span><br><span class="line">		/* int——Intege */</span><br><span class="line">		Integer i1 = new Integer(4);</span><br><span class="line">		Integer i2 = new Integer(&quot;4&quot;);</span><br><span class="line">		Integer i3 = Integer.valueOf(4);</span><br><span class="line">		/* Intege——int */</span><br><span class="line">		Integer i4 = new Integer(4);</span><br><span class="line">		int n = i4.intValue();</span><br><span class="line">		// jdk1.5之后，新的技术，自动装箱，自动拆箱</span><br><span class="line">		Integer i = 4;// 自动装箱，右边是Integer.valueOf(4);</span><br><span class="line">		i = i + 6;//右边的i自动拆箱。i.intValue()+6,运算完的结果又一次装箱赋值i</span><br><span class="line">		System.out.println(&quot;i=&quot;+i);</span><br><span class="line">		sop(i);</span><br><span class="line">		//jdk1.5之后，自动装箱的值如果在byte范围之内，相同的值不会开辟空间，而是重复使用。</span><br><span class="line">		Integer m = 1300;</span><br><span class="line">		Integer n2 = 1300;</span><br><span class="line">		System.out.println(m==n2);//false——地址</span><br><span class="line">		System.out.println(m.equals(n2));//特殊的方法，Integer中复写了此方法，</span><br><span class="line">	&#125;</span><br><span class="line">	private static void sop(Object s)//s=Integer.valueOf(5);</span><br><span class="line">	&#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		System.out.println(s);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>字符串的小练习<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">package Day0;</span><br><span class="line"></span><br><span class="line">import java.util.Arrays;</span><br><span class="line"></span><br><span class="line">public class Demo5 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		/*</span><br><span class="line">		 * 练习：&quot;23 10 8 5 2 3 5 3 102&quot;对字符串中数值进行升序排序后，生成一个数值有序的字符串 思路： 1排序，而且对整数数值排序</span><br><span class="line">		 * 2取出排序的字符串对应的数字 3找String类中的切割方法，返回方法为多个 4将获取到的数字格式的字符串转成具体的数字，并存储到数组中 5排序</span><br><span class="line">		 * 6将数组转换成字符串</span><br><span class="line">		 */</span><br><span class="line">		String str = &quot;12 2 3 5 -9 56 45 233&quot;;</span><br><span class="line">		String sortStr = sortNumberString(str);</span><br><span class="line">		System.out.println(sortStr);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public static String sortNumberString(String str) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		// 1将给定的字符串分解成多个数字格式的字符串</span><br><span class="line">		String[] numStr = toArray(str);</span><br><span class="line">		// 2将字符串数组转换成int数组</span><br><span class="line">		int[] nums = toInt(numStr);</span><br><span class="line">		// 3对数组排序</span><br><span class="line">		sort(nums);</span><br><span class="line">		// 4将int数组转换成字符串</span><br><span class="line">		return toString(nums);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static String toString(int[] nums) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		StringBuilder sb = new StringBuilder();</span><br><span class="line">		for (int i = 0; i &lt; nums.length; i++) &#123;</span><br><span class="line">			if (i != nums.length - 1)</span><br><span class="line">				sb.append(nums[i] + &quot; &quot;);</span><br><span class="line">			else</span><br><span class="line">				sb.append(nums[i]);</span><br><span class="line">		&#125;</span><br><span class="line">		return sb.toString();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static void sort(int[] nums) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		Arrays.sort(nums);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static int[] toInt(String[] numStr) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		int[] nums = new int[numStr.length];</span><br><span class="line">		for (int i = 0; i &lt; numStr.length; i++) &#123;</span><br><span class="line">			nums[i] = Integer.parseInt(numStr[i]);</span><br><span class="line">		&#125;</span><br><span class="line">		return nums;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	// 分割成字符串数组</span><br><span class="line">	private static String[] toArray(String str) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		return str.split(&quot; &quot;);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java学习笔记/" rel="tag"># java学习笔记</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/11/11/" rel="next" title="eclipse快捷键">
+                <i class="fa fa-chevron-left"></i> eclipse快捷键
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/13/12-1/" rel="prev" title="StringBuffer">
+                StringBuffer <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
