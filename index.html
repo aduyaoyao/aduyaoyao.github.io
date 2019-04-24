@@ -229,6 +229,128 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/19/集合小结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/19/集合小结/" itemprop="url">集合整理</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-19T00:00:00+08:00">
+                2018-07-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Collection接口中的共性方法<br>1添加：<br>    boolean add(Object obj)<br>    boolean addAll(Object obj)<br>2删除<br>    void clear();所有<br>    boolean remove(Object obj)一个<br>    boolean removeAll(Collection c)一部分——retainAll()保留相同的<br>获取长度<br>int size();<br>判断<br>    boolean isEmpty();<br>    boolean Contains(Object obj);<br>    boolean ContainsAll(Collection c);<br>集合转换为数组<br>    toArrays();<br>取出集合的元素<br>    Iterator iterator();<br>    获取集合中元素上迭代功能的迭代器对象。<br>    迭代：取出对象的一种方式<br>  迭代器：具备迭代功能的对象<br>  而迭代器对象不需要new,直接通过iterator()方法获取即可——通过内部类的方式<br>  迭代器是取出Collection集合元素的公共方式<br>  Collection接口的分类：<br>set：不允许有重复元素<br>list：有序（存入的顺序和取出的元素顺序一致，有索引，允许重复元素）<br>重点：List接口中的特有方法：它的特有方法都是围绕索引进行的<br>支持增删改查<br>1增<br>add(index,element)<br>2删<br>remove(index);<br>3改<br>set(index,newelement)<br>4查<br>int indexOf(element);<br>element get(index);</p>
+<p>list集合的具体子类，子类之所以进行区分是因为内部的数据结构(内部的存储方式)不同。<br>    –Vector:数据结构是数组，数组长度是可变的（不断new新数组并将原数组元素复制到新数组——最早出现的集合对象1.1——线程同——加锁变慢，故被淘汰_查和增删都慢<br>    –ArrayList:也是数组结构，也是长度可变的。1.2——线程不同步的，替代了Vector——增删慢，查询快，<br>    –LinkedList:链表结构，线程不同步——增删快，查找慢<br>set集合：不允许重复元素。和Collection的方法相同，set集合取出来的方法只有一个：迭代器<br>    –HashSet:不保证顺序，可以有序，也可以无序。哈希表（散列表）结构——不同步<br>哈希：不允许存储重复元素，因为会发生查找的不确定性。<br>    不保证存入和取出的顺序一致<br>    比数组的查询效率高<br>用于存储元素和哈希值对应关系的容器称之为哈希表<br>当哈希算法算出的2个元素值相同，称之为哈希冲突。冲突后，进行进一步的判断，判断的是元素的内容，equals方法解决冲突。堆使用哈希，所以每个对象都有hashCode（）方法<br>哈希表在判断元素是否相同，依据hashCode().如果哈希值相同，在判断元素的equals方法，true——不存，false——存储<br>解决哈希冲突的方式：链地址法，建立公共溢出区，开放定址法<br>保证唯一性的方法：<br>覆盖Object中的hashCode和equals方法<br>hashCode是为了根据元素自身的特点确定哈希值<br>equals是为了解决哈希冲突<br>LinkedHashSet:取出有序<br>    –TreeSet:二叉树数据结构，对元素进行排序，，不同步<br>    排序方式：需要元素具备比较功能，所以元素需要实现Comparable接口，<br>    覆盖comparreTo方法。<br>    如何保证元素唯一性？<br>    比较方法的返回值是否为0.<br>需求中也有这样一种情况，元素具备的功能不是所需要的，也就是说不想按照自然排序的方法，而是按照自定义的排序方式，对元素进行排序，而且存储到TreeSet中的元素万一没有比较功能<br>应该如何排序呢？这时需要使用——让集合具备比较功能。<br>实现Comparato接口，覆盖compare方法，2将comparator接口的对象作为参数传递给TreeSet的集合参数。<br>技巧：<br>jdk1.2以后出现的集合框架中的常用子类对象，存在的规律<br>前缀名是数据结构名，后缀名是所属体系名<br>ArrayList:数组结构，查询快，list，可以重复，可以增删改查<br>LinkedList:链表结构，增删快，<br>HashSet:哈希表，hashcode和equals查询速度更快，不保证有序，不可以重复<br>LinkedHashSet:链表+哈希表<br>TreeSet：二叉树，可以排序。就要想到2种排序方式：一种是自然排序Comparable，一种是比较器Comparator</p>
+<p>自动类型转换包装类</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/19/12-7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1319,128 +1441,6 @@ public int compare(Object o1, Object o2) {
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/11/11-2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/11/11-2/" itemprop="url">String类的使用</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-11T00:00:00+08:00">
-                2018-07-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>返回子串在整串中的次数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">package Day0;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> *返回子串在整串的次数</span><br><span class="line"> *思路：</span><br><span class="line"> *1需要计数</span><br><span class="line"> *2找到子串进行计数</span><br><span class="line"> *3咋找？那就是字符串中查找字符串，字符串自己清楚</span><br><span class="line"> *4如果有这个方法，执行n次，循环完成</span><br><span class="line"> *步骤：</span><br><span class="line"> *1定义变量，计数</span><br><span class="line"> *2需要循环</span><br><span class="line"> *int indexof(String)</span><br><span class="line"> *3计数器自增</span><br><span class="line"> */</span><br><span class="line">public class Demo3 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		String str = &quot;ababab&quot;;</span><br><span class="line">		String key = &quot;a&quot;;</span><br><span class="line">		int count = getKeyCount(str, key);</span><br><span class="line">		System.out.println(&quot;count=&quot;+count);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public static int getKeyCount(String str, String key) &#123;</span><br><span class="line">	    //定义变量计数</span><br><span class="line">		int count = 0;</span><br><span class="line">		//每次找到的角标</span><br><span class="line">		int index = 0;</span><br><span class="line">		//循环，条件是indexof查找的方法返回的不是-1，而且要明确下次开始的位置indexof（String,fromindex）</span><br><span class="line">		while((index=str.indexOf(key,index))!=-1)</span><br><span class="line">		&#123;</span><br><span class="line">			count++;</span><br><span class="line">			//每找一次都要确定下次的位置，上次位置+key的长度;</span><br><span class="line">			index+=key.length();</span><br><span class="line">		&#125;</span><br><span class="line">		return count;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>求2个子串中的最大相同子串<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">package Day0;</span><br><span class="line">public class Demo4 &#123;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * @param args 求2个子串的最大相同子串</span><br><span class="line">	 *  思路： 1以短的字符串为主， 到长的字符串中去判断是否存在，如果存在，已经找到</span><br><span class="line">	 *        2如果没有找到，将短的字符串长度进行递减获取子串继续到长的字符串中进行查找，只要找到就结束 没有找到，说明没有相同的</span><br><span class="line">	 */</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		String s1 = &quot;aadfhjsdfkjsdlf&quot;;</span><br><span class="line">		String s2 = &quot;sad&quot;;</span><br><span class="line">		String max = getMaxString(s1, s2);</span><br><span class="line">		System.out.println(&quot;max=&quot; + max);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public static String getMaxString(String s1, String s2) &#123;</span><br><span class="line">		String longString, shortString;</span><br><span class="line">		longString = s1.length() &gt; s2.length() ? s1 : s2;</span><br><span class="line">		shortString = s1.equals(longString) ? s2 : s1;</span><br><span class="line">		for (int x = 0; x &lt; shortString.length(); x++) &#123;</span><br><span class="line">			for (int y = 0, z = shortString.length() - x; z &lt;= shortString.length(); y++, z++) &#123;</span><br><span class="line">				String temp = shortString.substring(y, z);//取得固定长度的字符串</span><br><span class="line">				System.out.println(temp);</span><br><span class="line">				if (longString.contains(temp))//是否包含</span><br><span class="line">				return temp;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		return null;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>对字符串进行自然排序<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">package Day0;</span><br><span class="line">import java.util.Arrays;</span><br><span class="line">public class Demo5 &#123;</span><br><span class="line">	/**</span><br><span class="line">	 * @param args 1需求：对字符串中的字符进行自然排序</span><br><span class="line">	 * 思路：</span><br><span class="line">	 * 1要排序，</span><br><span class="line">	 * 2将字符串转换为数组</span><br><span class="line">	 * 3到字符串中找方法</span><br><span class="line">	 * 4排序</span><br><span class="line">	 * 5将排序后的数组变成字符串</span><br><span class="line">	 */</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		String s1=&quot;asdfadsfsdfgfjg&quot;;</span><br><span class="line">		String s2 = sortString(s1);</span><br><span class="line">		System.out.println(s2);</span><br><span class="line">	&#125;</span><br><span class="line">	public static String sortString(String s1) &#123;</span><br><span class="line">		//将字符串转换为字符数组</span><br><span class="line">		char [] chs = StringtoAaaay(s1);</span><br><span class="line">		//对数组进行排序</span><br><span class="line">		sort(chs);</span><br><span class="line">		//将数组转换为字符串</span><br><span class="line">		return toString(chs);</span><br><span class="line">	&#125;</span><br><span class="line">	private static String toString(char[] chs) &#123;</span><br><span class="line">		return new String(chs);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static void sort(char[] chs) &#123;</span><br><span class="line">		Arrays.sort(chs);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static char[] StringtoAaaay(String str)</span><br><span class="line">	&#123;</span><br><span class="line">		return str.toCharArray();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1491,7 +1491,7 @@ public int compare(Object o1, Object o2) {
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-count">39</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

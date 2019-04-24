@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="3种集合元素取出的方式123456789101112131415161718192021222324252627282930313233package Day5;import java.util.Enumeration;import java.util.Iterator;import java.util.Vector;public class Demo3 &amp;#123;	public static">
+<meta name="description" content="Collection接口中的共性方法1添加：    boolean add(Object obj)    boolean addAll(Object obj)2删除    void clear();所有    boolean remove(Object obj)一个    boolean removeAll(Collection c)一部分——retainAll()保留相同的获取长度int siz">
 <meta name="keywords" content="java学习笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="集合元素取出">
-<meta property="og:url" content="http://yoursite.com/2018/07/18/12-6/index.html">
+<meta property="og:title" content="集合整理">
+<meta property="og:url" content="http://yoursite.com/2018/07/19/集合小结/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="3种集合元素取出的方式123456789101112131415161718192021222324252627282930313233package Day5;import java.util.Enumeration;import java.util.Iterator;import java.util.Vector;public class Demo3 &amp;#123;	public static">
+<meta property="og:description" content="Collection接口中的共性方法1添加：    boolean add(Object obj)    boolean addAll(Object obj)2删除    void clear();所有    boolean remove(Object obj)一个    boolean removeAll(Collection c)一部分——retainAll()保留相同的获取长度int siz">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-24T03:38:53.485Z">
+<meta property="og:updated_time" content="2019-04-24T03:38:51.887Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="集合元素取出">
-<meta name="twitter:description" content="3种集合元素取出的方式123456789101112131415161718192021222324252627282930313233package Day5;import java.util.Enumeration;import java.util.Iterator;import java.util.Vector;public class Demo3 &amp;#123;	public static">
+<meta name="twitter:title" content="集合整理">
+<meta name="twitter:description" content="Collection接口中的共性方法1添加：    boolean add(Object obj)    boolean addAll(Object obj)2删除    void clear();所有    boolean remove(Object obj)一个    boolean removeAll(Collection c)一部分——retainAll()保留相同的获取长度int siz">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/07/18/12-6/">
+  <link rel="canonical" href="http://yoursite.com/2018/07/19/集合小结/">
 
 
 
 
 
-  <title>集合元素取出 | Hexo</title>
+  <title>集合整理 | Hexo</title>
   
 
 
@@ -233,7 +233,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/18/12-6/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/19/集合小结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -250,7 +250,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">集合元素取出</h1>
+          <h1 class="post-title" itemprop="name headline">集合整理</h1>
         
 
         <div class="post-meta">
@@ -262,8 +262,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-18T00:00:00+08:00">
-                2018-07-18
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-19T00:00:00+08:00">
+                2018-07-19
               </time>
             
 
@@ -300,8 +300,9 @@
       
 
       
-        <p>3种集合元素取出的方式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">package Day5;</span><br><span class="line"></span><br><span class="line">import java.util.Enumeration;</span><br><span class="line">import java.util.Iterator;</span><br><span class="line">import java.util.Vector;</span><br><span class="line"></span><br><span class="line">public class Demo3 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		//具备枚举取出方式的容器只有Vector</span><br><span class="line">		//Enumeration:枚举</span><br><span class="line">		Vector v =new Vector();</span><br><span class="line">		v.add(&quot;sa&quot;);</span><br><span class="line">		v.add(&quot;as&quot;);</span><br><span class="line">		Enumeration en = v.elements();</span><br><span class="line">		while(en.hasMoreElements())</span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println(en.nextElement());</span><br><span class="line">		&#125;</span><br><span class="line">		for(Enumeration e = v.elements();e.hasMoreElements();)</span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println(e.nextElement());</span><br><span class="line">		&#125;</span><br><span class="line">		for (Iterator it = v.iterator(); it.hasNext();) &#123;</span><br><span class="line">			System.out.println(it.next());</span><br><span class="line">		&#125;</span><br><span class="line">		for(Object obj:v) &#123;</span><br><span class="line">			System.out.println(obj);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>增强for的使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">package Day5;</span><br><span class="line"></span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.Collection;</span><br><span class="line"></span><br><span class="line">public class Demo2 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		/*</span><br><span class="line">		 * jdk1.5之后出现的foreach——增强for循环</span><br><span class="line">		 * 作用：遍历collection和数组</span><br><span class="line">		 * 格式：</span><br><span class="line">		 * foreach（元素类型变量：collectionor数组）</span><br><span class="line">		 * 传统for和增强for的区别：</span><br><span class="line">		 * 增强for必须有被遍历的目标，该目标只能是coll或者数组*/</span><br><span class="line">		Collection coll = new ArrayList();</span><br><span class="line">		coll.add(&quot;as&quot;);</span><br><span class="line">		coll.add(&quot;asd&quot;);</span><br><span class="line">		for(Object obj :coll) &#123;</span><br><span class="line">			System.out.println(obj);</span><br><span class="line">		&#125;</span><br><span class="line">		//对于数组的遍历，如果不操作其角标，可以使用增强for</span><br><span class="line">		int [] arr = &#123;1,12,23&#125;;</span><br><span class="line">		for(int x:arr) &#123;</span><br><span class="line">			System.out.println(x);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        <p>Collection接口中的共性方法<br>1添加：<br>    boolean add(Object obj)<br>    boolean addAll(Object obj)<br>2删除<br>    void clear();所有<br>    boolean remove(Object obj)一个<br>    boolean removeAll(Collection c)一部分——retainAll()保留相同的<br>获取长度<br>int size();<br>判断<br>    boolean isEmpty();<br>    boolean Contains(Object obj);<br>    boolean ContainsAll(Collection c);<br>集合转换为数组<br>    toArrays();<br>取出集合的元素<br>    Iterator iterator();<br>    获取集合中元素上迭代功能的迭代器对象。<br>    迭代：取出对象的一种方式<br>  迭代器：具备迭代功能的对象<br>  而迭代器对象不需要new,直接通过iterator()方法获取即可——通过内部类的方式<br>  迭代器是取出Collection集合元素的公共方式<br>  Collection接口的分类：<br>set：不允许有重复元素<br>list：有序（存入的顺序和取出的元素顺序一致，有索引，允许重复元素）<br>重点：List接口中的特有方法：它的特有方法都是围绕索引进行的<br>支持增删改查<br>1增<br>add(index,element)<br>2删<br>remove(index);<br>3改<br>set(index,newelement)<br>4查<br>int indexOf(element);<br>element get(index);</p>
+<p>list集合的具体子类，子类之所以进行区分是因为内部的数据结构(内部的存储方式)不同。<br>    –Vector:数据结构是数组，数组长度是可变的（不断new新数组并将原数组元素复制到新数组——最早出现的集合对象1.1——线程同——加锁变慢，故被淘汰_查和增删都慢<br>    –ArrayList:也是数组结构，也是长度可变的。1.2——线程不同步的，替代了Vector——增删慢，查询快，<br>    –LinkedList:链表结构，线程不同步——增删快，查找慢<br>set集合：不允许重复元素。和Collection的方法相同，set集合取出来的方法只有一个：迭代器<br>    –HashSet:不保证顺序，可以有序，也可以无序。哈希表（散列表）结构——不同步<br>哈希：不允许存储重复元素，因为会发生查找的不确定性。<br>    不保证存入和取出的顺序一致<br>    比数组的查询效率高<br>用于存储元素和哈希值对应关系的容器称之为哈希表<br>当哈希算法算出的2个元素值相同，称之为哈希冲突。冲突后，进行进一步的判断，判断的是元素的内容，equals方法解决冲突。堆使用哈希，所以每个对象都有hashCode（）方法<br>哈希表在判断元素是否相同，依据hashCode().如果哈希值相同，在判断元素的equals方法，true——不存，false——存储<br>解决哈希冲突的方式：链地址法，建立公共溢出区，开放定址法<br>保证唯一性的方法：<br>覆盖Object中的hashCode和equals方法<br>hashCode是为了根据元素自身的特点确定哈希值<br>equals是为了解决哈希冲突<br>LinkedHashSet:取出有序<br>    –TreeSet:二叉树数据结构，对元素进行排序，，不同步<br>    排序方式：需要元素具备比较功能，所以元素需要实现Comparable接口，<br>    覆盖comparreTo方法。<br>    如何保证元素唯一性？<br>    比较方法的返回值是否为0.<br>需求中也有这样一种情况，元素具备的功能不是所需要的，也就是说不想按照自然排序的方法，而是按照自定义的排序方式，对元素进行排序，而且存储到TreeSet中的元素万一没有比较功能<br>应该如何排序呢？这时需要使用——让集合具备比较功能。<br>实现Comparato接口，覆盖compare方法，2将comparator接口的对象作为参数传递给TreeSet的集合参数。<br>技巧：<br>jdk1.2以后出现的集合框架中的常用子类对象，存在的规律<br>前缀名是数据结构名，后缀名是所属体系名<br>ArrayList:数组结构，查询快，list，可以重复，可以增删改查<br>LinkedList:链表结构，增删快，<br>HashSet:哈希表，hashcode和equals查询速度更快，不保证有序，不可以重复<br>LinkedHashSet:链表+哈希表<br>TreeSet：二叉树，可以排序。就要想到2种排序方式：一种是自然排序Comparable，一种是比较器Comparator</p>
+<p>自动类型转换包装类</p>
 
       
     </div>
@@ -332,8 +333,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/07/17/12-5/" rel="next" title="treeset的比较方法">
-                <i class="fa fa-chevron-left"></i> treeset的比较方法
+              <a href="/2018/07/19/12-7/" rel="next" title="比较器">
+                <i class="fa fa-chevron-left"></i> 比较器
               </a>
             
           </div>
@@ -341,10 +342,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/07/19/12-7/" rel="prev" title="比较器">
-                比较器 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>

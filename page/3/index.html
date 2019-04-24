@@ -229,6 +229,127 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/08/8-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/08/8-1/" itemprop="url">异常处理</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-08T00:00:00+08:00">
+                2018-07-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>异常小练习<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">import java.lang.Exception;</span><br><span class="line">/*用来判断学生的成绩状况*/</span><br><span class="line">class MyException</span><br><span class="line">&#123;</span><br><span class="line">	public static void main(String[] args)</span><br><span class="line">	&#123;</span><br><span class="line">		MyException d = new MyException();</span><br><span class="line">		try</span><br><span class="line">		&#123;</span><br><span class="line">			d.getScore(105);</span><br><span class="line">		&#125;catch(TooHigh e)</span><br><span class="line">		&#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">			System.out.println(e.getMessage()+&quot;score=&quot;+e.score);</span><br><span class="line">		&#125;catch(TooSmall e)</span><br><span class="line">		&#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">			System.out.println(e.getMessage()+&quot;score=&quot;+e.score);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	public void getScore(int x)throws TooHigh,TooSmall</span><br><span class="line">	&#123;</span><br><span class="line">		if(x &gt; 100)</span><br><span class="line">		&#123;</span><br><span class="line">			TooHigh e = new TooHigh(&quot;score&gt;100&quot;,x);</span><br><span class="line">			throw e;</span><br><span class="line">		&#125;</span><br><span class="line">		else if(x &lt; 0)</span><br><span class="line">		&#123;</span><br><span class="line">			TooSmall e1 = new TooSmall(&quot;score&lt;0&quot;,x);</span><br><span class="line">			throw e1;</span><br><span class="line">		&#125;</span><br><span class="line">		else</span><br><span class="line">			System.out.println(&quot;score=&quot;+x);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class TooHigh extends Exception</span><br><span class="line">&#123;</span><br><span class="line">	int score;</span><br><span class="line">	public TooHigh(String message,int score)</span><br><span class="line">	&#123;</span><br><span class="line">		super(message);</span><br><span class="line">		this.score = score;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class TooSmall extends Exception</span><br><span class="line">&#123;</span><br><span class="line">	int score;</span><br><span class="line">	public TooSmall(String message,int score)</span><br><span class="line">	&#123;</span><br><span class="line">		super(message);</span><br><span class="line">		this.score = score;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>异常体系结构<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">异常：java程序在运行时期发生的不正常情况（问题）</span><br><span class="line">	java就按照面向对象的思想对不正常情况进行描述和对象的封装</span><br><span class="line">问题分2种：</span><br><span class="line">Throwable:定义了对于问题的共性的功能</span><br><span class="line">	Exception:jvm发生,并告诉使用者,可以进行针对性的处理</span><br><span class="line">	Error:由系统底层发生的。告诉jvm，jvm告诉使用者，不做针对性处理，直接修改代码。必须修改错误</span><br><span class="line">	(java运行时系统的内部错误以及资源耗尽的错误。)</span><br><span class="line">	int [] arr = new int[1];</span><br><span class="line">	System.out.println(arr[1]);//ArrayIndexOutOfBoundsException</span><br><span class="line">	/*</span><br><span class="line">	输出语句发生问题时，jvm就将这个已知的问题，封装成了对象</span><br><span class="line">	throw new ArrayIndexOutOfBoundsException(1);将问题抛给调用者的main函数，</span><br><span class="line">	main函数没有针对性的处理方式，main就继续往外抛给调用者jvm，jvm就使用了默认的处理方式</span><br><span class="line">	将问题的名称+信息+位置在控制台上显示出来，让调用者看到并结束程序</span><br><span class="line">	Exception下又分成2类，</span><br><span class="line">	一类为运行时异常，java程序在运行时发现的由java解释器引发的各种异常，普遍现象——即使声明也不进行处理。</span><br><span class="line">	一类是其他异常，由编译器在编译时检测是否发生在方法的执行过程中的异常(必须声明或者捕获)——编译</span><br><span class="line">	编译器：语法+基本安全问题</span><br><span class="line">*/</span><br><span class="line">class ExceptionDemo&#123;</span><br><span class="line">	public static void main(String[] args)&#123;</span><br><span class="line">			int [] arra = new int[1];</span><br><span class="line">	System.out.println(arr[1]);//ArrayIndexOutOfBoundsException</span><br><span class="line">		//arr = null;//NullPointerException</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/07/7-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1315,127 +1436,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/04/4-1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/04/4-1/" itemprop="url">函数+数组练习</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-04T00:00:00+08:00">
-                2018-07-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>#函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">class fangfa&#123;</span><br><span class="line">	public static void main(String[] args)&#123;</span><br><span class="line">	int SumAdd=Add(2,3);</span><br><span class="line">	double SumAdd1=Add(2.3,3.5);</span><br><span class="line">	System.out.print(SumAdd1);</span><br><span class="line">	System.out.print(SumAdd);</span><br><span class="line">	printCFB();</span><br><span class="line">	&#125;</span><br><span class="line">	public static int Add(int a,int b)&#123;</span><br><span class="line">		return (a+b);</span><br><span class="line">	&#125;</span><br><span class="line">	public static double Add(double a,double b)&#123;</span><br><span class="line">		return a+b;//overload();</span><br><span class="line">	&#125;</span><br><span class="line">	public static void printCFB()&#123;</span><br><span class="line">		for(int i=1;i &lt;= 9;i++)&#123;</span><br><span class="line">			for(int j=1;j &lt;= i;j++)&#123;</span><br><span class="line">				System.out.print(i+&quot;*&quot;+j+&quot;=&quot;+i*j+&quot;\t&quot;);</span><br><span class="line">			&#125;</span><br><span class="line">			System.out.println();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">/*</span><br><span class="line">class fangfa&#123;</span><br><span class="line">	public static void main(String[] args)&#123;</span><br><span class="line">		draw(5,5);</span><br><span class="line">	&#125;</span><br><span class="line">	public static void draw(int col,int row)&#123;</span><br><span class="line">		for(int i=0;i &lt;= row;i++)&#123;</span><br><span class="line">			for(int j=0;j &lt;= col;j++)&#123;</span><br><span class="line">				System.out.print(&quot;&amp;&quot;);</span><br><span class="line">			&#125;</span><br><span class="line">		System.out.println();</span><br><span class="line">		&#125;</span><br><span class="line">		return;//void时可以省略，但是编译器会加上</span><br><span class="line">	&#125;</span><br><span class="line">&#125;*/</span><br></pre></td></tr></table></figure></p>
-<p>#数组<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line">class ArrayDemo&#123;</span><br><span class="line">	public static void main(String[] args)&#123;</span><br><span class="line">		int[] arr = new int[]&#123;1,2,3,4&#125;;</span><br><span class="line">		int sum=add(arr);</span><br><span class="line">		int max=getMax(arr);</span><br><span class="line">		String temp=numberToString(arr);</span><br><span class="line">		String temp2=getWeek(4);</span><br><span class="line">		System.out.print(&quot;temp2=&quot;+temp2);</span><br><span class="line">		System.out.print(&quot;temp=&quot;+temp);</span><br><span class="line">		System.out.print(sum);</span><br><span class="line">		System.out.print(&quot;max=&quot;+max);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	public static int add(int[] arr)&#123;</span><br><span class="line">		int sum=0;</span><br><span class="line">		for(int i =0;i&lt;arr.length;i++)&#123;</span><br><span class="line">			sum+=arr[i];</span><br><span class="line">		&#125;</span><br><span class="line">		return sum;</span><br><span class="line">	&#125;</span><br><span class="line">	public static int getMax(int[] arr)&#123;</span><br><span class="line">		int max=arr[0];</span><br><span class="line">		for(int i=1;i&lt;arr.length;i++)&#123;</span><br><span class="line">			if(arr[i]&gt;=max)&#123;</span><br><span class="line">				max=arr[i];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		return max;</span><br><span class="line">	&#125;</span><br><span class="line">	public static String numberToString(int[] arr)&#123;</span><br><span class="line">		String temp = &quot;[&quot;;</span><br><span class="line">		for(int i = 0;i&lt;arr.length;i++)&#123;</span><br><span class="line">			if(i==arr.length-1)</span><br><span class="line">				temp=temp+arr[i]+&quot;]&quot;;</span><br><span class="line">			else&#123;</span><br><span class="line">				temp=temp+arr[i]+&quot;,&quot;;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		return temp;</span><br><span class="line">	&#125;</span><br><span class="line">	public static String getWeek(int num)&#123;</span><br><span class="line">		if( num &gt; 7|| num &lt; 1)</span><br><span class="line">		return num+&quot;no&quot;;</span><br><span class="line">		String[] weeks = &#123;&quot;,&quot;,&quot;1&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;,&quot;5&quot;,&quot;6&quot;,&quot;7&quot;&#125;;</span><br><span class="line">		return weeks[num];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">/*</span><br><span class="line">class ArrayDemo&#123;</span><br><span class="line">	public static void main(String[] args)&#123;</span><br><span class="line">		int[] arr = new int[3];</span><br><span class="line">		arr[0]=1;</span><br><span class="line">		arr[1]=2;</span><br><span class="line">		arr[2]=3;</span><br><span class="line">		System.out.print(arr[0]);</span><br><span class="line">		arr = null;</span><br><span class="line">		System.out.print(arr[3]);</span><br><span class="line">	&#125;</span><br><span class="line">	public static void main(String[] args)&#123;</span><br><span class="line">		int[] arr = new int[]&#123;1,2,3&#125;;</span><br><span class="line">		for(int i=0;i &lt; arr.length;i++)&#123;</span><br><span class="line">			System.out.print(&quot;arr[&quot;+i+&quot;]&quot;+&quot;=&quot;+arr[i]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">*/</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1486,7 +1486,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-count">39</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

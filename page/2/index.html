@@ -229,6 +229,128 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/11/11-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/11/11-2/" itemprop="url">String类的使用</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-11T00:00:00+08:00">
+                2018-07-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>返回子串在整串中的次数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">package Day0;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> *返回子串在整串的次数</span><br><span class="line"> *思路：</span><br><span class="line"> *1需要计数</span><br><span class="line"> *2找到子串进行计数</span><br><span class="line"> *3咋找？那就是字符串中查找字符串，字符串自己清楚</span><br><span class="line"> *4如果有这个方法，执行n次，循环完成</span><br><span class="line"> *步骤：</span><br><span class="line"> *1定义变量，计数</span><br><span class="line"> *2需要循环</span><br><span class="line"> *int indexof(String)</span><br><span class="line"> *3计数器自增</span><br><span class="line"> */</span><br><span class="line">public class Demo3 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		String str = &quot;ababab&quot;;</span><br><span class="line">		String key = &quot;a&quot;;</span><br><span class="line">		int count = getKeyCount(str, key);</span><br><span class="line">		System.out.println(&quot;count=&quot;+count);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public static int getKeyCount(String str, String key) &#123;</span><br><span class="line">	    //定义变量计数</span><br><span class="line">		int count = 0;</span><br><span class="line">		//每次找到的角标</span><br><span class="line">		int index = 0;</span><br><span class="line">		//循环，条件是indexof查找的方法返回的不是-1，而且要明确下次开始的位置indexof（String,fromindex）</span><br><span class="line">		while((index=str.indexOf(key,index))!=-1)</span><br><span class="line">		&#123;</span><br><span class="line">			count++;</span><br><span class="line">			//每找一次都要确定下次的位置，上次位置+key的长度;</span><br><span class="line">			index+=key.length();</span><br><span class="line">		&#125;</span><br><span class="line">		return count;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>求2个子串中的最大相同子串<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">package Day0;</span><br><span class="line">public class Demo4 &#123;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * @param args 求2个子串的最大相同子串</span><br><span class="line">	 *  思路： 1以短的字符串为主， 到长的字符串中去判断是否存在，如果存在，已经找到</span><br><span class="line">	 *        2如果没有找到，将短的字符串长度进行递减获取子串继续到长的字符串中进行查找，只要找到就结束 没有找到，说明没有相同的</span><br><span class="line">	 */</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		String s1 = &quot;aadfhjsdfkjsdlf&quot;;</span><br><span class="line">		String s2 = &quot;sad&quot;;</span><br><span class="line">		String max = getMaxString(s1, s2);</span><br><span class="line">		System.out.println(&quot;max=&quot; + max);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public static String getMaxString(String s1, String s2) &#123;</span><br><span class="line">		String longString, shortString;</span><br><span class="line">		longString = s1.length() &gt; s2.length() ? s1 : s2;</span><br><span class="line">		shortString = s1.equals(longString) ? s2 : s1;</span><br><span class="line">		for (int x = 0; x &lt; shortString.length(); x++) &#123;</span><br><span class="line">			for (int y = 0, z = shortString.length() - x; z &lt;= shortString.length(); y++, z++) &#123;</span><br><span class="line">				String temp = shortString.substring(y, z);//取得固定长度的字符串</span><br><span class="line">				System.out.println(temp);</span><br><span class="line">				if (longString.contains(temp))//是否包含</span><br><span class="line">				return temp;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		return null;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>对字符串进行自然排序<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">package Day0;</span><br><span class="line">import java.util.Arrays;</span><br><span class="line">public class Demo5 &#123;</span><br><span class="line">	/**</span><br><span class="line">	 * @param args 1需求：对字符串中的字符进行自然排序</span><br><span class="line">	 * 思路：</span><br><span class="line">	 * 1要排序，</span><br><span class="line">	 * 2将字符串转换为数组</span><br><span class="line">	 * 3到字符串中找方法</span><br><span class="line">	 * 4排序</span><br><span class="line">	 * 5将排序后的数组变成字符串</span><br><span class="line">	 */</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		String s1=&quot;asdfadsfsdfgfjg&quot;;</span><br><span class="line">		String s2 = sortString(s1);</span><br><span class="line">		System.out.println(s2);</span><br><span class="line">	&#125;</span><br><span class="line">	public static String sortString(String s1) &#123;</span><br><span class="line">		//将字符串转换为字符数组</span><br><span class="line">		char [] chs = StringtoAaaay(s1);</span><br><span class="line">		//对数组进行排序</span><br><span class="line">		sort(chs);</span><br><span class="line">		//将数组转换为字符串</span><br><span class="line">		return toString(chs);</span><br><span class="line">	&#125;</span><br><span class="line">	private static String toString(char[] chs) &#123;</span><br><span class="line">		return new String(chs);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static void sort(char[] chs) &#123;</span><br><span class="line">		Arrays.sort(chs);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static char[] StringtoAaaay(String str)</span><br><span class="line">	&#123;</span><br><span class="line">		return str.toCharArray();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/11/11-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1196,127 +1318,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/08/8-1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/08/8-1/" itemprop="url">异常处理</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-08T00:00:00+08:00">
-                2018-07-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>异常小练习<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">import java.lang.Exception;</span><br><span class="line">/*用来判断学生的成绩状况*/</span><br><span class="line">class MyException</span><br><span class="line">&#123;</span><br><span class="line">	public static void main(String[] args)</span><br><span class="line">	&#123;</span><br><span class="line">		MyException d = new MyException();</span><br><span class="line">		try</span><br><span class="line">		&#123;</span><br><span class="line">			d.getScore(105);</span><br><span class="line">		&#125;catch(TooHigh e)</span><br><span class="line">		&#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">			System.out.println(e.getMessage()+&quot;score=&quot;+e.score);</span><br><span class="line">		&#125;catch(TooSmall e)</span><br><span class="line">		&#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">			System.out.println(e.getMessage()+&quot;score=&quot;+e.score);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	public void getScore(int x)throws TooHigh,TooSmall</span><br><span class="line">	&#123;</span><br><span class="line">		if(x &gt; 100)</span><br><span class="line">		&#123;</span><br><span class="line">			TooHigh e = new TooHigh(&quot;score&gt;100&quot;,x);</span><br><span class="line">			throw e;</span><br><span class="line">		&#125;</span><br><span class="line">		else if(x &lt; 0)</span><br><span class="line">		&#123;</span><br><span class="line">			TooSmall e1 = new TooSmall(&quot;score&lt;0&quot;,x);</span><br><span class="line">			throw e1;</span><br><span class="line">		&#125;</span><br><span class="line">		else</span><br><span class="line">			System.out.println(&quot;score=&quot;+x);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class TooHigh extends Exception</span><br><span class="line">&#123;</span><br><span class="line">	int score;</span><br><span class="line">	public TooHigh(String message,int score)</span><br><span class="line">	&#123;</span><br><span class="line">		super(message);</span><br><span class="line">		this.score = score;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class TooSmall extends Exception</span><br><span class="line">&#123;</span><br><span class="line">	int score;</span><br><span class="line">	public TooSmall(String message,int score)</span><br><span class="line">	&#123;</span><br><span class="line">		super(message);</span><br><span class="line">		this.score = score;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>异常体系结构<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">异常：java程序在运行时期发生的不正常情况（问题）</span><br><span class="line">	java就按照面向对象的思想对不正常情况进行描述和对象的封装</span><br><span class="line">问题分2种：</span><br><span class="line">Throwable:定义了对于问题的共性的功能</span><br><span class="line">	Exception:jvm发生,并告诉使用者,可以进行针对性的处理</span><br><span class="line">	Error:由系统底层发生的。告诉jvm，jvm告诉使用者，不做针对性处理，直接修改代码。必须修改错误</span><br><span class="line">	(java运行时系统的内部错误以及资源耗尽的错误。)</span><br><span class="line">	int [] arr = new int[1];</span><br><span class="line">	System.out.println(arr[1]);//ArrayIndexOutOfBoundsException</span><br><span class="line">	/*</span><br><span class="line">	输出语句发生问题时，jvm就将这个已知的问题，封装成了对象</span><br><span class="line">	throw new ArrayIndexOutOfBoundsException(1);将问题抛给调用者的main函数，</span><br><span class="line">	main函数没有针对性的处理方式，main就继续往外抛给调用者jvm，jvm就使用了默认的处理方式</span><br><span class="line">	将问题的名称+信息+位置在控制台上显示出来，让调用者看到并结束程序</span><br><span class="line">	Exception下又分成2类，</span><br><span class="line">	一类为运行时异常，java程序在运行时发现的由java解释器引发的各种异常，普遍现象——即使声明也不进行处理。</span><br><span class="line">	一类是其他异常，由编译器在编译时检测是否发生在方法的执行过程中的异常(必须声明或者捕获)——编译</span><br><span class="line">	编译器：语法+基本安全问题</span><br><span class="line">*/</span><br><span class="line">class ExceptionDemo&#123;</span><br><span class="line">	public static void main(String[] args)&#123;</span><br><span class="line">			int [] arra = new int[1];</span><br><span class="line">	System.out.println(arr[1]);//ArrayIndexOutOfBoundsException</span><br><span class="line">		//arr = null;//NullPointerException</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/08/8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1476,7 +1477,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-count">39</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
