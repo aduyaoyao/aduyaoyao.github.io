@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="java学习笔记,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="字节到字符的桥梁1234567891011121314151617181920212223242526272829package DAY2;import java.io.FileInputStream;import java.io.IOException;import java.io.InputStreamReader;public class Demo6 &amp;#123;	public static">
+<meta name="keywords" content="java学习笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="字节——字符转换">
+<meta property="og:url" content="http://yoursite.com/2018/07/27/17-1/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="字节到字符的桥梁1234567891011121314151617181920212223242526272829package DAY2;import java.io.FileInputStream;import java.io.IOException;import java.io.InputStreamReader;public class Demo6 &amp;#123;	public static">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-24T09:45:44.494Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="字节——字符转换">
+<meta name="twitter:description" content="字节到字符的桥梁1234567891011121314151617181920212223242526272829package DAY2;import java.io.FileInputStream;import java.io.IOException;import java.io.InputStreamReader;public class Demo6 &amp;#123;	public static">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/07/27/17-1/">
+
+
+
+
+
+  <title>字节——字符转换 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/27/17-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">字节——字符转换</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-27T00:00:00+08:00">
+                2018-07-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>字节到字符的桥梁<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">package DAY2;</span><br><span class="line"></span><br><span class="line">import java.io.FileInputStream;</span><br><span class="line">import java.io.IOException;</span><br><span class="line">import java.io.InputStreamReader;</span><br><span class="line"></span><br><span class="line">public class Demo6 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) throws IOException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		//通过字符流读取中文数据</span><br><span class="line">		//字节通向字符的桥梁</span><br><span class="line">		//字符流=字节流+编码表</span><br><span class="line">		readCnTest();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static void readCnTest() throws IOException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		//1操作字节流的字符流对象，必须先有字节流</span><br><span class="line">		FileInputStream fis = new FileInputStream(&quot;F:\\java\\ava\\IO流\\src\\IO流的学习记录&quot;);</span><br><span class="line">		</span><br><span class="line">		//2建立字节向字符的桥梁</span><br><span class="line">		InputStreamReader isr= new InputStreamReader(fis);</span><br><span class="line">		</span><br><span class="line">		int ch = isr.read();</span><br><span class="line">		System.out.println((char)ch);</span><br><span class="line">		isr.close();//在桥梁对流资源进行关闭的操作，流使用的流也随之关掉了</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>字符——字节的桥梁<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">package DAY2;</span><br><span class="line"></span><br><span class="line">import java.io.FileNotFoundException;</span><br><span class="line">import java.io.FileOutputStream;</span><br><span class="line">import java.io.IOException;</span><br><span class="line">import java.io.OutputStreamWriter;</span><br><span class="line"></span><br><span class="line">public class Demo7 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) throws IOException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		//字节通向字符的桥梁，将读取到的字节进行解码</span><br><span class="line">		//字符通向字节的桥梁，将写入的字符进行编码</span><br><span class="line">		writeCnText();</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static void writeCnText() throws IOException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		//1创建字节流对象</span><br><span class="line">		FileOutputStream fos = new FileOutputStream(&quot;temp.fos.txt&quot;);</span><br><span class="line">		//2创建的是字符通向字节的桥梁</span><br><span class="line">		OutputStreamWriter osw = new OutputStreamWriter(fos);</span><br><span class="line">		//3使用osw的write方法,写入数据时，都会存储到缓冲区中因为要查表</span><br><span class="line">		//缓冲的原因：需要查找码表</span><br><span class="line">		osw.write(&quot;你好&quot;);</span><br><span class="line">		//4需要刷新缓冲区，将数据存储到目的地中</span><br><span class="line">		osw.flush();</span><br><span class="line">		//5关闭资源，flush刷新完流可以使用，close刷新完，直接关闭，无法使用</span><br><span class="line">		osw.close();</span><br><span class="line">		//osw.write(&quot;ads&quot;);// Stream closed,流关闭之后，继续使用会出先该问题</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>字节到固定字符<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">package DAY2;</span><br><span class="line"></span><br><span class="line">import java.io.FileInputStream;</span><br><span class="line">import java.io.FileOutputStream;</span><br><span class="line">import java.io.IOException;</span><br><span class="line">import java.io.InputStreamReader;</span><br><span class="line">import java.io.OutputStreamWriter;</span><br><span class="line"></span><br><span class="line">public class Demo8 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) throws IOException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		writeText();</span><br><span class="line">		readText();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static void readText() throws IOException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		FileInputStream fis = new FileInputStream(&quot;Demo8.txt&quot;);</span><br><span class="line">		InputStreamReader isr = new InputStreamReader(fis,&quot;utf-8&quot;);//使用UTF-8来读取UTF-8的值</span><br><span class="line">		int ch1 = isr.read();</span><br><span class="line">		System.out.println((char)ch1);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static void writeText() throws IOException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		FileOutputStream fos = new FileOutputStream(&quot;Demo8.txt&quot;);</span><br><span class="line">		OutputStreamWriter osw  = new OutputStreamWriter(fos);//使用默认的字符编码为gbk</span><br><span class="line">		osw = new OutputStreamWriter(fos,&quot;UTF-8&quot;);//使用指定的编码表</span><br><span class="line">		osw.write(&quot;你好&quot;);</span><br><span class="line">		osw.close();</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>转换流<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">package DAY2;</span><br><span class="line"></span><br><span class="line">import java.io.FileInputStream;</span><br><span class="line">import java.io.FileNotFoundException;</span><br><span class="line">import java.io.FileOutputStream;</span><br><span class="line">import java.io.FileReader;</span><br><span class="line">import java.io.FileWriter;</span><br><span class="line">import java.io.IOException;</span><br><span class="line">import java.io.InputStreamReader;</span><br><span class="line">import java.io.OutputStreamWriter;</span><br><span class="line"></span><br><span class="line">public class Demo9 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) throws IOException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		/*</span><br><span class="line">		 * 什么使用使用转换流？</span><br><span class="line">		 * 1操作文本数据</span><br><span class="line">		 * 2需要指定编码表</span><br><span class="line">		 * 转换流的子类——专门用于操作文本文件的流对象</span><br><span class="line">		*/</span><br><span class="line">		writrText();</span><br><span class="line">		readText();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static void readText() throws IOException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		FileReader fr = new FileReader(&quot;demo.txt&quot;);</span><br><span class="line">		//等效于</span><br><span class="line">//		FileInputStream fis = new FileInputStream(&quot;demo.txt&quot;);</span><br><span class="line">//		InputStreamReader isr = new InputStreamReader(fis);</span><br><span class="line">		int ch = 0;</span><br><span class="line">		while((ch = fr.read())!=-1)</span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println((char)ch);</span><br><span class="line">		&#125;</span><br><span class="line">		fr.close();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static void writrText() throws IOException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		//创建一个用于操作文件的字符输出流对象</span><br><span class="line">		FileWriter fw = new FileWriter(&quot;demo.txt&quot;);//内部使用了默认的码表，而且只能操作文件</span><br><span class="line">		//等效与以下的内容</span><br><span class="line">//		FileOutputStream fos = new FileOutputStream(&quot;demo9.txt&quot;);</span><br><span class="line">//		OutputStreamWriter osw = new OutputStreamWriter(&quot;fis&quot;);</span><br><span class="line">		fw.write(&quot;你好&quot;);</span><br><span class="line">		fw.close();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>字符流的文件复制<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">package DAY2;</span><br><span class="line"></span><br><span class="line">import java.io.FileReader;</span><br><span class="line">import java.io.FileWriter;</span><br><span class="line">import java.io.IOException;</span><br><span class="line"></span><br><span class="line">public class Demo10 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) throws IOException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		//字节流的缓冲区为字节数组</span><br><span class="line">		//字符流的缓冲区为字符数组</span><br><span class="line">		//需求：复制一个文本文件</span><br><span class="line">		copyText();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static void copyText() throws IOException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		//1明确数据源，定义字符流</span><br><span class="line">		FileReader fr = new FileReader(&quot;demo.txt&quot;);</span><br><span class="line">		FileWriter fw = new FileWriter(&quot;Demo10copy.txt&quot;);</span><br><span class="line">		//创建缓冲区</span><br><span class="line">		char [] buf = new char[1024];</span><br><span class="line">		int len = 0;</span><br><span class="line">		while((len = fr.read(buf))!=-1)</span><br><span class="line">		&#123;</span><br><span class="line">			fw.write(buf,0,len);</span><br><span class="line">			System.out.println(buf);</span><br><span class="line">		&#125;</span><br><span class="line">		fr.close();</span><br><span class="line">		fw.close();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>字符流的缓冲区<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">package DAY2;</span><br><span class="line"></span><br><span class="line">import java.io.BufferedReader;</span><br><span class="line">import java.io.BufferedWriter;</span><br><span class="line">import java.io.FileNotFoundException;</span><br><span class="line">import java.io.FileReader;</span><br><span class="line">import java.io.FileWriter;</span><br><span class="line">import java.io.IOException;</span><br><span class="line">import java.io.InputStreamReader;</span><br><span class="line"></span><br><span class="line">public class Demo11 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) throws IOException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		//BufferedReader的使用</span><br><span class="line">		//演示字符流的缓冲区</span><br><span class="line">		writeText();</span><br><span class="line">		readText();</span><br><span class="line">	&#125;</span><br><span class="line">	private static void readText() throws IOException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		FileReader fr = new FileReader(&quot;Demo11.txt&quot;);</span><br><span class="line">		BufferedReader br = new BufferedReader(fr);</span><br><span class="line">		System.out.println(br.readLine());</span><br><span class="line">		String str = null;</span><br><span class="line">		while((str=br.readLine())!=null)//返回为空值</span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println(str);</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">//		//读取键盘录入专业。Scanner=流+正则表达式。方法都是按照正则表达式的规则</span><br><span class="line">//		BufferedReader br =	new BufferedReader(InputStreamReader(System.in));//读取键盘录入</span><br><span class="line">//		br.readLine();</span><br><span class="line">//		</span><br><span class="line">//		标准的键盘录入</span><br><span class="line">//		 BufferedReader in</span><br><span class="line">//		   = new BufferedReader(new InputStreamReader(System.in));</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	private static void writeText() throws IOException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		//1明确目的，</span><br><span class="line">		FileWriter fw = new FileWriter(&quot;Demo11.txt&quot;);</span><br><span class="line">		//2创建缓冲区对象，明确要输入的流对象</span><br><span class="line">		BufferedWriter bw = new BufferedWriter(fw);</span><br><span class="line">		bw.write(&quot;hello&quot;);</span><br><span class="line">		bw.newLine();//System.getProperty(&quot;line.separator&quot;);</span><br><span class="line">		bw.write(&quot;world&quot;);</span><br><span class="line">		bw.close();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//何为行数：后面带着回车符的一行数据</span><br></pre></td></tr></table></figure></p>
+<p>set集合来操作学生信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">package DAY2;</span><br><span class="line"></span><br><span class="line">import java.io.File;</span><br><span class="line">import java.io.IOException;</span><br><span class="line">import java.util.Comparator;</span><br><span class="line">import java.util.Set;</span><br><span class="line"></span><br><span class="line">public class Demo12 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) throws IOException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		// 录入学生信息并进行排列</span><br><span class="line"></span><br><span class="line">		/*</span><br><span class="line">		 * 思路： 1使用键盘录入技术 2操作的学生信息，信息很多，需要将学生信息进行排序 容器可以选择Set集合</span><br><span class="line">		 */</span><br><span class="line">		//创建一个逆序的比较器</span><br><span class="line">		Comparator&lt;Student&gt; comp = new Comparator&lt;Student&gt;() &#123;</span><br><span class="line"></span><br><span class="line">			@Override</span><br><span class="line">			public int compare(Student o1, Student o2) &#123;</span><br><span class="line">				// TODO Auto-generated method stub</span><br><span class="line">				int temp = o1.getSum()-o2.getSum();</span><br><span class="line">				return temp==0?o1.getChinese()-o2.getChinese():temp;</span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line">		&#125;;</span><br><span class="line">		// 使用操作学生信息的工具类</span><br><span class="line">		Set&lt;Student&gt; set = GetInfo.getStudents(comp);</span><br><span class="line">		File destfile = new File(&quot;temp1.txt&quot;);</span><br><span class="line">		GetInfo.writeText(set,destfile);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>student类<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br></pre></td><td class="code"><pre><span class="line">package DAY2;</span><br><span class="line"></span><br><span class="line">public class Student implements Comparable&lt;Student&gt; &#123;</span><br><span class="line">	private int math, chinese, english;</span><br><span class="line">	private String name;</span><br><span class="line">	private int sum;</span><br><span class="line"></span><br><span class="line">	public int compareTo(Student o) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		int temp = this.sum - o.sum;</span><br><span class="line">		return temp == 0 ? this.name.compareTo(o.name) : temp;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public Student(int math, int chinese, int english, String name) &#123;</span><br><span class="line">		super();</span><br><span class="line">		this.math = math;</span><br><span class="line">		this.chinese = chinese;</span><br><span class="line">		this.english = english;</span><br><span class="line">		this.name = name;</span><br><span class="line">		this.sum = chinese+math+english;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public Student() &#123;</span><br><span class="line">		super();</span><br><span class="line">		// TODO Auto-generated constructor stub</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	public int hashCode() &#123;</span><br><span class="line">		final int prime = 31;</span><br><span class="line">		int result = 1;</span><br><span class="line">		result = prime * result + chinese;</span><br><span class="line">		result = prime * result + english;</span><br><span class="line">		result = prime * result + math;</span><br><span class="line">		result = prime * result + ((name == null) ? 0 : name.hashCode());</span><br><span class="line">		result = prime * result + sum;</span><br><span class="line">		return result;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	public boolean equals(Object obj) &#123;</span><br><span class="line">		if (this == obj)</span><br><span class="line">			return true;</span><br><span class="line">		if (obj == null)</span><br><span class="line">			return false;</span><br><span class="line">		if (getClass() != obj.getClass())</span><br><span class="line">			return false;</span><br><span class="line">		Student other = (Student) obj;</span><br><span class="line">		if (chinese != other.chinese)</span><br><span class="line">			return false;</span><br><span class="line">		if (english != other.english)</span><br><span class="line">			return false;</span><br><span class="line">		if (math != other.math)</span><br><span class="line">			return false;</span><br><span class="line">		if (name == null) &#123;</span><br><span class="line">			if (other.name != null)</span><br><span class="line">				return false;</span><br><span class="line">		&#125; else if (!name.equals(other.name))</span><br><span class="line">			return false;</span><br><span class="line">		if (sum != other.sum)</span><br><span class="line">			return false;</span><br><span class="line">		return true;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public int getMath() &#123;</span><br><span class="line">		return math;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public void setMath(int math) &#123;</span><br><span class="line">		this.math = math;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public int getChinese() &#123;</span><br><span class="line">		return chinese;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public void setChinese(int chinese) &#123;</span><br><span class="line">		this.chinese = chinese;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public int getEnglish() &#123;</span><br><span class="line">		return english;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public void setEnglish(int english) &#123;</span><br><span class="line">		this.english = english;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public String getName() &#123;</span><br><span class="line">		return name;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public void setName(String name) &#123;</span><br><span class="line">		this.name = name;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public int getSum() &#123;</span><br><span class="line">		return sum;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public void setSum(int sum) &#123;</span><br><span class="line">		this.sum = sum;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line">package DAY2;</span><br><span class="line"></span><br><span class="line">import java.io.BufferedReader;</span><br><span class="line"></span><br><span class="line">import java.io.BufferedWriter;</span><br><span class="line">import java.io.File;</span><br><span class="line">import java.io.FileWriter;</span><br><span class="line">import java.io.IOException;</span><br><span class="line">import java.io.InputStreamReader;</span><br><span class="line">import java.util.Comparator;</span><br><span class="line">import java.util.Set;</span><br><span class="line">import java.util.TreeSet;</span><br><span class="line"></span><br><span class="line">public class GetInfo &#123;</span><br><span class="line"></span><br><span class="line">	public static Set&lt;Student&gt; getStudents() throws NumberFormatException, IOException</span><br><span class="line">	&#123;</span><br><span class="line">		return getStudents(null);</span><br><span class="line">	&#125;</span><br><span class="line">	// 获取学生对象</span><br><span class="line">	public static Set&lt;Student&gt; getStudents(Comparator&lt;Student&gt; comp) throws NumberFormatException, IOException &#123;</span><br><span class="line">		// 1键盘输入</span><br><span class="line">		BufferedReader bufr = new BufferedReader(new InputStreamReader(System.in));//系统中的流对象，标准的输入设备，一般不关流</span><br><span class="line">		//创建一个容器存储学生对象</span><br><span class="line">		Set&lt;Student&gt; set = null;</span><br><span class="line">		//如果比较器存在，就创建带有比较器的对象</span><br><span class="line">		if(comp!=null)</span><br><span class="line">		&#123;</span><br><span class="line">			set = new TreeSet&lt;Student&gt;(comp);</span><br><span class="line">		&#125;</span><br><span class="line">		else</span><br><span class="line">		&#123;</span><br><span class="line">			set = new TreeSet&lt;Student&gt;();</span><br><span class="line">		&#125;</span><br><span class="line">//		Set&lt;Student&gt; set = new TreeSet&lt;Student&gt;();</span><br><span class="line">		//2获取键盘输入的信息</span><br><span class="line">		String line = null;</span><br><span class="line">		while((line = bufr.readLine())!=null)</span><br><span class="line">		&#123;</span><br><span class="line">			//键盘录入结束标记</span><br><span class="line">			if(&quot;over&quot;.equals(line))</span><br><span class="line">			&#123;</span><br><span class="line">				break;</span><br><span class="line">			&#125;</span><br><span class="line">			//因为录入的数据是有规律的，可以通过指定的规则进行分割</span><br><span class="line">			String[] strs =line.split(&quot;,&quot;);</span><br><span class="line">			//将数组中的元素封装成为对象</span><br><span class="line">			Student stu = new Student(Integer.parseInt(strs[1]),Integer.parseInt(strs[2]),Integer.parseInt(strs[3]),strs[0]);</span><br><span class="line">			set.add(stu);</span><br><span class="line">		&#125;</span><br><span class="line">		//关闭键盘须知，如果后面不在使用键盘录入时可以关闭的，如果后期还要使用，就不要关闭，一旦关闭就没有了</span><br><span class="line">		return set;</span><br><span class="line">	&#125;</span><br><span class="line">	//将集合中的学生信息写入到文件中</span><br><span class="line">	public static void writeText(Set&lt;Student&gt; set ,File destfile) throws IOException</span><br><span class="line">	&#123;</span><br><span class="line">		BufferedWriter bufw = null;</span><br><span class="line">		try &#123;</span><br><span class="line">			bufw = new BufferedWriter(new FileWriter(destfile));</span><br><span class="line">			//遍历集合</span><br><span class="line">			for(Student stu :set)</span><br><span class="line">			&#123;</span><br><span class="line">				bufw.write(stu.getName()+&quot;\t&quot;+stu.getChinese());</span><br><span class="line">				bufw.newLine();</span><br><span class="line">				bufw.flush();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;finally</span><br><span class="line">		&#123;</span><br><span class="line">			if(bufw!=null)</span><br><span class="line">			&#123;</span><br><span class="line">				try &#123;</span><br><span class="line">					bufw.close();</span><br><span class="line">				&#125; catch (Exception e) &#123;</span><br><span class="line">					// TODO: handle exception</span><br><span class="line">					throw new RuntimeException(&quot;关闭异常&quot;);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java学习笔记/" rel="tag"># java学习笔记</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/27/17/" rel="next" title="字节读取流">
+                <i class="fa fa-chevron-left"></i> 字节读取流
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">51</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

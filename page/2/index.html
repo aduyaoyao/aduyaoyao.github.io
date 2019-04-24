@@ -229,6 +229,254 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/21/13-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/21/13-1/" itemprop="url">泛型限定</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-21T00:00:00+08:00">
+                2018-07-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>泛型上限<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">package Day6;</span><br><span class="line"></span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.Collection;</span><br><span class="line">import java.util.HashSet;</span><br><span class="line">import java.util.Iterator;</span><br><span class="line">import java.util.List;</span><br><span class="line">import java.util.Set;</span><br><span class="line"></span><br><span class="line">public class Demo6 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		Collection&lt;String&gt; list = new ArrayList&lt;String&gt;();</span><br><span class="line">		list.add(&quot;asd&quot;);</span><br><span class="line">		list.add(&quot;asdasd&quot;);</span><br><span class="line">		printjihe(list);</span><br><span class="line">		Set&lt;String&gt; set = new HashSet&lt;String&gt;();</span><br><span class="line">		set.add(&quot;sad&quot;);</span><br><span class="line">		set.add(&quot;asdsad&quot;);</span><br><span class="line">		printjihe(set);</span><br><span class="line">		List&lt;Person&gt; l = new ArrayList&lt;Person&gt;();</span><br><span class="line">		l.add(new Person(&quot;asd&quot;, 0));</span><br><span class="line">		printjihe(l);</span><br><span class="line">		//要想打印以上的全部元素的类型，要么不写，不明确元素类型，或者使用通配符？</span><br><span class="line">		//最好是一对一的类型匹配</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	private static void printjihe(Collection&lt;?&gt; coll) &#123;//集合中的元素类型为任意元素</span><br><span class="line">			for (Iterator&lt;?&gt; it = coll.iterator(); it.hasNext();) &#123;</span><br><span class="line">				System.out.println(it.next());		</span><br><span class="line">			&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	//？的范围太大，操作所有类型</span><br><span class="line">	//操作一部分的类型 ？extends Person——称之为泛型的限定</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>泛型下限<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">package Day6;</span><br><span class="line"></span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.Collection;</span><br><span class="line">import java.util.Iterator;</span><br><span class="line">import java.util.List;</span><br><span class="line"></span><br><span class="line">public class Demo7 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		List&lt;Stydent1&gt; list = new ArrayList&lt;Stydent1&gt;();</span><br><span class="line">		list.add(new Stydent1(&quot;sda&quot;, 21));</span><br><span class="line">		List&lt;Worker&gt; list1 = new ArrayList&lt;Worker&gt;();</span><br><span class="line">		list1.add(new Worker(&quot;dsa&quot;,5));</span><br><span class="line">		printjihe(list1);</span><br><span class="line">		printjihe(list);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	//泛型的限定——表现形式</span><br><span class="line">	//? extends e ——接受e类型或者e类型子类 （泛型上限）</span><br><span class="line">	//? super e——接受e类型或者e的父类(泛型下限)</span><br><span class="line">	private static void printjihe(Collection&lt;? extends Person&gt; coll) &#123;// 集合中的元素类型为任意元素</span><br><span class="line">		for (Iterator&lt;? extends Person&gt; it = coll.iterator(); it.hasNext();) &#123;</span><br><span class="line">			Person p = it.next();</span><br><span class="line">			System.out.println(p.getAge());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>泛型上限实例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">package Day6;</span><br><span class="line"></span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.Collection;</span><br><span class="line">import java.util.Iterator;</span><br><span class="line">import java.util.TreeSet;</span><br><span class="line"></span><br><span class="line">public class Demo8 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		// TreeSet的构造函数TreeSet(Collection&lt;? extends E&gt; c)</span><br><span class="line">		Collection&lt;Stydent1&gt; coll = new ArrayList&lt;Stydent1&gt;();</span><br><span class="line">		coll.add(new Stydent1(&quot;sad&quot;, 12));</span><br><span class="line">		TreeSet&lt;Person&gt; ts = new TreeSet&lt;Person&gt;(coll);</span><br><span class="line">		ts.add(new Person(&quot;asd&quot;, 52));</span><br><span class="line">		for (Iterator it = ts.iterator(); it.hasNext();) &#123;</span><br><span class="line">			Person stydent1 = (Person) it.next();</span><br><span class="line">			System.out.println(stydent1);</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">//什么时候会用到上限呢？</span><br><span class="line">//一般往集合中存储元素时候，如果集合定义了E类型通常情况下应该存储E类型的对象</span><br><span class="line">//对E的子类型的对象e类型也可以接受，所以这个时候将泛型E改成？extends E</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class mytreeset&lt;E&gt; &#123;</span><br><span class="line">	mytreeset() &#123;</span><br><span class="line">		// TODO Auto-generated constructor stub</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	mytreeset(Collection&lt;? extends E&gt; coll) &#123;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>泛型+比较方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">package Day6;</span><br><span class="line"></span><br><span class="line">import java.util.Comparator;</span><br><span class="line">import java.util.Iterator;</span><br><span class="line">import java.util.TreeSet;</span><br><span class="line"></span><br><span class="line">public class Demo9 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		Comparator&lt;Person&gt; comp = new Comparator&lt;Person&gt;() &#123;</span><br><span class="line"></span><br><span class="line">			@Override</span><br><span class="line">			public int compare(Person o1, Person o2) &#123;</span><br><span class="line">				// TODO Auto-generated method stub</span><br><span class="line">				int temp = o2.getAge() - o1.getAge();</span><br><span class="line">				return temp == 0 ? o2.getName().compareTo(o1.getName()) : temp;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;;</span><br><span class="line">		TreeSet&lt;Stydent1&gt; ts = new TreeSet&lt;Stydent1&gt;(comp);</span><br><span class="line">		ts.add(new Stydent1(&quot;sda&quot;, 12));</span><br><span class="line">		ts.add(new Stydent1(&quot;asd&quot;,52));</span><br><span class="line">		for (Iterator&lt;Stydent1&gt; it = ts.iterator(); it.hasNext();) &#123;</span><br><span class="line">			Stydent1 stydent1 = (Stydent1) it.next();</span><br><span class="line">			System.out.println(stydent1);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">//当从元素中取出对象时候，可以用E类型接受，或者E类型的父类来接收</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/20/13/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/20/13/" itemprop="url">泛型+泛型类</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-20T00:00:00+08:00">
+                2018-07-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>初识泛型<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">package Day6;</span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.Iterator;</span><br><span class="line">import java.util.List;</span><br><span class="line"></span><br><span class="line">public class Demo0 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		/*泛型：解决不同类型都存储在同一个容器中,在集合中应用最广泛，但也可以应用其他方面</span><br><span class="line">		 * 为了运行时期不出现类型异常，可以在定义容器时，就明确容器中元素的类型。</span><br><span class="line">		 * */</span><br><span class="line">		int [] arr = new int[2];//这种思想的体现。</span><br><span class="line">		List&lt;String&gt; list = new ArrayList&lt;String&gt;();</span><br><span class="line">		list.add(&quot;asd&quot;);</span><br><span class="line">//		list.add(4);// list.add(Ingeter.valueOf())</span><br><span class="line">		for (Iterator&lt;String&gt; it = list.iterator(); it.hasNext();) &#123;</span><br><span class="line">			String str = it.next();</span><br><span class="line">			System.out.println(str.length());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>定义一个专门用来存储整形数据的arraylist集合<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">package Day6;</span><br><span class="line"></span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.Iterator;</span><br><span class="line">import java.util.List;</span><br><span class="line"></span><br><span class="line">public class Demo1 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		List&lt;Integer&gt; list = new ArrayList&lt;Integer&gt;();</span><br><span class="line">		list.add(5);</span><br><span class="line">		for (Iterator&lt;Integer&gt; it = list.iterator(); it.hasNext();) &#123;</span><br><span class="line">			System.out.println(it.next());</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>定义一个专门存储Person的集合<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">package Day6;</span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.Iterator;</span><br><span class="line">import java.util.List;</span><br><span class="line">public class Demo1 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		/* 定义了一个集合来存储字符串 */</span><br><span class="line">		List&lt;Integer&gt; list = new ArrayList&lt;Integer&gt;();</span><br><span class="line">		list.add(5);</span><br><span class="line">		for (Iterator&lt;Integer&gt; it = list.iterator(); it.hasNext();) &#123;</span><br><span class="line">			System.out.println(it.next());</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>泛型类<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">package Day6;</span><br><span class="line"></span><br><span class="line">public class Demo3 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		Tools tools = new Tools();</span><br><span class="line">		tools.setObj(new Worker(&quot;as&quot;, 1));</span><br><span class="line">		Worker worker = (Worker) tools.getObj();</span><br><span class="line">		System.out.println(worker);</span><br><span class="line">		Util&lt;Worker&gt; w = new Util&lt;Worker&gt;();</span><br><span class="line">		w.setObj(new Worker(&quot;sda&quot;,12));//如果类型不匹配，直接编译失败</span><br><span class="line">		Worker worker1 = w.getObj();//避免了向下转型</span><br><span class="line">		System.out.println(worker1);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Tools &#123;</span><br><span class="line">	private Object obj;</span><br><span class="line"></span><br><span class="line">	public Object getObj() &#123;</span><br><span class="line">		return obj;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public void setObj(Object obj) &#123;</span><br><span class="line">		this.obj = obj;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">//在类定义时候，就明确参数，由使用该类的调用者，来传递具体的类型</span><br><span class="line">//这就是传说中的泛型类——类上多了参数</span><br><span class="line">class Util&lt;E&gt;</span><br><span class="line">&#123;</span><br><span class="line">	private E obj;</span><br><span class="line"></span><br><span class="line">	public E getObj() &#123;</span><br><span class="line">		return obj;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public void setObj(E obj) &#123;</span><br><span class="line">		this.obj = obj;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line">/*</span><br><span class="line"> * 创建一个用于学生创建的类</span><br><span class="line"> * 存在很大的局限性，可不可以创建一个可以调用一个可以操作所有对象的工具，</span><br><span class="line"> * 类型进行向上的抽取,当要操作的对象类型不确定的时候，为了扩展，</span><br><span class="line"> * 可以使用Object类型来完成</span><br><span class="line"> * 但是这种方式有弊端，会出现转型，向下转型容易在运行时候发生ClassCastException</span><br><span class="line"> * jdk1.5以后，新的解决方案，</span><br><span class="line"> * 类型不确定时，可以对外提供参数，由使用者通过参数传递的形式完成类型的定义</span><br><span class="line"> * </span><br><span class="line"> *  class Tools &#123; </span><br><span class="line"> * private Stydent1 stu;</span><br><span class="line"> * </span><br><span class="line"> * public Stydent1 getStu() &#123; return stu; &#125;</span><br><span class="line"> * </span><br><span class="line"> * public void setStu(Stydent1 stu) &#123; this.stu = stu; &#125; &#125;</span><br><span class="line"> */</span><br></pre></td></tr></table></figure></p>
+<p>静态上增加泛型<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">package Day6;</span><br><span class="line"></span><br><span class="line">public class Demo4 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		Demo41&lt;String&gt; d = new Demo41&lt;String&gt;();</span><br><span class="line">		d.show(&quot;sasd&quot;);</span><br><span class="line">		d.print(6);</span><br><span class="line">		d.print(613);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//方法上定义静态，静态随着类的加载而加载，泛型随着new对象的产生而知道具体的类型。</span><br><span class="line">class Demo41&lt;W&gt;</span><br><span class="line">&#123;</span><br><span class="line">	public void  show(W w)//静态方法无法访问类上定义的泛型。如果静态方法需要定义泛型，只能定义在方法上</span><br><span class="line">	&#123;</span><br><span class="line">		System.out.println(w);</span><br><span class="line">	&#125;</span><br><span class="line">	public static &lt;A&gt; void staticshow(A a)//定义在静态方法的泛型</span><br><span class="line">	&#123;</span><br><span class="line">		System.out.println(a);</span><br><span class="line">	&#125;</span><br><span class="line">	public &lt;Q&gt; void print(Q w)//定义在方法上的泛型，泛型不是跟类一致的，方法操作的类型不知道</span><br><span class="line">	&#123;</span><br><span class="line">		System.out.println(w+&quot;sad&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>泛型接口<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">package Day6;</span><br><span class="line"></span><br><span class="line">public class Demo5 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		sub d = new sub();</span><br><span class="line">		d.show(&quot;show&quot;);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">interface inter&lt;T&gt;//泛型接口，在接口上定义泛型</span><br><span class="line">&#123;</span><br><span class="line">	public void show(T t);</span><br><span class="line">&#125;</span><br><span class="line">class inter2&lt;W&gt; implements inter&lt;W&gt;</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	public void show(W t) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		System.out.println(&quot;inter2+show&quot;+t);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line">class sub extends inter2&lt;String&gt;</span><br><span class="line">&#123;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class inter1 implements inter&lt;String&gt;</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	public void show(String t) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/19/12-8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1188,254 +1436,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/12/12/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/12/12/" itemprop="url">初始集合</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-12T00:00:00+08:00">
-                2018-07-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>容器的增删操作<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">package Day0;</span><br><span class="line">import java.util.ArrayDeque;</span><br><span class="line">import java.util.Collection;</span><br><span class="line">public class Demo0 &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		//创建2个容器</span><br><span class="line">		Collection coll = new ArrayDeque();</span><br><span class="line">		Collection c1 = new ArrayDeque();</span><br><span class="line">		Collection c2 = new ArrayDeque();</span><br><span class="line">		c1.add(&quot;abc1&quot;);</span><br><span class="line">		c1.add(&quot;abc2&quot;);</span><br><span class="line">		c1.add(&quot;abc3&quot;);</span><br><span class="line">		c1.add(&quot;abc4&quot;);</span><br><span class="line">		c1.add(&quot;def2&quot;);</span><br><span class="line">		c1.add(&quot;def3&quot;);</span><br><span class="line">		c2.add(&quot;def2&quot;);</span><br><span class="line">		c2.add(&quot;def3&quot;);</span><br><span class="line">		c2.add(&quot;def4&quot;);</span><br><span class="line">//		System.out.println(c1.toString());</span><br><span class="line">//		c1.addAll(c2);</span><br><span class="line">//		System.out.println(c1.toString());</span><br><span class="line">//		boolean a = c1.containsAll(c2);</span><br><span class="line">//		System.out.println(a);</span><br><span class="line">		boolean b = c1.retainAll(c2);</span><br><span class="line">		System.out.println(c1.toString());</span><br><span class="line">		System.out.println(c2.toString());</span><br><span class="line">		method(coll);</span><br><span class="line">	&#125;</span><br><span class="line">	public static void method(Collection coll)</span><br><span class="line">	&#123;</span><br><span class="line">		//1添加元素</span><br><span class="line">		coll.add(&quot;hjghjjk&quot;);</span><br><span class="line">		coll.add(&quot;ad&quot;);</span><br><span class="line">		System.out.println(coll.toString());</span><br><span class="line">		//删除元素</span><br><span class="line">		coll.remove(&quot;ad&quot;);</span><br><span class="line">		System.out.println(coll.toString()+coll.size());</span><br><span class="line">		coll.clear();</span><br><span class="line">		System.out.println(coll.toString()+coll.size());</span><br><span class="line">		coll.add(&quot;hjghjjk&quot;);</span><br><span class="line">		coll.add(&quot;ad&quot;);</span><br><span class="line">		System.out.println(coll.contains(&quot;asdfsdf&quot;));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>容器中元素的取出<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">package Day0;</span><br><span class="line">import java.util.ArrayDeque;</span><br><span class="line">import java.util.Collection;</span><br><span class="line">import java.util.Iterator;</span><br><span class="line">import javax.swing.text.StyledEditorKit.ItalicAction;</span><br><span class="line">public class Demo1 &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		Collection coll = new ArrayDeque();</span><br><span class="line">		coll.add(&quot;abc1&quot;);</span><br><span class="line">		coll.add(&quot;abc2&quot;);</span><br><span class="line">		coll.add(&quot;abc3&quot;);</span><br><span class="line">		coll.add(&quot;abc4&quot;);</span><br><span class="line">		//获取该容器的迭代器</span><br><span class="line">		/*</span><br><span class="line">		while(it.hasNext())</span><br><span class="line">		System.out.println(it.next());</span><br><span class="line">		*/</span><br><span class="line">		for(Iterator it = coll.iterator();it.hasNext();)</span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println(it.next());</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>list集合的简单操作<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">package Day0;</span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.List;</span><br><span class="line">import java.util.ListIterator;</span><br><span class="line">public class Demo3 &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		List list = new ArrayList();</span><br><span class="line">		list.add(&quot;abc1&quot;);</span><br><span class="line">		list.add(&quot;abc2&quot;);</span><br><span class="line">		list.add(&quot;abc3&quot;);</span><br><span class="line">		list.add(&quot;abc4&quot;);</span><br><span class="line">		</span><br><span class="line">		/*</span><br><span class="line">		 * for (Iterator it = list.iterator(); it.hasNext();) &#123; Object obj = it.next();</span><br><span class="line">		 * if (obj.equals(&quot;abc2&quot;))</span><br><span class="line">		 * list.add(&quot;haa&quot;);//java.util.ConcurrentModificationException迭代器和集合同时操作容器中的元素，</span><br><span class="line">		 * 导致并发操作异常，产生迭代结果的不确定性 //解决问题的思路：使用迭代器的方法 &#125;</span><br><span class="line">		 */</span><br><span class="line">		//使用List特有的迭代器。ListIterator。通过list集合的方法listIterator（）获取迭代器对象</span><br><span class="line">//		ListIterator可以实现增删改查</span><br><span class="line">		for (ListIterator it = list.listIterator(); it.hasNext();) &#123;</span><br><span class="line">			Object obj = it.next();</span><br><span class="line">			if (obj.equals(&quot;abc2&quot;))</span><br><span class="line">				it.add(&quot;haha&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(list);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>自动拆箱和自动装箱<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">package Day0;</span><br><span class="line">public class Demo4 &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		/*</span><br><span class="line">		 * 基本数据类型对象包装类 将基本数据值封装成了对象 好处：可以在对象中定义更多的属性和行为对基本数据类型进行操作 byte ——Byte</span><br><span class="line">		 * short——Short int ——Interge long——Long boolean ——Boolean float——Float</span><br><span class="line">		 * double——Double char——Character 基本数据类型对象包装类的重要功能：在基本数据类型和String类型之间互相转换</span><br><span class="line">		 * parse基本数据类型（String）parse+Int/Byte/Double</span><br><span class="line">		 */</span><br><span class="line">//		System.out.println(Integer.MAX_VALUE);</span><br><span class="line">		System.out.println(Integer.toBinaryString(8));</span><br><span class="line">		System.out.println(Integer.parseInt(&quot;23&quot; + 4));</span><br><span class="line">		System.out.println(Integer.parseInt(&quot;110&quot;, 2));// 将其他进制的数字转换为10进制</span><br><span class="line">		System.out.println(&quot;&quot; + 3 + 8);</span><br><span class="line">		System.out.println(Integer.toString(3) + 8);</span><br><span class="line">		/* int——Intege */</span><br><span class="line">		Integer i1 = new Integer(4);</span><br><span class="line">		Integer i2 = new Integer(&quot;4&quot;);</span><br><span class="line">		Integer i3 = Integer.valueOf(4);</span><br><span class="line">		/* Intege——int */</span><br><span class="line">		Integer i4 = new Integer(4);</span><br><span class="line">		int n = i4.intValue();</span><br><span class="line">		// jdk1.5之后，新的技术，自动装箱，自动拆箱</span><br><span class="line">		Integer i = 4;// 自动装箱，右边是Integer.valueOf(4);</span><br><span class="line">		i = i + 6;//右边的i自动拆箱。i.intValue()+6,运算完的结果又一次装箱赋值i</span><br><span class="line">		System.out.println(&quot;i=&quot;+i);</span><br><span class="line">		sop(i);</span><br><span class="line">		//jdk1.5之后，自动装箱的值如果在byte范围之内，相同的值不会开辟空间，而是重复使用。</span><br><span class="line">		Integer m = 1300;</span><br><span class="line">		Integer n2 = 1300;</span><br><span class="line">		System.out.println(m==n2);//false——地址</span><br><span class="line">		System.out.println(m.equals(n2));//特殊的方法，Integer中复写了此方法，</span><br><span class="line">	&#125;</span><br><span class="line">	private static void sop(Object s)//s=Integer.valueOf(5);</span><br><span class="line">	&#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		System.out.println(s);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>字符串的小练习<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">package Day0;</span><br><span class="line"></span><br><span class="line">import java.util.Arrays;</span><br><span class="line"></span><br><span class="line">public class Demo5 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		/*</span><br><span class="line">		 * 练习：&quot;23 10 8 5 2 3 5 3 102&quot;对字符串中数值进行升序排序后，生成一个数值有序的字符串 思路： 1排序，而且对整数数值排序</span><br><span class="line">		 * 2取出排序的字符串对应的数字 3找String类中的切割方法，返回方法为多个 4将获取到的数字格式的字符串转成具体的数字，并存储到数组中 5排序</span><br><span class="line">		 * 6将数组转换成字符串</span><br><span class="line">		 */</span><br><span class="line">		String str = &quot;12 2 3 5 -9 56 45 233&quot;;</span><br><span class="line">		String sortStr = sortNumberString(str);</span><br><span class="line">		System.out.println(sortStr);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public static String sortNumberString(String str) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		// 1将给定的字符串分解成多个数字格式的字符串</span><br><span class="line">		String[] numStr = toArray(str);</span><br><span class="line">		// 2将字符串数组转换成int数组</span><br><span class="line">		int[] nums = toInt(numStr);</span><br><span class="line">		// 3对数组排序</span><br><span class="line">		sort(nums);</span><br><span class="line">		// 4将int数组转换成字符串</span><br><span class="line">		return toString(nums);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static String toString(int[] nums) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		StringBuilder sb = new StringBuilder();</span><br><span class="line">		for (int i = 0; i &lt; nums.length; i++) &#123;</span><br><span class="line">			if (i != nums.length - 1)</span><br><span class="line">				sb.append(nums[i] + &quot; &quot;);</span><br><span class="line">			else</span><br><span class="line">				sb.append(nums[i]);</span><br><span class="line">		&#125;</span><br><span class="line">		return sb.toString();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static void sort(int[] nums) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		Arrays.sort(nums);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static int[] toInt(String[] numStr) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		int[] nums = new int[numStr.length];</span><br><span class="line">		for (int i = 0; i &lt; numStr.length; i++) &#123;</span><br><span class="line">			nums[i] = Integer.parseInt(numStr[i]);</span><br><span class="line">		&#125;</span><br><span class="line">		return nums;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	// 分割成字符串数组</span><br><span class="line">	private static String[] toArray(String str) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		return str.split(&quot; &quot;);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/11/11/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/11/11/" itemprop="url">eclipse快捷键</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-11T00:00:00+08:00">
-                2018-07-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">package Exercise;</span><br><span class="line"></span><br><span class="line">import java.util.concurrent.locks.Lock;</span><br><span class="line">import java.util.concurrent.locks.ReentrantLock;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * @author 杜瑶</span><br><span class="line"> *</span><br><span class="line"> */</span><br><span class="line">public class HelloWorldDemo &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">	</span><br><span class="line">/*</span><br><span class="line">快捷键：</span><br><span class="line">alt+/</span><br><span class="line">shift+enter</span><br><span class="line">ctrl+shift+o</span><br><span class="line">ctrl+1</span><br><span class="line">Ctrl+d</span><br><span class="line">ctrl+alt+上下键</span><br><span class="line">ctrl+/</span><br><span class="line">ctrl+shift+/</span><br><span class="line">ctrl+shift+\</span><br><span class="line">F2显示注释</span><br><span class="line">al+shift+j显示注释块</span><br><span class="line">ctrl+shift+f代码格式化</span><br><span class="line">ctrl+i光标指定位置</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1481,7 +1486,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">49</span>
+                  <span class="site-state-item-count">51</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

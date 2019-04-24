@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="java学习笔记,">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -79,18 +79,13 @@
 
 
 
-<meta name="description" content="#java实现2数交换的3种方式1234567891011121314151617181920212223242526272829303132333435class LianXi&amp;#123;	public static void main(String[] args)	&amp;#123;		//实现a，b值的交换,不使用额外的变量,存在变量越界问题		/*int a,b;		a=3;		b=4;		a=">
-<meta name="keywords" content="java学习笔记">
-<meta property="og:type" content="article">
-<meta property="og:title" content="java小练习">
-<meta property="og:url" content="http://yoursite.com/2018/07/02/2-1/index.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/page/6/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="#java实现2数交换的3种方式1234567891011121314151617181920212223242526272829303132333435class LianXi&amp;#123;	public static void main(String[] args)	&amp;#123;		//实现a，b值的交换,不使用额外的变量,存在变量越界问题		/*int a,b;		a=3;		b=4;		a=">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-23T06:15:25.622Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="java小练习">
-<meta name="twitter:description" content="#java实现2数交换的3种方式1234567891011121314151617181920212223242526272829303132333435class LianXi&amp;#123;	public static void main(String[] args)	&amp;#123;		//实现a，b值的交换,不使用额外的变量,存在变量越界问题		/*int a,b;		a=3;		b=4;		a=">
+<meta name="twitter:title" content="Hexo">
 
 
 
@@ -120,13 +115,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/07/02/2-1/">
+  <link rel="canonical" href="http://yoursite.com/page/6/">
 
 
 
 
 
-  <title>java小练习 | Hexo</title>
+  <title>Hexo</title>
   
 
 
@@ -145,7 +140,8 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left 
+  page-home">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -218,9 +214,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-
-  <div id="posts" class="posts-expand">
+  <section id="posts" class="posts-expand">
     
+      
 
   
 
@@ -233,7 +229,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/02/2-1/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/01/1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -250,7 +246,9 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">java小练习</h1>
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/01/1/" itemprop="url">java基础常识</a></h1>
         
 
         <div class="post-meta">
@@ -262,8 +260,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-02T00:00:00+08:00">
-                2018-07-02
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-01T00:00:00+08:00">
+                2018-07-01
               </time>
             
 
@@ -300,10 +298,12 @@
       
 
       
-        <p>#java实现2数交换的3种方式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">class LianXi</span><br><span class="line">&#123;</span><br><span class="line">	public static void main(String[] args)</span><br><span class="line">	&#123;</span><br><span class="line">		//实现a，b值的交换,不使用额外的变量,存在变量越界问题</span><br><span class="line">		/*int a,b;</span><br><span class="line">		a=3;</span><br><span class="line">		b=4;</span><br><span class="line">		a=a+b;//a=3+4</span><br><span class="line">		b=a-b;</span><br><span class="line">		a=a-b;</span><br><span class="line">		System.out.println(&quot;a=&quot;+a+&quot;,b=&quot;+b);</span><br><span class="line">		//实现2*8</span><br><span class="line">		System.out.println(2&lt;&lt;3);</span><br><span class="line">		*/</span><br><span class="line">		//使用异或实现2数的交换</span><br><span class="line">		/*int a,b;</span><br><span class="line">		a=3;</span><br><span class="line">		b=4;</span><br><span class="line">		a=a^b;//a=3^4</span><br><span class="line">		b=a^b;//3^4^4</span><br><span class="line">		a=a^b;//3^4^3</span><br><span class="line">		System.out.println(&quot;a=&quot;+a+&quot;,b=&quot;+b);</span><br><span class="line">		*/</span><br><span class="line">		int a,b;</span><br><span class="line">		a=3;</span><br><span class="line">		b=4;</span><br><span class="line">		int temp;</span><br><span class="line">		temp=a;</span><br><span class="line">		a=b;</span><br><span class="line">		b=temp;</span><br><span class="line">		System.out.println(&quot;a=&quot;+a+&quot;,b=&quot;+b);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">`</span><br></pre></td></tr></table></figure></p>
-<p>#简单的逻辑运算<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">class OC&#123;</span><br><span class="line"> public static void main(String[] args)</span><br><span class="line">&#123;</span><br><span class="line"> /*int x=2810;</span><br><span class="line">  System.out.println(x/1000);</span><br><span class="line">  */</span><br><span class="line">  int i=1;</span><br><span class="line">  boolean b1=((i&gt;0)&amp;&amp;(i&lt;100));</span><br><span class="line">  System.out.println(b1);</span><br><span class="line">  System.out.println(6&lt;&lt;2);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>#类型转换的实例演示<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">class Demo&#123;</span><br><span class="line">public static void main(String[] args)</span><br><span class="line">&#123;</span><br><span class="line">	System.out.println(&quot;hello world&quot;);</span><br><span class="line">	/*强制类型转换*/</span><br><span class="line">	byte a = 3;</span><br><span class="line">	a =(byte)(a +1);</span><br><span class="line">	System.out.println(&quot;a=&quot;+a);</span><br><span class="line">	/*自动类型转换低字节向高字节的转换</span><br><span class="line">	byte b=4;</span><br><span class="line">	int x=3;</span><br><span class="line">	x=x+b;</span><br><span class="line">	System.out.println(&quot;x=&quot;+x);</span><br><span class="line">	&#125;</span><br><span class="line">	*/</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        
+          
+            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">软件：一系列按照特定顺序组织的计算机数据和指令的集合。</span><br><span class="line">系统软件：windows，DOS，linux</span><br><span class="line">应用软件：qq，迅雷</span><br><span class="line">人机交互的方式：图形化界面（GUI）和命令行界面(CLI)，先有命令行后有图形化界面</span><br><span class="line">windows中的命令：help dir cd\</span><br><span class="line">计算机语言：人与计算机交流的方式</span><br><span class="line">java来自SUN1995推出来的一门高级编程语言，Oracle为数据库，Java</span><br><span class="line">面向对象贼鸡儿难</span><br><span class="line">Java语言的三种技术框架：EE,SE,ME（学SE,企业用EE）</span><br><span class="line">java语言的特点：</span><br><span class="line">跨平台：java可以在不同的操作系统上跑</span><br><span class="line">为啥：因为windows中没有解释java的东西，oracle公司推出了jvm（核心）应用软件来跑他的java程序，java程序能在各个平台上运行，都是基于java虚拟机上的东西</span><br><span class="line">JRE:java运行环境=jvm+核心类库</span><br><span class="line">JDK:java开发工具包=开发工具+JRE</span><br><span class="line">环境变量的设置：set只能在当前的命令窗口生效</span><br><span class="line">java只能在当前文件夹中编译运行。</span><br><span class="line">使用javac来运行java的源码，自动生成demo的字节码（类文件，Java程序文件）——调用java的编译器，对Java源码进行翻译。</span><br><span class="line">使用java来运行这些类文件</span><br><span class="line">java命令区分大小写，执行java时候，必须省略.class后缀</span><br><span class="line">不是所有的java程序都需要主方法，需要根据需求来定义。主方法是用来保证程序的运行。</span><br><span class="line">class Demo 通过class关键字定义了一个名称为Demo的类</span><br><span class="line">public static void main(String[]) 定义了一个主方法，固定</span><br><span class="line">System.out.println(&quot;你好，hello&quot;);   输出语句，作用是将括号中的数据显示在屏幕上</span><br><span class="line">class Demo&#123;</span><br><span class="line">                public static void main(String[] args)</span><br><span class="line">&#123;</span><br><span class="line"> 	System.out.println(&quot;你好，hello&quot;);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">常见问题：</span><br><span class="line">1找不到java文件</span><br><span class="line">路径名错误/文件名错误/默认的文件名错误</span><br><span class="line">2找不到或者无法加载主类</span><br><span class="line">jvm没有找到要运行的类</span><br><span class="line">3没有保存导致无法显示你修改后的值</span><br><span class="line">4代码中含有中文</span><br><span class="line">5jvm，如果你配置了虚拟机的classpath，则会在你配置的classpath找类，如果没有，会在当前目录下找</span><br></pre></td></tr></table></figure>
 
+          
+        
       
     </div>
     
@@ -318,40 +318,14 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/java学习笔记/" rel="tag"># java学习笔记</a>
-          
-        </div>
+
+      
+
       
 
       
       
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2018/07/01/1/" rel="next" title="java基础常识">
-                <i class="fa fa-chevron-left"></i> java基础常识
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/07/02/2/" rel="prev" title="java基础语法">
-                java基础语法 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
+        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -361,11 +335,14 @@
   </article>
 
 
+    
+  </section>
 
-    <div class="post-spread">
-      
-    </div>
-  </div>
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span>
+  </nav>
+
 
 
           </div>
@@ -373,10 +350,6 @@
 
 
           
-
-  
-
-
 
         </div>
         
@@ -582,10 +555,6 @@
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
-
 
   
 
