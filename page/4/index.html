@@ -229,6 +229,127 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/10/10-3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/10/10-3/" itemprop="url">单例设计模式中的并发操作</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-10T00:00:00+08:00">
+                2018-07-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>饿汉式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//饿汉式，相对于多线程的并发操作，安全</span><br><span class="line">class Single</span><br><span class="line">&#123;</span><br><span class="line">	private static final Single SINGLE_INSTANCE = new Single();</span><br><span class="line">	private Single()&#123;&#125;</span><br><span class="line">	public static Single getInstance()</span><br><span class="line">	&#123;</span><br><span class="line">		return SINGLE_INSTANCE;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>懒汉式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">懒汉式，延迟加载</span><br><span class="line">在多线程的访问时，会出现线程安全问题。</span><br><span class="line">加了同步就可以解决问题了，同步代码块和同步函数都可以</span><br><span class="line">但是效率低了。</span><br><span class="line">解决效率低的问题：可以使用if对于单例的双重判断模式。</span><br><span class="line">*/</span><br><span class="line">//面试可以考的重点。</span><br><span class="line">class Single</span><br><span class="line">&#123;</span><br><span class="line">	private static Single s = null;</span><br><span class="line">	private Single()&#123;&#125;</span><br><span class="line">	private static Single getInstance()</span><br><span class="line">	&#123;</span><br><span class="line">		if(s==null)</span><br><span class="line">		&#123;</span><br><span class="line">			//加强安全性的同时，增加了效率</span><br><span class="line">			synchronized(Single.class)</span><br><span class="line">			&#123;</span><br><span class="line">				if(s==null)</span><br><span class="line">				s=new Single();</span><br><span class="line">				return s;</span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/09/9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -351,6 +472,127 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/08/8-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/08/8-1/" itemprop="url">异常处理</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-08T00:00:00+08:00">
+                2018-07-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>异常小练习<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">import java.lang.Exception;</span><br><span class="line">/*用来判断学生的成绩状况*/</span><br><span class="line">class MyException</span><br><span class="line">&#123;</span><br><span class="line">	public static void main(String[] args)</span><br><span class="line">	&#123;</span><br><span class="line">		MyException d = new MyException();</span><br><span class="line">		try</span><br><span class="line">		&#123;</span><br><span class="line">			d.getScore(105);</span><br><span class="line">		&#125;catch(TooHigh e)</span><br><span class="line">		&#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">			System.out.println(e.getMessage()+&quot;score=&quot;+e.score);</span><br><span class="line">		&#125;catch(TooSmall e)</span><br><span class="line">		&#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">			System.out.println(e.getMessage()+&quot;score=&quot;+e.score);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	public void getScore(int x)throws TooHigh,TooSmall</span><br><span class="line">	&#123;</span><br><span class="line">		if(x &gt; 100)</span><br><span class="line">		&#123;</span><br><span class="line">			TooHigh e = new TooHigh(&quot;score&gt;100&quot;,x);</span><br><span class="line">			throw e;</span><br><span class="line">		&#125;</span><br><span class="line">		else if(x &lt; 0)</span><br><span class="line">		&#123;</span><br><span class="line">			TooSmall e1 = new TooSmall(&quot;score&lt;0&quot;,x);</span><br><span class="line">			throw e1;</span><br><span class="line">		&#125;</span><br><span class="line">		else</span><br><span class="line">			System.out.println(&quot;score=&quot;+x);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class TooHigh extends Exception</span><br><span class="line">&#123;</span><br><span class="line">	int score;</span><br><span class="line">	public TooHigh(String message,int score)</span><br><span class="line">	&#123;</span><br><span class="line">		super(message);</span><br><span class="line">		this.score = score;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class TooSmall extends Exception</span><br><span class="line">&#123;</span><br><span class="line">	int score;</span><br><span class="line">	public TooSmall(String message,int score)</span><br><span class="line">	&#123;</span><br><span class="line">		super(message);</span><br><span class="line">		this.score = score;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>异常体系结构<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">异常：java程序在运行时期发生的不正常情况（问题）</span><br><span class="line">	java就按照面向对象的思想对不正常情况进行描述和对象的封装</span><br><span class="line">问题分2种：</span><br><span class="line">Throwable:定义了对于问题的共性的功能</span><br><span class="line">	Exception:jvm发生,并告诉使用者,可以进行针对性的处理</span><br><span class="line">	Error:由系统底层发生的。告诉jvm，jvm告诉使用者，不做针对性处理，直接修改代码。必须修改错误</span><br><span class="line">	(java运行时系统的内部错误以及资源耗尽的错误。)</span><br><span class="line">	int [] arr = new int[1];</span><br><span class="line">	System.out.println(arr[1]);//ArrayIndexOutOfBoundsException</span><br><span class="line">	/*</span><br><span class="line">	输出语句发生问题时，jvm就将这个已知的问题，封装成了对象</span><br><span class="line">	throw new ArrayIndexOutOfBoundsException(1);将问题抛给调用者的main函数，</span><br><span class="line">	main函数没有针对性的处理方式，main就继续往外抛给调用者jvm，jvm就使用了默认的处理方式</span><br><span class="line">	将问题的名称+信息+位置在控制台上显示出来，让调用者看到并结束程序</span><br><span class="line">	Exception下又分成2类，</span><br><span class="line">	一类为运行时异常，java程序在运行时发现的由java解释器引发的各种异常，普遍现象——即使声明也不进行处理。</span><br><span class="line">	一类是其他异常，由编译器在编译时检测是否发生在方法的执行过程中的异常(必须声明或者捕获)——编译</span><br><span class="line">	编译器：语法+基本安全问题</span><br><span class="line">*/</span><br><span class="line">class ExceptionDemo&#123;</span><br><span class="line">	public static void main(String[] args)&#123;</span><br><span class="line">			int [] arra = new int[1];</span><br><span class="line">	System.out.println(arr[1]);//ArrayIndexOutOfBoundsException</span><br><span class="line">		//arr = null;//NullPointerException</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/08/8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -425,127 +667,6 @@
             <p>异常<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br></pre></td><td class="code"><pre><span class="line">import java.lang.Exception;</span><br><span class="line">/*</span><br><span class="line">异常的处理：</span><br><span class="line">两种：</span><br><span class="line">1遇到问题不进行具体的处理，而是继续抛给调用者。</span><br><span class="line">其实就是在函数通过throws关键字声明异常，告诉调用者处理。</span><br><span class="line">2针对性的处理方式：捕获</span><br><span class="line">(只有catch才是真正的捕获处理)</span><br><span class="line">try</span><br><span class="line">&#123;</span><br><span class="line">	//有可能异常的代码块</span><br><span class="line">&#125;</span><br><span class="line">catch(异常类 变量)</span><br><span class="line">&#123;</span><br><span class="line">	//这是真正的捕获,处理异常的代码</span><br><span class="line">&#125;</span><br><span class="line">finall </span><br><span class="line">&#123;</span><br><span class="line">	//一定会被执行的代码块</span><br><span class="line">&#125;</span><br><span class="line">只有System.exit(0);直接退出虚拟机，finally也不执行</span><br><span class="line">finall作用：无论是否有异常发生，都要对资源进行释放，资源释放动作就定义在finally代码块中。</span><br><span class="line">try,catch,finall几种组合</span><br><span class="line">1try-catch:没有资源需要释放，仅仅是处理异常</span><br><span class="line">2try-catch-catch-catch-catch,对应的是被调用的函数，抛出多个异常的情况，分别处理</span><br><span class="line">子父类异常，子类在前，父类在后</span><br><span class="line">try-finall不一定需要处理异常，但需要对资源的整合</span><br><span class="line">覆盖时：</span><br><span class="line">子类方法覆盖父类方法只能抛出父类方法异常或者该异常的子类</span><br><span class="line">如果父类方法抛出多个异常，子类只能抛出父类异常的子集</span><br><span class="line">原则：就是子类的异常必须在父类异常处理控制中</span><br><span class="line">注意：有一种情况，只能try，不能throws</span><br><span class="line">被覆盖的方法没有抛出异常</span><br><span class="line">那么子类在覆盖方法时，子类方法中发生了异常，只能try，不能throws</span><br><span class="line">可以将编译时异常转换成运行时异常</span><br><span class="line">*/</span><br><span class="line">/*</span><br><span class="line">throw 和 throws 的区别：</span><br><span class="line">1位置不同</span><br><span class="line">	throws用于函数上，后面跟的是异常类，可以多个</span><br><span class="line">	throw 用于函数内，后面跟的是只能一个异常对象</span><br><span class="line">2功能不同</span><br><span class="line">	throws 用于声明函数，让调用者只知道该功能有可能出现的问题，并由调用者可以给出预定义的处理方式</span><br><span class="line">	throw 抛出具体问题对象，执行到throw就结束该功能，跳转到调用者，并将具体的问题对象抛给调用者。</span><br><span class="line">也就是throw语句独立存在时，下面不要定义其他语句，因为执行不到。</span><br><span class="line">throw一般用于编译。</span><br><span class="line">throws一般用于运行。</span><br><span class="line">异常体系的特殊情况：</span><br><span class="line">	异常体系中最大的特点：体系中的类以及类产生的对象，都具备可抛性，可抛性的意思是可以被throw和throws所操作</span><br><span class="line">异常的原则：</span><br><span class="line">	1功能内部有异常throw抛出，功能上一定要进行throws声明</span><br><span class="line">	内部抛什么，功能上声明什么</span><br><span class="line">	声明的目的是让调用者进行处理，如果不处理，编译失败。</span><br><span class="line">	2特殊情况</span><br><span class="line">	当函数中通过throw抛出了RuntimeException及其子类的异常对象时，函数上可以不用throw声明</span><br><span class="line">	不声明的目的就是不让调用者处理，让调用者的程序停止，要对代码进行修改。</span><br><span class="line">	抛出一个不需要声明的异常：如果异常被处理，后续还有应用该异常进行处理，则后续代码就会完蛋</span><br><span class="line">	</span><br><span class="line">*/</span><br><span class="line">class Div</span><br><span class="line">&#123;</span><br><span class="line">	/*</span><br><span class="line">	在编写功能时，编写者知道该功能有可能发生问题，而这个问题很容易来自于调用者的参数</span><br><span class="line">	而导致功能无法运行，这时发生的问题应该让调用者知道，并最好让调用者有预先的处理方式</span><br><span class="line">	所以在定义功能时，需要在功能上对有可能发生的问题进行声明</span><br><span class="line">	声明问题需要使用关键字throws 异常类，声明的目的是让调用者进行处理。</span><br><span class="line">	*/</span><br><span class="line">	int div(int a,int b)throws Exception // 声明异常</span><br><span class="line">	&#123;</span><br><span class="line">		if(b==0)</span><br><span class="line">			throw new ArithmeticException(&quot;除数不为0&quot;);//抛出异常对象</span><br><span class="line">		return a/b;//异常抛出——throw new ArithmeticException(&quot;/by zero&quot;)——自动封装的对象</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class ExceptionDemo2</span><br><span class="line">&#123;</span><br><span class="line">	public static void main(String[] args)//throws Exception为我声明了，我处理不了，我继续抛，抛给虚拟机进行默认处理</span><br><span class="line">	//如果不带这个，会显示，未报告的异常，必须对其进行声明或者捕获。</span><br><span class="line">	&#123;</span><br><span class="line">		Div d = new Div();</span><br><span class="line">		try</span><br><span class="line">		&#123;</span><br><span class="line">			//凡是跟他有关系的都放在一起</span><br><span class="line">			int num = d.div(4,1);</span><br><span class="line">			System.out.println(num);</span><br><span class="line">		&#125;</span><br><span class="line">		catch(Exception e)//对方抛得异常是啥，我写啥</span><br><span class="line">		//Exception e = new ArithmeticException(&quot;/by zero&quot;);</span><br><span class="line">		&#123;</span><br><span class="line">			//处理这个对象，可以使用该对象的方法。</span><br><span class="line">			System.out.println(e.toString());//异常名称+异常信息</span><br><span class="line">			System.out.println(e.getMessage());//异常信息</span><br><span class="line">			e.printStackTrace();//名字+信息+位置，jvm默认处理收到异常就是调用这个方法，将信息显示在屏幕上</span><br><span class="line">			System.out.println(&quot;异常啦&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">		//做完针对性处理，接下来的语句可以正常运行了。</span><br><span class="line">		System.out.println(&quot;over&quot;);</span><br><span class="line">		int [] arr = new int[3];</span><br><span class="line">		arr = null;</span><br><span class="line">		System.out.println(getElement(arr,-2));</span><br><span class="line">	&#125;</span><br><span class="line">	public static int getElement(int arr[],int index)//runtime无需声明</span><br><span class="line">	&#123;</span><br><span class="line">		if(arr == null)</span><br><span class="line">			throw new NullPointerException(&quot;数组实体不存在&quot;);</span><br><span class="line">		if(index &lt; 0 || index &gt;=arr.length)</span><br><span class="line">		&#123;</span><br><span class="line">			throw new IndexOutOfBoundsException(index+&quot;角标不存在&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">		int element = arr[index];</span><br><span class="line">		return element;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>自定义异常<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">自定义异常</span><br><span class="line">RuntimeException是在可以正常运行期间，所有异常的超类</span><br><span class="line">*/</span><br><span class="line">import java.lang.Exception;</span><br><span class="line">class FushuException extends RuntimeException</span><br><span class="line">&#123;</span><br><span class="line">	FushuException(String Message)</span><br><span class="line">	&#123;</span><br><span class="line">		super(Message);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class Demo4</span><br><span class="line">&#123;</span><br><span class="line">	int div(int a,int b)</span><br><span class="line">	&#123;</span><br><span class="line">		if(b==0)</span><br><span class="line">		throw new ArithmeticException(&quot;被零除了&quot;);</span><br><span class="line">		if(b &lt; 0)</span><br><span class="line">		throw new FushuException(&quot;除数不可以小于0&quot;);</span><br><span class="line">		return a/b;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class ExceptionDemo4</span><br><span class="line">&#123;</span><br><span class="line">	public static void main(String[] args)</span><br><span class="line">	&#123;</span><br><span class="line">		Demo4 d = new Demo4();</span><br><span class="line">		try</span><br><span class="line">		&#123;</span><br><span class="line">			int num = d.div(4,-3);</span><br><span class="line">			System.out.println(num);</span><br><span class="line">		&#125;</span><br><span class="line">		catch(Exception e)</span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println(e.toString());</span><br><span class="line">			System.out.println(e.getMessage());</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(&quot;over&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>异常声明和抛出的判断<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">异常：就是将问题封装成对象，并抛给调用者</span><br><span class="line">	如果声明了，就需要调用者处理（继续声明或者捕获）</span><br><span class="line">	什么时候声明？什么时候捕获？</span><br><span class="line">	功能内部可以解决，就捕获，不能解决，或者解决了还必须告诉调用者问题这时就应该声明。</span><br><span class="line">*/</span><br><span class="line">import java.lang.Exception;</span><br><span class="line">class BlueException extends RuntimeException</span><br><span class="line">&#123;</span><br><span class="line">	BlueException()</span><br><span class="line">	&#123;</span><br><span class="line">		super();</span><br><span class="line">	&#125;</span><br><span class="line">	BlueException(String Message)</span><br><span class="line">	&#123;</span><br><span class="line">		super(Message);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class yanException extends RuntimeException</span><br><span class="line">&#123;</span><br><span class="line">	yanException()</span><br><span class="line">	&#123;</span><br><span class="line">		super();</span><br><span class="line">	&#125;</span><br><span class="line">	yanException(String Message)</span><br><span class="line">	&#123;</span><br><span class="line">		super(Message);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class Stopclass extends Exception</span><br><span class="line">&#123;</span><br><span class="line">	Stopclass()</span><br><span class="line">	&#123;</span><br><span class="line">		super();</span><br><span class="line">	&#125;</span><br><span class="line">	Stopclass(String message)</span><br><span class="line">	&#123;</span><br><span class="line">		super(message);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class Computer</span><br><span class="line">&#123;</span><br><span class="line">	private int state = 2;</span><br><span class="line">	</span><br><span class="line">	public void run()throws BlueException,yanException</span><br><span class="line">	&#123;</span><br><span class="line">		if(state == 1)</span><br><span class="line">		throw new BlueException(&quot;电脑蓝屏&quot;);</span><br><span class="line">		if(state ==2 )</span><br><span class="line">		throw new yanException(&quot;电脑严重毁坏&quot;);</span><br><span class="line">		System.out.println(&quot;Computer run&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	public void reset()</span><br><span class="line">	&#123;</span><br><span class="line">		System.out.println(&quot;重启&quot;);</span><br><span class="line">		state = 0;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class Teacher</span><br><span class="line">&#123;</span><br><span class="line">	private String name;</span><br><span class="line">	private Computer comp;</span><br><span class="line">	Teacher(String name)</span><br><span class="line">	&#123;</span><br><span class="line">		this.name = name;</span><br><span class="line">		comp = new Computer();</span><br><span class="line">	&#125;</span><br><span class="line">	public void prelect()throws Stopclass</span><br><span class="line">	&#123;</span><br><span class="line">		try</span><br><span class="line">		&#123;</span><br><span class="line">			comp.run();</span><br><span class="line">			</span><br><span class="line">		&#125;</span><br><span class="line">		catch(BlueException e)</span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println(&quot;电脑蓝屏&quot;);</span><br><span class="line">			comp.reset();</span><br><span class="line">			//继续讲课</span><br><span class="line">			prelect();</span><br><span class="line">		&#125;</span><br><span class="line">		catch(yanException e)//异常转换。只给你暴漏你能解决的问题。问题封装</span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println(&quot;电脑严重毁坏&quot;);</span><br><span class="line">			test();</span><br><span class="line">			throw new Stopclass(&quot;课时进度异常&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	public void test()</span><br><span class="line">	&#123;</span><br><span class="line">		System.out.println(&quot;练习&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class ExceptionDemo3</span><br><span class="line">&#123;</span><br><span class="line">	public static void main(String[] args)</span><br><span class="line">	&#123;</span><br><span class="line">		Teacher t = new Teacher(&quot;毕老师&quot;);</span><br><span class="line">		try</span><br><span class="line">		&#123;</span><br><span class="line">			t.prelect();</span><br><span class="line">		&#125;</span><br><span class="line">		catch(Stopclass e)</span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println(&quot;换老师&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/08/8-1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/08/8-1/" itemprop="url">异常处理</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-08T00:00:00+08:00">
-                2018-07-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>异常小练习<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">import java.lang.Exception;</span><br><span class="line">/*用来判断学生的成绩状况*/</span><br><span class="line">class MyException</span><br><span class="line">&#123;</span><br><span class="line">	public static void main(String[] args)</span><br><span class="line">	&#123;</span><br><span class="line">		MyException d = new MyException();</span><br><span class="line">		try</span><br><span class="line">		&#123;</span><br><span class="line">			d.getScore(105);</span><br><span class="line">		&#125;catch(TooHigh e)</span><br><span class="line">		&#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">			System.out.println(e.getMessage()+&quot;score=&quot;+e.score);</span><br><span class="line">		&#125;catch(TooSmall e)</span><br><span class="line">		&#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">			System.out.println(e.getMessage()+&quot;score=&quot;+e.score);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	public void getScore(int x)throws TooHigh,TooSmall</span><br><span class="line">	&#123;</span><br><span class="line">		if(x &gt; 100)</span><br><span class="line">		&#123;</span><br><span class="line">			TooHigh e = new TooHigh(&quot;score&gt;100&quot;,x);</span><br><span class="line">			throw e;</span><br><span class="line">		&#125;</span><br><span class="line">		else if(x &lt; 0)</span><br><span class="line">		&#123;</span><br><span class="line">			TooSmall e1 = new TooSmall(&quot;score&lt;0&quot;,x);</span><br><span class="line">			throw e1;</span><br><span class="line">		&#125;</span><br><span class="line">		else</span><br><span class="line">			System.out.println(&quot;score=&quot;+x);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class TooHigh extends Exception</span><br><span class="line">&#123;</span><br><span class="line">	int score;</span><br><span class="line">	public TooHigh(String message,int score)</span><br><span class="line">	&#123;</span><br><span class="line">		super(message);</span><br><span class="line">		this.score = score;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class TooSmall extends Exception</span><br><span class="line">&#123;</span><br><span class="line">	int score;</span><br><span class="line">	public TooSmall(String message,int score)</span><br><span class="line">	&#123;</span><br><span class="line">		super(message);</span><br><span class="line">		this.score = score;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>异常体系结构<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">异常：java程序在运行时期发生的不正常情况（问题）</span><br><span class="line">	java就按照面向对象的思想对不正常情况进行描述和对象的封装</span><br><span class="line">问题分2种：</span><br><span class="line">Throwable:定义了对于问题的共性的功能</span><br><span class="line">	Exception:jvm发生,并告诉使用者,可以进行针对性的处理</span><br><span class="line">	Error:由系统底层发生的。告诉jvm，jvm告诉使用者，不做针对性处理，直接修改代码。必须修改错误</span><br><span class="line">	(java运行时系统的内部错误以及资源耗尽的错误。)</span><br><span class="line">	int [] arr = new int[1];</span><br><span class="line">	System.out.println(arr[1]);//ArrayIndexOutOfBoundsException</span><br><span class="line">	/*</span><br><span class="line">	输出语句发生问题时，jvm就将这个已知的问题，封装成了对象</span><br><span class="line">	throw new ArrayIndexOutOfBoundsException(1);将问题抛给调用者的main函数，</span><br><span class="line">	main函数没有针对性的处理方式，main就继续往外抛给调用者jvm，jvm就使用了默认的处理方式</span><br><span class="line">	将问题的名称+信息+位置在控制台上显示出来，让调用者看到并结束程序</span><br><span class="line">	Exception下又分成2类，</span><br><span class="line">	一类为运行时异常，java程序在运行时发现的由java解释器引发的各种异常，普遍现象——即使声明也不进行处理。</span><br><span class="line">	一类是其他异常，由编译器在编译时检测是否发生在方法的执行过程中的异常(必须声明或者捕获)——编译</span><br><span class="line">	编译器：语法+基本安全问题</span><br><span class="line">*/</span><br><span class="line">class ExceptionDemo&#123;</span><br><span class="line">	public static void main(String[] args)&#123;</span><br><span class="line">			int [] arra = new int[1];</span><br><span class="line">	System.out.println(arr[1]);//ArrayIndexOutOfBoundsException</span><br><span class="line">		//arr = null;//NullPointerException</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
           
         
@@ -1306,136 +1427,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/05/5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/05/5/" itemprop="url">面向对象的思想</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-05T00:00:00+08:00">
-                2018-07-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>对象和过程<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">大象装进冰箱里：</span><br><span class="line">面向过程：</span><br><span class="line">	1打开冰箱</span><br><span class="line">	2存入大象</span><br><span class="line">	3关闭冰箱</span><br><span class="line">	注重过程或者说是行为的思考方式。</span><br><span class="line">	注重一个个的功能。</span><br><span class="line">语言:C,basic</span><br><span class="line"></span><br><span class="line">面向对象：基于面向过程，将过程进行对象的封装，解决问题找对象。</span><br><span class="line">特点：</span><br><span class="line">	1符合现代人们思考习惯的思想。</span><br><span class="line">	2从过程的执行者转换成为对象的指挥者。</span><br><span class="line">	3将复杂问题简单化。</span><br><span class="line">	缺点：将简单问题复杂化</span><br><span class="line">对象封装了一个个的过程。</span><br><span class="line">	实体是对象</span><br><span class="line">	冰箱打开</span><br><span class="line">	冰箱存储</span><br><span class="line">	冰箱关闭</span><br><span class="line">语言：C++,C#,java</span><br></pre></td></tr></table></figure></p>
-<p>面向对象例子<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">例如：买电脑，自己一步步的查价，砍价，挑货是面向过程。找一个懂行的人来帮你进行查价，砍价等等一系列操作。</span><br><span class="line">公司有了项目之后,肯定需要人来开发,你当然也可以自己做,你完全可以具备开发功能的人来做这个项目。</span><br><span class="line">洗衣服，自己洗,找个对象,洗衣机。</span><br></pre></td></tr></table></figure></p>
-<p>类：用于描述事物的<br>对象：该类事物具体的个体<br>类就是由成员组成<br>属性对应类中的成员变量<br>行为对应类中的成员方法<br>局部变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">定义在方法中的变量是局部变量	</span><br><span class="line">	//new的作用在堆内存中创建一片空间。</span><br><span class="line">	Car c = new Car();</span><br><span class="line">	//创建一个Car类型的变量c,指向了Car类型的对象;</span><br><span class="line">	//根据.class来创建c。</span><br><span class="line">	//对象在堆里面封装数据的成员变量</span><br><span class="line">	//匿名对象可以作为实际参数进行传递。</span><br><span class="line">	//如果对象对方法只进行一次调用,可以简化为匿名对象的形式</span><br><span class="line">	//Car c=new Car();</span><br><span class="line">	//c.run(); 等价于new Car().run();</span><br></pre></td></tr></table></figure></p>
-<p>成员变量与局部变量区别<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1源代码定义的位置不同</span><br><span class="line">成员变量定义在类中</span><br><span class="line">局部变量定义在方法中(只要是类的下一级大括号中都是局部的)，也可以定义在语句中。</span><br><span class="line">2内存中的存储位置不同</span><br><span class="line">成员变量存储在堆内存的对象中</span><br><span class="line">局部变量存储在栈内存的方法中</span><br><span class="line">3生命周期不同</span><br><span class="line">成员变量随着对象的出现而出现</span><br><span class="line">局部变量随着所属区间的运行而出现，随着所属区间的释放而消失。</span><br></pre></td></tr></table></figure></p>
-<p>构造函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">之前定义的函数都是一般函数，用于描述事物应该具备的功能</span><br><span class="line">构造函数：专门给对象进行初始化的功能。 </span><br><span class="line">构造函数的格式：</span><br><span class="line">1函数名和类名相同</span><br><span class="line">2没有返回值类型</span><br><span class="line">3没有具体的返回值</span><br><span class="line">主函数：用于虚拟机的识别。格式是死的。</span><br><span class="line">区别：</span><br><span class="line">构造函数在对象创建时就执行了，而且只执行一次。</span><br><span class="line">多构造函数在类中的使用就是重载。</span><br><span class="line">一般函数在创建后，需要才被对象调用，可以调用多次.</span><br><span class="line">注意：定义的每一个类中，都有一个默认的空参数构造函数</span><br><span class="line">一旦在类中自定义构造函数，默认的构造函数就不存在了。</span><br><span class="line">//不存在的意思就是Person()();完全不存在了,不是说调用Person();就可以实现默认参数的赋值，而是必须在其中定义Person();才可以使用。</span><br><span class="line">默认的构造函数：Person()&#123;&#125;;//类中默认的空参数构造函数,用于对象的初始化。</span><br><span class="line">return是用来结束函数的,故构造函数有返回值。</span><br><span class="line">构造函数可以私有化，只在本类中使用</span><br><span class="line">&#123;</span><br><span class="line">	构造函数在本类中的使用，只能被构造函数访问，不能被一般函数访问。</span><br><span class="line">	构造函数的访问可以通过关键字this进行访问。</span><br><span class="line">	this用在本类中。</span><br><span class="line">	this(参数列表);可以访问本类中的其他构造函数。</span><br><span class="line">	比如 this(&quot;ls&quot;);访问的就是本类中含有一个参数的构造函数</span><br><span class="line">	this用于调用构造函数的this语句必须放在第一行，因为初始化动作要最先执行，放在后面的话会被覆盖。</span><br><span class="line">	this 之间的相互调用是不行的，错误称之为递归溢出。</span><br><span class="line">	一个构造函数中不能调用2个构造函数。</span><br><span class="line">	this 代表当前对象。</span><br><span class="line">	所有直接被对象调用的方法都有this引用。(凡是访问了对象的数据的方法都有this引用)</span><br><span class="line">	当局部变量和成员变量重名时，使用this</span><br><span class="line">	Boolean bijao(Person pp)&#123;</span><br><span class="line">		return (pp.age==this.age);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">构造函数一经私有化，其他程序无法对创建的对象进行初始化</span><br></pre></td></tr></table></figure></p>
-<p>static<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">通过对象和类名都可以访问到方法。一般是使用对象,当一个方法中没有访问到该类中的数据，使用static修饰方法，通过类名的方式进行访问。</span><br><span class="line">static 就是成员修饰符，</span><br><span class="line">特点：被static修饰成员，可以直接被类名所使用</span><br><span class="line">静态成员优先于对象存在。</span><br><span class="line">静态成员随着类的加载而加载,随着类的消失而消失。</span><br><span class="line">优点=生命周期很长。</span><br><span class="line">注意事项：</span><br><span class="line">静态方法只能访问静态变量，不能访问非静态成员，这就是静态方法的访问局限性</span><br><span class="line">静态的方法中不能出现this或者super关键字</span><br><span class="line">主函数是静态的。</span><br><span class="line">成员变量：如果数据在所有对象中都是一样的，直接静态修饰</span><br><span class="line">成员函数：如果函数中没有访问对象的属性数据，那么该函数就是静态的。</span><br><span class="line">成员变量和静态变量区别：</span><br><span class="line">成员变量也叫实例变量。</span><br><span class="line">静态变量也叫类变量。</span><br><span class="line">成员变量存储在堆内存的对象中。</span><br><span class="line">静态变量存储在方法区的静态区</span><br><span class="line">成员变量随着对象的出现而出现，随着对象的消失而消失。</span><br><span class="line">静态变量随着类的出现而出现，随着类的消失而消失。</span><br><span class="line">成员变量有可能会在堆内存中出现多次。</span><br><span class="line">静态变量在内存中只有一份。</span><br><span class="line">静态代码块：随着类的加载而执行，而且仅仅执行一次。</span><br><span class="line">作用：给类进行初始化。</span><br><span class="line">static //静态代码块</span><br><span class="line">&#123;</span><br><span class="line">	Sop();</span><br><span class="line">&#125;</span><br><span class="line">静态代码块的使用注意：</span><br><span class="line">1只能定义在类中，独立于任何方法，不能定义在方法里面</span><br><span class="line">2其中的变量都是局部变量，只在本块有效</span><br><span class="line">3在类加载时自动执行</span><br><span class="line">4可以在类中定义多个静态代码块，顺序执行</span><br><span class="line">5静态代码块只能访问类中的静态成员，不能访问非静态成员。</span><br></pre></td></tr></table></figure></p>
-<p>构造函数的执行过程<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1super();</span><br><span class="line">2显示初始化</span><br><span class="line">3构造代码块初始化。</span><br><span class="line">private int age = 8;//显示初始化</span><br><span class="line">&#123;</span><br><span class="line">	sop();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>创建对象的过程<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1加载指定的字节码文件</span><br><span class="line">2通过new在堆内存中开辟空间,分配首地址值，</span><br><span class="line">3对对象中的属性进行默认初始化</span><br><span class="line">4调用与之对应的构造函数，构造函数进栈</span><br><span class="line">5构造函数中执行隐式的语句super();访问父类中的构造函数</span><br><span class="line">6对属性进行显示初始化</span><br><span class="line">7调用类中的构造代码块</span><br><span class="line">8执行构造函数中自定义的初始化代码</span><br><span class="line">9初始化完毕,将地址赋值给指定的引用</span><br></pre></td></tr></table></figure></p>
-<p>局部代码块：可以控制局部变量的生命周期。<br>设计模式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">解决某一类问题的一种思想，是一种行之有效的解决方式</span><br><span class="line">23种模式</span><br><span class="line">单例设计模式：</span><br><span class="line">解决问题：保证一个类的对象在内存中的唯一性</span><br><span class="line">应用场景：多个程序操纵同一个配置文件，需要程序A之后的结果，程序B需要继续基于A操作后的结果进行操纵。</span><br><span class="line">	前提：数据都存储在配置文件中，要求A和B操作的配置文件是同一个。</span><br><span class="line">	思路：</span><br><span class="line">	1问题是其他程序都可以通过new创建该类的对象，无法控制数量。</span><br><span class="line">	所以，不让其他程序new。</span><br><span class="line">	2那第一步的问题也就产生了,那其他程序不就没有对象了吗？</span><br><span class="line">	在本类中new一个对象，好处是不让别的程序new，可以实现数量的控制</span><br><span class="line">	3对外提供让其他程序获取该对象的方式。</span><br><span class="line">	步骤：</span><br><span class="line">	1不让其他程序new对象</span><br><span class="line">	可以将类中的构造函数私有化</span><br><span class="line">	2在本类中new一个对象</span><br><span class="line">	3定义一个方法返回该对象</span><br></pre></td></tr></table></figure></p>
-<p>面向对象的三大特征:封装+继承+多态<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">封装:隐藏实现细节，对外提供接口</span><br><span class="line">封装的体现之一:将属性都私有化，对外提供对应的set,get方法来进行访问</span><br><span class="line">封装的好处：</span><br><span class="line">	1提高了安全性，不允许直接访问细节，并通过公共的方式进行访问，可以实现可控</span><br><span class="line">	2提高了易用性</span><br><span class="line">	3提高了复用性</span><br><span class="line">	4隔离的变化。--接口有关</span><br><span class="line">继承(extends)</span><br><span class="line">	1提高了复用性</span><br><span class="line">	2使得类与类之间产生了关系</span><br><span class="line">	3为多态提供了关系</span><br><span class="line">	java支持单继承，不直接支持多继承</span><br><span class="line">/*</span><br><span class="line">单继承：一个类只有一个父类</span><br><span class="line">多继承：一个类可以有多个父类，java不直接支持多继承()</span><br><span class="line">调用的不确定性</span><br><span class="line">因为方法的主体不同，可以让子类产生更多的功能</span><br><span class="line">多层次继承：学习一个继承体系，先看顶层，了解体系中的具备的学习功能，使用时，用体系中最下面的东东</span><br><span class="line">当事物之间存在所属(is a)关系，可以通过继承来体现这种关系</span><br><span class="line">父类中私有部分，子类无法直接访问</span><br><span class="line">super代表父类的那片空间</span><br><span class="line">this代表子类的那个对象</span><br><span class="line">覆盖(override)(重显):当子父类中出现一模一样的方法时，子类的对象运行的是子类的方法。所有的都一致。</span><br><span class="line">注意事项：</span><br><span class="line">	子类方法覆盖父类方法，必须保证子类权限大于等于父类中的权限</span><br><span class="line">	静态只能被静态或者覆盖静态</span><br><span class="line">子父类中构造函数的特点：</span><br><span class="line">	创建子类时，父类中的空参数构造函数也执行了，因为子类中所有的构造函数默认第一行为隐士super();语句</span><br><span class="line">	调用本类中的构造函数用this，调用父类中的构造函数用super(实参列表);</span><br><span class="line">	子类继承了父类中的内容，必须查看父类中如何对内容进行初始化。这就是子类的实例化过程</span><br><span class="line">	注意事项：</span><br><span class="line">		当父类中没有空参数构造函数，子类需要通过显示定义super语句来指定需要访问的父类中的构造函数</span><br><span class="line">		用来调用父类中的super()语句必须放在第一行，因为初始化必须先完成</span><br><span class="line">		this和super语句不可以同时存在。因为他们只能定义在第一行</span><br><span class="line">		子类至少会有一个构造函数的super去父类</span><br></pre></td></tr></table></figure></p>
-<p>final关键字。最终<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1final修饰符，可以修饰类，修饰方法，修饰变量</span><br><span class="line">2final修饰的类不可以被继承.</span><br><span class="line">3final修饰的方法不可以被覆盖(复写).</span><br><span class="line">4final修饰的变量是一个常量，只能赋值一次，当使用的数据不变时，需要定义阅读性强的名称表示该数据，并将其数据final化</span><br><span class="line">被final修饰的变量，名称规范是：所有字母都大写SING_INGSTAFD</span><br><span class="line">final固定的是显示初始化值，不是默认值</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1486,7 +1477,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">51</span>
+                  <span class="site-state-item-count">52</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

@@ -229,6 +229,127 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/13/12-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/13/12-1/" itemprop="url">StringBuffer</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-13T00:00:00+08:00">
+                2018-07-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>StringBuffer<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">package Day1;</span><br><span class="line">public class Demo0 &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		/*StringBuffer:字符串缓冲区</span><br><span class="line">		 * 作为一个字符容器</span><br><span class="line">		 * 特点：</span><br><span class="line">		 * 1长度可以变化</span><br><span class="line">		 * 2可以对内容通过指定方法进行修改</span><br><span class="line">		 * 3容器对象一般都会具备对容器中的元素进行操作的功能。、</span><br><span class="line">		 * 4缓存区中可以存储不同类型的数据（byte,short通过自动类型的提升）</span><br><span class="line">		 * 5最终缓冲区存储的数据都会变成字符串*/</span><br><span class="line">		String str = &quot;a&quot;+4+&apos;c&apos;;</span><br><span class="line">		//在内存中的过程。1创建一个字符串缓存区容器 2将要组成字符串的元素先存储起来3将缓冲区填充的数据变成字符串</span><br><span class="line">		//方法的调用链,append()将一个个字符直接追加到该序列</span><br><span class="line">		//		str = new StringBuffer().append(&apos;c&apos;);</span><br><span class="line">		/*字符串缓冲区维护了一个可变长度数组</span><br><span class="line">		 * 其实就是超出内部数组长度后，新建数组长度为原来数组的1.5或者1.75倍数</span><br><span class="line">		 * 并将原数组的数据复制到新数组中，并将新的元素添加到新数组中*/</span><br><span class="line">		System.out.println(str);</span><br><span class="line">		str = draw(3,4);</span><br><span class="line">		System.out.println(str);</span><br><span class="line">		int [] arr= &#123;12,23,43,213,12&#125;;</span><br><span class="line">		String str1 = toString2(arr);</span><br><span class="line">		System.out.println(str1);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	private static String draw(int i, int j) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		StringBuffer sb = new StringBuffer();</span><br><span class="line">		for (int i2 = 0; i2 &lt; i  ; i2++) &#123;</span><br><span class="line">			for(int j2 = 0;j2 &lt; j;j2++)</span><br><span class="line">			sb.append(&quot;*&quot;);</span><br><span class="line">			sb.append(&quot;\n&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		return sb.toString();</span><br><span class="line">	&#125;</span><br><span class="line">	public static String toString1(int [] arr)</span><br><span class="line">	&#123;</span><br><span class="line">		String str = &quot;[&quot;;</span><br><span class="line">		for (int i = 0; i &lt; arr.length; i++) &#123;</span><br><span class="line">			if(i!=arr.length-1)</span><br><span class="line">				str+=arr[i]+&quot;,&quot;;</span><br><span class="line">			else</span><br><span class="line">			str+=arr[i];</span><br><span class="line">		&#125;</span><br><span class="line">		return str+&quot;]&quot;;</span><br><span class="line">	&#125;</span><br><span class="line">	public static String toString2(int [] arr)</span><br><span class="line">	&#123;</span><br><span class="line">		StringBuffer sb = new StringBuffer();</span><br><span class="line">		sb.append(&quot;[&quot;);</span><br><span class="line">		for (int i = 0; i &lt; arr.length; i++) &#123;</span><br><span class="line">			if(i!=arr.length-1)</span><br><span class="line">				sb.append(arr[i]+&quot;,&quot;);</span><br><span class="line">			else</span><br><span class="line">				sb.append(arr[i]+&quot;]&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">		return sb.toString();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">/*什么时候使用缓冲区呢？</span><br><span class="line"> * 1数据很多，个数无所谓确定，类型无所谓确定，只要是最后都转成字符串</span><br><span class="line"> * 使用的局限性：</span><br><span class="line"> * 1必须最终转换为字符串</span><br><span class="line"> * 2无法对存储进来的元素进行单独操作，因为存储进来的元素都变成字符串*/</span><br></pre></td></tr></table></figure></p>
+<p>StringBuffer方法介绍<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">package Day1;</span><br><span class="line"></span><br><span class="line">public class Demo1 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		/*缓存区可以对数据进行临时存储</span><br><span class="line">		 * 了解缓存区的常见方法</span><br><span class="line">		 * 添加元素</span><br><span class="line">		 * StringBuffer append(各种数据类型);追加</span><br><span class="line">		 * StringBuffer index(index,各种数据类型)指定位置的添加</span><br><span class="line">		 * 删除元素：</span><br><span class="line">		 * delete(start,end);//包含头，不包含尾</span><br><span class="line">		 * 修改元素</span><br><span class="line">		 * repla</span><br><span class="line">		 * */</span><br><span class="line">		//1创建一个缓存区对象</span><br><span class="line">		StringBuffer sb = new StringBuffer();</span><br><span class="line">		//追加一个字符串</span><br><span class="line">		sb.append(&quot;abc&quot;);</span><br><span class="line">		System.out.println(sb.toString());//println会将所有要打印的数据先转成字符串在输出，对于对象会自动调用toString方法，这个只能在print方法中实现</span><br><span class="line">		sb.insert(1, true);//在角标为1的位置上插入true</span><br><span class="line">		System.out.println(sb);</span><br><span class="line">		//删除字符</span><br><span class="line">		sb.delete(1, 2);//删除的元素个数为2-1=1,包含头，不包含尾。</span><br><span class="line">	//sb.delete(1, 40);//注重start的数值，缓存区中存储的是一个字符数组</span><br><span class="line">		System.out.println(sb);</span><br><span class="line">		sb.replace(1, 2, &quot;asdf&quot;);</span><br><span class="line">		sb.setLength(2);</span><br><span class="line">		System.out.println(sb);</span><br><span class="line">		System.out.println(sb.indexOf(&quot;a&quot;,1));</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">/*Jdk1.5之后，出现了StringBuffer和StringBuilder用法一样</span><br><span class="line">* StringBuffer是线程同步的，内部的所有的方法都加了锁</span><br><span class="line">* StringBuilder是线程不同步的</span><br><span class="line">* 		</span><br><span class="line">*/</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/12/12/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -715,7 +836,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/10/10-3/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/10/10-5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -734,7 +855,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/07/10/10-3/" itemprop="url">单例设计模式中的并发操作</a></h1>
+                <a class="post-title-link" href="/2018/07/10/10-5/" itemprop="url">死锁</a></h1>
         
 
         <div class="post-meta">
@@ -786,370 +907,7 @@
       
         
           
-            <p>饿汉式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//饿汉式，相对于多线程的并发操作，安全</span><br><span class="line">class Single</span><br><span class="line">&#123;</span><br><span class="line">	private static final Single SINGLE_INSTANCE = new Single();</span><br><span class="line">	private Single()&#123;&#125;</span><br><span class="line">	public static Single getInstance()</span><br><span class="line">	&#123;</span><br><span class="line">		return SINGLE_INSTANCE;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>懒汉式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">懒汉式，延迟加载</span><br><span class="line">在多线程的访问时，会出现线程安全问题。</span><br><span class="line">加了同步就可以解决问题了，同步代码块和同步函数都可以</span><br><span class="line">但是效率低了。</span><br><span class="line">解决效率低的问题：可以使用if对于单例的双重判断模式。</span><br><span class="line">*/</span><br><span class="line">//面试可以考的重点。</span><br><span class="line">class Single</span><br><span class="line">&#123;</span><br><span class="line">	private static Single s = null;</span><br><span class="line">	private Single()&#123;&#125;</span><br><span class="line">	private static Single getInstance()</span><br><span class="line">	&#123;</span><br><span class="line">		if(s==null)</span><br><span class="line">		&#123;</span><br><span class="line">			//加强安全性的同时，增加了效率</span><br><span class="line">			synchronized(Single.class)</span><br><span class="line">			&#123;</span><br><span class="line">				if(s==null)</span><br><span class="line">				s=new Single();</span><br><span class="line">				return s;</span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/10/10/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/10/10/" itemprop="url">多线程基础</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-10T00:00:00+08:00">
-                2018-07-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>多线程的基础知识<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">硬盘：持久化存储设备</span><br><span class="line">内存：临时性存储设备</span><br><span class="line">进程：应用程序在内存中分配的空间（正在运行中的程序）</span><br><span class="line">线程：是进程中负责程序执行的执行单元，也称为执行路径。</span><br><span class="line">     如果一个进程中出现了多个线程，称之为多线程程序。</span><br><span class="line">多线程技术：解决多部分代码同时执行的需求。可以合理的使用CPU资源</span><br><span class="line">cpu的分时系统</span><br><span class="line">双核：封装了2个运算核心。</span><br><span class="line">多线程的运行根据cpu的切换完成的。怎么切换cpu说的算</span><br><span class="line">所以多线程运行有一个随机性。（cpu的快速切换造成的）</span><br><span class="line">jvm中的多线程：</span><br><span class="line">至少有2个线程：</span><br><span class="line">一个是负责自定义代码运行的,这个从main方法开始的线程为主线程。</span><br><span class="line">一个是负责垃圾回收的，随着其他线程结束就结束了</span><br><span class="line">通过实践发现每次的结果不一定相同，那是由于cpu的随机性造成的，</span><br><span class="line">而且每一个线程都有自己运行的代码，称之为线程的内容。</span><br><span class="line">之所以创建一个线程是为了去运行制定的任务代码。</span><br><span class="line">而线程的任务都封装在特定的区域中</span><br><span class="line">比如：</span><br><span class="line">主线程运行的任务都定义在main方法中</span><br><span class="line">垃圾回收线程在回收垃圾都会运行finalize方法。</span><br><span class="line">如何建立线程？</span><br><span class="line">1继承Thread类</span><br><span class="line">	继承Thread类</span><br><span class="line">	复写run()方法</span><br><span class="line">	创建子类对象即为创建线程对象</span><br><span class="line">	调用Thread类中的start方法就可以执行线程。并会调用run方法。</span><br><span class="line">	start()开启线程后都会执行run()方法，说明run()方法中存储的是线程要运行的代码</span><br><span class="line">	所以，记住自定义线程的任务代码都存储在run()方法中。</span><br><span class="line">*/</span><br><span class="line">class Demo extends Thread</span><br><span class="line">&#123;</span><br><span class="line">	//定义垃圾回收方法</span><br><span class="line">	public void show()</span><br><span class="line">	&#123;</span><br><span class="line">		for(int i = 0 ;i &lt;= 10; i++)</span><br><span class="line">		System.out.println(Thread.currentThread().getName()+name+&quot;i=&quot;+i);</span><br><span class="line">	&#125;</span><br><span class="line">	private String name;</span><br><span class="line">	Demo(String name)</span><br><span class="line">	&#123;</span><br><span class="line">		this.name = name;		</span><br><span class="line">	&#125;</span><br><span class="line">	public void run()</span><br><span class="line">	&#123;</span><br><span class="line">		show();</span><br><span class="line">	&#125;</span><br><span class="line">	public void start()</span><br><span class="line">	&#123;</span><br><span class="line">		super.start();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">/*</span><br><span class="line">调用start和run方法的区别：</span><br><span class="line">调用start会开启线程，让开启的线程去执行run方法中的线程任务</span><br><span class="line">直接调用run方法，线程并未开启，去执行run方法的只有主方法。</span><br><span class="line">*/</span><br><span class="line">class ThreadDemo</span><br><span class="line">&#123;</span><br><span class="line">	public static void main(String[] args)</span><br><span class="line">	&#123;</span><br><span class="line">		Demo d1 = new Demo(&quot;张三&quot;);</span><br><span class="line">		Demo d2 = new Demo(&quot;李四&quot;);</span><br><span class="line">		d1.start();//做了两件事;1开启线程2调用run方法</span><br><span class="line">		d2.start();</span><br><span class="line">		for(int i = 0 ;i &lt;= 10; i++)</span><br><span class="line">		System.out.println(Thread.currentThread().getName()+&quot;i=&quot;+i);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>多线程的火车票售票实例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">火车售票小示例</span><br><span class="line">*/</span><br><span class="line">class SaleTicket extends Thread</span><br><span class="line">&#123;</span><br><span class="line">	private int ticket = 100;//分开线程任务和资源的方式</span><br><span class="line">	</span><br><span class="line">	//卖票的代码需要多个线程去执行，所以要将这些代码定义在线程任务中。run方法</span><br><span class="line">	public void run()</span><br><span class="line">	&#123;</span><br><span class="line">		while(true)</span><br><span class="line">		&#123;</span><br><span class="line">			if(ticket&gt;0)</span><br><span class="line">			&#123;</span><br><span class="line">				System.out.println(Thread.currentThread().getName()+&quot;..&quot;+ticket--);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class Demo1</span><br><span class="line">&#123;</span><br><span class="line">	public static void main(String[] args)</span><br><span class="line">	&#123;</span><br><span class="line">		//会创建400张票，不合适，不建议票变成静态的，如何共享100张票</span><br><span class="line">		//分开线程任务和资源的方式</span><br><span class="line">		SaleTicket s1 = new SaleTicket();</span><br><span class="line">		SaleTicket s2 = new SaleTicket();</span><br><span class="line">		SaleTicket s3 = new SaleTicket();</span><br><span class="line">		SaleTicket s4 = new SaleTicket();</span><br><span class="line">		s1.start();</span><br><span class="line">		s2.start();</span><br><span class="line">		s3.start();</span><br><span class="line">		s4.start();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/10/10-1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/10/10-1/" itemprop="url">实现Runnable</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-10T00:00:00+08:00">
-                2018-07-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>同步锁机制<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">创建线程的第二种方式</span><br><span class="line">1定义一个类实现Runnable</span><br><span class="line">Runnable接口的出现：解耦：降低了线程对象和线程任务的耦合性。</span><br><span class="line">2覆盖Runnanle接口中的方法，将线程要运行的任务代码存储到该方法中</span><br><span class="line">3通Thread创建线程对象，并将实现了Runnable接口的对象作为Thread类的构造函数的参数进行传递</span><br><span class="line">4调用Thread类的start方法。</span><br><span class="line">实现Runnable接口的好处：</span><br><span class="line">1避免了继承Thread类的单继承的局限性</span><br><span class="line">2Runable接口出现更符合面向对象，将线程单独进行封装。</span><br><span class="line">3Runnable接口出现，降低了线程对象和线程任务的耦合性</span><br><span class="line">所以以后创建线程都使用第二种方式</span><br><span class="line">多线程的安全问题：</span><br><span class="line">Thread-0..0</span><br><span class="line">Thread-2..-1</span><br><span class="line">Thread-3..-2</span><br><span class="line">1线程任务中有共享的数据</span><br><span class="line">2线程任务中有多条对共享数据的操作</span><br><span class="line">	一个线程在操作共享数据的同时，其他的线程操作参与了共享数据。</span><br><span class="line">解决问题的思想：</span><br><span class="line">只要能保证操作多条共享数据的代码在某一时间段，被一条线程所执行，在执行期间，不允许其他线程进行操作。</span><br><span class="line">用到了同步代码块。</span><br><span class="line">synchronized(对象)//对象为任意的对象。</span><br><span class="line">&#123;</span><br><span class="line">	同步代码块</span><br><span class="line">&#125;</span><br><span class="line">同步在目前的情况下，保证了一次只能有一个线程进来，这就是同步的锁机制</span><br><span class="line">好处：它解决了多线程的安全问题。</span><br><span class="line">弊端：消耗资源，降低效率。</span><br><span class="line">有可能出现这样一种情况：</span><br><span class="line">多线程安全问题出现后，加入了同步机制，没有想到安全问题依旧。</span><br><span class="line">这个时候肯定是同步出现了问题，</span><br><span class="line">你只要遵守了同步的前提，你就可以解决。</span><br><span class="line">同步的前提：</span><br><span class="line">	多个线程在同步中必须使用同一个锁，这才是多个线程同步。</span><br><span class="line">	多个线程和同一个锁。</span><br><span class="line">*/</span><br><span class="line">class SaleTickets implements Runnable</span><br><span class="line">&#123;</span><br><span class="line">	private int ticket = 10000;</span><br><span class="line">	Object obj = new Object();</span><br><span class="line">	public void run()</span><br><span class="line">	&#123;</span><br><span class="line">		while(true)</span><br><span class="line">		&#123;</span><br><span class="line">			synchronized(new Object())</span><br><span class="line">			&#123;</span><br><span class="line">			if(ticket&gt;0)</span><br><span class="line">			&#123;</span><br><span class="line">			try&#123;Thread.sleep(1);&#125;</span><br><span class="line">			catch(InterruptedException e)&#123;&#125;//让线程在这里停止一下</span><br><span class="line">				System.out.println(Thread.currentThread().getName()+&quot;..&quot;+ticket--);</span><br><span class="line">			&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">//出现数据的错乱是因为DOS的打印</span><br><span class="line">class Demo2</span><br><span class="line">&#123;</span><br><span class="line">	public static void main(String[] args)</span><br><span class="line">	&#123;</span><br><span class="line">		SaleTickets t = new SaleTickets();</span><br><span class="line">		//创建4个线程，通过Thread类对象</span><br><span class="line">		Thread h1 = new Thread(t);</span><br><span class="line">		Thread h2 = new Thread(t);</span><br><span class="line">		Thread h3 = new Thread(t);</span><br><span class="line">		Thread h4 = new Thread(t);</span><br><span class="line">		h1.start();</span><br><span class="line">		h2.start();</span><br><span class="line">		h3.start();</span><br><span class="line">		h4.start();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>银行存钱问题<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">/*2个储户，到同一个银行存钱，每个人存了3次，一次100元</span><br><span class="line">描述银行</span><br><span class="line">描述储户</span><br><span class="line">分析多线程中是否存在安全隐患：</span><br><span class="line">1分析多线程中是否存在共享的数据</span><br><span class="line">2分析多线程中是否有对共享数据的操作。</span><br><span class="line">同步函数：其实就是在函数上加上了synchronized关键字</span><br><span class="line">同步的表现形式：1同步代码块2同步函数</span><br><span class="line">同步函数的锁？函数需要被对象调用，那个对象不确定，但是都用this来表示</span><br><span class="line">同步函数使用的锁为this锁</span><br><span class="line">*/</span><br><span class="line">class Bank</span><br><span class="line">&#123;</span><br><span class="line">	private int sum;</span><br><span class="line">	Object obj = new Object();</span><br><span class="line">	synchronized public void add(int n)//同步方法</span><br><span class="line">	&#123;</span><br><span class="line">		sum = sum + n;</span><br><span class="line">		System.out.println(&quot;sum=&quot;+sum);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class Customer implements Runnable</span><br><span class="line">&#123;</span><br><span class="line">	private Bank b = new Bank();</span><br><span class="line">	public void run()</span><br><span class="line">	&#123;</span><br><span class="line">		for(int i = 0;i &lt; 10;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			b.add(100);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class Demo4&#123;</span><br><span class="line">	public static void main(String[] args)</span><br><span class="line">	&#123;</span><br><span class="line">		Customer c =new Customer();</span><br><span class="line">		Thread t1 = new Thread(c);</span><br><span class="line">		Thread t2 = new Thread(c);</span><br><span class="line">		t1.start();</span><br><span class="line">		t2.start();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/10/10-4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/10/10-4/" itemprop="url">同步函数+同步代码块</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-10T00:00:00+08:00">
-                2018-07-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>同步代码块和同步函数的异同<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">同步函数和同步代码块的区别：</span><br><span class="line">同步代码块使用的任意的对象作为锁</span><br><span class="line">同步函数只能使用this作为锁</span><br><span class="line">开发建议使用同步代码块。</span><br><span class="line">如果说，一个类中只需要一个锁，这是可以考虑同步函数，使用this写法简单，</span><br><span class="line">但是一个类中如果需要多个锁，还有多个类中使用同一个锁。这时只能使用同步代码块。</span><br><span class="line">*/</span><br><span class="line">class SaleTickets1 implements Runnable</span><br><span class="line">&#123;</span><br><span class="line">	private static int ticket = 100000;</span><br><span class="line">	Object obj = new Object();</span><br><span class="line">	//定义一个flag标记</span><br><span class="line">	boolean flag = true;</span><br><span class="line">	public void run()</span><br><span class="line">	&#123;</span><br><span class="line">		if(flag)</span><br><span class="line">		while(true)</span><br><span class="line">		&#123;</span><br><span class="line">			synchronized(obj)</span><br><span class="line">			&#123;</span><br><span class="line">				sale();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		else</span><br><span class="line">		&#123;</span><br><span class="line">			while(true)</span><br><span class="line">			sale();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	public  synchronized void sale()</span><br><span class="line">	&#123;</span><br><span class="line">		synchronized(obj)</span><br><span class="line">		&#123;</span><br><span class="line">		if(ticket&gt;0)</span><br><span class="line">			&#123;</span><br><span class="line">			try&#123;Thread.sleep(1);&#125;</span><br><span class="line">			catch(InterruptedException e)&#123;&#125;//让线程在这里停止一下</span><br><span class="line">				System.out.println(Thread.currentThread().getName()+&quot;..sale&quot;+ticket--);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">//出现数据的错乱是因为DOS的打印</span><br><span class="line">class Demo3</span><br><span class="line">&#123;</span><br><span class="line">	public static void main(String[] args)throws InterruptedException</span><br><span class="line">	&#123;</span><br><span class="line">		SaleTickets1 t = new SaleTickets1();</span><br><span class="line">		//创建4个线程，通过Thread类对象</span><br><span class="line">		Thread h1 = new Thread(t);</span><br><span class="line">		Thread h2 = new Thread(t);</span><br><span class="line">		h1.start();</span><br><span class="line">		Thread.sleep(10);//主线程停一下。</span><br><span class="line">		t.flag = false;</span><br><span class="line">		h2.start();</span><br><span class="line">		</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+            <p>死锁<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">简单死锁的代码演示——同步嵌套</span><br><span class="line">*/</span><br><span class="line">class Test implements Runnable</span><br><span class="line">&#123;</span><br><span class="line">	private boolean flag;</span><br><span class="line">	</span><br><span class="line">	Test(boolean flag)</span><br><span class="line">	&#123;</span><br><span class="line">		this.flag = flag;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public void run()</span><br><span class="line">	&#123;</span><br><span class="line">		if(flag)</span><br><span class="line">		&#123;</span><br><span class="line">			while(true)</span><br><span class="line">			synchronized(MyLock.LOCKA)</span><br><span class="line">			&#123;</span><br><span class="line">				System.out.println(&quot;if 1a&quot;);</span><br><span class="line">				synchronized(MyLock.LOCKB)</span><br><span class="line">				&#123;</span><br><span class="line">					System.out.println(&quot;if 2b&quot;);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		else</span><br><span class="line">		&#123;</span><br><span class="line">			while(true)</span><br><span class="line">			synchronized(MyLock.LOCKB)</span><br><span class="line">			&#123;</span><br><span class="line">				System.out.println(&quot;else 1b&quot;);</span><br><span class="line">				synchronized(MyLock.LOCKA)</span><br><span class="line">				&#123;</span><br><span class="line">					System.out.println(&quot;else 2a&quot;);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class MyLock</span><br><span class="line">&#123;</span><br><span class="line">	public static final Object LOCKA = new Object();</span><br><span class="line">	public static final Object LOCKB = new Object();</span><br><span class="line">&#125;</span><br><span class="line">class Demo9</span><br><span class="line">&#123;</span><br><span class="line">	public static void main(String[] args)</span><br><span class="line">	&#123;</span><br><span class="line">	Test t1 = new Test(true);</span><br><span class="line">	Test t2 = new Test(false);</span><br><span class="line">	new Thread(t1).start();</span><br><span class="line">	new Thread(t2).start();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
           
         
@@ -1319,7 +1077,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/10/10-5/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/10/10/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -1338,7 +1096,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/07/10/10-5/" itemprop="url">死锁</a></h1>
+                <a class="post-title-link" href="/2018/07/10/10/" itemprop="url">多线程基础</a></h1>
         
 
         <div class="post-meta">
@@ -1390,7 +1148,249 @@
       
         
           
-            <p>死锁<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">简单死锁的代码演示——同步嵌套</span><br><span class="line">*/</span><br><span class="line">class Test implements Runnable</span><br><span class="line">&#123;</span><br><span class="line">	private boolean flag;</span><br><span class="line">	</span><br><span class="line">	Test(boolean flag)</span><br><span class="line">	&#123;</span><br><span class="line">		this.flag = flag;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public void run()</span><br><span class="line">	&#123;</span><br><span class="line">		if(flag)</span><br><span class="line">		&#123;</span><br><span class="line">			while(true)</span><br><span class="line">			synchronized(MyLock.LOCKA)</span><br><span class="line">			&#123;</span><br><span class="line">				System.out.println(&quot;if 1a&quot;);</span><br><span class="line">				synchronized(MyLock.LOCKB)</span><br><span class="line">				&#123;</span><br><span class="line">					System.out.println(&quot;if 2b&quot;);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		else</span><br><span class="line">		&#123;</span><br><span class="line">			while(true)</span><br><span class="line">			synchronized(MyLock.LOCKB)</span><br><span class="line">			&#123;</span><br><span class="line">				System.out.println(&quot;else 1b&quot;);</span><br><span class="line">				synchronized(MyLock.LOCKA)</span><br><span class="line">				&#123;</span><br><span class="line">					System.out.println(&quot;else 2a&quot;);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class MyLock</span><br><span class="line">&#123;</span><br><span class="line">	public static final Object LOCKA = new Object();</span><br><span class="line">	public static final Object LOCKB = new Object();</span><br><span class="line">&#125;</span><br><span class="line">class Demo9</span><br><span class="line">&#123;</span><br><span class="line">	public static void main(String[] args)</span><br><span class="line">	&#123;</span><br><span class="line">	Test t1 = new Test(true);</span><br><span class="line">	Test t2 = new Test(false);</span><br><span class="line">	new Thread(t1).start();</span><br><span class="line">	new Thread(t2).start();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+            <p>多线程的基础知识<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">硬盘：持久化存储设备</span><br><span class="line">内存：临时性存储设备</span><br><span class="line">进程：应用程序在内存中分配的空间（正在运行中的程序）</span><br><span class="line">线程：是进程中负责程序执行的执行单元，也称为执行路径。</span><br><span class="line">     如果一个进程中出现了多个线程，称之为多线程程序。</span><br><span class="line">多线程技术：解决多部分代码同时执行的需求。可以合理的使用CPU资源</span><br><span class="line">cpu的分时系统</span><br><span class="line">双核：封装了2个运算核心。</span><br><span class="line">多线程的运行根据cpu的切换完成的。怎么切换cpu说的算</span><br><span class="line">所以多线程运行有一个随机性。（cpu的快速切换造成的）</span><br><span class="line">jvm中的多线程：</span><br><span class="line">至少有2个线程：</span><br><span class="line">一个是负责自定义代码运行的,这个从main方法开始的线程为主线程。</span><br><span class="line">一个是负责垃圾回收的，随着其他线程结束就结束了</span><br><span class="line">通过实践发现每次的结果不一定相同，那是由于cpu的随机性造成的，</span><br><span class="line">而且每一个线程都有自己运行的代码，称之为线程的内容。</span><br><span class="line">之所以创建一个线程是为了去运行制定的任务代码。</span><br><span class="line">而线程的任务都封装在特定的区域中</span><br><span class="line">比如：</span><br><span class="line">主线程运行的任务都定义在main方法中</span><br><span class="line">垃圾回收线程在回收垃圾都会运行finalize方法。</span><br><span class="line">如何建立线程？</span><br><span class="line">1继承Thread类</span><br><span class="line">	继承Thread类</span><br><span class="line">	复写run()方法</span><br><span class="line">	创建子类对象即为创建线程对象</span><br><span class="line">	调用Thread类中的start方法就可以执行线程。并会调用run方法。</span><br><span class="line">	start()开启线程后都会执行run()方法，说明run()方法中存储的是线程要运行的代码</span><br><span class="line">	所以，记住自定义线程的任务代码都存储在run()方法中。</span><br><span class="line">*/</span><br><span class="line">class Demo extends Thread</span><br><span class="line">&#123;</span><br><span class="line">	//定义垃圾回收方法</span><br><span class="line">	public void show()</span><br><span class="line">	&#123;</span><br><span class="line">		for(int i = 0 ;i &lt;= 10; i++)</span><br><span class="line">		System.out.println(Thread.currentThread().getName()+name+&quot;i=&quot;+i);</span><br><span class="line">	&#125;</span><br><span class="line">	private String name;</span><br><span class="line">	Demo(String name)</span><br><span class="line">	&#123;</span><br><span class="line">		this.name = name;		</span><br><span class="line">	&#125;</span><br><span class="line">	public void run()</span><br><span class="line">	&#123;</span><br><span class="line">		show();</span><br><span class="line">	&#125;</span><br><span class="line">	public void start()</span><br><span class="line">	&#123;</span><br><span class="line">		super.start();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">/*</span><br><span class="line">调用start和run方法的区别：</span><br><span class="line">调用start会开启线程，让开启的线程去执行run方法中的线程任务</span><br><span class="line">直接调用run方法，线程并未开启，去执行run方法的只有主方法。</span><br><span class="line">*/</span><br><span class="line">class ThreadDemo</span><br><span class="line">&#123;</span><br><span class="line">	public static void main(String[] args)</span><br><span class="line">	&#123;</span><br><span class="line">		Demo d1 = new Demo(&quot;张三&quot;);</span><br><span class="line">		Demo d2 = new Demo(&quot;李四&quot;);</span><br><span class="line">		d1.start();//做了两件事;1开启线程2调用run方法</span><br><span class="line">		d2.start();</span><br><span class="line">		for(int i = 0 ;i &lt;= 10; i++)</span><br><span class="line">		System.out.println(Thread.currentThread().getName()+&quot;i=&quot;+i);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>多线程的火车票售票实例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">火车售票小示例</span><br><span class="line">*/</span><br><span class="line">class SaleTicket extends Thread</span><br><span class="line">&#123;</span><br><span class="line">	private int ticket = 100;//分开线程任务和资源的方式</span><br><span class="line">	</span><br><span class="line">	//卖票的代码需要多个线程去执行，所以要将这些代码定义在线程任务中。run方法</span><br><span class="line">	public void run()</span><br><span class="line">	&#123;</span><br><span class="line">		while(true)</span><br><span class="line">		&#123;</span><br><span class="line">			if(ticket&gt;0)</span><br><span class="line">			&#123;</span><br><span class="line">				System.out.println(Thread.currentThread().getName()+&quot;..&quot;+ticket--);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class Demo1</span><br><span class="line">&#123;</span><br><span class="line">	public static void main(String[] args)</span><br><span class="line">	&#123;</span><br><span class="line">		//会创建400张票，不合适，不建议票变成静态的，如何共享100张票</span><br><span class="line">		//分开线程任务和资源的方式</span><br><span class="line">		SaleTicket s1 = new SaleTicket();</span><br><span class="line">		SaleTicket s2 = new SaleTicket();</span><br><span class="line">		SaleTicket s3 = new SaleTicket();</span><br><span class="line">		SaleTicket s4 = new SaleTicket();</span><br><span class="line">		s1.start();</span><br><span class="line">		s2.start();</span><br><span class="line">		s3.start();</span><br><span class="line">		s4.start();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/10/10-4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/10/10-4/" itemprop="url">同步函数+同步代码块</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-10T00:00:00+08:00">
+                2018-07-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>同步代码块和同步函数的异同<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">同步函数和同步代码块的区别：</span><br><span class="line">同步代码块使用的任意的对象作为锁</span><br><span class="line">同步函数只能使用this作为锁</span><br><span class="line">开发建议使用同步代码块。</span><br><span class="line">如果说，一个类中只需要一个锁，这是可以考虑同步函数，使用this写法简单，</span><br><span class="line">但是一个类中如果需要多个锁，还有多个类中使用同一个锁。这时只能使用同步代码块。</span><br><span class="line">*/</span><br><span class="line">class SaleTickets1 implements Runnable</span><br><span class="line">&#123;</span><br><span class="line">	private static int ticket = 100000;</span><br><span class="line">	Object obj = new Object();</span><br><span class="line">	//定义一个flag标记</span><br><span class="line">	boolean flag = true;</span><br><span class="line">	public void run()</span><br><span class="line">	&#123;</span><br><span class="line">		if(flag)</span><br><span class="line">		while(true)</span><br><span class="line">		&#123;</span><br><span class="line">			synchronized(obj)</span><br><span class="line">			&#123;</span><br><span class="line">				sale();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		else</span><br><span class="line">		&#123;</span><br><span class="line">			while(true)</span><br><span class="line">			sale();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	public  synchronized void sale()</span><br><span class="line">	&#123;</span><br><span class="line">		synchronized(obj)</span><br><span class="line">		&#123;</span><br><span class="line">		if(ticket&gt;0)</span><br><span class="line">			&#123;</span><br><span class="line">			try&#123;Thread.sleep(1);&#125;</span><br><span class="line">			catch(InterruptedException e)&#123;&#125;//让线程在这里停止一下</span><br><span class="line">				System.out.println(Thread.currentThread().getName()+&quot;..sale&quot;+ticket--);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">//出现数据的错乱是因为DOS的打印</span><br><span class="line">class Demo3</span><br><span class="line">&#123;</span><br><span class="line">	public static void main(String[] args)throws InterruptedException</span><br><span class="line">	&#123;</span><br><span class="line">		SaleTickets1 t = new SaleTickets1();</span><br><span class="line">		//创建4个线程，通过Thread类对象</span><br><span class="line">		Thread h1 = new Thread(t);</span><br><span class="line">		Thread h2 = new Thread(t);</span><br><span class="line">		h1.start();</span><br><span class="line">		Thread.sleep(10);//主线程停一下。</span><br><span class="line">		t.flag = false;</span><br><span class="line">		h2.start();</span><br><span class="line">		</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/10/10-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/10/10-1/" itemprop="url">实现Runnable</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-10T00:00:00+08:00">
+                2018-07-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>同步锁机制<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">创建线程的第二种方式</span><br><span class="line">1定义一个类实现Runnable</span><br><span class="line">Runnable接口的出现：解耦：降低了线程对象和线程任务的耦合性。</span><br><span class="line">2覆盖Runnanle接口中的方法，将线程要运行的任务代码存储到该方法中</span><br><span class="line">3通Thread创建线程对象，并将实现了Runnable接口的对象作为Thread类的构造函数的参数进行传递</span><br><span class="line">4调用Thread类的start方法。</span><br><span class="line">实现Runnable接口的好处：</span><br><span class="line">1避免了继承Thread类的单继承的局限性</span><br><span class="line">2Runable接口出现更符合面向对象，将线程单独进行封装。</span><br><span class="line">3Runnable接口出现，降低了线程对象和线程任务的耦合性</span><br><span class="line">所以以后创建线程都使用第二种方式</span><br><span class="line">多线程的安全问题：</span><br><span class="line">Thread-0..0</span><br><span class="line">Thread-2..-1</span><br><span class="line">Thread-3..-2</span><br><span class="line">1线程任务中有共享的数据</span><br><span class="line">2线程任务中有多条对共享数据的操作</span><br><span class="line">	一个线程在操作共享数据的同时，其他的线程操作参与了共享数据。</span><br><span class="line">解决问题的思想：</span><br><span class="line">只要能保证操作多条共享数据的代码在某一时间段，被一条线程所执行，在执行期间，不允许其他线程进行操作。</span><br><span class="line">用到了同步代码块。</span><br><span class="line">synchronized(对象)//对象为任意的对象。</span><br><span class="line">&#123;</span><br><span class="line">	同步代码块</span><br><span class="line">&#125;</span><br><span class="line">同步在目前的情况下，保证了一次只能有一个线程进来，这就是同步的锁机制</span><br><span class="line">好处：它解决了多线程的安全问题。</span><br><span class="line">弊端：消耗资源，降低效率。</span><br><span class="line">有可能出现这样一种情况：</span><br><span class="line">多线程安全问题出现后，加入了同步机制，没有想到安全问题依旧。</span><br><span class="line">这个时候肯定是同步出现了问题，</span><br><span class="line">你只要遵守了同步的前提，你就可以解决。</span><br><span class="line">同步的前提：</span><br><span class="line">	多个线程在同步中必须使用同一个锁，这才是多个线程同步。</span><br><span class="line">	多个线程和同一个锁。</span><br><span class="line">*/</span><br><span class="line">class SaleTickets implements Runnable</span><br><span class="line">&#123;</span><br><span class="line">	private int ticket = 10000;</span><br><span class="line">	Object obj = new Object();</span><br><span class="line">	public void run()</span><br><span class="line">	&#123;</span><br><span class="line">		while(true)</span><br><span class="line">		&#123;</span><br><span class="line">			synchronized(new Object())</span><br><span class="line">			&#123;</span><br><span class="line">			if(ticket&gt;0)</span><br><span class="line">			&#123;</span><br><span class="line">			try&#123;Thread.sleep(1);&#125;</span><br><span class="line">			catch(InterruptedException e)&#123;&#125;//让线程在这里停止一下</span><br><span class="line">				System.out.println(Thread.currentThread().getName()+&quot;..&quot;+ticket--);</span><br><span class="line">			&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">//出现数据的错乱是因为DOS的打印</span><br><span class="line">class Demo2</span><br><span class="line">&#123;</span><br><span class="line">	public static void main(String[] args)</span><br><span class="line">	&#123;</span><br><span class="line">		SaleTickets t = new SaleTickets();</span><br><span class="line">		//创建4个线程，通过Thread类对象</span><br><span class="line">		Thread h1 = new Thread(t);</span><br><span class="line">		Thread h2 = new Thread(t);</span><br><span class="line">		Thread h3 = new Thread(t);</span><br><span class="line">		Thread h4 = new Thread(t);</span><br><span class="line">		h1.start();</span><br><span class="line">		h2.start();</span><br><span class="line">		h3.start();</span><br><span class="line">		h4.start();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>银行存钱问题<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">/*2个储户，到同一个银行存钱，每个人存了3次，一次100元</span><br><span class="line">描述银行</span><br><span class="line">描述储户</span><br><span class="line">分析多线程中是否存在安全隐患：</span><br><span class="line">1分析多线程中是否存在共享的数据</span><br><span class="line">2分析多线程中是否有对共享数据的操作。</span><br><span class="line">同步函数：其实就是在函数上加上了synchronized关键字</span><br><span class="line">同步的表现形式：1同步代码块2同步函数</span><br><span class="line">同步函数的锁？函数需要被对象调用，那个对象不确定，但是都用this来表示</span><br><span class="line">同步函数使用的锁为this锁</span><br><span class="line">*/</span><br><span class="line">class Bank</span><br><span class="line">&#123;</span><br><span class="line">	private int sum;</span><br><span class="line">	Object obj = new Object();</span><br><span class="line">	synchronized public void add(int n)//同步方法</span><br><span class="line">	&#123;</span><br><span class="line">		sum = sum + n;</span><br><span class="line">		System.out.println(&quot;sum=&quot;+sum);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class Customer implements Runnable</span><br><span class="line">&#123;</span><br><span class="line">	private Bank b = new Bank();</span><br><span class="line">	public void run()</span><br><span class="line">	&#123;</span><br><span class="line">		for(int i = 0;i &lt; 10;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			b.add(100);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class Demo4&#123;</span><br><span class="line">	public static void main(String[] args)</span><br><span class="line">	&#123;</span><br><span class="line">		Customer c =new Customer();</span><br><span class="line">		Thread t1 = new Thread(c);</span><br><span class="line">		Thread t2 = new Thread(c);</span><br><span class="line">		t1.start();</span><br><span class="line">		t2.start();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
           
         
@@ -1476,7 +1476,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">51</span>
+                  <span class="site-state-item-count">52</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

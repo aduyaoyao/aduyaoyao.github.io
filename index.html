@@ -229,6 +229,130 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/28/18/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/28/18/" itemprop="url">FileReader</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-28T00:00:00+08:00">
+                2018-07-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>独立实现一个字符数组<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">package DAY3;</span><br><span class="line"></span><br><span class="line">import java.io.BufferedReader;</span><br><span class="line">import java.io.FileNotFoundException;</span><br><span class="line">import java.io.FileReader;</span><br><span class="line">import java.io.IOException;</span><br><span class="line"></span><br><span class="line">public class myBufferedDemo &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) throws IOException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">//		BufferedDemo();</span><br><span class="line">//		myBufferedDemo();</span><br><span class="line">		myBufferednumber();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static void myBufferednumber() throws IOException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		FileReader fr = new FileReader(&quot;F:\\java\\ava\\IO流\\src\\IO流的学习记录&quot;);</span><br><span class="line">		myLine mybr = new myLine(fr);</span><br><span class="line">		String line = null;</span><br><span class="line">		while ((line = mybr.myReaderLine()) != null) &#123;</span><br><span class="line">			System.out.println(&quot;行号&quot;+mybr.getLinenumber()+&quot;:&quot;+line);</span><br><span class="line">		&#125;</span><br><span class="line">		mybr.myClose();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static void myBufferedDemo() throws IOException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		FileReader fr = new FileReader(&quot;F:\\java\\ava\\IO流\\src\\IO流的学习记录&quot;);</span><br><span class="line">		MyBuffered mybr = new MyBuffered(fr);</span><br><span class="line">		String line = null;</span><br><span class="line">		while ((line = mybr.myReaderLine()) != null) &#123;</span><br><span class="line">			System.out.println(line);</span><br><span class="line">		&#125;</span><br><span class="line">		mybr.myClose();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static void BufferedDemo() throws FileNotFoundException, IOException &#123;</span><br><span class="line">		FileReader fr = new FileReader(&quot;F:\\java\\ava\\IO流\\src\\IO流的学习记录&quot;);</span><br><span class="line">		BufferedReader br = new BufferedReader(fr);</span><br><span class="line">		String line = null;</span><br><span class="line">		while ((line = br.readLine()) != null) &#123;</span><br><span class="line">			System.out.println(line);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line">package DAY3;</span><br><span class="line"></span><br><span class="line">import java.io.IOException;</span><br><span class="line">import java.io.Reader;</span><br><span class="line"></span><br><span class="line">public class MyBuffered &#123;</span><br><span class="line">	// 1持有一个流对象</span><br><span class="line">	private Reader r;</span><br><span class="line"></span><br><span class="line">	public MyBuffered() &#123;</span><br><span class="line">		super();</span><br><span class="line">		// TODO Auto-generated constructor stub</span><br><span class="line">	&#125;</span><br><span class="line">	public MyBuffered(Reader r) &#123;</span><br><span class="line">		super();</span><br><span class="line">		this.r = r;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	//因为是缓冲区对象，所以内部必须维护了一个数组</span><br><span class="line">	char[] buffer = new char[1024];</span><br><span class="line">	</span><br><span class="line">	//定义了一个角标</span><br><span class="line">	private int pos =0;</span><br><span class="line">	private int count = 0;</span><br><span class="line">	//2读取一个字符的方法，而且是高效的</span><br><span class="line">	public int myReader() throws IOException</span><br><span class="line">	&#123;</span><br><span class="line">		//通过被缓冲流对象的read方法，可以将设备上的数据存储到数组中</span><br><span class="line">		//定义变量，记录数组中元素的个数</span><br><span class="line">		if(count==0)</span><br><span class="line">		&#123;</span><br><span class="line">			count = r.read(buffer);</span><br><span class="line">			pos = 0;</span><br><span class="line">		&#125;</span><br><span class="line">		if(count&lt;0)//当全部读取之后，返回-1;</span><br><span class="line">		&#123;</span><br><span class="line">			return -1;</span><br><span class="line">		&#125;</span><br><span class="line">	</span><br><span class="line">		char ch = buffer[pos];//每次取一个，都要自增</span><br><span class="line">		pos++;</span><br><span class="line">		count--;//既然取出一个，数组的数量要求减少，一旦减少到0，就在从设备上获取一批数据存储到数组中</span><br><span class="line">		return ch;</span><br><span class="line">	&#125;</span><br><span class="line">	public String myReaderLine() throws IOException</span><br><span class="line">	&#123;</span><br><span class="line">		//定义一个临时缓冲区，用于存储一行文本</span><br><span class="line">		StringBuilder sb = new StringBuilder();</span><br><span class="line">		</span><br><span class="line">		//1不断的调用myReader方法，从缓冲区中取出数据</span><br><span class="line">		int ch = 0;</span><br><span class="line">		while((ch = myReader())!=-1)</span><br><span class="line">		&#123;</span><br><span class="line">			if(ch==&apos;\r&apos;)</span><br><span class="line">				continue;</span><br><span class="line">			if(ch == &apos;\n&apos;)</span><br><span class="line">			&#123;</span><br><span class="line">				return sb.toString();</span><br><span class="line">			&#125;</span><br><span class="line">			//对于取到的字符进行临时存储</span><br><span class="line">			sb.append((char)ch);</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		//如果文本结尾处有数据，但没有行结束符</span><br><span class="line">		//数据已经读取到，并存储到StringBuilder，只要判断StringBuilder的长度即可</span><br><span class="line">		if(sb.length()!=0)</span><br><span class="line">			return sb.toString();</span><br><span class="line">		return null;</span><br><span class="line">	&#125;</span><br><span class="line">	public void myClose() throws IOException</span><br><span class="line">	&#123;</span><br><span class="line">		r.close();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">/*</span><br><span class="line"> * BufferedReader的read方法原理：</span><br><span class="line"> * 1首先利用被缓冲的具体调用系统资源的流对象的read([])方法，读取数据，读到字节</span><br><span class="line"> * 2字符数据完成转换流的read方法</span><br><span class="line"> * 3然后buf.read方法，一次读取一个字符</span><br><span class="line"> * readLine();方法，调用了read()方法，从缓冲区中获取数据，存储到readLine自己的缓冲区中，他会判断行终止符，只会存储行结束符之前的数据</span><br></pre></td></tr></table></figure>
+<p>Person类的嵌套<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">package DAY3;</span><br><span class="line"></span><br><span class="line">public class PersonDemo &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		Person p = new Person();</span><br><span class="line">		NewPerson pp = new NewPerson(p);</span><br><span class="line">		pp.chifan();</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">	class Person &#123;</span><br><span class="line">		void chifan() &#123;</span><br><span class="line">			System.out.println(&quot;吃饭&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">class NewPerson</span><br><span class="line">&#123;</span><br><span class="line">	private Person p ;</span><br><span class="line"></span><br><span class="line">	public NewPerson() &#123;</span><br><span class="line">		super();</span><br><span class="line">		// TODO Auto-generated constructor stub</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public NewPerson(Person p) &#123;</span><br><span class="line">		super();</span><br><span class="line">		this.p = p;</span><br><span class="line">	&#125;</span><br><span class="line">	void chifan()</span><br><span class="line">	&#123;</span><br><span class="line">		p.chifan();</span><br><span class="line">		System.out.println(&quot;抽烟&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>配置文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">package DAY3;</span><br><span class="line"></span><br><span class="line">import java.io.File;</span><br><span class="line">import java.io.FileInputStream;</span><br><span class="line">import java.io.FileOutputStream;</span><br><span class="line">import java.io.IOException;</span><br><span class="line">import java.util.Properties;</span><br><span class="line"></span><br><span class="line">public class SmallTest &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) throws IOException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		//记录软件使用的次数</span><br><span class="line">		//需要记录程序运行的次数——计数器的生命周期需要比程序的值要长，需要对计数器的值进行持久化存储，存储的键值，需要集合加IO</span><br><span class="line">		boolean b = checkout();</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	public static void run()</span><br><span class="line">	&#123;</span><br><span class="line">		System.out.println(&quot;软件运行&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	public static boolean checkout() throws IOException</span><br><span class="line">	&#123;</span><br><span class="line">		boolean isrun = true;</span><br><span class="line">		</span><br><span class="line">		//1首先将配置文件封装成为File对象</span><br><span class="line">		File configfile = new File(&quot;counter.txt&quot;);</span><br><span class="line">		if(!configfile.exists())</span><br><span class="line">		&#123;</span><br><span class="line">			configfile.createNewFile();</span><br><span class="line">		&#125;</span><br><span class="line">		int count = 0;//记录每次存储的次数</span><br><span class="line">		Properties pro  = new Properties();</span><br><span class="line">		//定义流对象</span><br><span class="line">		FileInputStream fis =new FileInputStream(configfile);</span><br><span class="line">		//将流中的数据加载到PRoperties</span><br><span class="line">		pro.load(fis);</span><br><span class="line">		String value = pro.getProperty(&quot;count&quot;);</span><br><span class="line">		if(value!=null)</span><br><span class="line">		&#123;</span><br><span class="line">			</span><br><span class="line">			count = Integer.parseInt(value);</span><br><span class="line">			if(count&gt;=5)</span><br><span class="line">			&#123;</span><br><span class="line">				System.out.println(&quot;试用时间已到&quot;);</span><br><span class="line">				isrun=false;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		count++;//对取出的数据进行自增</span><br><span class="line">		//将count自增后的数据进行持久性存储</span><br><span class="line">		pro.setProperty(&quot;count&quot;, Integer.toString(count));</span><br><span class="line">		FileOutputStream fos = new FileOutputStream(configfile);</span><br><span class="line">		pro.store(fos, &quot;count的值&quot;);</span><br><span class="line">		fos.close();</span><br><span class="line">		fis.close();</span><br><span class="line">		return isrun;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">//玩配置文件的东西，</span><br><span class="line">//什么时候使用配置文件？</span><br><span class="line">//不确定的数据，想要持久化存储，必须有配置文件。</span><br></pre></td></tr></table></figure></p>
+<p>Properties<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">package DAY3;</span><br><span class="line"></span><br><span class="line">import java.io.File;</span><br><span class="line">import java.io.FileInputStream;</span><br><span class="line">import java.io.FileNotFoundException;</span><br><span class="line">import java.io.FileOutputStream;</span><br><span class="line">import java.io.IOException;</span><br><span class="line">import java.util.Properties;</span><br><span class="line">import java.util.Set;</span><br><span class="line"></span><br><span class="line">public class PropertiesDemo &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) throws IOException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		Properties pro = Demo1();</span><br><span class="line">		Demo2(pro);</span><br><span class="line">		Demo3();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static void Demo3() throws IOException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		// 读取流中数据</span><br><span class="line">		File configure = new File(&quot;temp.properties&quot;);</span><br><span class="line">		Properties pro = new Properties();</span><br><span class="line">		// 定义读取流和数据文件相关联</span><br><span class="line">		FileInputStream fis = new FileInputStream(configure);</span><br><span class="line">		pro.load(fis);</span><br><span class="line">		pro.setProperty(&quot;zhangsan&quot;, &quot;20&quot;);</span><br><span class="line">		FileOutputStream fos = new FileOutputStream(configure);</span><br><span class="line">		pro.store(fos, &quot;&quot;);</span><br><span class="line">		pro.list(System.out);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static void Demo2(Properties pro) throws FileNotFoundException, IOException &#123;</span><br><span class="line">		// 将集合中的元素持久化存储到设备上</span><br><span class="line">		FileOutputStream fos = new FileOutputStream(&quot;temp.properties&quot;);</span><br><span class="line">		pro.store(fos, &quot;myDemo.txt&quot;);// 输入的中文会进行转换为数字。mydemo.txt为注释信息,将注释信息写入文件的输出流中</span><br><span class="line">		fos.close();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static Properties Demo1() &#123;</span><br><span class="line">		// 1.创建一个Properties集合</span><br><span class="line">		Properties pro = new Properties();</span><br><span class="line">		pro.setProperty(&quot;zhangsan&quot;, &quot;24&quot;);</span><br><span class="line">		pro.setProperty(&quot;lisi&quot;, &quot;50&quot;);</span><br><span class="line">		pro.list(System.out);// 调试的方法</span><br><span class="line"></span><br><span class="line">		Set&lt;String&gt; set = pro.stringPropertyNames();</span><br><span class="line">		for (String str : set) &#123;</span><br><span class="line">			String value = pro.getProperty(str);</span><br><span class="line">			System.out.println(str + value);</span><br><span class="line">		&#125;</span><br><span class="line">		// 基本的存取方法。</span><br><span class="line">		return pro;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">//XML文件是一种数据存储的通用方式。</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/27/17-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1337,126 +1461,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/21/13-3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/21/13-3/" itemprop="url">泛型总结</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-21T00:00:00+08:00">
-                2018-07-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>—泛型:<br>    在JDK1.4版本之前,容器什么类型都可以进行存储，但是在取出时，需要用到对象的特有内容时，需要向下转型<br>    但是对象的类型不一致，导致了向下转型发生了类型转换异常。<br>    为了避免这个问题，只能在主观上进行控制，往集合中存储对象时候必须保持一致<br>    jdk1.5以后，解决了该问题，在定义集合时候，就直接明确集合中存储元素的具体类型，<br>    这样，编译器在编译时候，就可以对集合中存储的对象类型进行检查<br>    一旦发现了类型不匹配，就编译失败，这个技术就是泛型技术<br>好处：<br>    1将运行时候的问题转移到了编译时期，可以更好的让程序员发现问题并解决问题<br>    2避免了向下转型的麻烦<br>总结：<br>    泛型就是应用在编译时期的一项安全机制<br>泛型的擦除：<br>    编译器通过泛型对元素类型进行检查，只要检查通过，就会生成class文件，但是在class文件中就将泛型标识去除了<br>泛型的表现：<br>    泛型技术在集合框架中，应用范围很大。<br>    什么时候写泛型？<br>    只要看到类或者接口在描述时右边有&lt;&gt;，就需要使用泛型，其实是，容器在不明确操作元素的前提下，对外提供了一个参数&lt;&gt;<br>    使用容器时，具体的类型实参传递给该参数即可<br>    说白了，泛型技术就是传递类型参数</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1507,7 +1511,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">51</span>
+                  <span class="site-state-item-count">52</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
