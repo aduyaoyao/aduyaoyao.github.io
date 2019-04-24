@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="java学习笔记,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="File类的构造函数123456789101112131415161718192021222324252627282930package DAY1;import java.io.File;public class FileDemo0 &amp;#123;	private static final String FILE_SEPARATOR = System.getProperty(&amp;quot;file.s">
+<meta name="keywords" content="java学习笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="File类">
+<meta property="og:url" content="http://yoursite.com/2018/07/26/16/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="File类的构造函数123456789101112131415161718192021222324252627282930package DAY1;import java.io.File;public class FileDemo0 &amp;#123;	private static final String FILE_SEPARATOR = System.getProperty(&amp;quot;file.s">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-24T09:20:51.347Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="File类">
+<meta name="twitter:description" content="File类的构造函数123456789101112131415161718192021222324252627282930package DAY1;import java.io.File;public class FileDemo0 &amp;#123;	private static final String FILE_SEPARATOR = System.getProperty(&amp;quot;file.s">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/07/26/16/">
+
+
+
+
+
+  <title>File类 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/26/16/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">File类</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-26T00:00:00+08:00">
+                2018-07-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>File类的构造函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">package DAY1;</span><br><span class="line"></span><br><span class="line">import java.io.File;</span><br><span class="line"></span><br><span class="line">public class FileDemo0 &#123;</span><br><span class="line"></span><br><span class="line">	private static final String FILE_SEPARATOR = System.getProperty(&quot;file.separator&quot;);</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * @param args</span><br><span class="line">	 * 文件的3个构造函数</span><br><span class="line">	 */</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		// 将一个具体的路径封装成了File对象。可以封装存在的文件或者目录，也可以封装不存在的文件或者目录X</span><br><span class="line">		// 路径可以为绝对路径，也可以是相对路径。</span><br><span class="line">//		File(String pathname) </span><br><span class="line">		File file = new File(&quot;1.txt&quot;);</span><br><span class="line">//		File(String parent, String child) 字符串对象</span><br><span class="line">		File file1 = new File(&quot;c:\\&quot;, &quot;1.txt&quot;);</span><br><span class="line">//		File(File parent, String child)文件对象</span><br><span class="line">		File dir = new File(&quot;c:\\&quot;);</span><br><span class="line">		File file2 = new File(dir, &quot;1.txt&quot;);</span><br><span class="line">//		File f = new File(&quot;c:&quot;+FILE_SEPARATOR + &quot;1.txt&quot;);</span><br><span class="line">		// File类提供的字符串file.separator实现分隔符</span><br><span class="line">		File f = new File(&quot;c:&quot; + file.separator + &quot;1.txt&quot;);</span><br><span class="line">		System.out.println(f);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>File类中的方法使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line">package DAY1;</span><br><span class="line"></span><br><span class="line">import java.io.File;</span><br><span class="line">import java.io.IOException;</span><br><span class="line">import java.text.DateFormat;</span><br><span class="line">import java.util.Date;</span><br><span class="line"></span><br><span class="line">public class FileDemo1 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) throws IOException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">//		Demo();</span><br><span class="line">//		Demo2();</span><br><span class="line">		File file = new File(&quot;e:\\&quot;);</span><br><span class="line">		long freespace = file.getFreeSpace();</span><br><span class="line">		long usedspace = file.getTotalSpace();</span><br><span class="line">		long totalspace = file.getUsableSpace();</span><br><span class="line">		System.out.println(freespace);</span><br><span class="line">		System.out.println(usedspace);</span><br><span class="line">		System.out.println(totalspace);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static void Demo2() &#123;</span><br><span class="line">		// 文件的创建,若文件存在，则不创建返回false，不存在就创建，成功返回true</span><br><span class="line">		File file1 = new File(&quot;n\\c\\a1.txt&quot;);</span><br><span class="line">		//File file1 = new File(&quot;bin\\a1.txt&quot;);可以创建的前提是存在bin目录及之后文件的目录，</span><br><span class="line">//		boolean a = file1.createNewFile();</span><br><span class="line">//		System.out.println(a);</span><br><span class="line">		boolean c = file1.delete();//删除不经过windows的回收站，需要慎重</span><br><span class="line">		System.out.println(c);</span><br><span class="line">		//存在删除不了情况</span><br><span class="line">		/*</span><br><span class="line">		 * 文件正在被系统调用，不能删除</span><br><span class="line">		 * 系统文件</span><br><span class="line">		 * */</span><br><span class="line">		//文件夹的创建</span><br><span class="line">		boolean dir = file1.mkdir();</span><br><span class="line">		System.out.println(dir);</span><br><span class="line">		//mkdirs解决了多级文件夹。删除文件夹时候必须确保文件夹没有内容，如果有，必须将内容删除，才能进行删除。</span><br><span class="line">		boolean dirs = file1.mkdirs();</span><br><span class="line">		System.out.println(dirs);</span><br><span class="line">		//未进行创建的时候，无法判断是否是文件还是文件夹，一般要加存在判断</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static void Demo() throws IOException &#123;</span><br><span class="line">		// 文件名的获取</span><br><span class="line">		File file = new File(&quot;F:\\java之毕向东\\add&quot;, &quot;command.java&quot;);</span><br><span class="line">		String file_name = file.getName();</span><br><span class="line">		System.out.println(file_name);</span><br><span class="line">		// 文件的大小----字节</span><br><span class="line">		long length = file.length();</span><br><span class="line">		System.out.println(length);</span><br><span class="line">		// 获取文件的路径</span><br><span class="line">		String file_absolutepath = file.getAbsolutePath();// 文件的绝对路径</span><br><span class="line">		System.out.println(file_absolutepath);</span><br><span class="line">		String file_path = file.getCanonicalPath();// 相对路径的规范形式，不同的平台</span><br><span class="line">		System.out.println(file_path);</span><br><span class="line">		String file_path1 = file.getPath();// 获取到的是file对象中的封装的路径，封装的是什么，获取到的就是什么</span><br><span class="line">		System.out.println(file_path1);</span><br><span class="line">		// 获取文件的最近修改时间</span><br><span class="line">		long time = file.lastModified();</span><br><span class="line">		Date date = new Date(time);</span><br><span class="line">		String date_format = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG).format(date);</span><br><span class="line">		System.out.println(date_format);</span><br><span class="line">		boolean b = file.isHidden();</span><br><span class="line">		System.out.println(b);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>文件过滤器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">package DAY1;</span><br><span class="line"></span><br><span class="line">import java.io.File;</span><br><span class="line">import java.io.FileFilter;</span><br><span class="line"></span><br><span class="line">public class Demo2 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		//文件过滤器</span><br><span class="line">		</span><br><span class="line">		File dir = new File(&quot;c:\\&quot;);</span><br><span class="line">		File[] files = dir.listFiles(new FileFilter() &#123;</span><br><span class="line">			</span><br><span class="line">			@Override</span><br><span class="line">			public boolean accept(File pathname) &#123;</span><br><span class="line">				// TODO Auto-generated me</span><br><span class="line">				</span><br><span class="line">				return pathname.isFile();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;);</span><br><span class="line">		for(File file:files)</span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println(file);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>获取指定文件夹中所有文件和文件内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">package DAY1;</span><br><span class="line"></span><br><span class="line">import java.io.File;</span><br><span class="line"></span><br><span class="line">public class Demo3 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		// 获取指定文件夹中的所有文件和文件夹的名称</span><br><span class="line">		File dir = new File(&quot;F:\\java之毕向东\\day6&quot;);</span><br><span class="line">		//思想原理：策略设计模式</span><br><span class="line">		String[] names = dir.list(new Filterbyjava(&quot;.java&quot;));</span><br><span class="line">		for (String string : names) &#123;</span><br><span class="line">			System.out.println(string);</span><br><span class="line">		&#125;</span><br><span class="line">		// listFiles</span><br><span class="line">//		File [] files = dir.listFiles();</span><br><span class="line">//		for (File file : files) &#123;</span><br><span class="line">//			System.out.println(file);</span><br><span class="line">//		&#125;</span><br><span class="line">//		</span><br><span class="line">		// list：获取名称仅仅</span><br><span class="line">		//</span><br><span class="line">		// 目录存在且不为空：列出当前目录下的所有文件和文件夹名称包含隐藏文件</span><br><span class="line">		/*</span><br><span class="line">		 * 目录不存在：空指针异常 传入的是文件：数组为null 目录存在且没有该内容：返回长度为0的内容。</span><br><span class="line">		 */</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>过滤器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">package DAY1;</span><br><span class="line"></span><br><span class="line">import java.io.File;</span><br><span class="line">import java.io.FilenameFilter;</span><br><span class="line">public class Filterbyjava implements FilenameFilter &#123;</span><br><span class="line"></span><br><span class="line">	/*</span><br><span class="line">	 * (non-Javadoc)</span><br><span class="line">	 * </span><br><span class="line">	 * @see java.io.FilenameFilter#accept(java.io.File, java.lang.String)</span><br><span class="line">	 * </span><br><span class="line">	 */</span><br><span class="line">	private String name1;</span><br><span class="line">	public Filterbyjava(String name1) &#123;</span><br><span class="line">		super();</span><br><span class="line">		this.name1 = name1;</span><br><span class="line">	&#125;</span><br><span class="line">	public boolean accept(File dir, String name) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line"></span><br><span class="line">		return name.endsWith(name1);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>递归的使用——遍历<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">package DAY1;</span><br><span class="line"></span><br><span class="line">import java.io.File;</span><br><span class="line"></span><br><span class="line">public class Demo4 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		// 遍历当前目录以及当前目录的子目录</span><br><span class="line">		//递归：函数自身调用自身，函数内部又使用到了该函数的功能</span><br><span class="line">		//什么时候使用？</span><br><span class="line">		//功能被重复使用，但是每次使用参与运算的数据不同时，可以考虑使用递归</span><br><span class="line">		//使用注意：</span><br><span class="line">		//一定要定义条件</span><br><span class="line">		//注意递归次数过多，会发生栈内存溢出</span><br><span class="line">		File dir = new File(&quot;E:\\vmware&quot;);	</span><br><span class="line">		getAllFiles(dir);</span><br><span class="line">		</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static void getAllFiles(File dir) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		File[] files = dir.listFiles();</span><br><span class="line">		</span><br><span class="line">		for(File file:files)</span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println(&quot;Dir&quot;+file);</span><br><span class="line">			if(file.isDirectory())</span><br><span class="line">				getAllFiles(file);</span><br><span class="line">			else</span><br><span class="line">			&#123;</span><br><span class="line">				System.out.println(&quot;file&quot;+file);</span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>删除文件夹的内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">package DAY1;</span><br><span class="line"></span><br><span class="line">import java.io.File;</span><br><span class="line"></span><br><span class="line">public class Demo5 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		//删除一个带内容的文件夹，必须从里面往外删除</span><br><span class="line">		File dir = new File(&quot;F:\\test&quot;);</span><br><span class="line">		deletedir(dir);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static void deletedir(File dir) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		//列出当前目录下的文件和文件夹</span><br><span class="line">		File[] files = dir.listFiles();</span><br><span class="line">		//对数组进行遍历</span><br><span class="line">		for(File file:files)</span><br><span class="line">		&#123;</span><br><span class="line">			if(file.isDirectory())</span><br><span class="line">			&#123;</span><br><span class="line">				deletedir(file);</span><br><span class="line">			&#125;else</span><br><span class="line">			&#123;</span><br><span class="line">				System.out.println(&quot;file&quot;+file+file.delete());</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(&quot;dir&quot;+dir+dir.delete());//干掉外面的文件夹</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java学习笔记/" rel="tag"># java学习笔记</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/26/16-1/" rel="next" title="字节输出流+IO异常处理+文件存储到集合中">
+                <i class="fa fa-chevron-left"></i> 字节输出流+IO异常处理+文件存储到集合中
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">49</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

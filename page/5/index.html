@@ -229,6 +229,251 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/04/4-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/04/4-1/" itemprop="url">函数+数组练习</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-04T00:00:00+08:00">
+                2018-07-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>#函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">class fangfa&#123;</span><br><span class="line">	public static void main(String[] args)&#123;</span><br><span class="line">	int SumAdd=Add(2,3);</span><br><span class="line">	double SumAdd1=Add(2.3,3.5);</span><br><span class="line">	System.out.print(SumAdd1);</span><br><span class="line">	System.out.print(SumAdd);</span><br><span class="line">	printCFB();</span><br><span class="line">	&#125;</span><br><span class="line">	public static int Add(int a,int b)&#123;</span><br><span class="line">		return (a+b);</span><br><span class="line">	&#125;</span><br><span class="line">	public static double Add(double a,double b)&#123;</span><br><span class="line">		return a+b;//overload();</span><br><span class="line">	&#125;</span><br><span class="line">	public static void printCFB()&#123;</span><br><span class="line">		for(int i=1;i &lt;= 9;i++)&#123;</span><br><span class="line">			for(int j=1;j &lt;= i;j++)&#123;</span><br><span class="line">				System.out.print(i+&quot;*&quot;+j+&quot;=&quot;+i*j+&quot;\t&quot;);</span><br><span class="line">			&#125;</span><br><span class="line">			System.out.println();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">/*</span><br><span class="line">class fangfa&#123;</span><br><span class="line">	public static void main(String[] args)&#123;</span><br><span class="line">		draw(5,5);</span><br><span class="line">	&#125;</span><br><span class="line">	public static void draw(int col,int row)&#123;</span><br><span class="line">		for(int i=0;i &lt;= row;i++)&#123;</span><br><span class="line">			for(int j=0;j &lt;= col;j++)&#123;</span><br><span class="line">				System.out.print(&quot;&amp;&quot;);</span><br><span class="line">			&#125;</span><br><span class="line">		System.out.println();</span><br><span class="line">		&#125;</span><br><span class="line">		return;//void时可以省略，但是编译器会加上</span><br><span class="line">	&#125;</span><br><span class="line">&#125;*/</span><br></pre></td></tr></table></figure></p>
+<p>#数组<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line">class ArrayDemo&#123;</span><br><span class="line">	public static void main(String[] args)&#123;</span><br><span class="line">		int[] arr = new int[]&#123;1,2,3,4&#125;;</span><br><span class="line">		int sum=add(arr);</span><br><span class="line">		int max=getMax(arr);</span><br><span class="line">		String temp=numberToString(arr);</span><br><span class="line">		String temp2=getWeek(4);</span><br><span class="line">		System.out.print(&quot;temp2=&quot;+temp2);</span><br><span class="line">		System.out.print(&quot;temp=&quot;+temp);</span><br><span class="line">		System.out.print(sum);</span><br><span class="line">		System.out.print(&quot;max=&quot;+max);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	public static int add(int[] arr)&#123;</span><br><span class="line">		int sum=0;</span><br><span class="line">		for(int i =0;i&lt;arr.length;i++)&#123;</span><br><span class="line">			sum+=arr[i];</span><br><span class="line">		&#125;</span><br><span class="line">		return sum;</span><br><span class="line">	&#125;</span><br><span class="line">	public static int getMax(int[] arr)&#123;</span><br><span class="line">		int max=arr[0];</span><br><span class="line">		for(int i=1;i&lt;arr.length;i++)&#123;</span><br><span class="line">			if(arr[i]&gt;=max)&#123;</span><br><span class="line">				max=arr[i];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		return max;</span><br><span class="line">	&#125;</span><br><span class="line">	public static String numberToString(int[] arr)&#123;</span><br><span class="line">		String temp = &quot;[&quot;;</span><br><span class="line">		for(int i = 0;i&lt;arr.length;i++)&#123;</span><br><span class="line">			if(i==arr.length-1)</span><br><span class="line">				temp=temp+arr[i]+&quot;]&quot;;</span><br><span class="line">			else&#123;</span><br><span class="line">				temp=temp+arr[i]+&quot;,&quot;;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		return temp;</span><br><span class="line">	&#125;</span><br><span class="line">	public static String getWeek(int num)&#123;</span><br><span class="line">		if( num &gt; 7|| num &lt; 1)</span><br><span class="line">		return num+&quot;no&quot;;</span><br><span class="line">		String[] weeks = &#123;&quot;,&quot;,&quot;1&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;,&quot;5&quot;,&quot;6&quot;,&quot;7&quot;&#125;;</span><br><span class="line">		return weeks[num];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">/*</span><br><span class="line">class ArrayDemo&#123;</span><br><span class="line">	public static void main(String[] args)&#123;</span><br><span class="line">		int[] arr = new int[3];</span><br><span class="line">		arr[0]=1;</span><br><span class="line">		arr[1]=2;</span><br><span class="line">		arr[2]=3;</span><br><span class="line">		System.out.print(arr[0]);</span><br><span class="line">		arr = null;</span><br><span class="line">		System.out.print(arr[3]);</span><br><span class="line">	&#125;</span><br><span class="line">	public static void main(String[] args)&#123;</span><br><span class="line">		int[] arr = new int[]&#123;1,2,3&#125;;</span><br><span class="line">		for(int i=0;i &lt; arr.length;i++)&#123;</span><br><span class="line">			System.out.print(&quot;arr[&quot;+i+&quot;]&quot;+&quot;=&quot;+arr[i]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">*/</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/04/4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/04/4/" itemprop="url">函数+数组</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-04T00:00:00+08:00">
+                2018-07-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>##函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">方法：在java中，函数就是方法，就是一段独立的小程序。独立代表封闭</span><br><span class="line">方法定义在类中</span><br><span class="line">public和static叫做修饰符</span><br><span class="line">方法案例：</span><br><span class="line">public static void draw(int col,int row)&#123;</span><br><span class="line">		for(int i=0;i &lt;= row;i++)&#123;</span><br><span class="line">			for(int j=0;j &lt;= col;j++)&#123;</span><br><span class="line">				System.out.print(&quot;&amp;&quot;);</span><br><span class="line">			&#125;</span><br><span class="line">		System.out.println();</span><br><span class="line">		&#125;</span><br><span class="line">	</span><br><span class="line">方法：修饰符（不是固定的），函数名，参数列表，返回类型。</span><br><span class="line">return 返回值；结束该功能，并将后面的具体结果返回给调用者。//必须要写的</span><br><span class="line">函数的返回值类型如果为void时，可以省略不写return语句。</span><br><span class="line">函数的3要素：函数名，参数列表，返回类型</span><br><span class="line">注意：不要动不动就写输出语句。功能内部只定义所需的内容，不需要的不定义。</span><br><span class="line">函数的特性：重载（overload）</span><br><span class="line">overload:一个类中出现同名的函数，只要他们的参数个数或参数类型不同，就称之为函数的重载。</span><br><span class="line">例子：add（int a,int b）和add（int a,int b, intc）</span><br><span class="line">函数名是用来描述函数功能。</span><br><span class="line">函数在内存中的调用过程：栈用来实现java中的函数调用。函数进入为入栈，函数运算结束出去后为出栈，先进后出。</span><br></pre></td></tr></table></figure></p>
+<p>##数组<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">格式：int[] arr=new int[3];</span><br><span class="line">int[] arr = new int[]&#123;12,23,52&#125;;//new int[]不能写数字。arr.length数组的属性</span><br><span class="line">int[] arr =&#123;33,34,35&#125;;</span><br><span class="line">通过new关键字创建了一个长度为3，元素类型为int的数组实体，下标就是索引。</span><br><span class="line">int arr[] = new int[3];//数组的定义方式2,类似于C中的定义格式。数组类型是一种引用数据类型,栈中的变量利用地址指向堆中的数组</span><br><span class="line">arr是一个数组类型,arr=null;解决了指向问题。栈用完释放,堆的垃圾会进行回收,利用垃圾回收机制对堆中的不使用的实体进行回收</span><br><span class="line">数组赋值本质是：改变指向</span><br><span class="line">方法区(数据共享区)： 静态区,方法表</span><br></pre></td></tr></table></figure></p>
+<p>##数组使用的常见问题<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1数组下标越界，编译没有问题，运行会显示ArrayIndexOutOfBoundsException</span><br><span class="line">int[] arr = new int[3];</span><br><span class="line">System.out.print(arr[3]);</span><br><span class="line">2使用没有任何实体指向的引用变量操作实体时，运行会发生异常NullPointerException</span><br><span class="line">int arr = new int [3];</span><br><span class="line">arr = null;</span><br><span class="line">System.out.println(arr[2]);</span><br></pre></td></tr></table></figure></p>
+<p>##二维数组<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int [][] arr=new int[3][2]</span><br><span class="line">对于一个实体，默认值为空。使用地址来进行赋值。</span><br></pre></td></tr></table></figure></p>
+<p>##Java的内存区域划分<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">java对于内存空间的划分分为5部分，分别为栈，堆，方法区，本地方法区，寄存器。</span><br><span class="line">寄存器：CPU进行运算。</span><br><span class="line">本地方法区：和系统有关的方法。</span><br><span class="line">栈：存储的都是局部变量，只要是在方法中定义的变量都是局部变量。</span><br><span class="line">	一旦变量的生命周期结束，该变量就被释放。</span><br><span class="line">堆：存储的都是实体（对象）凡是用new创建的都在堆里面。</span><br><span class="line">	new：在堆内存中开辟一段空间。</span><br><span class="line">每一个实体都有一个首地址，堆内存中的变量都有一个默认初始化值，不同类型不一样，int-0,double-0.0,boolean-false,char-&apos;\u0000&apos;代表一种编码</span><br><span class="line">堆内存的变量都有初始化默认值</span><br><span class="line">当实体不在使用时，就会被垃圾回收机制处理（多线程）</span><br><span class="line">``</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/03/3-3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1117,7 +1362,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">47</span>
+                  <span class="site-state-item-count">49</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

@@ -229,6 +229,254 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/26/16/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/26/16/" itemprop="url">File类</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-26T00:00:00+08:00">
+                2018-07-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>File类的构造函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">package DAY1;</span><br><span class="line"></span><br><span class="line">import java.io.File;</span><br><span class="line"></span><br><span class="line">public class FileDemo0 &#123;</span><br><span class="line"></span><br><span class="line">	private static final String FILE_SEPARATOR = System.getProperty(&quot;file.separator&quot;);</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * @param args</span><br><span class="line">	 * 文件的3个构造函数</span><br><span class="line">	 */</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		// 将一个具体的路径封装成了File对象。可以封装存在的文件或者目录，也可以封装不存在的文件或者目录X</span><br><span class="line">		// 路径可以为绝对路径，也可以是相对路径。</span><br><span class="line">//		File(String pathname) </span><br><span class="line">		File file = new File(&quot;1.txt&quot;);</span><br><span class="line">//		File(String parent, String child) 字符串对象</span><br><span class="line">		File file1 = new File(&quot;c:\\&quot;, &quot;1.txt&quot;);</span><br><span class="line">//		File(File parent, String child)文件对象</span><br><span class="line">		File dir = new File(&quot;c:\\&quot;);</span><br><span class="line">		File file2 = new File(dir, &quot;1.txt&quot;);</span><br><span class="line">//		File f = new File(&quot;c:&quot;+FILE_SEPARATOR + &quot;1.txt&quot;);</span><br><span class="line">		// File类提供的字符串file.separator实现分隔符</span><br><span class="line">		File f = new File(&quot;c:&quot; + file.separator + &quot;1.txt&quot;);</span><br><span class="line">		System.out.println(f);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>File类中的方法使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line">package DAY1;</span><br><span class="line"></span><br><span class="line">import java.io.File;</span><br><span class="line">import java.io.IOException;</span><br><span class="line">import java.text.DateFormat;</span><br><span class="line">import java.util.Date;</span><br><span class="line"></span><br><span class="line">public class FileDemo1 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) throws IOException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">//		Demo();</span><br><span class="line">//		Demo2();</span><br><span class="line">		File file = new File(&quot;e:\\&quot;);</span><br><span class="line">		long freespace = file.getFreeSpace();</span><br><span class="line">		long usedspace = file.getTotalSpace();</span><br><span class="line">		long totalspace = file.getUsableSpace();</span><br><span class="line">		System.out.println(freespace);</span><br><span class="line">		System.out.println(usedspace);</span><br><span class="line">		System.out.println(totalspace);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static void Demo2() &#123;</span><br><span class="line">		// 文件的创建,若文件存在，则不创建返回false，不存在就创建，成功返回true</span><br><span class="line">		File file1 = new File(&quot;n\\c\\a1.txt&quot;);</span><br><span class="line">		//File file1 = new File(&quot;bin\\a1.txt&quot;);可以创建的前提是存在bin目录及之后文件的目录，</span><br><span class="line">//		boolean a = file1.createNewFile();</span><br><span class="line">//		System.out.println(a);</span><br><span class="line">		boolean c = file1.delete();//删除不经过windows的回收站，需要慎重</span><br><span class="line">		System.out.println(c);</span><br><span class="line">		//存在删除不了情况</span><br><span class="line">		/*</span><br><span class="line">		 * 文件正在被系统调用，不能删除</span><br><span class="line">		 * 系统文件</span><br><span class="line">		 * */</span><br><span class="line">		//文件夹的创建</span><br><span class="line">		boolean dir = file1.mkdir();</span><br><span class="line">		System.out.println(dir);</span><br><span class="line">		//mkdirs解决了多级文件夹。删除文件夹时候必须确保文件夹没有内容，如果有，必须将内容删除，才能进行删除。</span><br><span class="line">		boolean dirs = file1.mkdirs();</span><br><span class="line">		System.out.println(dirs);</span><br><span class="line">		//未进行创建的时候，无法判断是否是文件还是文件夹，一般要加存在判断</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static void Demo() throws IOException &#123;</span><br><span class="line">		// 文件名的获取</span><br><span class="line">		File file = new File(&quot;F:\\java之毕向东\\add&quot;, &quot;command.java&quot;);</span><br><span class="line">		String file_name = file.getName();</span><br><span class="line">		System.out.println(file_name);</span><br><span class="line">		// 文件的大小----字节</span><br><span class="line">		long length = file.length();</span><br><span class="line">		System.out.println(length);</span><br><span class="line">		// 获取文件的路径</span><br><span class="line">		String file_absolutepath = file.getAbsolutePath();// 文件的绝对路径</span><br><span class="line">		System.out.println(file_absolutepath);</span><br><span class="line">		String file_path = file.getCanonicalPath();// 相对路径的规范形式，不同的平台</span><br><span class="line">		System.out.println(file_path);</span><br><span class="line">		String file_path1 = file.getPath();// 获取到的是file对象中的封装的路径，封装的是什么，获取到的就是什么</span><br><span class="line">		System.out.println(file_path1);</span><br><span class="line">		// 获取文件的最近修改时间</span><br><span class="line">		long time = file.lastModified();</span><br><span class="line">		Date date = new Date(time);</span><br><span class="line">		String date_format = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG).format(date);</span><br><span class="line">		System.out.println(date_format);</span><br><span class="line">		boolean b = file.isHidden();</span><br><span class="line">		System.out.println(b);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>文件过滤器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">package DAY1;</span><br><span class="line"></span><br><span class="line">import java.io.File;</span><br><span class="line">import java.io.FileFilter;</span><br><span class="line"></span><br><span class="line">public class Demo2 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		//文件过滤器</span><br><span class="line">		</span><br><span class="line">		File dir = new File(&quot;c:\\&quot;);</span><br><span class="line">		File[] files = dir.listFiles(new FileFilter() &#123;</span><br><span class="line">			</span><br><span class="line">			@Override</span><br><span class="line">			public boolean accept(File pathname) &#123;</span><br><span class="line">				// TODO Auto-generated me</span><br><span class="line">				</span><br><span class="line">				return pathname.isFile();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;);</span><br><span class="line">		for(File file:files)</span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println(file);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>获取指定文件夹中所有文件和文件内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">package DAY1;</span><br><span class="line"></span><br><span class="line">import java.io.File;</span><br><span class="line"></span><br><span class="line">public class Demo3 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		// 获取指定文件夹中的所有文件和文件夹的名称</span><br><span class="line">		File dir = new File(&quot;F:\\java之毕向东\\day6&quot;);</span><br><span class="line">		//思想原理：策略设计模式</span><br><span class="line">		String[] names = dir.list(new Filterbyjava(&quot;.java&quot;));</span><br><span class="line">		for (String string : names) &#123;</span><br><span class="line">			System.out.println(string);</span><br><span class="line">		&#125;</span><br><span class="line">		// listFiles</span><br><span class="line">//		File [] files = dir.listFiles();</span><br><span class="line">//		for (File file : files) &#123;</span><br><span class="line">//			System.out.println(file);</span><br><span class="line">//		&#125;</span><br><span class="line">//		</span><br><span class="line">		// list：获取名称仅仅</span><br><span class="line">		//</span><br><span class="line">		// 目录存在且不为空：列出当前目录下的所有文件和文件夹名称包含隐藏文件</span><br><span class="line">		/*</span><br><span class="line">		 * 目录不存在：空指针异常 传入的是文件：数组为null 目录存在且没有该内容：返回长度为0的内容。</span><br><span class="line">		 */</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>过滤器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">package DAY1;</span><br><span class="line"></span><br><span class="line">import java.io.File;</span><br><span class="line">import java.io.FilenameFilter;</span><br><span class="line">public class Filterbyjava implements FilenameFilter &#123;</span><br><span class="line"></span><br><span class="line">	/*</span><br><span class="line">	 * (non-Javadoc)</span><br><span class="line">	 * </span><br><span class="line">	 * @see java.io.FilenameFilter#accept(java.io.File, java.lang.String)</span><br><span class="line">	 * </span><br><span class="line">	 */</span><br><span class="line">	private String name1;</span><br><span class="line">	public Filterbyjava(String name1) &#123;</span><br><span class="line">		super();</span><br><span class="line">		this.name1 = name1;</span><br><span class="line">	&#125;</span><br><span class="line">	public boolean accept(File dir, String name) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line"></span><br><span class="line">		return name.endsWith(name1);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>递归的使用——遍历<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">package DAY1;</span><br><span class="line"></span><br><span class="line">import java.io.File;</span><br><span class="line"></span><br><span class="line">public class Demo4 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		// 遍历当前目录以及当前目录的子目录</span><br><span class="line">		//递归：函数自身调用自身，函数内部又使用到了该函数的功能</span><br><span class="line">		//什么时候使用？</span><br><span class="line">		//功能被重复使用，但是每次使用参与运算的数据不同时，可以考虑使用递归</span><br><span class="line">		//使用注意：</span><br><span class="line">		//一定要定义条件</span><br><span class="line">		//注意递归次数过多，会发生栈内存溢出</span><br><span class="line">		File dir = new File(&quot;E:\\vmware&quot;);	</span><br><span class="line">		getAllFiles(dir);</span><br><span class="line">		</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static void getAllFiles(File dir) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		File[] files = dir.listFiles();</span><br><span class="line">		</span><br><span class="line">		for(File file:files)</span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println(&quot;Dir&quot;+file);</span><br><span class="line">			if(file.isDirectory())</span><br><span class="line">				getAllFiles(file);</span><br><span class="line">			else</span><br><span class="line">			&#123;</span><br><span class="line">				System.out.println(&quot;file&quot;+file);</span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>删除文件夹的内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">package DAY1;</span><br><span class="line"></span><br><span class="line">import java.io.File;</span><br><span class="line"></span><br><span class="line">public class Demo5 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		//删除一个带内容的文件夹，必须从里面往外删除</span><br><span class="line">		File dir = new File(&quot;F:\\test&quot;);</span><br><span class="line">		deletedir(dir);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static void deletedir(File dir) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		//列出当前目录下的文件和文件夹</span><br><span class="line">		File[] files = dir.listFiles();</span><br><span class="line">		//对数组进行遍历</span><br><span class="line">		for(File file:files)</span><br><span class="line">		&#123;</span><br><span class="line">			if(file.isDirectory())</span><br><span class="line">			&#123;</span><br><span class="line">				deletedir(file);</span><br><span class="line">			&#125;else</span><br><span class="line">			&#123;</span><br><span class="line">				System.out.println(&quot;file&quot;+file+file.delete());</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(&quot;dir&quot;+dir+dir.delete());//干掉外面的文件夹</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/26/16-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/26/16-1/" itemprop="url">字节输出流+IO异常处理+文件存储到集合中</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-26T00:00:00+08:00">
+                2018-07-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>字节输出流<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">package DAY1;</span><br><span class="line"></span><br><span class="line">import java.io.File;</span><br><span class="line">import java.io.FileOutputStream;</span><br><span class="line">import java.io.IOException;</span><br><span class="line"></span><br><span class="line">public class Demo6 &#123;</span><br><span class="line"></span><br><span class="line">	private static final String line_separtor = System.getProperty(&quot;line.separator&quot;);</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) throws IOException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		/*</span><br><span class="line">		 * 将数据写入文件，使用字节输出流FileOutputStream</span><br><span class="line">		*/		</span><br><span class="line">		File file = new File(&quot;temp0&quot;);</span><br><span class="line">		if(!file.exists())</span><br><span class="line">		&#123;</span><br><span class="line">			file.mkdir();</span><br><span class="line">		&#125;</span><br><span class="line">		//创建字节输出流对象，用于操作文件，在对象初始化时候，必须明确数据存储的目的地</span><br><span class="line">		//输出流所关联的目的地，如果不存在会自动创建，如果存在则覆盖</span><br><span class="line">		FileOutputStream fos = new FileOutputStream(&quot;temp\\1.txt&quot;,true);</span><br><span class="line">		//2调用输出流的写功能</span><br><span class="line">		String str = line_separtor+&quot;abc阿斯蒂芬de&quot;;</span><br><span class="line">		byte[] b = str.getBytes();</span><br><span class="line">		fos.write(b);</span><br><span class="line">		fos.close();//释放资源</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>IO异常处理<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">package DAY1;</span><br><span class="line"></span><br><span class="line">import java.io.FileOutputStream;</span><br><span class="line">import java.io.IOException;</span><br><span class="line"></span><br><span class="line">public class Demo7 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">//		IO异常的问题——trycatch的解决问题</span><br><span class="line">		FileOutputStream fos = null;</span><br><span class="line">		try &#123;</span><br><span class="line">			fos = new FileOutputStream(&quot;temp\\w.txt&quot;);</span><br><span class="line">			fos.write(&quot;afsdf&quot;.getBytes());</span><br><span class="line">		&#125; catch (IOException e) &#123;</span><br><span class="line">			// TODO Auto-generated catch block</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125; finally &#123;</span><br><span class="line">			if (fos != null)// 必须的</span><br><span class="line">				try &#123;</span><br><span class="line">					fos.close();</span><br><span class="line">				&#125; catch (IOException e) &#123;</span><br><span class="line">					throw new RuntimeException(&quot;程序失败&quot; + e);</span><br><span class="line">				&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>将所有文件名存储到文本中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line">package DAY1;</span><br><span class="line"></span><br><span class="line">import java.io.BufferedWriter;</span><br><span class="line">import java.io.File;</span><br><span class="line">import java.io.FileFilter;</span><br><span class="line">import java.io.FileWriter;</span><br><span class="line">import java.io.IOException;</span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.List;</span><br><span class="line"></span><br><span class="line">public class Demo8 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) throws IOException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		// 需求：获取一个想要的指定文件的集合，并且存储到集合中</span><br><span class="line">		/*</span><br><span class="line">		 * 思路： 1既然需要子目录，就需要进行递归 2在递归过程中需要过滤器 3满足条件都存放到集合中</span><br><span class="line">		 */</span><br><span class="line">		File dir = new File(&quot;F:\\java之毕向东&quot;);</span><br><span class="line">		List&lt;File&gt; list = fileList(dir);</span><br><span class="line">		for(File file:list)</span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println(file);</span><br><span class="line">		&#125;</span><br><span class="line">		//将集合中符合条件的文件对象的绝对路径写入到一个文件中</span><br><span class="line">		File destfile = new File(&quot;chijiuhua.txt&quot;);</span><br><span class="line">		write2File(list,destfile);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static void write2File(List&lt;File&gt; list, File destfile) throws IOException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">			//1需要一个流对象。既然是写入字符</span><br><span class="line">//			FileWriter fw = new FileWriter(destfile);</span><br><span class="line">//			BufferedWriter bufw = new BufferedWriter(fw);</span><br><span class="line">		BufferedWriter fw = null;</span><br><span class="line">		try</span><br><span class="line">		&#123;</span><br><span class="line">			 fw = new BufferedWriter(new FileWriter(destfile));</span><br><span class="line">			 //遍历集合</span><br><span class="line">			 for(File file:list)</span><br><span class="line">			 &#123;</span><br><span class="line">				 fw.write(file.getAbsolutePath());</span><br><span class="line">				 fw.newLine();</span><br><span class="line">				 fw.flush();</span><br><span class="line">			 &#125;</span><br><span class="line">		&#125;</span><br><span class="line">		finally</span><br><span class="line">		&#123;</span><br><span class="line">			if(fw!=null)</span><br><span class="line">				try &#123;</span><br><span class="line">					fw.close();</span><br><span class="line">				&#125;catch(IOException e)</span><br><span class="line">			&#123;</span><br><span class="line">					throw new RuntimeException(&quot;关闭异常&quot;);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public static List fileList(File dir) &#123;</span><br><span class="line">		// 1定义集合</span><br><span class="line">		List&lt;File&gt; list = new ArrayList&lt;File&gt;();</span><br><span class="line">		// 2定义过滤器</span><br><span class="line">		FileFilter filter = new FilerByFile(&quot;.java&quot;);</span><br><span class="line">		getFileList(dir, list, filter);</span><br><span class="line">		return list;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	// 定义一个获取指定过滤器条件的文件的集合。——递归的向下传递</span><br><span class="line">	/**</span><br><span class="line">	 * 多级目录下都要用到相同的集合和过滤器，那么不要在这些方法中定义，而是不断的进行传递</span><br><span class="line">	 * </span><br><span class="line">	 * @param dir:需要遍历的目录</span><br><span class="line">	 * @param list：用于存储符合条件的File对象</span><br><span class="line">	 * @param filter：接受指定的过滤器</span><br><span class="line">	 */</span><br><span class="line">	public static void getFileList(File dir, List&lt;File&gt; list, FileFilter filter) &#123;</span><br><span class="line">		// 1通过ListFiles方法，获取dir当前下的所有的文件和文件夹对象。</span><br><span class="line">		File[] files = dir.listFiles();</span><br><span class="line">		// 2遍历该数组</span><br><span class="line">		for (File file : files) &#123;</span><br><span class="line">			// 3判断是否是文件夹，如果是，递归。如果不是，那么就是文件，需要对文件进行过滤</span><br><span class="line">			if (file.isDirectory()) &#123;</span><br><span class="line">				getFileList(file, list, filter);</span><br><span class="line">			&#125; else &#123;</span><br><span class="line">				// 4通过过滤器对文件进行过滤</span><br><span class="line">				if (filter.accept(file)) &#123;</span><br><span class="line">					list.add(file);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/25/15/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1204,249 +1452,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/19/12-8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/19/12-8/" itemprop="url">集合整理</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-19T00:00:00+08:00">
-                2018-07-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Collection接口中的共性方法<br>1添加：<br>    boolean add(Object obj)<br>    boolean addAll(Object obj)<br>2删除<br>    void clear();所有<br>    boolean remove(Object obj)一个<br>    boolean removeAll(Collection c)一部分——retainAll()保留相同的<br>获取长度<br>int size();<br>判断<br>    boolean isEmpty();<br>    boolean Contains(Object obj);<br>    boolean ContainsAll(Collection c);<br>集合转换为数组<br>    toArrays();<br>取出集合的元素<br>    Iterator iterator();<br>    获取集合中元素上迭代功能的迭代器对象。<br>    迭代：取出对象的一种方式<br>  迭代器：具备迭代功能的对象<br>  而迭代器对象不需要new,直接通过iterator()方法获取即可——通过内部类的方式<br>  迭代器是取出Collection集合元素的公共方式<br>  Collection接口的分类：<br>set：不允许有重复元素<br>list：有序（存入的顺序和取出的元素顺序一致，有索引，允许重复元素）<br>重点：List接口中的特有方法：它的特有方法都是围绕索引进行的<br>支持增删改查<br>1增<br>add(index,element)<br>2删<br>remove(index);<br>3改<br>set(index,newelement)<br>4查<br>int indexOf(element);<br>element get(index);</p>
-<p>list集合的具体子类，子类之所以进行区分是因为内部的数据结构(内部的存储方式)不同。<br>    –Vector:数据结构是数组，数组长度是可变的（不断new新数组并将原数组元素复制到新数组——最早出现的集合对象1.1——线程同——加锁变慢，故被淘汰_查和增删都慢<br>    –ArrayList:也是数组结构，也是长度可变的。1.2——线程不同步的，替代了Vector——增删慢，查询快，<br>    –LinkedList:链表结构，线程不同步——增删快，查找慢<br>set集合：不允许重复元素。和Collection的方法相同，set集合取出来的方法只有一个：迭代器<br>    –HashSet:不保证顺序，可以有序，也可以无序。哈希表（散列表）结构——不同步<br>哈希：不允许存储重复元素，因为会发生查找的不确定性。<br>    不保证存入和取出的顺序一致<br>    比数组的查询效率高<br>用于存储元素和哈希值对应关系的容器称之为哈希表<br>当哈希算法算出的2个元素值相同，称之为哈希冲突。冲突后，进行进一步的判断，判断的是元素的内容，equals方法解决冲突。堆使用哈希，所以每个对象都有hashCode（）方法<br>哈希表在判断元素是否相同，依据hashCode().如果哈希值相同，在判断元素的equals方法，true——不存，false——存储<br>解决哈希冲突的方式：链地址法，建立公共溢出区，开放定址法<br>保证唯一性的方法：<br>覆盖Object中的hashCode和equals方法<br>hashCode是为了根据元素自身的特点确定哈希值<br>equals是为了解决哈希冲突<br>LinkedHashSet:取出有序<br>    –TreeSet:二叉树数据结构，对元素进行排序，，不同步<br>    排序方式：需要元素具备比较功能，所以元素需要实现Comparable接口，<br>    覆盖comparreTo方法。<br>    如何保证元素唯一性？<br>    比较方法的返回值是否为0.<br>需求中也有这样一种情况，元素具备的功能不是所需要的，也就是说不想按照自然排序的方法，而是按照自定义的排序方式，对元素进行排序，而且存储到TreeSet中的元素万一没有比较功能<br>应该如何排序呢？这时需要使用——让集合具备比较功能。<br>实现Comparato接口，覆盖compare方法，2将comparator接口的对象作为参数传递给TreeSet的集合参数。<br>技巧：<br>jdk1.2以后出现的集合框架中的常用子类对象，存在的规律<br>前缀名是数据结构名，后缀名是所属体系名<br>ArrayList:数组结构，查询快，list，可以重复，可以增删改查<br>LinkedList:链表结构，增删快，<br>HashSet:哈希表，hashcode和equals查询速度更快，不保证有序，不可以重复<br>LinkedHashSet:链表+哈希表<br>TreeSet：二叉树，可以排序。就要想到2种排序方式：一种是自然排序Comparable，一种是比较器Comparator</p>
-<p>自动类型转换包装类</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/19/12-7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/19/12-7/" itemprop="url">比较器</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-19T00:00:00+08:00">
-                2018-07-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>比较器的使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">package Day5;</span><br><span class="line"></span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.Comparator;</span><br><span class="line">import java.util.Set;</span><br><span class="line">import java.util.TreeSet;</span><br><span class="line"></span><br><span class="line">public class Demo4 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		// 练习：对多个字符串不重复按照长度进行排序</span><br><span class="line">		/*</span><br><span class="line">		 * 思路： 1多个字符串，需要容器区存储 2选择哪个容器，字符串是对象，可以选择集合，而且不重复，选择Set集合。 3还需要排序，可以选择TreeSet集合</span><br><span class="line">		 */</span><br><span class="line">		sortStringBylength2();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public static void sortStringBylength() &#123;</span><br><span class="line">		Set set = new TreeSet(new ComparatorBylenth());</span><br><span class="line">		set.add(&quot;abc&quot;);</span><br><span class="line">		set.add(&quot;asdsda&quot;);</span><br><span class="line">		for (Object obj : set) &#123;</span><br><span class="line">			System.out.println(obj);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	public static void sortStringBylength2() &#123;//重复元素</span><br><span class="line">		String[] str = &#123;&quot;ad&quot;,&quot;as&quot;,&quot;sad&quot;,&quot;bsdf&quot;&#125;;</span><br><span class="line">		//定义一个按照长度排序的比较器对象</span><br><span class="line">		Comparator comp = new ComparatorBylenth();</span><br><span class="line">		</span><br><span class="line">		for (int i = 0; i &lt; str.length-1; i++) &#123;</span><br><span class="line">			for (int j = i+1; j &lt; str.length; j++) &#123;</span><br><span class="line">				//if(str[i].compareTo(str[j])&gt;0)</span><br><span class="line">				if(comp.compare(str[i], str[j])&gt;0)</span><br><span class="line">				&#123;</span><br><span class="line">					String temp = str[i];</span><br><span class="line">					str[i]=str[j];</span><br><span class="line">					str[j]=temp;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		for(String s :str)</span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println(s);</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>比较器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">package Day5;</span><br><span class="line"></span><br><span class="line">import java.util.Comparator;</span><br><span class="line"></span><br><span class="line">public class ComparatorBylenth implements Comparator &#123;</span><br><span class="line"></span><br><span class="line">	public int compare(Object o1, Object o2) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		//对字符串按照长度进行排序</span><br><span class="line">		String s1 = (String)o1;</span><br><span class="line">		String s2 = (String)o2;</span><br><span class="line">		int temp = s1.length()-s2.length();</span><br><span class="line">		return temp==0?s1.compareTo(s2):temp;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1497,7 +1502,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">47</span>
+                  <span class="site-state-item-count">49</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
